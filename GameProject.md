@@ -1,3 +1,9 @@
+# IMPORTANT LINKS #
+* [Registration Sheet](https://docs.google.com/spreadsheets/d/1OUz9atsn2HAFm9Wa97dMX5Q5Pg5Whuir-C6jLmuWleM/edit?usp=sharing)
+* [Initial Plan](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)
+* [Progress Report](https://docs.google.com/document/d/1Bv08HJVeOw3a8b7v6v5Vugo3tmUdXfYtJuQbR5iKHIY/edit)
+* [Presskit and Trailer Info](https://docs.google.com/document/d/1eE_IGRv6Os1QEapPc-oXWKw6kwcKxbdPbvuBu-scxC8/edit)
+
 # Description of Game Project
 
 In this project, you will be designing and creating a game in Unity in teams of 5. While you will be responsible for designing the overall direction of your game, you will be given the following constraints:
