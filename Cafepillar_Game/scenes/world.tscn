@@ -1,5 +1,18 @@
-[gd_scene format=3 uid="uid://b7u2kc4v6mpt0"]
+[gd_scene load_steps=4 format=3 uid="uid://chpbhr22qe5ac"]
 
-[node name="MainWorld" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://cdq68gja3ce72" path="res://scenes/test_ground.tscn" id="1_4q4jo"]
+[ext_resource type="PackedScene" uid="uid://dx4bq7qjiin7k" path="res://scenes/character.tscn" id="2_kt4rv"]
+[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="3_am48v"]
 
-[node name="Cafe" type="Node3D" parent="."]
+[node name="World" type="Node2D"]
+
+[node name="TestGround" parent="." instance=ExtResource("1_4q4jo")]
+position = Vector2(-41, 24)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_kt4rv")]
+position = Vector2(73, 26)
+collision_layer = 2
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(3.46, 3.46)
+script = ExtResource("3_am48v")
