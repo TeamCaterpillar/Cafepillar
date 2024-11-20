@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc2uym6326dkv"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nrbx8"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_r1pbt"]
+
+[node name="Kitchen" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_nrbx8")
+position = Vector2(380.75, 225.75)
+scale = Vector2(762.5, 452.5)
+texture = SubResource("CanvasTexture_r1pbt")
