@@ -1,18 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://chpbhr22qe5ac"]
+[gd_scene load_steps=6 format=3 uid="uid://chpbhr22qe5ac"]
 
 [ext_resource type="PackedScene" uid="uid://cdq68gja3ce72" path="res://scenes/test_ground.tscn" id="1_4q4jo"]
+[ext_resource type="Script" path="res://scripts/camera_selector.gd" id="1_h5shf"]
 [ext_resource type="PackedScene" uid="uid://dx4bq7qjiin7k" path="res://scenes/character.tscn" id="2_kt4rv"]
-[ext_resource type="Script" path="res://scripts/camera_2d.gd" id="3_am48v"]
+[ext_resource type="PackedScene" uid="uid://dc2uym6326dkv" path="res://scenes/kitchen.tscn" id="2_s3a7i"]
+
+[sub_resource type="GDScript" id="GDScript_15umy"]
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	self.make_current()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	self.make_current()
+"
 
 [node name="World" type="Node2D"]
 
 [node name="TestGround" parent="." instance=ExtResource("1_4q4jo")]
 position = Vector2(-41, 24)
 
+[node name="Kitchen" parent="." instance=ExtResource("2_s3a7i")]
+position = Vector2(-145, -873)
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_kt4rv")]
 position = Vector2(73, 26)
-collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(3.46, 3.46)
-script = ExtResource("3_am48v")
+script = SubResource("GDScript_15umy")
+
+[node name="CameraSelector" type="Node2D" parent="."]
+script = ExtResource("1_h5shf")
+
+[node name="FrontHouseCamera" type="Camera2D" parent="CameraSelector"]
+position = Vector2(50, 21)
+
+[node name="KitchenCamera" type="Camera2D" parent="CameraSelector"]
+position = Vector2(236, -637)
