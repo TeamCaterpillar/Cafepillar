@@ -8,7 +8,7 @@ func _ready() -> void:
 	print("Front Camera: ", front_house_camera.is_current())
 	print("Kitchen Camera: ",kitchen_camera.is_current())
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# Switch between cameras when the action is pressed
 	if Input.is_action_just_pressed("switch_camera"):
 		
