@@ -1,3 +1,4 @@
+class_name CardTemplate
 extends TextureRect
 
 const MOUSE_POSITION_OFFSET_SPRITE: Vector2 = Vector2(-9.85, -12.725)
@@ -14,7 +15,6 @@ func _ready() -> void:
 	rest_nodes = get_tree().get_nodes_in_group("CardZone")
 	rest_point = rest_nodes[0].global_position
 	rest_nodes[0].select()
-	print(rest_nodes)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -35,7 +35,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			_process_card_drop() 
-		
+
+
 func _process_card_drop() -> void:
 	# process only if card is selected
 	if not selected:
@@ -45,13 +46,13 @@ func _process_card_drop() -> void:
 	var shortest_distance = SNAP_DISTANCE
 	var nearest_slot = null
 	
-	var i = 1
+	#var i = 1
 	for child in rest_nodes:
 		# check distance
 		var distance = (global_position + MOUSE_POSITION_OFFSET_SNAP).distance_to(child.global_position)
 		
-		# print("Distance " + str(i) + ": " + str(distance))
-		i+=1
+		#print("Distance " + str(i) + ": " + str(distance))
+		#i+=1
 		# if distance to the slot is within its pull range
 		if distance < shortest_distance:
 			shortest_distance = distance
