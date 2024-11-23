@@ -1,3 +1,4 @@
+class_name CardDropPoint
 extends Marker2D
 
 
@@ -10,13 +11,16 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+
 func _draw() -> void:
 	draw_circle(Vector2.ZERO, 25.0, Color.WHITE)
+
 
 func select() -> void:
 	for child in get_tree().get_nodes_in_group("CardZone"):
 		child.deselect()
 	modulate = Color.RED
+
 
 func deselect() -> void:
 	modulate = Color.WHITE

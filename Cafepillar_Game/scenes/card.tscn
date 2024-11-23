@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4tiqa"]
 size = Vector2(19.788, 26.6144)
 
-[node name="TextureRect" type="TextureRect"]
+[node name="Card" type="TextureRect"]
 z_index = 4096
 anchors_preset = -1
 anchor_left = 0.125
@@ -23,7 +23,7 @@ script = ExtResource("2_t8oej")
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="MouseDetectionArea" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(396, 504)
 scale = Vector2(34.68, 34.68)
 shape = SubResource("RectangleShape2D_4tiqa")
