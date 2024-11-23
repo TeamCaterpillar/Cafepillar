@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cookffcxckdkf"]
+
+[ext_resource type="PackedScene" uid="uid://b6r4wuq3saf5d" path="res://scenes/card.tscn" id="1_f45xo"]
+[ext_resource type="Script" path="res://scripts/card_drop_point.gd" id="2_hxfna"]
+
+[node name="TestScene" type="Node2D"]
+
+[node name="Card" parent="." instance=ExtResource("1_f45xo")]
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 780.0
+offset_bottom = 1002.0
+scale = Vector2(0.025, 0.025)
+
+[node name="CardDropPoint" type="Marker2D" parent="." groups=["CardZone"]]
+position = Vector2(-256, 128)
+script = ExtResource("2_hxfna")
+
+[node name="CardDropPoint2" type="Marker2D" parent="." groups=["CardZone"]]
+position = Vector2(-256, -128)
+script = ExtResource("2_hxfna")
+
+[node name="CardDropPoint3" type="Marker2D" parent="." groups=["CardZone"]]
+position = Vector2(256, -128)
+script = ExtResource("2_hxfna")
+
+[node name="CardDropPoint4" type="Marker2D" parent="." groups=["CardZone"]]
+position = Vector2(96, 88)
+script = ExtResource("2_hxfna")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.375, 2.375)

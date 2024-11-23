@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6r4wuq3saf5d"]
+
+[ext_resource type="Texture2D" uid="uid://cxjou7jwge4ia" path="res://assets/cards/blank_card.png" id="1_yj5mt"]
+[ext_resource type="Script" path="res://scripts/card.gd" id="2_t8oej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tiqa"]
+size = Vector2(19.788, 26.6144)
+
+[node name="TextureRect" type="TextureRect"]
+z_index = 4096
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.083
+anchor_right = 0.125
+anchor_bottom = 0.083
+offset_left = -33.0
+offset_top = -37.64
+offset_right = 755.0
+offset_bottom = 980.36
+scale = Vector2(0.082487, 0.0736739)
+texture = ExtResource("1_yj5mt")
+script = ExtResource("2_t8oej")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(396, 504)
+scale = Vector2(34.68, 34.68)
+shape = SubResource("RectangleShape2D_4tiqa")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

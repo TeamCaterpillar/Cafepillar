@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_tfllf"]
-[ext_resource type="Script" path="res://scenes/v_box_container.gd" id="2_im2a5"]
-[ext_resource type="Texture2D" uid="uid://da31vd4usxkem" path="res://assets/cards/blank_card.png" id="2_tuebe"]
-[ext_resource type="Texture2D" uid="uid://bcsymg6u540rd" path="res://assets/Buttons Pixel Animation Pack/next/72px/next02.png" id="4_o5csh"]
-[ext_resource type="Texture2D" uid="uid://i2ludwvigdr1" path="res://assets/Buttons Pixel Animation Pack/next/72px/next03.png" id="5_lwx3c"]
-[ext_resource type="Texture2D" uid="uid://cnknhko4j66qb" path="res://assets/Buttons Pixel Animation Pack/next/72px/next04.png" id="6_t5vbq"]
-[ext_resource type="Texture2D" uid="uid://djuyc3qd0tan2" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="7_vmdfb"]
-[ext_resource type="Texture2D" uid="uid://uiqvwxex38m7" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="8_sifrk"]
-[ext_resource type="Texture2D" uid="uid://cgwmv2kwdw7u6" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="9_ad5pd"]
+[ext_resource type="Script" path="res://scripts/v_box_container.gd" id="2_im2a5"]
+[ext_resource type="Texture2D" uid="uid://cxjou7jwge4ia" path="res://assets/cards/blank_card.png" id="2_tuebe"]
+[ext_resource type="Texture2D" uid="uid://fr1wahud7s72" path="res://assets/Buttons Pixel Animation Pack/next/72px/next02.png" id="4_o5csh"]
+[ext_resource type="Texture2D" uid="uid://doc4ya3hwp3qt" path="res://assets/Buttons Pixel Animation Pack/next/72px/next03.png" id="5_lwx3c"]
+[ext_resource type="Texture2D" uid="uid://da7k2nxcvofgk" path="res://assets/Buttons Pixel Animation Pack/next/72px/next04.png" id="6_t5vbq"]
+[ext_resource type="Texture2D" uid="uid://cw2eh8geyo0y1" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="7_vmdfb"]
+[ext_resource type="Texture2D" uid="uid://bh3iulmeotfoq" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="8_sifrk"]
+[ext_resource type="Texture2D" uid="uid://dvlmojfhwe45s" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="9_ad5pd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
 font_size = 50
@@ -35,6 +35,7 @@ script = ExtResource("1_tfllf")
 [node name="Background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 0
+color = Color(0.129558, 0.129558, 0.129558, 1)
 
 [node name="KitchenLable" type="Label" parent="."]
 layout_mode = 1
@@ -57,16 +58,20 @@ offset_left = 822.0
 offset_top = 368.0
 offset_right = 1022.0
 offset_bottom = 568.0
-color = Color(0.122252, 0.122252, 0.122252, 1)
+color = Color(0.139191, 0.000225878, 0.349418, 1)
 
 [node name="Label" type="Label" parent="Stove"]
-layout_mode = 0
-offset_left = 33.0
-offset_top = 50.0
-offset_right = 338.0
-offset_bottom = 260.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 200.0
+grow_horizontal = 2
 text = "Stove!!"
 label_settings = SubResource("LabelSettings_gmo2y")
+horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(171.25, 217.75)
@@ -113,3 +118,6 @@ layout_mode = 2
 texture_normal = ExtResource("4_o5csh")
 texture_pressed = ExtResource("5_lwx3c")
 texture_hover = ExtResource("6_t5vbq")
+
+[node name="KitchenCamera" type="Camera2D" parent="."]
+position = Vector2(960, 540)
