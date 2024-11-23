@@ -32,6 +32,9 @@ grow_vertical = 2
 focus_mode = 2
 script = ExtResource("1_tfllf")
 
+[node name="KitchenCamera" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+
 [node name="Background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 0
@@ -119,5 +122,12 @@ texture_normal = ExtResource("4_o5csh")
 texture_pressed = ExtResource("5_lwx3c")
 texture_hover = ExtResource("6_t5vbq")
 
-[node name="KitchenCamera" type="Camera2D" parent="."]
-position = Vector2(960, 540)
+[node name="CardDeck" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 1560.0
+offset_top = 876.0
+offset_right = 1760.0
+offset_bottom = 2076.0
+rotation = 1.5708
+texture = ExtResource("2_tuebe")
+expand_mode = 1

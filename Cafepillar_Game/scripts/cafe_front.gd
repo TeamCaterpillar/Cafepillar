@@ -51,6 +51,7 @@ func _swap_to_from_test() -> void:
 	else:
 		test_cam.make_current()
 
+
 func _swap_to_from_kitchen() -> void:
 	if kitchen_cam.is_current():
 		kitchen_scene.release_focus()
