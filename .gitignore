@@ -213,8 +213,6 @@ sysinfo.txt
 *.unitypackage
 *.app
 
-# Crashlytics generated file
-crashlytics-build.properties
 
 # Packed Addressables
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
@@ -265,5 +263,7 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
-# Windows shortcuts
+# Rider imported ignore
 *.lnk
+/.idea/
+/Cafepillar_Game/.idea/
