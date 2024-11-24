@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cw2eh8geyo0y1" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="7_vmdfb"]
 [ext_resource type="Texture2D" uid="uid://bh3iulmeotfoq" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="8_sifrk"]
 [ext_resource type="Texture2D" uid="uid://dvlmojfhwe45s" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="9_ad5pd"]
+[ext_resource type="Script" path="res://scripts/order_queue.gd" id="10_765us"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
 font_size = 50
@@ -124,7 +125,7 @@ texture_hover = ExtResource("6_t5vbq")
 
 [node name="OrderQueue" type="Control" parent="."]
 anchors_preset = 0
-script = ExtResource("10_cwy3x")
+script = ExtResource("10_765us")
 
 [node name="ColorRect" type="ColorRect" parent="OrderQueue"]
 layout_mode = 1
@@ -162,6 +163,3 @@ offset_left = 1692.0
 offset_top = 435.0
 offset_right = 1907.0
 offset_bottom = 1875.0
-
-[node name="KitchenCamera" type="Camera2D" parent="."]
-position = Vector2(962, 540)
