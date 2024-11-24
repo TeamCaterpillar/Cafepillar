@@ -19,13 +19,9 @@
 ### Godot ###
 
 **/.godot/
-**/*.import
 **/.import/
 **/export.cfg
 **/export_presets.cfg
-**/.godot/imported/
-**/.godot/editor_settings-*
-**/.godot/*.tmp
 **/*.translation
 **/.mono/
 **/data_*/
