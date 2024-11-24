@@ -25,6 +25,10 @@
 .import/
 export.cfg
 export_presets.cfg
+**/.import/
+**/.godot/imported/
+**/.godot/editor_settings-*
+**/.godot/*.tmp
 
 # Imported translations (automatically generated from CSV files)
 *.translation
