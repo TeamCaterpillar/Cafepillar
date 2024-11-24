@@ -1,14 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://dn3urr1xccmik"]
+[gd_scene load_steps=6 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_tfllf"]
-[ext_resource type="Script" path="res://scripts/v_box_container.gd" id="2_im2a5"]
-[ext_resource type="Texture2D" uid="uid://025lodkyn0vg" path="res://assets/cards/blank_card.png" id="2_tuebe"]
-[ext_resource type="Texture2D" uid="uid://bw3phftm6iypm" path="res://assets/Buttons Pixel Animation Pack/next/72px/next02.png" id="4_o5csh"]
-[ext_resource type="Texture2D" uid="uid://buc21l1k3btgy" path="res://assets/Buttons Pixel Animation Pack/next/72px/next03.png" id="5_lwx3c"]
-[ext_resource type="Texture2D" uid="uid://bi1p8h5bg7iwe" path="res://assets/Buttons Pixel Animation Pack/next/72px/next04.png" id="6_t5vbq"]
-[ext_resource type="Texture2D" uid="uid://dcoa88ajjnhef" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="7_vmdfb"]
-[ext_resource type="Texture2D" uid="uid://b4th13y1wvg5x" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="8_sifrk"]
-[ext_resource type="Texture2D" uid="uid://cqedhb0ej5ioh" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="9_ad5pd"]
+[ext_resource type="PackedScene" uid="uid://ctdd18hyw5xl2" path="res://scenes/recipes_book.tscn" id="3_7126w"]
 [ext_resource type="Script" path="res://scripts/order_queue.gd" id="10_765us"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
@@ -40,6 +33,8 @@ position = Vector2(960, 540)
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 0
 color = Color(0.129558, 0.129558, 0.129558, 1)
+
+[node name="RecipesBook" parent="." instance=ExtResource("3_7126w")]
 
 [node name="KitchenLable" type="Label" parent="."]
 layout_mode = 1
@@ -76,52 +71,6 @@ grow_horizontal = 2
 text = "Stove!!"
 label_settings = SubResource("LabelSettings_gmo2y")
 horizontal_alignment = 1
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(171.25, 217.75)
-scale = Vector2(0.476523, 0.448428)
-texture = ExtResource("2_tuebe")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 32.0
-offset_right = 331.0
-offset_bottom = 195.0
-script = ExtResource("2_im2a5")
-
-[node name="RecipeTitle" type="Label" parent="VBoxContainer"]
-modulate = Color(1, 0.559918, 0.869049, 1)
-visibility_layer = 3
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-horizontal_alignment = 1
-
-[node name="RecipeIngredients" type="Label" parent="VBoxContainer"]
-modulate = Color(0, 0, 0, 1)
-visibility_layer = 3
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-horizontal_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 341.0
-offset_right = 332.0
-offset_bottom = 421.0
-
-[node name="PreviousButton" type="TextureButton" parent="HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("7_vmdfb")
-texture_pressed = ExtResource("8_sifrk")
-texture_hover = ExtResource("9_ad5pd")
-
-[node name="NextButton" type="TextureButton" parent="HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("4_o5csh")
-texture_pressed = ExtResource("5_lwx3c")
-texture_hover = ExtResource("6_t5vbq")
 
 [node name="OrderQueue" type="Control" parent="."]
 anchors_preset = 0

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dkw27imy3jwh1" path="res://scenes/player.tscn" id="2_nnbsl"]
 [ext_resource type="PackedScene" uid="uid://dn3urr1xccmik" path="res://scenes/kitchen.tscn" id="2_treqf"]
 [ext_resource type="Script" path="res://scripts/player_camera.gd" id="3_sr1uf"]
-[ext_resource type="PackedScene" path="res://scenes/test_scene.tscn" id="6_uu8u1"]
+[ext_resource type="PackedScene" uid="uid://cookffcxckdkf" path="res://scenes/test_scene.tscn" id="6_uu8u1"]
 
 [node name="CafeFront" type="Node2D"]
 script = ExtResource("1_vasvx")

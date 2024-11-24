@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cookffcxckdkf"]
 
-[ext_resource type="PackedScene" uid="uid://b6r4wuq3saf5d" path="res://scenes/card.tscn" id="1_f45xo"]
+[ext_resource type="PackedScene" uid="uid://cojal4stp8e1i" path="res://scenes/card.tscn" id="1_f45xo"]
 [ext_resource type="Script" path="res://scripts/card_drop_point.gd" id="2_hxfna"]
 
 [node name="TestScene" type="Node2D"]
