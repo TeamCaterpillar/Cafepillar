@@ -1,0 +1,27 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bas6smt1iwb1f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58c5t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_toqed"]
+bg_color = Color(0, 0.727139, 0.129429, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vgxby"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ornhe"]
+bg_color = Color(0.782774, 0.195249, 0.184705, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1iy6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocmjk"]
+bg_color = Color(0.937255, 0.87451, 0.2, 1)
+
+[resource]
+TimerBar/base_type = &"ProgressBar"
+TimerBar/styles/background = SubResource("StyleBoxFlat_58c5t")
+TimerBar/styles/fill = SubResource("StyleBoxFlat_toqed")
+TimerBarLow/base_type = &"ProgressBar"
+TimerBarLow/styles/background = SubResource("StyleBoxFlat_vgxby")
+TimerBarLow/styles/fill = SubResource("StyleBoxFlat_ornhe")
+TimerBarMid/base_type = &"ProgressBar"
+TimerBarMid/styles/background = SubResource("StyleBoxFlat_r1iy6")
+TimerBarMid/styles/fill = SubResource("StyleBoxFlat_ocmjk")

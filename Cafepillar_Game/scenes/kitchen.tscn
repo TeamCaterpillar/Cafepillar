@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dn3urr1xccmik"]
+[gd_scene load_steps=13 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_tfllf"]
 [ext_resource type="Script" path="res://scripts/v_box_container.gd" id="2_im2a5"]
@@ -122,12 +122,46 @@ texture_normal = ExtResource("4_o5csh")
 texture_pressed = ExtResource("5_lwx3c")
 texture_hover = ExtResource("6_t5vbq")
 
-[node name="CardDeck" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 1560.0
-offset_top = 876.0
-offset_right = 1760.0
-offset_bottom = 2076.0
-rotation = 1.5708
-texture = ExtResource("2_tuebe")
-expand_mode = 1
+[node name="OrderQueue" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("10_cwy3x")
+
+[node name="ColorRect" type="ColorRect" parent="OrderQueue"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.372
+anchor_top = -0.148
+anchor_right = 0.372
+anchor_bottom = -0.148
+offset_left = 1675.0
+offset_top = 381.0
+offset_right = 1921.0
+offset_bottom = 1080.0
+color = Color(0.497474, 0.497474, 0.497474, 1)
+
+[node name="Label" type="Label" parent="OrderQueue"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1711.0
+offset_top = 385.0
+offset_right = 1894.0
+offset_bottom = 438.0
+theme_override_font_sizes/font_size = 29
+text = "Order Queue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OrderQueue"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.383
+anchor_top = -0.088
+anchor_right = 0.383
+anchor_bottom = -0.088
+offset_left = 1692.0
+offset_top = 435.0
+offset_right = 1907.0
+offset_bottom = 1875.0
+
+[node name="KitchenCamera" type="Camera2D" parent="."]
+position = Vector2(962, 540)
