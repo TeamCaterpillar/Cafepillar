@@ -1,6 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_tfllf"]
+
 [ext_resource type="Script" path="res://scenes/v_box_container.gd" id="2_im2a5"]
 [ext_resource type="Texture2D" uid="uid://cxvy8820vq7ui" path="res://assets/cards/blank_card.png" id="2_tuebe"]
 [ext_resource type="Texture2D" uid="uid://c2pkoluao8smd" path="res://assets/Buttons Pixel Animation Pack/next/72px/next02.png" id="4_o5csh"]
@@ -10,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cpl8ygaknga0k" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="8_sifrk"]
 [ext_resource type="Texture2D" uid="uid://c8c8gy1gwlsd5" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="9_ad5pd"]
 [ext_resource type="Script" path="res://scripts/order_queue.gd" id="10_cwy3x"]
+
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
 font_size = 50
@@ -33,9 +35,13 @@ grow_vertical = 2
 focus_mode = 2
 script = ExtResource("1_tfllf")
 
+[node name="KitchenCamera" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+
 [node name="Background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 0
+color = Color(0.129558, 0.129558, 0.129558, 1)
 
 [node name="KitchenLable" type="Label" parent="."]
 layout_mode = 1
@@ -58,16 +64,20 @@ offset_left = 822.0
 offset_top = 368.0
 offset_right = 1022.0
 offset_bottom = 568.0
-color = Color(0.122252, 0.122252, 0.122252, 1)
+color = Color(0.139191, 0.000225878, 0.349418, 1)
 
 [node name="Label" type="Label" parent="Stove"]
-layout_mode = 0
-offset_left = 33.0
-offset_top = 50.0
-offset_right = 338.0
-offset_bottom = 260.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_right = 100.0
+offset_bottom = 200.0
+grow_horizontal = 2
 text = "Stove!!"
 label_settings = SubResource("LabelSettings_gmo2y")
+horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(171.25, 217.75)

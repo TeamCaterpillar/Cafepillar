@@ -119,8 +119,8 @@ fabric.properties
 
 .idea/*
 
-!.idea/codeStyles
-!.idea/runConfigurations
+.idea/codeStyles
+=.idea/runConfigurations
 
 ### OSX ###
 # General
@@ -213,8 +213,6 @@ sysinfo.txt
 *.unitypackage
 *.app
 
-# Crashlytics generated file
-crashlytics-build.properties
 
 # Packed Addressables
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
@@ -225,11 +223,11 @@ crashlytics-build.properties
 
 ### VisualStudioCode ###
 .vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+.vscode/*.code-snippets
 
 # Local History for Visual Studio Code
 .history/
@@ -265,5 +263,7 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
-# Windows shortcuts
+# Rider imported ignore
 *.lnk
+/.idea/
+/Cafepillar_Game/.idea/

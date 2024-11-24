@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=4 uid="uid://cdq68gja3ce72"]
 
-[ext_resource type="Texture2D" uid="uid://caap1tesm5xoc" path="res://assets/tile_maps/iso tile set/Isometric-Tiles.png" id="1_e1dmd"]
+[ext_resource type="Texture2D" uid="uid://btvcgihu68c0j" path="res://assets/tile_maps/iso tile set/Isometric-Tiles.png" id="1_e1dmd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebre1"]
 texture = ExtResource("1_e1dmd")
@@ -55,7 +55,7 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_ebre1")
 
-[node name="TestGround" type="Node2D"]
+[node name="Diner" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
@@ -69,7 +69,6 @@ tile_set = SubResource("TileSet_vv6jr")
 y_sort_origin = 1
 
 [node name="TileMapLayer3" type="TileMapLayer" parent="."]
-visible = false
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD6/wIAAAABAAAAAAD6/wEAAAABAAAAAAD6/wAAAAABAAAAAAD6////AAABAAAAAAD6//7/AAABAAAAAAD6//3/AAABAAAAAAD6//z/AAABAAAAAAD6//v/AAABAAAAAAD6//r/AAABAAAAAAD6//n/AAABAAAAAAD6//j/AAABAAAAAAD6//f/AAABAAAAAAD7//f/AAABAAAAAAD8//f/AAABAAAAAAD9//f/AAABAAAAAAD+//f/AAABAAAAAAD///f/AAABAAAAAAAAAPf/AAABAAAAAAD7/wIAAAABAAAAAAD8/wIAAAABAAAAAAD9/wIAAAABAAAAAAD+/wIAAAABAAAAAAD//wIAAAABAAAAAAAAAAIAAAABAAAAAAABAAIAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_vv6jr")
