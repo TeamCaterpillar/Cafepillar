@@ -55,7 +55,7 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_ebre1")
 
-[node name="TestGround" type="Node2D"]
+[node name="Diner" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true

@@ -1,4 +1,3 @@
-class_name CafeFront
 extends Node2D
 
 @onready var kitchen_scene = $Kitchen
@@ -8,6 +7,7 @@ extends Node2D
 
 func _ready():
 	kitchen_scene.visible = false
+	player_camera.make_current()
 
 
 func _process(_delta):

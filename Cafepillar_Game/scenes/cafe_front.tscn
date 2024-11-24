@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://chpbhr22qe5ac"]
 
-[ext_resource type="PackedScene" uid="uid://cdq68gja3ce72" path="res://scenes/test_ground.tscn" id="1_cgy0f"]
+[ext_resource type="PackedScene" uid="uid://cdq68gja3ce72" path="res://scenes/diner.tscn" id="1_cgy0f"]
 [ext_resource type="Script" path="res://scripts/cafe_front.gd" id="1_vasvx"]
 [ext_resource type="PackedScene" uid="uid://dx4bq7qjiin7k" path="res://scenes/character.tscn" id="2_nnbsl"]
 [ext_resource type="PackedScene" uid="uid://dn3urr1xccmik" path="res://scenes/kitchen.tscn" id="2_treqf"]
@@ -10,8 +10,14 @@
 [node name="CafeFront" type="Node2D"]
 script = ExtResource("1_vasvx")
 
-[node name="TestGround" parent="." instance=ExtResource("1_cgy0f")]
+[node name="Diner" parent="." instance=ExtResource("1_cgy0f")]
 position = Vector2(-41, 24)
+
+[node name="Kitchen" parent="." instance=ExtResource("2_treqf")]
+offset_left = -2077.0
+offset_top = -1904.0
+offset_right = -157.0
+offset_bottom = -824.0
 
 [node name="Player" parent="." instance=ExtResource("2_nnbsl")]
 position = Vector2(73, 26)
@@ -20,12 +26,6 @@ position = Vector2(73, 26)
 zoom = Vector2(3.5, 3.5)
 script = ExtResource("3_sr1uf")
 subject = NodePath("..")
-
-[node name="Kitchen" parent="." instance=ExtResource("2_treqf")]
-offset_left = -2077.0
-offset_top = -1904.0
-offset_right = -157.0
-offset_bottom = -824.0
 
 [node name="TestScene" parent="." instance=ExtResource("6_uu8u1")]
 position = Vector2(2359, -796)
