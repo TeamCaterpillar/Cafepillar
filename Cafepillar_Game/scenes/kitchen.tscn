@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://dn3urr1xccmik"]
+[gd_scene load_steps=13 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_tfllf"]
 [ext_resource type="Script" path="res://scenes/v_box_container.gd" id="2_im2a5"]
-[ext_resource type="Texture2D" uid="uid://da31vd4usxkem" path="res://assets/cards/blank_card.png" id="2_tuebe"]
-[ext_resource type="Texture2D" uid="uid://bcsymg6u540rd" path="res://assets/Buttons Pixel Animation Pack/next/72px/next02.png" id="4_o5csh"]
-[ext_resource type="Texture2D" uid="uid://i2ludwvigdr1" path="res://assets/Buttons Pixel Animation Pack/next/72px/next03.png" id="5_lwx3c"]
-[ext_resource type="Texture2D" uid="uid://cnknhko4j66qb" path="res://assets/Buttons Pixel Animation Pack/next/72px/next04.png" id="6_t5vbq"]
-[ext_resource type="Texture2D" uid="uid://djuyc3qd0tan2" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="7_vmdfb"]
-[ext_resource type="Texture2D" uid="uid://uiqvwxex38m7" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="8_sifrk"]
-[ext_resource type="Texture2D" uid="uid://cgwmv2kwdw7u6" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="9_ad5pd"]
+[ext_resource type="Texture2D" uid="uid://cxvy8820vq7ui" path="res://assets/cards/blank_card.png" id="2_tuebe"]
+[ext_resource type="Texture2D" uid="uid://c2pkoluao8smd" path="res://assets/Buttons Pixel Animation Pack/next/72px/next02.png" id="4_o5csh"]
+[ext_resource type="Texture2D" uid="uid://dbtpvk1wfdib0" path="res://assets/Buttons Pixel Animation Pack/next/72px/next03.png" id="5_lwx3c"]
+[ext_resource type="Texture2D" uid="uid://ccki24eyku31r" path="res://assets/Buttons Pixel Animation Pack/next/72px/next04.png" id="6_t5vbq"]
+[ext_resource type="Texture2D" uid="uid://csf44fshjmqwm" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="7_vmdfb"]
+[ext_resource type="Texture2D" uid="uid://cpl8ygaknga0k" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="8_sifrk"]
+[ext_resource type="Texture2D" uid="uid://c8c8gy1gwlsd5" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="9_ad5pd"]
+[ext_resource type="Script" path="res://scripts/order_queue.gd" id="10_cwy3x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
 font_size = 50
@@ -113,3 +114,44 @@ layout_mode = 2
 texture_normal = ExtResource("4_o5csh")
 texture_pressed = ExtResource("5_lwx3c")
 texture_hover = ExtResource("6_t5vbq")
+
+[node name="OrderQueue" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("10_cwy3x")
+
+[node name="ColorRect" type="ColorRect" parent="OrderQueue"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.372
+anchor_top = -0.148
+anchor_right = 0.372
+anchor_bottom = -0.148
+offset_left = 1675.0
+offset_top = 381.0
+offset_right = 1921.0
+offset_bottom = 1080.0
+color = Color(0.497474, 0.497474, 0.497474, 1)
+
+[node name="Label" type="Label" parent="OrderQueue"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1711.0
+offset_top = 385.0
+offset_right = 1894.0
+offset_bottom = 438.0
+theme_override_font_sizes/font_size = 29
+text = "Order Queue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OrderQueue"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.383
+anchor_top = -0.088
+anchor_right = 0.383
+anchor_bottom = -0.088
+offset_left = 1692.0
+offset_top = 435.0
+offset_right = 1907.0
+offset_bottom = 1875.0
