@@ -1,14 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_tfllf"]
-[ext_resource type="Script" path="res://scenes/v_box_container.gd" id="2_im2a5"]
-[ext_resource type="Texture2D" uid="uid://cxvy8820vq7ui" path="res://assets/cards/blank_card.png" id="2_tuebe"]
-[ext_resource type="Texture2D" uid="uid://c2pkoluao8smd" path="res://assets/Buttons Pixel Animation Pack/next/72px/next02.png" id="4_o5csh"]
-[ext_resource type="Texture2D" uid="uid://dbtpvk1wfdib0" path="res://assets/Buttons Pixel Animation Pack/next/72px/next03.png" id="5_lwx3c"]
-[ext_resource type="Texture2D" uid="uid://ccki24eyku31r" path="res://assets/Buttons Pixel Animation Pack/next/72px/next04.png" id="6_t5vbq"]
-[ext_resource type="Texture2D" uid="uid://csf44fshjmqwm" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="7_vmdfb"]
-[ext_resource type="Texture2D" uid="uid://cpl8ygaknga0k" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="8_sifrk"]
-[ext_resource type="Texture2D" uid="uid://c8c8gy1gwlsd5" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="9_ad5pd"]
+[ext_resource type="Script" path="res://scripts/v_box_container.gd" id="2_im2a5"]
+[ext_resource type="Texture2D" uid="uid://cxjou7jwge4ia" path="res://assets/cards/blank_card.png" id="2_tuebe"]
+[ext_resource type="Texture2D" uid="uid://fr1wahud7s72" path="res://assets/Buttons Pixel Animation Pack/next/72px/next02.png" id="4_o5csh"]
+[ext_resource type="Texture2D" uid="uid://doc4ya3hwp3qt" path="res://assets/Buttons Pixel Animation Pack/next/72px/next03.png" id="5_lwx3c"]
+[ext_resource type="Texture2D" uid="uid://da7k2nxcvofgk" path="res://assets/Buttons Pixel Animation Pack/next/72px/next04.png" id="6_t5vbq"]
+[ext_resource type="Texture2D" uid="uid://cw2eh8geyo0y1" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="7_vmdfb"]
+[ext_resource type="Texture2D" uid="uid://bh3iulmeotfoq" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="8_sifrk"]
+[ext_resource type="Texture2D" uid="uid://dvlmojfhwe45s" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="9_ad5pd"]
 [ext_resource type="Script" path="res://scripts/order_queue.gd" id="10_cwy3x"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
@@ -155,3 +155,6 @@ offset_left = 1692.0
 offset_top = 435.0
 offset_right = 1907.0
 offset_bottom = 1875.0
+
+[node name="KitchenCamera" type="Camera2D" parent="."]
+position = Vector2(962, 540)
