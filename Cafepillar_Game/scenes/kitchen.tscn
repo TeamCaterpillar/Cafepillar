@@ -36,7 +36,7 @@ color = Color(0.129558, 0.129558, 0.129558, 1)
 
 [node name="RecipesBook" parent="." instance=ExtResource("3_7126w")]
 
-[node name="KitchenLable" type="Label" parent="."]
+[node name="KitchenLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.464

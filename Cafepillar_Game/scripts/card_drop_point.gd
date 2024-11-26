@@ -3,21 +3,14 @@ extends Marker2D
 
 var slot_dimensions:Vector2 = Vector2(25.0, 35.0)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-
-
+## Called when the node enters the scene tree for the first time.
+## Draws the drop box visually for cards
 func _draw() -> void:
 	#draw_circle(Vector2.ZERO, 25.0, Color.WHITE)
 	draw_rect(Rect2(-slot_dimensions / 2, slot_dimensions),Color.WHITE)
 
 
+## Changes color to indicate the card has been dropped here, and all other card drop points are reset to default color
 func select() -> void:
 	for child in get_tree().get_nodes_in_group("CardZone"):
 		child.deselect()
@@ -25,6 +18,8 @@ func select() -> void:
 	modulate = Color8(211, 131, 114, 170)
 
 
+
+## Changes color to default non-dropped color
 func deselect() -> void:
 	#modulate = Color.WHITE
 	modulate =  Color8(211, 131, 114, 255)
