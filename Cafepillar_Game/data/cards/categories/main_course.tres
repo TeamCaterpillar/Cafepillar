@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Category" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/category.gd" id="1_onn3g"]
+
+[resource]
+script = ExtResource("1_onn3g")
+description = "hearty and fulfilling meals."
+default_cook_time = 10
+default_quality_thresholds = {
+"perfect": 8.0,
+"satisfactory": 10.0
+}
+sprite_path = "res://assets/cards/placeholder_ingredient.png"

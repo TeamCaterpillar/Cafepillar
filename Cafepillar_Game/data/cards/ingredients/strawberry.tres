@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/ingredient.gd" id="1_31sbo"]
+
+[resource]
+script = ExtResource("1_31sbo")
+name = "strawberry"
+availability = "day_2"

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/dish.gd" id="1_0uia3"]
+
+[resource]
+script = ExtResource("1_0uia3")
+category = "main_course"
+appliances = ["counter"]
+cook_time = 6
+quality_thresholds = {
+"perfect": 5.0,
+"satisfactory": 6.0
+}
+sprite_path = "res://assets/cards/placeholder_ingredient.png"
+ingredients = ["strawberry", "strawberry", "lettuce"]
+cookware = ["pan"]

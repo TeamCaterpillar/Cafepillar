@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/dish.gd" id="1_el8tn"]
+
+[resource]
+script = ExtResource("1_el8tn")
+category = "drink"
+appliances = ["counter"]
+cook_time = 3
+quality_thresholds = {
+"perfect": 2.0,
+"satisfactory": 3.0
+}
+sprite_path = "res://assets/cards/placeholder_ingredient.png"
+ingredients = ["tea_leave", "tea_leave"]
+cookware = ["cup"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Category" load_steps=2 format=3 uid="uid://b032xiogph751"]
+
+[ext_resource type="Script" path="res://scripts/resources/category.gd" id="1_iru6b"]
+
+[resource]
+script = ExtResource("1_iru6b")
+description = "sweet and delightful dishes."
+default_cook_time = 8
+default_quality_thresholds = {
+"perfect": 6.0,
+"satisfactory": 8.0
+}
+sprite_path = "res://assets/cards/placeholder_ingredient.png"

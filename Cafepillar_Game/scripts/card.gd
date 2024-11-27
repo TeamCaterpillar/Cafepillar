@@ -2,19 +2,36 @@ class_name Card
 extends TextureRect
 ## Child Area2D is connected via editor signal to the input event function _on_area_2d_input_event()
 ## Area2D Child CollisionShape is required for Area2D to process detection
+## ResourceSprite is the image of the card being instantied laid over the blank card, sized to fit properly in _ready()
 
 # Offsets are used to center the card sprite to the mouse position, as the Area2D default position is the top left corner
 const MOUSE_POSITION_OFFSET_SPRITE: Vector2 = Vector2(-9.85, -12.725) # likely can be changed to some size calculation for expanded use
 const MOUSE_POSITION_OFFSET_SNAP: Vector2 = Vector2(9.85, 12.725) # read above
 const SNAP_DISTANCE : float = 25.0
 
-@onready var selected : bool = false
+@onready var card_resource : Resource # internal refernce to the resource - factory should place a Resource.new() here
+@onready var resource_sprite = $ResourceSprite # the image for the food item
+@onready var selected : bool = false # is the card held by the mouse
 
 var rest_point : Vector2
 var rest_nodes: Array[Variant] = []
 
+
+## FIGURE OUT HOW TO SCALE RESOURCESPRITE TO CARD SIZE
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	# Initialize card with provided resource and set the texture to be correctly positioned on the card
+	if card_resource and card_resource.has_method("sprite_path"):
+		resource_sprite.texture = load(card_resource.sprite_path)
+		resource_sprite.expand_mode = EXPAND_IGNORE_SIZE
+		resource_sprite.size = Vector2(606.0, 841.0)
+		resource_sprite.position = Vector2(97.0, 81.0)
+		resource_sprite.scale = scale
+		
+	# Gets the card nodes from the scene, sets the starting location 
 	rest_nodes = get_tree().get_nodes_in_group("CardZone")
 	rest_point = rest_nodes[0].global_position # !! CHANGE !!set to the card deck once created
 	rest_nodes[0].select()
@@ -37,7 +54,7 @@ func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: in
 
 
 ## This function is detects when the user releases the left mouse button while holding the card
-func _unhandled_input(event: InputEvent) -> void: # using unhandled_input as handled would break the detection of nearest parent recoloring
+func _unhandled_input(event: InputEvent) -> void: # using unhandled_input as handled would break the detection of nearest parent recoloring, something to do with the speed of calculation and the mouse being within the area still after letting go
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 			_process_card_drop()

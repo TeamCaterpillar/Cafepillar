@@ -12,7 +12,7 @@ const SCENE_KITCHEN: String = "res://scenes/kitchen.tscn"
 const SCENE_DINER: String   = "res://scenes/diner.tscn"
 
 # Signal for scene changes
-signal scene_changed
+#signal scene_changed
 
 # Called when the game starts
 func _ready():

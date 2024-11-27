@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn3urr1xccmik"]
+[gd_scene load_steps=8 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_tfllf"]
 [ext_resource type="PackedScene" uid="uid://ctdd18hyw5xl2" path="res://scenes/recipes_book.tscn" id="3_7126w"]
+[ext_resource type="Script" path="res://scripts/factories/card_factory.gd" id="4_8b530"]
+[ext_resource type="PackedScene" uid="uid://cojal4stp8e1i" path="res://scenes/card.tscn" id="5_8xjr6"]
 [ext_resource type="Script" path="res://scripts/order_queue.gd" id="10_765us"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
@@ -112,3 +114,13 @@ offset_left = 1692.0
 offset_top = 435.0
 offset_right = 1907.0
 offset_bottom = 1875.0
+
+[node name="CardFactory" type="Node2D" parent="."]
+script = ExtResource("4_8b530")
+
+[node name="Card" parent="CardFactory" instance=ExtResource("5_8xjr6")]
+offset_left = 500.0
+offset_top = 161.0
+offset_right = 2985.0
+offset_bottom = 2998.0
+expand_mode = 1

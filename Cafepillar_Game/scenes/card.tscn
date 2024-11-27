@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cojal4stp8e1i"]
+[gd_scene load_steps=5 format=3 uid="uid://cojal4stp8e1i"]
 
 [ext_resource type="Texture2D" uid="uid://cxjou7jwge4ia" path="res://assets/cards/blank_card.png" id="1_yj5mt"]
 [ext_resource type="Script" path="res://scripts/card.gd" id="2_t8oej"]
+[ext_resource type="Texture2D" uid="uid://cqg7dlku4t4x6" path="res://assets/cards/placeholder_ingredient.png" id="3_roh4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4tiqa"]
 size = Vector2(19.788, 26.6144)
@@ -27,5 +28,14 @@ script = ExtResource("2_t8oej")
 position = Vector2(396, 504)
 scale = Vector2(34.68, 34.68)
 shape = SubResource("RectangleShape2D_4tiqa")
+
+[node name="ResourceSprite" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 81.0
+offset_right = 703.0
+offset_bottom = 922.0
+texture = ExtResource("3_roh4t")
+expand_mode = 1
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
