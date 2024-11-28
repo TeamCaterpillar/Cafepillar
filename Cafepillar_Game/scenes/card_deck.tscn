@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfersw6s2vygm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6v0xp"]
+
+[node name="CardDeck" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6v0xp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
