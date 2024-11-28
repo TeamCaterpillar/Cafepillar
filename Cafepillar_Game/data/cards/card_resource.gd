@@ -1,4 +1,5 @@
-﻿extends Resource
+class_name CardResource
+extends Resource
 
 @export var name: String
 @export var category: String
