@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 
 func _draw() -> void:
 	#draw_circle(Vector2.ZERO, 25.0, Color.WHITE)
-	draw_rect(Rect2(-slot_dimensions / 2, slot_dimensions), Color8(211, 131, 114, 255))
+	draw_rect(Rect2(-slot_dimensions / 2, slot_dimensions),Color.WHITE)
 
 
 func select() -> void:

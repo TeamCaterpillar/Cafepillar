@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cookffcxckdkf"]
+[gd_scene load_steps=3 format=3 uid="uid://cookffcxckdkf"]
 
 [ext_resource type="PackedScene" uid="uid://b6r4wuq3saf5d" path="res://scenes/card.tscn" id="1_f45xo"]
 [ext_resource type="Script" path="res://scripts/card_drop_point.gd" id="2_hxfna"]
-[ext_resource type="PackedScene" uid="uid://dmf3xfvv74hn3" path="res://scenes/card_inventory.tscn" id="3_3wcll"]
 
 [node name="TestScene" type="Node2D"]
 
@@ -31,7 +30,3 @@ script = ExtResource("2_hxfna")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.375, 2.375)
-
-[node name="CardInventory" parent="." instance=ExtResource("3_3wcll")]
-position = Vector2(-2.99998, 177)
-scale = Vector2(0.325, 0.325)
