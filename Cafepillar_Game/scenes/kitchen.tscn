@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=13 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_tfllf"]
@@ -9,6 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://cw2eh8geyo0y1" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="7_vmdfb"]
 [ext_resource type="Texture2D" uid="uid://bh3iulmeotfoq" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="8_sifrk"]
 [ext_resource type="Texture2D" uid="uid://dvlmojfhwe45s" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="9_ad5pd"]
+=======
+[gd_scene load_steps=7 format=3 uid="uid://dn3urr1xccmik"]
+
+[ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_tfllf"]
+[ext_resource type="PackedScene" uid="uid://ctdd18hyw5xl2" path="res://scenes/recipes_book.tscn" id="3_7126w"]
+[ext_resource type="PackedScene" uid="uid://dmf3xfvv74hn3" path="res://scenes/card_inventory.tscn" id="4_krsx8"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" path="res://scripts/order_queue.gd" id="10_765us"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
@@ -39,7 +47,7 @@ position = Vector2(960, 540)
 [node name="Background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 0
-color = Color(0.129558, 0.129558, 0.129558, 1)
+color = Color(0.673355, 0.836312, 0.530901, 1)
 
 [node name="KitchenLable" type="Label" parent="."]
 layout_mode = 1
@@ -163,3 +171,6 @@ offset_left = 1692.0
 offset_top = 435.0
 offset_right = 1907.0
 offset_bottom = 1875.0
+
+[node name="CardInventory" parent="." instance=ExtResource("4_krsx8")]
+position = Vector2(954, 943)
