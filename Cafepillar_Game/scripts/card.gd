@@ -13,8 +13,9 @@ const SNAP_DISTANCE : float = 25.0
 @onready var resource_sprite = $ResourceSprite # the image for the food item
 @onready var selected : bool = false # is the card held by the mouse
 
+var rest_group : String
 var rest_point : Vector2
-var rest_nodes: Array[Variant] = []
+var rest_nodes: Array[Variant] = [] # should be an array of nodes that only this card type can be in
 
 
 ## FIGURE OUT HOW TO SCALE RESOURCESPRITE TO CARD SIZE
@@ -29,10 +30,13 @@ func _ready() -> void:
 		resource_sprite.expand_mode = EXPAND_IGNORE_SIZE
 		resource_sprite.size = Vector2(606.0, 841.0)
 		resource_sprite.position = Vector2(97.0, 81.0)
-		resource_sprite.scale = scale
-		
+		resource_sprite.auto_translate = true
+		rest_group = card_resource.availability as String
 	# Gets the card nodes from the scene, sets the starting location 
 	rest_nodes = get_tree().get_nodes_in_group("CardZone")
+	#print("Rest point 0: " + str(get_group(rest_nodes[0]))
+	var groups = get_groups()
+	print((groups[0]) as String)
 	rest_point = rest_nodes[0].global_position # !! CHANGE !!set to the card deck once created
 	rest_nodes[0].select()
 
@@ -49,6 +53,7 @@ func _physics_process(delta: float) -> void:
 ## This function is called when the mouse is over the card, and the left mouse button is over the card Area2d
 ## Triggered by clicking on the card, click being a defined input in the project settings
 func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
+	print("Mouse detected @: " + str(card_resource))
 	if Input.is_action_just_pressed("click"):
 		selected = true
 
@@ -88,3 +93,6 @@ func _process_card_drop() -> void:
 		if nearest_slot:
 			nearest_slot.select()
 			rest_point = nearest_slot.global_position
+
+func update_position(pos) -> void:
+	position = pos

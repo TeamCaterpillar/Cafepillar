@@ -116,11 +116,6 @@ offset_right = 1907.0
 offset_bottom = 1875.0
 
 [node name="CardFactory" type="Node2D" parent="."]
+position = Vector2(960, 924)
 script = ExtResource("4_8b530")
-
-[node name="Card" parent="CardFactory" instance=ExtResource("5_8xjr6")]
-offset_left = 500.0
-offset_top = 161.0
-offset_right = 2985.0
-offset_bottom = 2998.0
-expand_mode = 1
+card_scene = ExtResource("5_8xjr6")

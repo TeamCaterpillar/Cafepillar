@@ -20,6 +20,7 @@ offset_right = 755.0
 offset_bottom = 980.36
 scale = Vector2(0.082487, 0.0736739)
 texture = ExtResource("1_yj5mt")
+expand_mode = 1
 script = ExtResource("2_t8oej")
 
 [node name="Area2D" type="Area2D" parent="."]
