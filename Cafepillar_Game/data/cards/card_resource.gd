@@ -1,5 +1,4 @@
-class_name CardResource
-extends Resource
+﻿extends Resource
 
 @export var name: String
 @export var category: String

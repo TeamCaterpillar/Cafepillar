@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://chpbhr22qe5ac"]
+[gd_scene load_steps=7 format=3 uid="uid://chpbhr22qe5ac"]
 
 [ext_resource type="PackedScene" uid="uid://cdq68gja3ce72" path="res://scenes/diner.tscn" id="1_cgy0f"]
 [ext_resource type="Script" path="res://scripts/cafe_front.gd" id="1_vasvx"]
@@ -6,15 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dn3urr1xccmik" path="res://scenes/kitchen.tscn" id="2_treqf"]
 [ext_resource type="Script" path="res://scripts/player_camera.gd" id="3_sr1uf"]
 [ext_resource type="PackedScene" uid="uid://cookffcxckdkf" path="res://scenes/test_scene.tscn" id="6_uu8u1"]
-[ext_resource type="AudioStream" uid="uid://csh7500rjwsvl" path="res://assets/audio/caterpillar_cafe.wav" id="7_a3qbm"]
 
 [node name="CafeFront" type="Node2D"]
 script = ExtResource("1_vasvx")
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("7_a3qbm")
-volume_db = -10.895
-autoplay = true
 
 [node name="Diner" parent="." instance=ExtResource("1_cgy0f")]
 position = Vector2(-41, 24)
