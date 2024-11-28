@@ -6,3 +6,4 @@
 script = ExtResource("1_dkxp1")
 name = "lettuce"
 availability = "day_1"
+sprite_path = "res://assets/cards/placeholder_ingredient.png"

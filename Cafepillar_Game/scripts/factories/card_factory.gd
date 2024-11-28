@@ -1,68 +1,61 @@
 extends Node
 class_name CardFactory
 
-@export var base_path : String = "res://data/cards/"
-@export var card_scene : PackedScene
-@onready var drop_point_script : Script = preload("res://scripts/card_drop_point.gd")
-#@export var card_deck : CardDeck
-var card_deck_drop_point : CardDropPoint
+const SLOT_SIZE_OFFSET : Vector2 = Vector2(5.0, 5.0)
 
-func _ready() -> void:
-	var card1 = create_card("coffee_bean", "ingredients")
-	var drop1 = create_card_drop_point(Vector2(-25.0, 0), "ingredients")
-	var card2 = create_card("milk", "ingredients")
-	var drop2 = create_card_drop_point(Vector2(25.0, 0), "ingredients")
-	build(card1, drop1)
-	build(card2, drop2)
-	print(card1.rest_group)
-	
+@export var base_path: String = "res://data/cards/"
+@export var card_scene: PackedScene # Card scene to instantiate
+@export var card_deck: CardDeck # Reference to the card deck
 
-# Create card object
-# Create drop point for card
-# instatiate (add_child) both things
-# Should end in deck position
 
-# Create a drop point
-func create_card_drop_point(drop_position : Vector2, group : String) -> CardDropPoint:
+# Create a single card drop point
+func create_card_drop_point(group: String) -> CardDropPoint:
 	var drop_point = CardDropPoint.new()
-	card_deck_drop_point = drop_point
-	drop_point.set_script(drop_point_script)
-	drop_point.add_to_group(group, true)
-	drop_point.position = drop_position
-	return drop_point
-	# OR -- Change return value to void
+	drop_point.position = card_deck.get_next_position() # Set the position for the drop point
+	drop_point.add_to_group("CardZone", false) # Add to the CardZone group
+	drop_point.slot_type = group # Assign the drop point type (e.g., "ingredients")
 	
+	# Print the drop point's state
+	print("Created drop point at global position: ", drop_point.global_position, " with group: ", group)
+	
+	return drop_point
 
-# Create a card
+# Create a single card
 func create_card(card_name: String, card_type: String) -> Card:
-	#var card_resource = Dish.new()
-	var resource_path = "%s%s/%s.tres" % [base_path, card_type, card_name]
+	var resource_path: String = "%s%s/%s.tres" % [base_path, card_type, card_name] # Build resource path
 	var card_resource = load(resource_path)
 	if not card_resource:
 		push_error("Failed to load resource path: %s" % resource_path)
 		return null
-	var card_instance : Card = card_scene.instantiate() as Card
-	card_instance.card_resource = card_resource
+
+	var card_instance: Card = card_scene.instantiate() as Card
+	card_instance.card_resource = card_resource # Assign the resource to the card
+	card_instance.scale = Vector2(0.1, 0.09)
+	card_instance.card_deck = card_deck # Assign the deck to the card
+	
+	# Print the card's state
+	print("Created card: ", card_name, " of type: ", card_type, " from resource path: ", resource_path)
+	
 	return card_instance
 
-
-
-func build(card : Card, drop_point : CardDropPoint) -> void:
-	# use once card deck is implemented, card deck will reposition the nodes within its script
-	#card_deck.add_child(card)
-	#card_deck.add_child(drop_point) 
-	add_child(card)
-	add_child(drop_point)
+# Link a card and its drop point
+func build(card: Card, drop_point: CardDropPoint) -> void:
+	card.rest_point = drop_point.position # Set the rest point to the drop point's position
+	#card_deck.add_child(card) # Add card to the deck
+	card_deck.add_child(drop_point) # Add drop point to the deck
+	Signals.drop_point_created.emit(card.size * card.scale + SLOT_SIZE_OFFSET)
+	print(card.scale)
 	
-# Create a batch of cards and drop points 
-# UNTESTED
-func build_create_card_batch(card_data : Array[Dictionary]) -> void:
-	for data in card_data:
-		var drop_point = create_card_drop_point(data.position, data.category)
-		var card = create_card(data.name, data.type)
-		build(card, drop_point)
+	# Print the association and positions
+	print("Built card at rest point: ", card.rest_point, 
+	" and drop point at position: ", drop_point.global_position, 
+	" associated with group: ", drop_point.slot_type)
 
-
-# array of card nodes
-# array of card_drop_point nodes
-# iterate over the card_drop_points adding each of the cards to the scene at the card drop point
+# Create a batch of cards and drop points
+#func build_create_card_batch(card_data: Array[Dictionary]) -> void:
+	#for data in card_data:
+		## Create drop point and card
+		#var drop_point: CardDropPoint = create_card_drop_point(data.position, data.category)
+		#var card: Card = create_card(data.name, data.type)
+		#if card and drop_point:
+			#build(card, drop_point, data.position)

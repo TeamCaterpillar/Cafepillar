@@ -1,9 +1,12 @@
 class_name CardDropPoint
 extends Marker2D
 
-var slot_dimensions:Vector2 = Vector2(25.0, 35.0)
+var slot_dimensions:Vector2 = Vector2(100, 100)
 var slot_type : String
 var filled : bool = false # to check when building a dish from multiple cards
+
+func _ready() -> void:
+	Signals.drop_point_created.connect(_on_drop_point_create)
 
 ## Called when the node enters the scene tree for the first time.
 ## Draws the drop box visually for cards
@@ -27,3 +30,7 @@ func deselect() -> void:
 	#modulate = Color.WHITE
 	modulate =  Color8(211, 131, 114, 255)
 	filled = false
+
+func _on_drop_point_create(slot_size : Vector2) -> void:
+	return
+	slot_dimensions = slot_size

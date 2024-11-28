@@ -6,3 +6,4 @@
 script = ExtResource("1_31sbo")
 name = "strawberry"
 availability = "day_2"
+sprite_path = "res://assets/cards/placeholder_ingredient.png"

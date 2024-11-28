@@ -6,3 +6,4 @@
 script = ExtResource("1_t50rq")
 name = "rose_petal"
 availability = "day_3"
+sprite_path = "res://assets/cards/placeholder_ingredient.png"

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://chpbhr22qe5ac"]
+[gd_scene load_steps=8 format=3 uid="uid://chpbhr22qe5ac"]
 
 [ext_resource type="PackedScene" uid="uid://drm58n2vnmmoa" path="res://scenes/diner.tscn" id="1_cgy0f"]
 [ext_resource type="Script" path="res://scripts/cafe_front.gd" id="1_vasvx"]
 [ext_resource type="PackedScene" uid="uid://dkw27imy3jwh1" path="res://scenes/player.tscn" id="2_nnbsl"]
 [ext_resource type="PackedScene" uid="uid://dn3urr1xccmik" path="res://scenes/kitchen.tscn" id="2_treqf"]
 [ext_resource type="Script" path="res://scripts/player_camera.gd" id="3_sr1uf"]
+[ext_resource type="PackedScene" uid="uid://c51fn4nc4mv8q" path="res://scenes/kitchen_test.tscn" id="4_xjgih"]
 [ext_resource type="PackedScene" uid="uid://cookffcxckdkf" path="res://scenes/test_scene.tscn" id="6_uu8u1"]
 
 [node name="CafeFront" type="Node2D"]
@@ -18,6 +19,12 @@ offset_left = -2077.0
 offset_top = -1904.0
 offset_right = -157.0
 offset_bottom = -824.0
+
+[node name="TestKitchen" parent="." instance=ExtResource("4_xjgih")]
+offset_left = 1642.0
+offset_top = 1803.0
+offset_right = 3562.0
+offset_bottom = 2883.0
 
 [node name="Player" parent="." instance=ExtResource("2_nnbsl")]
 position = Vector2(73, 26)

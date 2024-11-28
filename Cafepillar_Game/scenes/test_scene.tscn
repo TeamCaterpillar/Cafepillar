@@ -6,6 +6,8 @@
 [node name="TestScene" type="Node2D"]
 
 [node name="Card" parent="." instance=ExtResource("1_f45xo")]
+visible = false
+anchors_preset = 0
 offset_left = -8.0
 offset_top = -16.0
 offset_right = 780.0
@@ -13,19 +15,19 @@ offset_bottom = 1002.0
 scale = Vector2(0.025, 0.025)
 
 [node name="CardDropPoint" type="Marker2D" parent="." groups=["CardZone"]]
-position = Vector2(-256, 128)
+position = Vector2(-361, 195)
 script = ExtResource("2_hxfna")
 
 [node name="CardDropPoint2" type="Marker2D" parent="." groups=["CardZone"]]
-position = Vector2(-256, -128)
+position = Vector2(96, 125)
 script = ExtResource("2_hxfna")
 
 [node name="CardDropPoint3" type="Marker2D" parent="." groups=["CardZone"]]
-position = Vector2(256, -128)
+position = Vector2(-262, -149)
 script = ExtResource("2_hxfna")
 
 [node name="CardDropPoint4" type="Marker2D" parent="." groups=["CardZone"]]
-position = Vector2(96, 88)
+position = Vector2(239, -116)
 script = ExtResource("2_hxfna")
 
 [node name="Camera2D" type="Camera2D" parent="."]

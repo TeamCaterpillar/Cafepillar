@@ -1,7 +1,9 @@
 extends Node2D
 
 @onready var kitchen_scene = $Kitchen
+@onready var test_kitchen_scene = $TestKitchen
 @onready var kitchen_cam = $Kitchen/KitchenCamera
+@onready var kitchen_test_cam = $TestKitchen/KitchenCamera
 @onready var player_camera = $"Player/PlayerCamera"
 @onready var test_cam = $TestScene/Camera2D
 
@@ -21,6 +23,9 @@ func _process(_delta):
 			#show_kitchen()
 	if Input.is_action_just_pressed("test_scene"):
 		_swap_to_from_test()
+	
+	if Input.is_action_just_pressed("test_scene_kitchen"):
+		_swap_to_from_test_kitchen()
 		
 
 
@@ -61,5 +66,15 @@ func _swap_to_from_kitchen() -> void:
 		kitchen_scene.visible = true
 		kitchen_cam.make_current()
 		kitchen_scene.grab_focus()
+		
+func _swap_to_from_test_kitchen() -> void:
+	if kitchen_test_cam.is_current():
+		test_kitchen_scene.release_focus()
+		player_camera.make_current()
+		kitchen_scene.visible = false
+	else:
+		test_kitchen_scene.visible = true
+		kitchen_test_cam.make_current()
+		test_kitchen_scene.grab_focus()
 		
 		
