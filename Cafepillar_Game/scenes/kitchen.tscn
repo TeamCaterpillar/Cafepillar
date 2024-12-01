@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn3urr1xccmik"]
+[gd_scene load_steps=11 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_tfllf"]
-[ext_resource type="PackedScene" uid="uid://ctdd18hyw5xl2" path="res://scenes/recipes_book.tscn" id="3_7126w"]
-[ext_resource type="Script" path="res://scripts/factories/card_factory.gd" id="4_8b530"]
-[ext_resource type="PackedScene" uid="uid://cojal4stp8e1i" path="res://scenes/card.tscn" id="5_8xjr6"]
+[ext_resource type="PackedScene" uid="uid://b7fu4bn5lsbqf" path="res://scenes/recipes_book.tscn" id="3_7126w"]
+[ext_resource type="Script" path="res://scenes/card_data_script.gd" id="6_2ni6r"]
+[ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="6_noatd"]
+[ext_resource type="Texture2D" uid="uid://cf4a07hx81afv" path="res://assets/cards/blank_card.png" id="7_8volb"]
+[ext_resource type="Texture2D" uid="uid://dvyeh5ne4x37c" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="7_uxeu6"]
+[ext_resource type="Script" path="res://scenes/slot.gd" id="7_xe42i"]
 [ext_resource type="Script" path="res://scripts/order_queue.gd" id="10_765us"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
@@ -34,6 +37,10 @@ position = Vector2(960, 540)
 [node name="Background" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 0
+offset_left = 24.0
+offset_top = 4.0
+offset_right = 1944.0
+offset_bottom = 1084.0
 color = Color(0.129558, 0.129558, 0.129558, 1)
 
 [node name="RecipesBook" parent="." instance=ExtResource("3_7126w")]
@@ -116,11 +123,89 @@ offset_right = 1907.0
 offset_bottom = 1875.0
 
 [node name="CardFactory" type="Node2D" parent="."]
-script = ExtResource("4_8b530")
+position = Vector2(957, 863)
 
-[node name="Card" parent="CardFactory" instance=ExtResource("5_8xjr6")]
-offset_left = 500.0
-offset_top = 161.0
-offset_right = 2985.0
-offset_bottom = 2998.0
+[node name="Deck" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.487
+anchor_top = 0.833
+anchor_right = 0.487
+anchor_bottom = 0.833
+offset_left = 0.959961
+offset_top = 0.359924
+offset_right = 48.96
+offset_bottom = 40.3599
+
+[node name="GCardHandLayout" type="Control" parent="Deck"]
+layout_mode = 1
+anchor_top = -1.4
+anchor_bottom = -1.4
+offset_right = 48.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_noatd")
+dynamic_radius_factor = 70.0
+circle_percentage = 0.08
+enable_dragging = true
+
+[node name="Card" type="TextureRect" parent="Deck/GCardHandLayout"]
+layout_mode = 0
+offset_left = -52.2249
+offset_top = 6.59753
+offset_right = 27.7751
+offset_bottom = 106.598
+rotation = -0.251327
+pivot_offset = Vector2(40, 0)
+texture = ExtResource("7_8volb")
 expand_mode = 1
+script = ExtResource("6_2ni6r")
+
+[node name="Card2" type="TextureRect" parent="Deck/GCardHandLayout"]
+layout_mode = 0
+offset_right = 80.0
+offset_bottom = 100.0
+pivot_offset = Vector2(40, 0)
+texture = ExtResource("7_8volb")
+expand_mode = 1
+
+[node name="Card3" type="TextureRect" parent="Deck/GCardHandLayout"]
+layout_mode = 0
+offset_left = 52.2249
+offset_top = 6.59753
+offset_right = 132.225
+offset_bottom = 106.598
+rotation = 0.251327
+pivot_offset = Vector2(40, 0)
+texture = ExtResource("7_8volb")
+expand_mode = 1
+
+[node name="Slot" type="TextureRect" parent="." groups=["CardSlot"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.789
+anchor_right = 0.404
+anchor_bottom = 0.789
+offset_left = 56.3199
+offset_top = -408.12
+offset_right = 146.32
+offset_bottom = -298.12
+texture = ExtResource("7_uxeu6")
+expand_mode = 1
+script = ExtResource("7_xe42i")
+
+[node name="Slot2" type="TextureRect" parent="." groups=["CardSlot"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.789
+anchor_right = 0.404
+anchor_bottom = 0.789
+offset_left = 152.32
+offset_top = -408.12
+offset_right = 242.32
+offset_bottom = -298.12
+texture = ExtResource("7_uxeu6")
+expand_mode = 1
+script = ExtResource("7_xe42i")

@@ -46,11 +46,11 @@ func remove_order_from_queue() -> void:
 
 
 # HANDLE CURRENCY
-func add_currency(amount: int) -> void:
+func add_currency(_amount: int) -> void:
 	pass
 
 
-func remove_currency(amount: int) -> void:
+func remove_currency(_amount: int) -> void:
 	pass
 
 

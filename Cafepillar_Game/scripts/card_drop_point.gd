@@ -2,7 +2,7 @@ class_name CardDropPoint
 extends Marker2D
 
 var slot_dimensions:Vector2 = Vector2(25.0, 35.0)
-
+var slot_type : String
 ## Called when the node enters the scene tree for the first time.
 ## Draws the drop box visually for cards
 func _draw() -> void:

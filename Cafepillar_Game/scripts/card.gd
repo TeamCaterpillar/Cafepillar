@@ -26,10 +26,6 @@ func _ready() -> void:
 	# Initialize card with provided resource and set the texture to be correctly positioned on the card
 	if card_resource and card_resource.has_method("sprite_path"):
 		resource_sprite.texture = load(card_resource.sprite_path)
-		resource_sprite.expand_mode = EXPAND_IGNORE_SIZE
-		resource_sprite.size = Vector2(606.0, 841.0)
-		resource_sprite.position = Vector2(97.0, 81.0)
-		resource_sprite.scale = scale
 		
 	# Gets the card nodes from the scene, sets the starting location 
 	rest_nodes = get_tree().get_nodes_in_group("CardZone")
