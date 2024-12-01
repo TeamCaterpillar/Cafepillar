@@ -331,17 +331,17 @@ func _on_child_gui_input(event:InputEvent, card:Control):
 
 func _get_slot_under_point(global_pos : Vector2) -> Control:
 	var slots = get_tree().get_nodes_in_group("CardSlot")
-	print(slots)
+	#print(slots)
 	for slot in slots:
 		if slot.is_inside_tree():
 			if Rect2(slot.global_position, slot.size).has_point(global_pos):
-				print("reached")
+				#print("reached")
 				return slot
 	return null
 	
 	
 func _place_card_in_slot(card : Control, slot : Control) -> void:
-	print("placing")
+	#print("placing")
 	
 	if card.get_parent():
 		card.get_parent().remove_child(card)

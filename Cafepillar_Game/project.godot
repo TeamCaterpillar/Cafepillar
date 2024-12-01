@@ -32,6 +32,7 @@ enabled=PackedStringArray("res://addons/godot_card_layout/plugin.cfg")
 [global_group]
 
 CardSlot=""
+Ingredient=""
 
 [input]
 
