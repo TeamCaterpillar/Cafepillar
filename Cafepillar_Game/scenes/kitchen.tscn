@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_tfllf"]
 [ext_resource type="PackedScene" uid="uid://b7fu4bn5lsbqf" path="res://scenes/recipes_book.tscn" id="3_7126w"]
-[ext_resource type="Script" path="res://scenes/card_data_script.gd" id="6_2ni6r"]
+[ext_resource type="Script" path="res://scenes/stove.gd" id="3_fjp8d"]
 [ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="6_noatd"]
-[ext_resource type="Texture2D" uid="uid://cf4a07hx81afv" path="res://assets/cards/blank_card.png" id="7_8volb"]
-[ext_resource type="Texture2D" uid="uid://dvyeh5ne4x37c" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="7_uxeu6"]
+[ext_resource type="Script" path="res://scripts/factories/card_factory.gd" id="7_8i4sf"]
+[ext_resource type="Texture2D" uid="uid://ckhfci2tp6dug" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="7_uxeu6"]
 [ext_resource type="Script" path="res://scenes/slot.gd" id="7_xe42i"]
 [ext_resource type="Script" path="res://scripts/order_queue.gd" id="10_765us"]
 
@@ -59,7 +59,7 @@ offset_bottom = -310.52
 text = "Kitchen!!!!!"
 label_settings = SubResource("LabelSettings_au7mt")
 
-[node name="Stove" type="ColorRect" parent="."]
+[node name="Stove" type="ColorRect" parent="." node_paths=PackedStringArray("slot1", "slot2")]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 0
 offset_left = 822.0
@@ -67,6 +67,9 @@ offset_top = 368.0
 offset_right = 1022.0
 offset_bottom = 568.0
 color = Color(0.139191, 0.000225878, 0.349418, 1)
+script = ExtResource("3_fjp8d")
+slot1 = NodePath("Slot1")
+slot2 = NodePath("Slot2")
 
 [node name="Label" type="Label" parent="Stove"]
 layout_mode = 1
@@ -80,6 +83,36 @@ grow_horizontal = 2
 text = "Stove!!"
 label_settings = SubResource("LabelSettings_gmo2y")
 horizontal_alignment = 1
+
+[node name="Slot1" type="TextureRect" parent="Stove" groups=["CardSlot"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.789
+anchor_right = 0.404
+anchor_bottom = 0.789
+offset_left = -70.8001
+offset_top = -81.8
+offset_right = 19.2
+offset_bottom = 28.2
+texture = ExtResource("7_uxeu6")
+expand_mode = 1
+script = ExtResource("7_xe42i")
+
+[node name="Slot2" type="TextureRect" parent="Stove" groups=["CardSlot"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.789
+anchor_right = 0.404
+anchor_bottom = 0.789
+offset_left = 25.2001
+offset_top = -81.8
+offset_right = 115.2
+offset_bottom = 28.2
+texture = ExtResource("7_uxeu6")
+expand_mode = 1
+script = ExtResource("7_xe42i")
 
 [node name="OrderQueue" type="Control" parent="."]
 anchors_preset = 0
@@ -122,8 +155,10 @@ offset_top = 435.0
 offset_right = 1907.0
 offset_bottom = 1875.0
 
-[node name="CardFactory" type="Node2D" parent="."]
+[node name="CardFactory" type="Node2D" parent="." node_paths=PackedStringArray("card_deck")]
 position = Vector2(957, 863)
+script = ExtResource("7_8i4sf")
+card_deck = NodePath("../Deck/GCardHandLayout")
 
 [node name="Deck" type="Control" parent="."]
 layout_mode = 1
@@ -148,64 +183,3 @@ script = ExtResource("6_noatd")
 dynamic_radius_factor = 70.0
 circle_percentage = 0.08
 enable_dragging = true
-
-[node name="Card" type="TextureRect" parent="Deck/GCardHandLayout"]
-layout_mode = 0
-offset_left = -52.2249
-offset_top = 6.59753
-offset_right = 27.7751
-offset_bottom = 106.598
-rotation = -0.251327
-pivot_offset = Vector2(40, 0)
-texture = ExtResource("7_8volb")
-expand_mode = 1
-script = ExtResource("6_2ni6r")
-
-[node name="Card2" type="TextureRect" parent="Deck/GCardHandLayout"]
-layout_mode = 0
-offset_right = 80.0
-offset_bottom = 100.0
-pivot_offset = Vector2(40, 0)
-texture = ExtResource("7_8volb")
-expand_mode = 1
-
-[node name="Card3" type="TextureRect" parent="Deck/GCardHandLayout"]
-layout_mode = 0
-offset_left = 52.2249
-offset_top = 6.59753
-offset_right = 132.225
-offset_bottom = 106.598
-rotation = 0.251327
-pivot_offset = Vector2(40, 0)
-texture = ExtResource("7_8volb")
-expand_mode = 1
-
-[node name="Slot" type="TextureRect" parent="." groups=["CardSlot"]]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.404
-anchor_top = 0.789
-anchor_right = 0.404
-anchor_bottom = 0.789
-offset_left = 56.3199
-offset_top = -408.12
-offset_right = 146.32
-offset_bottom = -298.12
-texture = ExtResource("7_uxeu6")
-expand_mode = 1
-script = ExtResource("7_xe42i")
-
-[node name="Slot2" type="TextureRect" parent="." groups=["CardSlot"]]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.404
-anchor_top = 0.789
-anchor_right = 0.404
-anchor_bottom = 0.789
-offset_left = 152.32
-offset_top = -408.12
-offset_right = 242.32
-offset_bottom = -298.12
-texture = ExtResource("7_uxeu6")
-expand_mode = 1
-script = ExtResource("7_xe42i")
