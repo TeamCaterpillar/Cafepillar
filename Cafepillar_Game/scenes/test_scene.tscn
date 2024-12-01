@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cookffcxckdkf"]
+[gd_scene load_steps=5 format=3 uid="uid://cookffcxckdkf"]
 
 [ext_resource type="PackedScene" uid="uid://cojal4stp8e1i" path="res://scenes/card.tscn" id="1_f45xo"]
 [ext_resource type="Script" path="res://scripts/card_drop_point.gd" id="2_hxfna"]
+[ext_resource type="PackedScene" uid="uid://dfersw6s2vygm" path="res://scenes/card_deck.tscn" id="3_f4afq"]
+[ext_resource type="Script" path="res://scripts/input_manager.gd" id="4_2is1p"]
 
 [node name="TestScene" type="Node2D"]
 
@@ -30,3 +32,10 @@ script = ExtResource("2_hxfna")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.375, 2.375)
+
+[node name="CardDeck" parent="." instance=ExtResource("3_f4afq")]
+position = Vector2(-64, 176)
+scale = Vector2(0.03, 0.03)
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("4_2is1p")

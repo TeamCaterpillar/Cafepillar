@@ -1,0 +1,2 @@
+class_name InputManager
+extends Node2D
