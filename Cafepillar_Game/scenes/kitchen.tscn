@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://dn3urr1xccmik"]
+[gd_scene load_steps=12 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_tfllf"]
+[ext_resource type="Texture2D" uid="uid://wg6nu0pl2jhl" path="res://assets/kitchen_temp.jpg" id="2_erqfc"]
 [ext_resource type="PackedScene" uid="uid://b7fu4bn5lsbqf" path="res://scenes/recipes_book.tscn" id="3_7126w"]
-[ext_resource type="Script" path="res://scenes/stove.gd" id="3_fjp8d"]
+[ext_resource type="Script" path="res://scripts/stove.gd" id="3_fjp8d"]
 [ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="6_noatd"]
 [ext_resource type="Script" path="res://scripts/factories/card_factory.gd" id="7_8i4sf"]
 [ext_resource type="Texture2D" uid="uid://ckhfci2tp6dug" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="7_uxeu6"]
-[ext_resource type="Script" path="res://scenes/slot.gd" id="7_xe42i"]
+[ext_resource type="Script" path="res://scripts/slot.gd" id="7_xe42i"]
 [ext_resource type="Script" path="res://scripts/order_queue.gd" id="10_765us"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
@@ -34,17 +35,18 @@ script = ExtResource("1_tfllf")
 [node name="KitchenCamera" type="Camera2D" parent="."]
 position = Vector2(960, 540)
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 0
 offset_top = 4.0
 offset_right = 1920.0
 offset_bottom = 1084.0
-color = Color(0.129558, 0.129558, 0.129558, 1)
+texture = ExtResource("2_erqfc")
 
 [node name="RecipesBook" parent="." instance=ExtResource("3_7126w")]
 
 [node name="KitchenLabel" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.464
@@ -58,14 +60,13 @@ offset_bottom = -310.52
 text = "Kitchen!!!!!"
 label_settings = SubResource("LabelSettings_au7mt")
 
-[node name="Stove" type="ColorRect" parent="." node_paths=PackedStringArray("slot1")]
+[node name="Stove" type="Control" parent="." node_paths=PackedStringArray("slot1")]
 custom_minimum_size = Vector2(200, 200)
-layout_mode = 0
-offset_left = 304.0
-offset_top = 540.0
-offset_right = 504.0
-offset_bottom = 740.0
-color = Color(0.139191, 0.000225878, 0.349418, 1)
+anchors_preset = 0
+offset_left = 536.0
+offset_top = 252.0
+offset_right = 784.0
+offset_bottom = 484.0
 script = ExtResource("3_fjp8d")
 slot1 = NodePath("Slot1")
 
@@ -74,25 +75,28 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -100.0
-offset_right = 100.0
-offset_bottom = 200.0
+offset_left = -116.0
+offset_top = -40.0
+offset_right = 116.0
+offset_bottom = 16.0
 grow_horizontal = 2
-text = "Stove!!"
+text = "Stove
+"
 label_settings = SubResource("LabelSettings_gmo2y")
 horizontal_alignment = 1
 
 [node name="Slot1" type="TextureRect" parent="Stove" node_paths=PackedStringArray("deck") groups=["CardSlot"]]
+modulate = Color(1, 1, 1, 0.494118)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.404
 anchor_top = 0.789
 anchor_right = 0.404
 anchor_bottom = 0.789
-offset_left = -22.8
-offset_top = -73.8
-offset_right = 67.2001
-offset_bottom = 36.2
+offset_left = -28.192
+offset_top = -71.048
+offset_right = 61.8081
+offset_bottom = 38.952
 texture = ExtResource("7_uxeu6")
 expand_mode = 1
 script = ExtResource("7_xe42i")

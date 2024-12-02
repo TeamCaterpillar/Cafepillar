@@ -1,4 +1,4 @@
-extends ColorRect
+extends Control
 
 @export var slot1 : TextureRect
 @export var slot2 : TextureRect

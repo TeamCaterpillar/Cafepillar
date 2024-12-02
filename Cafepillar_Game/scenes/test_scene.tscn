@@ -1,41 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://cookffcxckdkf"]
-
-[ext_resource type="PackedScene" uid="uid://cojal4stp8e1i" path="res://scenes/card.tscn" id="1_f45xo"]
-[ext_resource type="Script" path="res://scripts/card_drop_point.gd" id="2_hxfna"]
-[ext_resource type="PackedScene" uid="uid://dfersw6s2vygm" path="res://scenes/card_deck.tscn" id="3_f4afq"]
-[ext_resource type="Script" path="res://scripts/input_manager.gd" id="4_2is1p"]
+[gd_scene format=3 uid="uid://cookffcxckdkf"]
 
 [node name="TestScene" type="Node2D"]
 
-[node name="Card" parent="." instance=ExtResource("1_f45xo")]
-offset_left = -8.0
-offset_top = -16.0
-offset_right = 780.0
-offset_bottom = 1002.0
-scale = Vector2(0.04, 0.04)
+[node name="Background" type="ColorRect" parent="."]
+offset_left = -400.0
+offset_top = -224.0
+offset_right = 400.0
+offset_bottom = 224.0
+color = Color(0.125911, 0.125911, 0.125911, 1)
 
-[node name="CardDropPoint" type="Marker2D" parent="." groups=["CardZone"]]
-position = Vector2(-256, 128)
-script = ExtResource("2_hxfna")
-
-[node name="CardDropPoint2" type="Marker2D" parent="." groups=["CardZone"]]
-position = Vector2(-256, -128)
-script = ExtResource("2_hxfna")
-
-[node name="CardDropPoint3" type="Marker2D" parent="." groups=["CardZone"]]
-position = Vector2(256, -128)
-script = ExtResource("2_hxfna")
-
-[node name="CardDropPoint4" type="Marker2D" parent="." groups=["CardZone"]]
-position = Vector2(96, 88)
-script = ExtResource("2_hxfna")
+[node name="BackgroundLabel" type="RichTextLabel" parent="Background"]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 32.0
+offset_right = 448.0
+offset_bottom = 72.0
+text = "TEST SCENE"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.375, 2.375)
-
-[node name="CardDeck" parent="." instance=ExtResource("3_f4afq")]
-position = Vector2(-64, 176)
-scale = Vector2(0.03, 0.03)
-
-[node name="InputManager" type="Node2D" parent="."]
-script = ExtResource("4_2is1p")
