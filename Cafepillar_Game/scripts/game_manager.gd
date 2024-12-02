@@ -1,6 +1,7 @@
 extends Node
 
 # Game state variables
+var current_day : int = 0
 var golden_seeds : int                = 0
 var kitchen_inventory: Array[Variant] = []
 var active_orders: Array[Variant]     = []
@@ -18,6 +19,11 @@ const SCENE_DINER: String   = "res://scenes/diner.tscn"
 func _ready():
 	# Load the first scene (kitchen by default)
 	#change_scene(SCENE_KITCHEN)
+	
+	# initialize inventory to have starter ingredients
+	initialize_inventory()
+	print(kitchen_inventory)
+	
 	pass
 
 # Function to change scenes
@@ -88,3 +94,12 @@ func start_cooking_timer(duration: float, callback: Callable):
 	timer.connect("timeout", callback)
 	add_child(timer)
 	timer.start()
+
+# inventory management methods
+func initialize_inventory() -> void:
+	add_to_storage("nuts")
+	add_to_storage("eggs")
+	add_to_storage("tea_leaves")
+	add_to_storage("lettuce")
+	add_to_storage("coffee_beans")
+	add_to_storage("cheese")
