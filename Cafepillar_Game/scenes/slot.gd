@@ -18,7 +18,7 @@ func _process(_delta: float) -> void:
 func _on_child_entered_tree(node: Node) -> void:
 	if node.is_in_group("Ingredient"):
 		card_resource = node.card_resource
-		print(card_resource.name)
+		print("Dropped " , card_resource.name, " into " , get_parent().name , " slot.")
 	else:
 		print("ERROR WHY IS ", node, " BEING ADDED!!")
 		_move_card_back_to_deck(node)

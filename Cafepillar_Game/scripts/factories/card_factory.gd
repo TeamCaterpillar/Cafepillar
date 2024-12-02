@@ -16,6 +16,30 @@ func _ready() -> void:
 	create_card("beef", "ingredients")
 	create_card("milk", "ingredients")
 	create_card("flour", "ingredients")
+	create_card("beef", "ingredients")
+	create_card("milk", "ingredients")
+	create_card("flour", "ingredients")
+	create_card("beef", "ingredients")
+	create_card("milk", "ingredients")
+	create_card("flour", "ingredients")
+	create_card("beef", "ingredients")
+	create_card("milk", "ingredients")
+	create_card("flour", "ingredients")
+	create_card("beef", "ingredients")
+	create_card("milk", "ingredients")
+	create_card("flour", "ingredients")
+	create_card("beef", "ingredients")
+	create_card("milk", "ingredients")
+	create_card("flour", "ingredients")
+	create_card("beef", "ingredients")
+	create_card("milk", "ingredients")
+	create_card("flour", "ingredients")
+	create_card("beef", "ingredients")
+	create_card("milk", "ingredients")
+	create_card("flour", "ingredients")
+	create_card("beef", "ingredients")
+	create_card("milk", "ingredients")
+	create_card("flour", "ingredients")
 
 
 # Create a single card
@@ -28,7 +52,7 @@ func create_card(card_name: String, card_type: String) -> void:
 
 	var card_instance: CardInstance = CardInstance.new()
 	card_instance.card_resource = card_resource # Assign the resource to the card
-	card_instance.texture = load("res://assets/cards/placeholder_ingredient.png")#load(card_resource.sprite_path)
+	card_instance.texture = load(card_resource.sprite_path)
 	card_instance.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	card_instance.size = card_size
 	card_instance.pivot_offset = card_pivot 
