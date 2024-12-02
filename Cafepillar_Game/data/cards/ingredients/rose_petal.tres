@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/ingredient.gd" id="1_t50rq"]
+
+[resource]
+script = ExtResource("1_t50rq")
+name = "rose_petal"
+availability = "day_3"
+sprite_path = "res://assets/cards/placeholder_ingredient.png"

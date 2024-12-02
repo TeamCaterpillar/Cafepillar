@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Dish" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/dish.gd" id="1_7tbww"]
+
+[resource]
+script = ExtResource("1_7tbww")
+category = "main_course"
+appliances = ["stove"]
+cook_time = 8
+quality_thresholds = {
+"perfect": 6.0,
+"satisfactory": 8.0
+}
+sprite_path = "res://assets/cards/placeholder_ingredient.png"
+ingredients = ["egg", "cheese"]
+cookware = ["pan"]

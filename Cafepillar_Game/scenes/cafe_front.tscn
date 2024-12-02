@@ -29,3 +29,5 @@ subject = NodePath("..")
 
 [node name="TestScene" parent="." instance=ExtResource("6_uu8u1")]
 position = Vector2(2359, -796)
+
+[node name="attach_json_loader_to_node_to_build_card_resources_from_json_data" type="Node" parent="."]

@@ -84,6 +84,7 @@ func _ready():
 	if get_child_count() > 0:
 		_reset_positions_if_in_tree(false, false)
 
+
 func _process(delta):
 	if Engine.is_editor_hint() || !enable_hover && !_dragging_card:
 		return
@@ -91,6 +92,17 @@ func _process(delta):
 	if _dragging_card:
 		assert(enable_dragging)
 		_dragging_card.global_position = _get_global_mouse_position_for_interaction() - _dragging_mouse_position
+		
+		#if !Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			#var mouse_pos = _get_global_mouse_position_for_interaction()
+			#var slot_under_mouse = _get_slot_under_point(mouse_pos)
+			#if slot_under_mouse:
+				#_place_card_in_slot(_dragging_card, slot_under_mouse)
+				#emit_signal("card_dragging_finished", _dragging_card)
+				#_dragging_card = null
+				#_dragging_index = -100
+				
+				
 	elif _mouse_in:
 		assert(enable_hover)
 		var mouse_position = _get_global_mouse_position_for_interaction()
@@ -100,9 +112,11 @@ func _process(delta):
 	elif hovered_index != -1:
 		hovered_index = -1
 	
+	
 func _enter_tree():
 	if is_node_ready() && get_child_count() > 0:
 		_reset_positions_if_in_tree(false, false)
+	
 	
 func _validate_property(property):
 	if property.name in ["radius"] && dynamic_radius:
@@ -116,9 +130,11 @@ func _validate_property(property):
 	if property.name in ["animation_ease", "animation_trans"] && animation_time <= 0.0:
 		property.usage = PROPERTY_USAGE_NO_EDITOR
 	
+	
 func _reset_positions_if_in_tree(reculculate_curve:bool = false, animated:bool = true):
 	if is_inside_tree():
 		_reset_positions(reculculate_curve, animated)
+
 
 func _reset_positions(reculculate_curve:bool = false, animated:bool = true):
 	var number_of_cards := get_child_count()
@@ -168,6 +184,7 @@ func _reset_positions(reculculate_curve:bool = false, animated:bool = true):
 	if should_animate:
 		_reset_position_tween.play()
 
+
 func _setup_cards():
 	for child in get_children():
 		var card = child as Control
@@ -177,6 +194,7 @@ func _setup_cards():
 		card.mouse_exited.connect(_on_child_mouse_exited)
 		card.gui_input.connect(_on_child_gui_input.bind(card))
 
+
 func _find_card_index_with_point(global_point:Vector2) -> int:
 	var intercepting_card:Control
 	for i in range(get_child_count()-1, -1, -1):
@@ -185,6 +203,7 @@ func _find_card_index_with_point(global_point:Vector2) -> int:
 			return i
 	return -1
 			
+			
 func _set_dynamic_radius(val:bool):
 	if dynamic_radius == val:
 		return
@@ -192,21 +211,26 @@ func _set_dynamic_radius(val:bool):
 	notify_property_list_changed()
 	_reset_positions_if_in_tree()
 
+
 func _set_dynamic_radius_factor(val:float):
 	dynamic_radius_factor = val
 	_reset_positions_if_in_tree()
 
+
 func _set_radius(val:float):
 	radius = val
 	_reset_positions_if_in_tree()
+
 	
 func _set_circle_percentage(val:float):
 	circle_percentage = val
 	_reset_positions_if_in_tree()
 
+
 func _set_enable_hover(val:bool):
 	enable_hover = val
 	notify_property_list_changed()
+
 
 func _set_hovered_index(val:int):
 	hovered_index = val
@@ -223,42 +247,52 @@ func _set_hovered_index(val:int):
 	else:
 		cards_unhovered.emit()
 
+
 func _set_hover_padding(val:float):
 	hover_padding = val
 	_reset_positions_if_in_tree()
+
 
 func _set_hovered_scale(val:Vector2):
 	hovered_scale = val
 	_reset_positions_if_in_tree()
 
+
 func _set_hover_relative_position(val:Vector2):
 	hover_relative_position = val
 	_reset_positions_if_in_tree()
+
 
 func _set_enable_dragging(val:bool):
 	enable_dragging = val
 	notify_property_list_changed()
 
+
 func _set_animation_time(val:float):
 	animation_time = val
 	notify_property_list_changed()
 
+
 func _get_global_mouse_position_for_interaction():
 	return get_global_mouse_position()
+
 
 func _on_child_mouse_entered():
 	if _dragging_card:
 		return
 	_mouse_in = true
 
+
 func _on_child_mouse_exited():
 	if _dragging_card:
 		return
 	_mouse_in = false
 
+
 func _on_child_order_changed():
 	_setup_cards()
 	_reset_positions_if_in_tree()
+
 
 func _on_child_gui_input(event:InputEvent, card:Control):
 	if !enable_dragging:
@@ -278,8 +312,38 @@ func _on_child_gui_input(event:InputEvent, card:Control):
 			_reset_positions_if_in_tree()
 		elif !mouse_button_event.pressed && mouse_button_event.button_index == MOUSE_BUTTON_LEFT:
 			assert(_dragging_card == card)
+			
+			# drop logic
+			var mouse_position = get_global_mouse_position()
+			var slot_under_mouse = _get_slot_under_point(mouse_position)
+			
+			if slot_under_mouse:
+				_place_card_in_slot(_dragging_card, slot_under_mouse)
+			else:
+				pass
+			
 			_dragging_card = null
 			card.z_index = 0
 			card_dragging_finished.emit(card, _dragging_index)
 			_dragging_index = -100
 			_reset_positions_if_in_tree()
+
+
+func _get_slot_under_point(global_pos : Vector2) -> Control:
+	var slots = get_tree().get_nodes_in_group("CardSlot")
+	#print(slots)
+	for slot in slots:
+		if slot.is_inside_tree():
+			if Rect2(slot.global_position, slot.size).has_point(global_pos):
+				#print("reached")
+				return slot
+	return null
+	
+	
+func _place_card_in_slot(card : Control, slot : Control) -> void:
+	#print("placing")
+	
+	if card.get_parent():
+		card.get_parent().remove_child(card)
+	slot.add_child(card)
+	card.global_position = slot.global_position

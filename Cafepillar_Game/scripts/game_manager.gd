@@ -12,7 +12,7 @@ const SCENE_KITCHEN: String = "res://scenes/kitchen.tscn"
 const SCENE_DINER: String   = "res://scenes/diner.tscn"
 
 # Signal for scene changes
-signal scene_changed
+#signal scene_changed
 
 # Called when the game starts
 func _ready():
@@ -46,11 +46,11 @@ func remove_order_from_queue() -> void:
 
 
 # HANDLE CURRENCY
-func add_currency(amount: int) -> void:
+func add_currency(_amount: int) -> void:
 	pass
 
 
-func remove_currency(amount: int) -> void:
+func remove_currency(_amount: int) -> void:
 	pass
 
 

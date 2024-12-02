@@ -1,0 +1,156 @@
+{
+  "categories": {
+	"main_course": {
+	  "description": "hearty and fulfilling meals.",
+	  "default_cook_time": 10,
+	  "default_quality_thresholds": { "perfect": 8, "satisfactory": 10 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png"
+	},
+	"dessert": {
+	  "description": "sweet and delightful dishes.",
+	  "default_cook_time": 8,
+	  "default_quality_thresholds": { "perfect": 6, "satisfactory": 8 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png"
+	},
+	"drink": {
+	  "description": "refreshing beverages.",
+	  "default_cook_time": 5,
+	  "default_quality_thresholds": { "perfect": 3, "satisfactory": 5 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png"
+	}
+  },
+  "dishes": {
+	"omelet": {
+	  "category": "main_course",
+	  "appliance": ["stove"],
+	  "cook_time": 8,
+	  "quality_thresholds": { "perfect": 6, "satisfactory": 8 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["egg", "cheese"],
+	  "cookware": ["pan"]
+	},
+	"sunny_side_up": {
+	  "category": "main_course",
+	  "appliance": ["stove"],
+	  "cook_time": 5,
+	  "quality_thresholds": { "perfect": 4, "satisfactory": 5 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["egg", "egg"],
+	  "cookware": ["pan"]
+	},
+	"nutty_salad": {
+	  "category": "main_course",
+	  "appliance": ["counter"],
+	  "cook_time": 5,
+	  "quality_thresholds": { "perfect": 4, "satisfactory": 5 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["nut", "lettuce"],
+	  "cookware": ["pan"]
+	},
+	"peanut_pastry": {
+	  "category": "dessert",
+	  "appliance": ["counter"],
+	  "cook_time": 6,
+	  "quality_thresholds": { "perfect": 5, "satisfactory": 6 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["nut", "flour"],
+	  "cookware": ["pan"]
+	},
+	"fruity_salad": {
+	  "category": "main_course",
+	  "appliance": ["counter"],
+	  "cook_time": 6,
+	  "quality_thresholds": { "perfect": 5, "satisfactory": 6 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["strawberry", "strawberry", "lettuce"],
+	  "cookware": ["pan"]
+	},
+	"beef_leaf_stew": {
+	  "category": "main_course",
+	  "appliance": ["stove"],
+	  "cook_time": 12,
+	  "quality_thresholds": { "perfect": 10, "satisfactory": 12 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["beef", "beef", "lettuce"],
+	  "cookware": ["pan"]
+	},
+	"rose_cake": {
+	  "category": "dessert",
+	  "appliance": ["oven"],
+	  "cook_time": 15,
+	  "quality_thresholds": { "perfect": 12, "satisfactory": 15 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["rose_petal", "flour", "egg", "milk"],
+	  "cookware": ["pan"]
+	},
+	"burger": {
+	  "category": "main_course",
+	  "appliance": ["stove"],
+	  "cook_time": 10,
+	  "quality_thresholds": { "perfect": 8, "satisfactory": 10 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["beef", "cheese", "lettuce", "flour"],
+	  "cookware": ["pan"]
+	},
+	"tea": {
+	  "category": "drink",
+	  "appliance": ["counter"],
+	  "cook_time": 3,
+	  "quality_thresholds": { "perfect": 2, "satisfactory": 3 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["tea_leave", "tea_leave"],
+	  "cookware": ["cup"]
+	},
+	"strawberry_tea": {
+	  "category": "drink",
+	  "appliance": ["counter"],
+	  "cook_time": 4,
+	  "quality_thresholds": { "perfect": 3, "satisfactory": 4 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["strawberry", "tea_leave"],
+	  "cookware": ["cup"]
+	},
+	"coffee": {
+	  "category": "drink",
+	  "appliance": ["blender"],
+	  "cook_time": 5,
+	  "quality_thresholds": { "perfect": 3, "satisfactory": 5 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["coffee_bean", "coffee_bean"],
+	  "cookware": ["cup"]
+	},
+	"strawberry_milkshake": {
+	  "category": "drink",
+	  "appliance": ["blender"],
+	  "cook_time": 6,
+	  "quality_thresholds": { "perfect": 5, "satisfactory": 6 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["strawberry", "milk"],
+	  "cookware": ["cup"]
+	},
+	"honey_roasted_coffee": {
+	  "category": "drink",
+	  "appliance": ["blender"],
+	  "cook_time": 6,
+	  "quality_thresholds": { "perfect": 5, "satisfactory": 6 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["coffee_bean", "honey", "nut"],
+	  "cookware": ["cup"]
+	},
+	"rose_tea": {
+	  "category": "drink",
+	  "appliance": ["counter"],
+	  "cook_time": 4,
+	  "quality_thresholds": { "perfect": 3, "satisfactory": 4 },
+	  "sprite_path": "res://assets/cards/placeholder_ingredient.png",
+	  "ingredients": ["rose_petal", "rose_petal", "tea_leave"],
+	  "cookware": ["cup"]
+	}
+  },
+  "ingredients": {
+	"day_one_default": ["nut", "egg", "tea_leave", "lettuce", "coffee_bean", "cheese"],
+	"day_two_unlockable": ["honey", "strawberry", "milk", "flour"],
+	"day_three_unlockable": ["rose_petal", "beef"]
+  },
+  "cookware": ["pan", "cup"]
+}
