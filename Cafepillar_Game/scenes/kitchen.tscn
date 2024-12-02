@@ -83,7 +83,7 @@ text = "Stove!!"
 label_settings = SubResource("LabelSettings_gmo2y")
 horizontal_alignment = 1
 
-[node name="Slot1" type="TextureRect" parent="Stove" groups=["CardSlot"]]
+[node name="Slot1" type="TextureRect" parent="Stove" node_paths=PackedStringArray("deck") groups=["CardSlot"]]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.404
@@ -97,6 +97,7 @@ offset_bottom = 28.2
 texture = ExtResource("7_uxeu6")
 expand_mode = 1
 script = ExtResource("7_xe42i")
+deck = NodePath("../../Deck/GCardHandLayout")
 
 [node name="Slot2" type="TextureRect" parent="Stove" node_paths=PackedStringArray("deck") groups=["CardSlot", "Ingredient"]]
 layout_mode = 1
