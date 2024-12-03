@@ -1,4 +1,5 @@
 extends Control
+class_name OrderQueue
 
 @onready var queue_container = $VBoxContainer
 
@@ -28,3 +29,11 @@ func _add_order(food_name: String):
 	var order_card = order_card_scene.instantiate()
 	order_card.food_name = food_name
 	queue_container.add_child(order_card) 
+
+
+# removes closest food order in queue with matching name
+func remove_order(food_name: String):
+	for child in queue_container.get_children():
+		if child.food_name == food_name:
+			child.queue_free()
+			break
