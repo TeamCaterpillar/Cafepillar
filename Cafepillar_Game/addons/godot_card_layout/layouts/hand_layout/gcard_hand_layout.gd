@@ -340,10 +340,20 @@ func _get_slot_under_point(global_pos : Vector2) -> Control:
 	return null
 	
 	
-func _place_card_in_slot(card : Control, slot : Control) -> void:
-	#print("placing")
-	
+func _place_card_in_slot(card: Control, slot: Control) -> void:
+	# Remove the card from its current parent
 	if card.get_parent():
 		card.get_parent().remove_child(card)
+	
+	# Add the card to the slot
 	slot.add_child(card)
-	card.global_position = slot.global_position
+	
+	if slot.get_child_count() == 1:
+		card.global_position = slot.global_position
+	else:
+		# Subsequent cards: Randomized offset relative to the first card
+		var random_offset = Vector2(
+			randi_range(-15, 15),  # Horizontal randomness
+			(slot.get_child_count() - 1) * 20 + randi_range(-10, 10)  # Vertical stacking with randomness
+		)
+		card.position = random_offset
