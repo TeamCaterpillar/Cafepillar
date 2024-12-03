@@ -3,7 +3,7 @@ class_name Slot
 
 @export var deck : GCardHandLayout
 
-@onready var yes_button: TextureButton = $"../../Tray/YesButton"
+# @onready var yes_button: TextureButton = $"../../Tray/YesButton"
 
 var card_resource
 

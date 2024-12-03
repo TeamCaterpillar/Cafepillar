@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/kitchen.gd" id="1_tfllf"]
 [ext_resource type="PackedScene" uid="uid://b7fu4bn5lsbqf" path="res://scenes/recipes_book.tscn" id="3_7126w"]
-[ext_resource type="Script" path="res://scenes/stove.gd" id="3_fjp8d"]
+[ext_resource type="Script" path="res://scripts/stove.gd" id="3_eipnb"]
+[ext_resource type="Script" path="res://scripts/slot.gd" id="5_qvdr3"]
 [ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="6_noatd"]
 [ext_resource type="Script" path="res://scripts/factories/card_factory.gd" id="7_8i4sf"]
 [ext_resource type="Texture2D" uid="uid://bjuyjlebiava4" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="7_uxeu6"]
-[ext_resource type="Script" path="res://scenes/slot.gd" id="7_xe42i"]
 [ext_resource type="Script" path="res://scripts/order_queue.gd" id="10_765us"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
@@ -58,7 +58,7 @@ offset_bottom = -310.52
 text = "Kitchen!!!!!"
 label_settings = SubResource("LabelSettings_au7mt")
 
-[node name="Stove" type="ColorRect" parent="." node_paths=PackedStringArray("slot1")]
+[node name="Stove" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 0
 offset_left = 865.0
@@ -66,8 +66,7 @@ offset_top = 288.0
 offset_right = 1065.0
 offset_bottom = 488.0
 color = Color(0.139191, 0.000225878, 0.349418, 1)
-script = ExtResource("3_fjp8d")
-slot1 = NodePath("Slot1")
+script = ExtResource("3_eipnb")
 
 [node name="Label" type="Label" parent="Stove"]
 layout_mode = 1
@@ -83,7 +82,7 @@ text = "Stove!!"
 label_settings = SubResource("LabelSettings_gmo2y")
 horizontal_alignment = 1
 
-[node name="Slot1" type="TextureRect" parent="Stove" node_paths=PackedStringArray("deck") groups=["CardSlot"]]
+[node name="Slot1" type="TextureRect" parent="Stove" groups=["CardSlot"]]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.404
@@ -96,8 +95,7 @@ offset_right = 67.2001
 offset_bottom = 36.2
 texture = ExtResource("7_uxeu6")
 expand_mode = 1
-script = ExtResource("7_xe42i")
-deck = NodePath("../../Deck/GCardHandLayout")
+script = ExtResource("5_qvdr3")
 
 [node name="OrderQueue" type="Control" parent="."]
 anchors_preset = 0
