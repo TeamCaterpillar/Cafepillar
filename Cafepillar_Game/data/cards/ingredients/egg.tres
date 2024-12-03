@@ -1,4 +1,3 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/ingredient.gd" id="1_jwukr"]
 
@@ -6,4 +5,4 @@
 script = ExtResource("1_jwukr")
 name = "egg"
 availability = "day_1"
-sprite_path = "res://assets/cards/placeholder_ingredient.png"
+sprite_path = "res://assets/cards/egg_card.png"

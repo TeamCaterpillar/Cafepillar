@@ -12,6 +12,8 @@ var current_scene           = null
 const SCENE_KITCHEN: String = "res://scenes/kitchen.tscn"
 const SCENE_DINER: String   = "res://scenes/diner.tscn"
 
+
+
 # Signal for scene changes
 #signal scene_changed
 
@@ -22,7 +24,6 @@ func _ready():
 	
 	# initialize inventory to have starter ingredients
 	initialize_inventory()
-	print(kitchen_inventory)
 	
 	pass
 
@@ -97,9 +98,9 @@ func start_cooking_timer(duration: float, callback: Callable):
 
 # inventory management methods
 func initialize_inventory() -> void:
-	add_to_storage("nuts")
-	add_to_storage("eggs")
-	add_to_storage("tea_leaves")
+	add_to_storage("nut")
+	add_to_storage("egg")
+	add_to_storage("tea_leave")
 	add_to_storage("lettuce")
-	add_to_storage("coffee_beans")
+	add_to_storage("coffee_bean")
 	add_to_storage("cheese")
