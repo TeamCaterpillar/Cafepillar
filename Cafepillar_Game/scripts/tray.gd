@@ -13,7 +13,7 @@ func _ready() -> void:
 	$YesButton.connect("pressed", Callable(self, "_on_YesButton_pressed"))
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
