@@ -13,33 +13,7 @@ var card_pivot : Vector2 = Vector2(card_size.x/2, 0.0) # must be half the x size
 
 # testing factory methods
 func _ready() -> void:
-	create_card("beef", "ingredients")
-	create_card("milk", "ingredients")
-	create_card("flour", "ingredients")
-	create_card("beef", "ingredients")
-	create_card("milk", "ingredients")
-	create_card("flour", "ingredients")
-	create_card("beef", "ingredients")
-	create_card("milk", "ingredients")
-	create_card("flour", "ingredients")
-	create_card("beef", "ingredients")
-	create_card("milk", "ingredients")
-	create_card("flour", "ingredients")
-	create_card("beef", "ingredients")
-	create_card("milk", "ingredients")
-	create_card("flour", "ingredients")
-	create_card("beef", "ingredients")
-	create_card("milk", "ingredients")
-	create_card("flour", "ingredients")
-	create_card("beef", "ingredients")
-	create_card("milk", "ingredients")
-	create_card("flour", "ingredients")
-	create_card("beef", "ingredients")
-	create_card("milk", "ingredients")
-	create_card("flour", "ingredients")
-	create_card("beef", "ingredients")
-	create_card("milk", "ingredients")
-	create_card("flour", "ingredients")
+	transfer_inventory_into_hand(GameManager.kitchen_inventory)
 
 
 # Create a single card
@@ -61,4 +35,7 @@ func create_card(card_name: String, card_type: String) -> void:
 	card_deck.add_child(card_instance)
 	# Print the card's state
 	print("Created card: ", card_name, " of type: ", card_type, " from resource path: ", resource_path)
-	
+
+func transfer_inventory_into_hand(inventory: Array[Variant]) -> void:
+	for item in inventory:
+		create_card(item, "ingredients")
