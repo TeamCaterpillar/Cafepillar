@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://scripts/game_manager.gd"
+TransitionScreen="*res://scenes/transition_screen.tscn"
+RecipeBookTransition="*res://scenes/recipe_book_transition.tscn"
 
 [display]
 

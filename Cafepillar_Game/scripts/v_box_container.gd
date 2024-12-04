@@ -34,9 +34,13 @@ func show_recipe(index):
 
 
 func _on_NextButton_pressed():
+	RecipeBookTransition.transition()
+	await RecipeBookTransition.on_book_transition_finished
 	current_recipe_index = (current_recipe_index + 1) % recipes.size()  # Wrap around when reaching the end
 	show_recipe(current_recipe_index)
 
 func _on_PreviousButton_pressed():
+	RecipeBookTransition.transition()
+	await RecipeBookTransition.on_book_transition_finished
 	current_recipe_index = (current_recipe_index - 1 + recipes.size()) % recipes.size()  # Wrap around when reaching the beginning
 	show_recipe(current_recipe_index)

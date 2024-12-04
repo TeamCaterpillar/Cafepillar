@@ -43,6 +43,7 @@ expand_mode = 1
 script = ExtResource("3_a1axs")
 
 [node name="YesButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 139.0
 offset_top = 80.0
 offset_right = 283.0

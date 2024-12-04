@@ -13,7 +13,7 @@ func _ready():
 func _process(_delta):
 	
 	# added test area and make swapping simpler, utilize previous for logic - may update current way in future
-	if Input.is_action_just_pressed("switch_camera"):
+	if Input.is_action_just_pressed("switch_camera") and TransitionScreen.is_active == false:
 		_swap_to_from_kitchen()
 		#if kitchen_scene.visible:
 			#hide_kitchen()
@@ -54,10 +54,14 @@ func _swap_to_from_test() -> void:
 
 func _swap_to_from_kitchen() -> void:
 	if kitchen_cam.is_current():
+		TransitionScreen.transition_to_front()
+		await TransitionScreen.on_transition_finished
 		kitchen_scene.release_focus()
 		player_camera.make_current()
 		kitchen_scene.visible = false
 	else:
+		TransitionScreen.transition_to_kitchen()
+		await TransitionScreen.on_transition_finished
 		kitchen_scene.visible = true
 		kitchen_cam.make_current()
 		kitchen_scene.grab_focus()
