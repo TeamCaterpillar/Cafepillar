@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://chpbhr22qe5ac"]
+[gd_scene load_steps=9 format=3 uid="uid://chpbhr22qe5ac"]
 
 [ext_resource type="PackedScene" uid="uid://drm58n2vnmmoa" path="res://scenes/diner.tscn" id="1_cgy0f"]
 [ext_resource type="Script" path="res://scripts/cafe_front.gd" id="1_vasvx"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dn3urr1xccmik" path="res://scenes/kitchen.tscn" id="2_treqf"]
 [ext_resource type="Script" path="res://scripts/player_camera.gd" id="3_sr1uf"]
 [ext_resource type="PackedScene" uid="uid://cookffcxckdkf" path="res://scenes/test_scene.tscn" id="6_uu8u1"]
+[ext_resource type="Script" path="res://scripts/day_night_controller.gd" id="7_st214"]
+[ext_resource type="Texture2D" uid="uid://bvpx42hk78chw" path="res://DALL·E 2024-12-04 22.22.24 - An end screen of a cozy cafe game, featuring a warm and inviting background of a small cafe interior with a rustic charm. The screen displays a banner.webp" id="8_83cxk"]
 
 [node name="CafeFront" type="Node2D"]
 script = ExtResource("1_vasvx")
@@ -31,3 +33,75 @@ subject = NodePath("..")
 position = Vector2(2359, -796)
 
 [node name="attach_json_loader_to_node_to_build_card_resources_from_json_data" type="Node" parent="."]
+
+[node name="DayNight Cycle" type="Node2D" parent="."]
+script = ExtResource("7_st214")
+
+[node name="Background" type="ColorRect" parent="DayNight Cycle"]
+z_index = -11
+offset_left = -216.0
+offset_top = -133.0
+offset_right = 374.0
+offset_bottom = 186.0
+color = Color(0, 0.863369, 0.863369, 1)
+
+[node name="Light" type="DirectionalLight2D" parent="DayNight Cycle"]
+visible = false
+modulate = Color(0.408425, 0.231396, 0.173889, 1)
+z_index = -3
+color = Color(0, 1, 1, 1)
+energy = 0.0
+
+[node name="SkipDay" type="Button" parent="DayNight Cycle"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 296.0
+offset_top = 149.0
+offset_right = 348.0
+offset_bottom = 180.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Skip"
+
+[node name="EndOfDayScreen" type="Panel" parent="DayNight Cycle"]
+visible = false
+
+[node name="Label" type="Label" parent="DayNight Cycle/EndOfDayScreen"]
+z_index = 10
+layout_mode = 0
+offset_left = -198.0
+offset_top = -122.0
+offset_right = -119.0
+offset_bottom = -94.0
+theme_override_font_sizes/font_size = 20
+text = "Day End"
+horizontal_alignment = 1
+
+[node name="NextDay" type="Button" parent="DayNight Cycle/EndOfDayScreen"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 252.0
+offset_top = -135.0
+offset_right = 349.0
+offset_bottom = -71.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 20
+text = "Next Day"
+vertical_icon_alignment = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="DayNight Cycle/EndOfDayScreen"]
+position = Vector2(73, 142)
+scale = Vector2(0.533203, 0.537109)
+texture = ExtResource("8_83cxk")
+
+[node name="TimerLabel" type="Label" parent="DayNight Cycle"]
+offset_left = 41.0
+offset_top = -122.0
+offset_right = 81.0
+offset_bottom = -99.0
