@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://chpbhr22qe5ac"]
+[gd_scene load_steps=8 format=3 uid="uid://chpbhr22qe5ac"]
 
 [ext_resource type="PackedScene" uid="uid://drm58n2vnmmoa" path="res://scenes/diner.tscn" id="1_cgy0f"]
 [ext_resource type="Script" path="res://scripts/cafe_front.gd" id="1_vasvx"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dn3urr1xccmik" path="res://scenes/kitchen.tscn" id="2_treqf"]
 [ext_resource type="Script" path="res://scripts/player_camera.gd" id="3_sr1uf"]
 [ext_resource type="PackedScene" uid="uid://cookffcxckdkf" path="res://scenes/test_scene.tscn" id="6_uu8u1"]
+[ext_resource type="Script" path="res://scripts/day_night_cycle.gd" id="7_4nlpx"]
 
 [node name="CafeFront" type="Node2D"]
 script = ExtResource("1_vasvx")
@@ -31,3 +32,57 @@ subject = NodePath("..")
 position = Vector2(2359, -796)
 
 [node name="attach_json_loader_to_node_to_build_card_resources_from_json_data" type="Node" parent="."]
+
+[node name="DayNightCycle" type="Node2D" parent="."]
+script = ExtResource("7_4nlpx")
+
+[node name="Background" type="ColorRect" parent="DayNightCycle"]
+z_index = -1
+offset_left = -281.0
+offset_top = -173.0
+offset_right = 414.0
+offset_bottom = 225.0
+
+[node name="Light" type="DirectionalLight2D" parent="DayNightCycle"]
+visible = false
+
+[node name="SkipDay" type="Button" parent="DayNightCycle"]
+offset_left = 270.0
+offset_top = 148.0
+offset_right = 345.0
+offset_bottom = 179.0
+text = "Skip Day"
+
+[node name="EndOfDayScreen" type="Panel" parent="DayNightCycle"]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -222.0
+offset_top = -137.0
+offset_right = 366.0
+offset_bottom = 180.0
+
+[node name="DayEndText" type="Label" parent="DayNightCycle/EndOfDayScreen"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 37.0
+text = "Day End"
+
+[node name="NextDay" type="Button" parent="DayNightCycle/EndOfDayScreen"]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 10.0
+offset_right = 567.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 20
+text = "NextDay
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="DayNightCycle/EndOfDayScreen"]
+
+[node name="TimerLabel" type="Label" parent="DayNightCycle"]
+offset_left = 26.0
+offset_top = -128.0
+offset_right = 66.0
+offset_bottom = -105.0
