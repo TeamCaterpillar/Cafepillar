@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://crd85igqlxon6"]
+
+[ext_resource type="Texture2D" uid="uid://n6n46lg4esjm" path="res://assets/cards/blank_card.png" id="1_yj5mt"]
+[ext_resource type="Script" path="res://scripts/card_DEPRICATED.gd" id="2_t8oej"]
+[ext_resource type="Texture2D" uid="uid://dtrwtwh2df3uc" path="res://assets/cards/placeholder_ingredient.png" id="3_roh4t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4tiqa"]
+size = Vector2(19.788, 26.6144)
+
+[node name="Card" type="TextureRect"]
+z_index = 4096
+anchors_preset = -1
+anchor_left = 0.125
+anchor_top = 0.083
+anchor_right = 0.125
+anchor_bottom = 0.083
+offset_left = -33.0
+offset_top = -37.64
+offset_right = 755.0
+offset_bottom = 980.36
+scale = Vector2(0.082487, 0.0736739)
+mouse_filter = 2
+texture = ExtResource("1_yj5mt")
+expand_mode = 1
+script = ExtResource("2_t8oej")
+
+[node name="ResourceSprite" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 81.0
+offset_right = 703.0
+offset_bottom = 922.0
+mouse_filter = 2
+texture = ExtResource("3_roh4t")
+expand_mode = 1
+
+[node name="Area2D" type="Area2D" parent="ResourceSprite"]
+position = Vector2(-97, -81)
+
+[node name="MouseDetectionArea" type="CollisionShape2D" parent="ResourceSprite/Area2D"]
+position = Vector2(396, 504)
+scale = Vector2(34.68, 34.68)
+shape = SubResource("RectangleShape2D_4tiqa")
+
+[connection signal="input_event" from="ResourceSprite/Area2D" to="." method="_on_area_2d_input_event"]
