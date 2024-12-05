@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://b7fu4bn5lsbqf"]
 
-[ext_resource type="Texture2D" uid="uid://cxjou7jwge4ia" path="res://assets/cards/blank_card.png" id="1_c8vbv"]
+[ext_resource type="Texture2D" uid="uid://sv5v1332l23o" path="res://assets/cards/blank_card.png" id="1_c8vbv"]
 [ext_resource type="Script" path="res://scripts/ui/v_box_container.gd" id="2_ficl4"]
-[ext_resource type="Texture2D" uid="uid://cw2eh8geyo0y1" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="3_6k3mo"]
-[ext_resource type="Texture2D" uid="uid://bh3iulmeotfoq" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="4_0e7ny"]
-[ext_resource type="Texture2D" uid="uid://dvlmojfhwe45s" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="5_4gksq"]
-[ext_resource type="Texture2D" uid="uid://fr1wahud7s72" path="res://assets/Buttons Pixel Animation Pack/next/72px/next02.png" id="6_jkbbr"]
-[ext_resource type="Texture2D" uid="uid://doc4ya3hwp3qt" path="res://assets/Buttons Pixel Animation Pack/next/72px/next03.png" id="7_p6aa6"]
-[ext_resource type="Texture2D" uid="uid://da7k2nxcvofgk" path="res://assets/Buttons Pixel Animation Pack/next/72px/next04.png" id="8_13l8t"]
+[ext_resource type="Texture2D" uid="uid://jy8k3vld4xkc" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="3_6k3mo"]
+[ext_resource type="Texture2D" uid="uid://kgvqcjp8iaf4" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="4_0e7ny"]
+[ext_resource type="Texture2D" uid="uid://bljjsa65n5i54" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="5_4gksq"]
+[ext_resource type="Texture2D" uid="uid://kr7rrgxst8l2" path="res://assets/Buttons Pixel Animation Pack/next/72px/next02.png" id="6_jkbbr"]
+[ext_resource type="Texture2D" uid="uid://bsdr7mab1wxvj" path="res://assets/Buttons Pixel Animation Pack/next/72px/next03.png" id="7_p6aa6"]
+[ext_resource type="Texture2D" uid="uid://dpoibvtpeka5t" path="res://assets/Buttons Pixel Animation Pack/next/72px/next04.png" id="8_13l8t"]
 
 [node name="RecipesBook" type="Node2D"]
 

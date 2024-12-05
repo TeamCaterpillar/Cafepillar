@@ -2,17 +2,34 @@ extends Control
 
 var recipes = [
 	{
-		"title": "Cake",
-		"ingredients": ["Flour", "Egg", "Sugar"],
+		"title": "Omlette",
+		"ingredients": ["Cheese", "Egg"],
 	},
 	{
-		"title": "Coffee",
-		"ingredients": ["Coffee Bean", "Water"],
+		"title": "Sunny-Side Up",
+		"ingredients": ["Egg x2"],
 	},
 	{
-		"title": "Smoothie",
-		"ingredients": ["Strawberry", "Ice"],
+		"title": "Nutty Salad",
+		"ingredients": ["Nuts", "Lettuce"],
+	},
+	{
+		"title": "Peanut Pastry",
+		"ingredients": ["Nuts", "Flour"],
+	},
+	{
+		"title": "Fuirty Salad",
+		"ingredients": ["Strawberry x2", "Lettuce"],
+	},
+	{
+		"title": "Rose Cake",
+		"ingredients": ["Rose Petals", "Flour", "Eggs", "Milk"],
+	},
+	{
+		"title": "Burger",
+		"ingredients": ["Beef", "Cheese", "Lettus", "Flour"],
 	}
+	
 ]
 
 var current_recipe_index = 0

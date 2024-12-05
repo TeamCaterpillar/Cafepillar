@@ -45,6 +45,8 @@ offset_bottom = 225.0
 
 [node name="Light" type="DirectionalLight2D" parent="DayNightCycle"]
 visible = false
+energy = 0.0
+height = 0.59
 
 [node name="SkipDay" type="Button" parent="DayNightCycle"]
 offset_left = 270.0
