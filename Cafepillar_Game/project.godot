@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="Cafepillar"
-run/main_scene="res://scenes/cafe_front.tscn"
+run/main_scene="res://scenes/world/cafe_front.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [autoload]
 
-GameManager="*res://scripts/game_manager.gd"
-TransitionScreen="*res://scenes/transition_screen.tscn"
-RecipeBookTransition="*res://scenes/recipe_book_transition.tscn"
+GameManager="*res://scripts/managers/game_manager.gd"
+TransitionScreen="*res://scenes/transitions/transition_screen.tscn"
+RecipeBookTransition="*res://scenes/transitions/recipe_book_transition.tscn"
 
 [display]
 

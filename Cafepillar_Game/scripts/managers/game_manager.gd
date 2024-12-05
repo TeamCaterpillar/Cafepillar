@@ -9,8 +9,8 @@ var waiter_queue: Array[Variant]      = []
 
 # Scene references
 var current_scene           = null
-const SCENE_KITCHEN: String = "res://scenes/kitchen.tscn"
-const SCENE_DINER: String   = "res://scenes/diner.tscn"
+const SCENE_KITCHEN: String = "res://scenes/world/kitchen.tscn"
+const SCENE_DINER: String   = "res://scenes/world/diner.tscn"
 
 
 

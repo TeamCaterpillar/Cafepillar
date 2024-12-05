@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://1ehrxx5avp2u"]
 
-[ext_resource type="Script" path="res://scripts/order_card.gd" id="1_y6483"]
-[ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://ui_theme.tres" id="3_eyyku"]
+[ext_resource type="Script" path="res://scripts/ui/order_card.gd" id="1_ybp7j"]
+[ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="2_pr0mi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wun7"]
 bg_color = Color(1, 0.760784, 0.690196, 1)
@@ -16,7 +16,7 @@ custom_minimum_size = Vector2(200, 200)
 offset_right = 135.0
 offset_bottom = 134.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8wun7")
-script = ExtResource("1_y6483")
+script = ExtResource("1_ybp7j")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(100, 30)
@@ -36,7 +36,7 @@ anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.111
 offset_bottom = 0.00300598
-theme = ExtResource("3_eyyku")
+theme = ExtResource("2_pr0mi")
 theme_type_variation = &"TimerBar"
 step = 1.0
 value = 100.0

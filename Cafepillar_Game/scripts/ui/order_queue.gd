@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 
 func _add_order(food_name: String):
 	# add food order to queue
-	var order_card_scene = load("res://scenes/order_card.tscn")
+	var order_card_scene = load("res://scenes/ui/order_card.tscn")
 	var order_card = order_card_scene.instantiate()
 	order_card.food_name = food_name
 	queue_container.add_child(order_card) 

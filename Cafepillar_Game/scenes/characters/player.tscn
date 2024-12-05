@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dkw27imy3jwh1"]
 
-[ext_resource type="Texture2D" uid="uid://ctk0yrwgvfxan" path="res://assets/sprites/char free/global.png" id="1_ay0gy"]
-[ext_resource type="Script" path="res://scripts/character.gd" id="1_tpsuq"]
+[ext_resource type="Script" path="res://scripts/characters/character.gd" id="1_pf0fd"]
+[ext_resource type="Texture2D" uid="uid://ctk0yrwgvfxan" path="res://assets/sprites/char free/global.png" id="2_lbw7u"]
 
 [sub_resource type="Animation" id="Animation_ae30t"]
 length = 0.001
@@ -65,11 +65,11 @@ size = Vector2(12, 20)
 [node name="CharacterBody2D" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 2
-script = ExtResource("1_tpsuq")
+script = ExtResource("1_pf0fd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 y_sort_enabled = true
-texture = ExtResource("1_ay0gy")
+texture = ExtResource("2_lbw7u")
 hframes = 8
 vframes = 12
 

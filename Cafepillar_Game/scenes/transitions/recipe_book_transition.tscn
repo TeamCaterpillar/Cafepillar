@@ -1,7 +1,22 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwhvaiuwy8uen"]
 
-[ext_resource type="Script" path="res://scripts/recipe_book_transition.gd" id="1_nkync"]
-[ext_resource type="Texture2D" uid="uid://cxvy8820vq7ui" path="res://assets/cards/blank_card.png" id="2_30mws"]
+[ext_resource type="Script" path="res://scripts/ui/recipe_book_transition.gd" id="1_hdauj"]
+[ext_resource type="Texture2D" uid="uid://cxjou7jwge4ia" path="res://assets/cards/blank_card.png" id="2_t7ixl"]
+
+[sub_resource type="Animation" id="Animation_qxhx7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Book:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_u8tom"]
 resource_name = "fade_to_black"
@@ -17,21 +32,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_qxhx7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Book:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_cp7mv"]
@@ -58,7 +58,7 @@ _data = {
 }
 
 [node name="RecipeBookTransition" type="CanvasLayer"]
-script = ExtResource("1_nkync")
+script = ExtResource("1_hdauj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -69,4 +69,4 @@ libraries = {
 modulate = Color(1, 1, 1, 0)
 position = Vector2(171.25, 217.75)
 scale = Vector2(0.476523, 0.448428)
-texture = ExtResource("2_30mws")
+texture = ExtResource("2_t7ixl")

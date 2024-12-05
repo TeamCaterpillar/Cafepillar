@@ -51,6 +51,7 @@ func update_light():
 func update_timer():
 	# Calculate hours and minutes from time_of_day
 	var total_minutes = int(time_of_day * 24 * 60)  # Total minutes in a day
+	@warning_ignore("integer_division")
 	var hours = (total_minutes / 60 + 6) % 24  # Offset by 6 hours (6:00 AM start)
 	var minutes = total_minutes % 60  # Remainder for minutes
 
