@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/scene/kitchen.gd" id="1_tfllf"]
-[ext_resource type="Texture2D" uid="uid://dfft7evi0bbdc" path="res://assets/backgrounds/kitchen_background.png" id="2_scie6"]
+[ext_resource type="Texture2D" uid="uid://2eqrp5mmj6a1" path="res://assets/backgrounds/kitchen_background.png" id="2_scie6"]
 [ext_resource type="PackedScene" uid="uid://b7fu4bn5lsbqf" path="res://scenes/ui/recipes_book.tscn" id="3_7126w"]
 [ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="6_noatd"]
 [ext_resource type="Script" path="res://scripts/factories/card_factory.gd" id="7_8i4sf"]
-[ext_resource type="PackedScene" uid="uid://dww8ran2hstjq" path="res://scenes/ui/stove.tscn" id="8_ab558"]
+[ext_resource type="PackedScene" path="res://scenes/ui/stove.tscn" id="8_ab558"]
 [ext_resource type="PackedScene" uid="uid://e87i8t6lw4ak" path="res://scenes/ui/tray.tscn" id="8_tg0xe"]
 [ext_resource type="Script" path="res://scripts/ui/order_queue.gd" id="10_765us"]
 

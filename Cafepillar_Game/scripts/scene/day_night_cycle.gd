@@ -1,3 +1,4 @@
+class_name DayNightCycle
 extends Node2D
 
 # Time management

@@ -7,15 +7,6 @@
 class_name GCardHandLayout
 extends Control
 
-## Emits when a card is hovered.
-signal card_hoverd(card:Control, index:int)
-## Emits when all the cards are unhovered.
-signal cards_unhovered()
-## Emits when a card starts being dragged.
-signal card_dragging_started(card:Control, index:int)
-## Emits when a dragged card is released.
-signal card_dragging_finished(card:Control, index:int)
-
 @export_group("idle layout")
 ## Set radius dynamically based on the number of cards. ([member radius] = [member dynamic_radius_factor] * number_of_cards).[br][br]
 ## If [b]true[/b], [member radius] is ignored.
@@ -243,9 +234,9 @@ func _set_hovered_index(val:int):
 			hover_sound.play()
 		card = get_children()[hovered_index]
 	if hovered_index >= 0:
-		card_hoverd.emit(card, hovered_index)
+		pass
 	else:
-		cards_unhovered.emit()
+		pass
 
 
 func _set_hover_padding(val:float):
@@ -308,7 +299,6 @@ func _on_child_gui_input(event:InputEvent, card:Control):
 			_dragging_mouse_position = card.get_local_mouse_position()
 			_dragging_card.z_index = 1
 			hovered_index = -1 #Set hover index without trigger relayout
-			card_dragging_started.emit(_dragging_card, _dragging_index)
 			_reset_positions_if_in_tree()
 		elif !mouse_button_event.pressed && mouse_button_event.button_index == MOUSE_BUTTON_LEFT:
 			assert(_dragging_card == card)
@@ -324,7 +314,6 @@ func _on_child_gui_input(event:InputEvent, card:Control):
 			
 			_dragging_card = null
 			card.z_index = 0
-			card_dragging_finished.emit(card, _dragging_index)
 			_dragging_index = -100
 			_reset_positions_if_in_tree()
 
