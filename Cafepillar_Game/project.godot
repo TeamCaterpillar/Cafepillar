@@ -20,6 +20,7 @@ config/icon="res://assets/icon.svg"
 GameManager="*res://scripts/managers/game_manager.gd"
 TransitionScreen="*res://scenes/transitions/transition_screen.tscn"
 RecipeBookTransition="*res://scenes/transitions/recipe_book_transition.tscn"
+GameSignals="*res://scripts/signals.gd"
 
 [display]
 
