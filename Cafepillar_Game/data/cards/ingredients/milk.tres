@@ -6,4 +6,4 @@
 script = ExtResource("1_cq2wi")
 name = "milk"
 availability = "day_2"
-sprite_path = "res://assets/cards/placeholder_ingredient.png"
+sprite_path = "res://assets/cards/milk.png"
