@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwhvaiuwy8uen"]
 
 [ext_resource type="Script" path="res://scripts/ui/recipe_book_transition.gd" id="1_hdauj"]
-[ext_resource type="Texture2D" uid="uid://cxjou7jwge4ia" path="res://assets/cards/blank_card.png" id="2_t7ixl"]
+[ext_resource type="Texture2D" uid="uid://cxvy8820vq7ui" path="res://assets/cards/blank_card.png" id="2_t7ixl"]
 
 [sub_resource type="Animation" id="Animation_qxhx7"]
 length = 0.001

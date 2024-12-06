@@ -1,4 +1,9 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bas6smt1iwb1f"]
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bas6smt1iwb1f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fk5s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tlmsc"]
+bg_color = Color(0.353826, 0.598307, 0.967631, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58c5t"]
 
@@ -15,7 +20,14 @@ bg_color = Color(0.782774, 0.195249, 0.184705, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ocmjk"]
 bg_color = Color(0.937255, 0.87451, 0.2, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdvgk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pr287"]
+
 [resource]
+SatisfactoryBar/base_type = &"ProgressBar"
+SatisfactoryBar/styles/background = SubResource("StyleBoxFlat_2fk5s")
+SatisfactoryBar/styles/fill = SubResource("StyleBoxFlat_tlmsc")
 TimerBar/base_type = &"ProgressBar"
 TimerBar/styles/background = SubResource("StyleBoxFlat_58c5t")
 TimerBar/styles/fill = SubResource("StyleBoxFlat_toqed")
@@ -25,3 +37,5 @@ TimerBarLow/styles/fill = SubResource("StyleBoxFlat_ornhe")
 TimerBarMid/base_type = &"ProgressBar"
 TimerBarMid/styles/background = SubResource("StyleBoxFlat_r1iy6")
 TimerBarMid/styles/fill = SubResource("StyleBoxFlat_ocmjk")
+TimerBarReset/styles/background = SubResource("StyleBoxFlat_qdvgk")
+TimerBarReset/styles/fill = SubResource("StyleBoxFlat_pr287")
