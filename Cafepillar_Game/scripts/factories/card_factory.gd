@@ -2,19 +2,34 @@ extends Node
 class_name CardFactory
 
 const SLOT_SIZE_OFFSET : Vector2 = Vector2(5.0, 5.0)
+const HAND_SIZE: int = 5
 
 @export var base_path: String = "res://data/cards/"
 # @export var card_scene: PackedScene # Card scene to instantiate
 @export var card_deck: GCardHandLayout # Reference to the card deck
 
+@onready var inventory_deck: TextureButton = $"../InventoryDeck/TextureButton"
+
 var card_size : Vector2 = Vector2(80.0, 100.0) # replace with whatever size needed, must have ratio 4/5 - x/y
 var card_pivot : Vector2 = Vector2(card_size.x/2, 0.0) # must be half the x size value
+var cur_subset_num: int = 0
 
 
 # testing factory methods
 func _ready() -> void:
-	transfer_inventory_into_hand(GameManager.kitchen_inventory)
+	inventory_deck.pressed.connect(_on_deck_click)
+	transfer_cards_into_hand()
 
+
+func _on_deck_click() -> void:
+	cur_subset_num += 1
+	
+	if cur_subset_num >= GameManager.kitchen_inventory.size() / HAND_SIZE:
+		cur_subset_num = 0
+	print("currently on subset " + str(cur_subset_num))
+	
+	clear_hand()
+	transfer_cards_into_hand()
 
 # Create a single card
 func create_card(card_name: String, card_type: String) -> void:
@@ -36,6 +51,15 @@ func create_card(card_name: String, card_type: String) -> void:
 	# Print the card's state
 	print("Created card: ", card_name, " of type: ", card_type, " from resource path: ", resource_path)
 
-func transfer_inventory_into_hand(inventory: Array[Variant]) -> void:
-	for item in inventory:
+
+func clear_hand() -> void:
+	for card in card_deck.get_children():
+		card_deck.remove_child(card)
+
+
+func transfer_cards_into_hand() -> void:
+	var subset_start = cur_subset_num * HAND_SIZE
+	var subset_end = (cur_subset_num * HAND_SIZE) + HAND_SIZE
+	var subset = GameManager.kitchen_inventory.slice(subset_start, subset_end)
+	for item in subset:
 		create_card(item, "ingredients")

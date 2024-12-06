@@ -2,7 +2,7 @@ extends Node
 
 # Game state variables
 var current_day : int = 0
-var golden_seeds : int                = 0
+var golden_seeds : int = 0
 var kitchen_inventory: Array[Variant] = []
 var active_orders: Array[Variant]     = []
 var waiter_queue: Array[Variant]      = []
@@ -65,9 +65,10 @@ func remove_currency(_amount: int) -> void:
 
 
 # Manage kitchen ingrediants storage
-func add_to_storage(item: String): # ADD CARD OBJECT USING FACTORY TO INVENTORY
-	kitchen_inventory.append(item)
-	print("Added to inventory:", item)
+func add_to_storage(item: String, quantity: int): # ADD CARD OBJECT USING FACTORY TO INVENTORY
+	for i in range(quantity):
+		kitchen_inventory.append(item)
+	print("Added to inventory:" + str(quantity) + item)
 
 func remove_from_storage(item: String):
 	if item in kitchen_inventory:
@@ -98,9 +99,10 @@ func start_cooking_timer(duration: float, callback: Callable):
 
 # inventory management methods
 func initialize_inventory() -> void:
-	add_to_storage("nut")
-	add_to_storage("egg")
-	add_to_storage("tea_leave")
-	add_to_storage("lettuce")
-	add_to_storage("coffee_bean")
-	add_to_storage("cheese")
+	add_to_storage("nut", 20)
+	add_to_storage("egg", 20)
+	add_to_storage("tea_leave", 20)
+	add_to_storage("lettuce", 20)
+	add_to_storage("coffee_bean", 20)
+	add_to_storage("cheese", 20)
+	kitchen_inventory.shuffle()

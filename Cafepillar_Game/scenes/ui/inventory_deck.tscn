@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://4qmb7oyj0hhb"]
+
+[ext_resource type="Script" path="res://scripts/ui/inventory_deck.gd" id="1_dtivv"]
+[ext_resource type="Texture2D" uid="uid://dcm7ttmu8gbms" path="res://assets/cards/deck.png" id="1_dudpo"]
+
+[node name="InventoryDeck" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1920.0
+offset_bottom = -1080.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dtivv")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 716.0
+offset_bottom = 969.0
+scale = Vector2(0.1, 0.1)
+texture_normal = ExtResource("1_dudpo")
