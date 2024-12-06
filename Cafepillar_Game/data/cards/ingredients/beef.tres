@@ -6,4 +6,4 @@
 script = ExtResource("1_ufluc")
 name = "beef"
 availability = "day_3"
-sprite_path = "res://assets/cards/placeholder_ingredient.png"
+sprite_path = "res://assets/cards/beef.png"

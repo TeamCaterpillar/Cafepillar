@@ -4,3 +4,5 @@
 
 [node name="Customer" type="Node2D"]
 script = ExtResource("1_goek5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

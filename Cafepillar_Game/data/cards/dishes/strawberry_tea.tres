@@ -11,6 +11,6 @@ quality_thresholds = {
 "perfect": 3.0,
 "satisfactory": 4.0
 }
-sprite_path = "res://assets/cards/placeholder_ingredient.png"
+sprite_path = "res://assets/cards/strawberry_tea.png"
 ingredients = ["strawberry", "tea_leave"]
 cookware = ["cup"]
