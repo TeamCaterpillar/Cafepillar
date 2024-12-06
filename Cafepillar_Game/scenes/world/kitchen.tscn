@@ -44,6 +44,7 @@ position = Vector2(960, 540)
 texture = ExtResource("2_scie6")
 
 [node name="RecipesBook" parent="." instance=ExtResource("3_7126w")]
+position = Vector2(269, 109)
 
 [node name="KitchenLabel" type="Label" parent="."]
 layout_mode = 1
