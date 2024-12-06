@@ -1,22 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://dn3urr1xccmik"]
+[gd_scene load_steps=10 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/scene/kitchen.gd" id="1_tfllf"]
 [ext_resource type="Texture2D" uid="uid://dfft7evi0bbdc" path="res://assets/backgrounds/kitchen_background.png" id="2_scie6"]
 [ext_resource type="PackedScene" uid="uid://b7fu4bn5lsbqf" path="res://scenes/ui/recipes_book.tscn" id="3_7126w"]
-[ext_resource type="Script" path="res://scripts/appliances/stove.gd" id="3_eipnb"]
-[ext_resource type="Script" path="res://scripts/appliances/slot.gd" id="5_qvdr3"]
 [ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="6_noatd"]
 [ext_resource type="Script" path="res://scripts/factories/card_factory.gd" id="7_8i4sf"]
-[ext_resource type="Texture2D" uid="uid://bjuyjlebiava4" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="7_uxeu6"]
+[ext_resource type="PackedScene" uid="uid://dww8ran2hstjq" path="res://scenes/ui/stove.tscn" id="8_ab558"]
 [ext_resource type="PackedScene" uid="uid://e87i8t6lw4ak" path="res://scenes/ui/tray.tscn" id="8_tg0xe"]
 [ext_resource type="Script" path="res://scripts/ui/order_queue.gd" id="10_765us"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
 font_size = 50
 font_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_gmo2y"]
-font_size = 40
 
 [node name="Kitchen" type="Control"]
 custom_minimum_size = Vector2(1920, 1080)
@@ -63,45 +58,6 @@ offset_right = 196.12
 offset_bottom = -310.52
 text = "Kitchen!!!!!"
 label_settings = SubResource("LabelSettings_au7mt")
-
-[node name="Stove" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 0
-offset_left = 865.0
-offset_top = 288.0
-offset_right = 1065.0
-offset_bottom = 488.0
-color = Color(0.139191, 0.000225878, 0.349418, 1)
-script = ExtResource("3_eipnb")
-
-[node name="Label" type="Label" parent="Stove"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -101.0
-offset_top = 1.0
-offset_right = 99.0
-offset_bottom = 201.0
-grow_horizontal = 2
-text = "Stove!!"
-label_settings = SubResource("LabelSettings_gmo2y")
-horizontal_alignment = 1
-
-[node name="Slot1" type="TextureRect" parent="Stove" groups=["CardSlot"]]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.404
-anchor_top = 0.789
-anchor_right = 0.404
-anchor_bottom = 0.789
-offset_left = -22.8
-offset_top = -73.8
-offset_right = 67.2001
-offset_bottom = 36.2
-texture = ExtResource("7_uxeu6")
-expand_mode = 1
-script = ExtResource("5_qvdr3")
 
 [node name="OrderQueue" type="Control" parent="."]
 anchors_preset = 0
@@ -169,3 +125,10 @@ script = ExtResource("6_noatd")
 dynamic_radius_factor = 70.0
 circle_percentage = 0.08
 enable_dragging = true
+
+[node name="Stove" parent="." instance=ExtResource("8_ab558")]
+layout_mode = 0
+offset_left = 851.0
+offset_top = 376.0
+offset_right = 1051.0
+offset_bottom = 576.0

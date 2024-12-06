@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dww8ran2hstjq"]
+
+[ext_resource type="Texture2D" uid="uid://bjuyjlebiava4" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="1_dsmq1"]
+[ext_resource type="Script" path="res://scripts/appliances/stove.gd" id="2_rscoo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_islog"]
+font_size = 40
+
+[node name="Stove" type="ColorRect"]
+custom_minimum_size = Vector2(200, 200)
+offset_left = 865.0
+offset_top = 288.0
+offset_right = 1065.0
+offset_bottom = 488.0
+color = Color(0.139191, 0.000225878, 0.349418, 1)
+
+[node name="StoveSlot" type="TextureRect" parent="." groups=["CardSlot"]]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.789
+anchor_right = 0.404
+anchor_bottom = 0.789
+offset_left = -22.8
+offset_top = -73.8
+offset_right = 67.2
+offset_bottom = 36.2
+texture = ExtResource("1_dsmq1")
+expand_mode = 1
+script = ExtResource("2_rscoo")
+
+[node name="StoveLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -101.0
+offset_top = 1.0
+offset_right = 98.9999
+offset_bottom = 201.0
+grow_horizontal = 2
+text = "Stove!!"
+label_settings = SubResource("LabelSettings_islog")
+horizontal_alignment = 1
