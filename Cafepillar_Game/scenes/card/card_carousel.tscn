@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://byh77qr6pn8vx"]
+[gd_scene load_steps=4 format=3 uid="uid://btqfturm4sy7w"]
 
-[ext_resource type="Script" path="res://scripts/card_carousel.gd" id="1_nhchc"]
+[ext_resource type="Script" path="res://scripts/unused/card_DEPRICATED.gd" id="1_nhchc"]
 [ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="2_d3o7n"]
-[ext_resource type="Texture2D" uid="uid://bwubw4w4mdclm" path="res://assets/cards/blank_card.png" id="3_osatu"]
+[ext_resource type="Texture2D" uid="uid://n6n46lg4esjm" path="res://assets/cards/blank_card.png" id="3_osatu"]
 
 [node name="CardCarousel" type="Control"]
 layout_mode = 3
