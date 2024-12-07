@@ -25,7 +25,7 @@ var _time_elapsed : float = 0.0
 var cooking : bool = false
 var tween
 # default value
-var _food_quality = "undercooked"
+var _food_quality = "Undercooked"
 var recipe: String = ""
 
 
@@ -54,19 +54,19 @@ func _update_timer_bar_color() -> void:
 	# color is green; food is perfect
 	if _time_elapsed >= _timer_duration * PERFECT_MIN_PERCENT and _time_elapsed <= _timer_duration * PERFECT_MAX_PERCENT:
 		timer_bar.set_theme_type_variation("TimerBar")
-		_food_quality = "perfect"
+		_food_quality = "Perfect"
 	# color is yellow; food is undercooked
 	elif _time_elapsed < _timer_duration * SATISFACTORY_MIN_PERCENT:
 		timer_bar.set_theme_type_variation("TimerBarMid")
-		_food_quality = "undercooked"
+		_food_quality = "Undercooked"
 	# color is blue; food is satisfactory
 	elif _time_elapsed >= _timer_duration * SATISFACTORY_MIN_PERCENT and _time_elapsed < _timer_duration * PERFECT_MIN_PERCENT:
 		timer_bar.set_theme_type_variation("SatisfactoryBar")
-		_food_quality = "satisfactory"
+		_food_quality = "Satisfactory"
 	# color is red; food is burnt
 	else:
 		timer_bar.set_theme_type_variation("TimerBarLow")
-		_food_quality = "burnt"
+		_food_quality = "Burnt"
 
 	
 func _on_StartButton_pressed():
@@ -104,11 +104,13 @@ func _on_DoneButton_pressed():
 	# add dish card on stove
 	card_factory.create_card_for_stove(recipe.to_lower().replace(" ", "_"), "dishes")
 	
-	# spawn food card
-	print("Spawn " + str(_food_quality) + " " + recipe)
+	status_label.text = ("Result: " + str(_food_quality) + " " + recipe + "!")
 
 
 func _on_RemoveButton_pressed():
+	# Clear status label
+	status_label.text = ""
+	
 	# Remove all ingredients and add them to hand
 	while !stove_slot.card_resources.is_empty():
 		stove_slot.remove_child(stove_slot.get_child(0))
