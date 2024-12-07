@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b7fu4bn5lsbqf" path="res://scenes/ui/recipes_book.tscn" id="3_7126w"]
 [ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="6_noatd"]
 [ext_resource type="Script" path="res://scripts/factories/card_factory.gd" id="7_8i4sf"]
-[ext_resource type="PackedScene" uid="uid://dn42wje0mrstq" path="res://scenes/ui/stove.tscn" id="8_ab558"]
+[ext_resource type="PackedScene" uid="uid://dww8ran2hstjq" path="res://scenes/ui/stove.tscn" id="8_ab558"]
 [ext_resource type="PackedScene" uid="uid://e87i8t6lw4ak" path="res://scenes/ui/tray.tscn" id="8_tg0xe"]
 [ext_resource type="PackedScene" uid="uid://cw37cfifxghu0" path="res://scenes/ui/cooking_timer_bar.tscn" id="9_u4igr"]
 [ext_resource type="Script" path="res://scripts/ui/order_queue.gd" id="10_765us"]

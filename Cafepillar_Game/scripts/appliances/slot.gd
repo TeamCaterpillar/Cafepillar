@@ -52,6 +52,12 @@ func check_recipe() -> bool:
 func normalize_ingredient(ingredient: String) -> Array:
 	var parts = ingredient.split(" x")
 	var name = parts[0].to_lower().replace(" ", "_")
+	
+	# Remove trailing 's' to singularize
+	if name.ends_with("s") and not name.ends_with(" x2"):  # Avoid removing 's' in cases like 'x2'
+		name = name.substr(0, name.length() - 1)
+	
+	# Determine quantity
 	var quantity = int(parts[1]) if parts.size() > 1 else 1
 	
 	# Create an array with the ingredient repeated `quantity` times
@@ -65,7 +71,7 @@ func normalize_ingredient(ingredient: String) -> Array:
 func normalize_ingredients(ingredients: Array) -> Array:
 	var normalized_list = []
 	for ingredient in ingredients:
-		normalized_list += normalize_ingredient(ingredient)
+		normalized_list += normalize_ingredient(ingredient)  # Append expanded and normalized ingredients
 	return normalized_list
 
 
