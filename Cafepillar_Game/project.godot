@@ -36,6 +36,7 @@ enabled=PackedStringArray("res://addons/godot_card_layout/plugin.cfg")
 
 CardSlot=""
 Ingredient=""
+Dish=""
 
 [input]
 

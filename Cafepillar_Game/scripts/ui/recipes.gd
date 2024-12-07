@@ -6,7 +6,7 @@ var recipes = [
 		"ingredients": ["Cheese", "Egg"],
 	},
 	{
-		"title": "Sunny-Side Up",
+		"title": "Sunny Side Up",
 		"ingredients": ["Egg x2"],
 	},
 	{

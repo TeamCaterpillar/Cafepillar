@@ -48,16 +48,18 @@ func check_recipe() -> String:
 	print("No matching recipe found.")
 	return "Null"
 
-
+# ************************************ 
+# Parser for normalizing recipes for comparision
+#
 func normalize_ingredient(ingredient: String) -> Array:
 	var parts = ingredient.split(" x")
 	var name = parts[0].to_lower().replace(" ", "_")
 	
 	# Remove trailing 's' to singularize
-	if name.ends_with("s") and not name.ends_with(" x2"):  # Avoid removing 's' in cases like 'x2'
+	if name.ends_with("s") and !name.ends_with(" x2"):  
 		name = name.substr(0, name.length() - 1)
 	
-	# Determine quantity
+	# Handle quantities
 	var quantity = int(parts[1]) if parts.size() > 1 else 1
 	
 	# Create an array with the ingredient repeated `quantity` times
@@ -71,14 +73,16 @@ func normalize_ingredient(ingredient: String) -> Array:
 func normalize_ingredients(ingredients: Array) -> Array:
 	var normalized_list = []
 	for ingredient in ingredients:
-		normalized_list += normalize_ingredient(ingredient)  # Append expanded and normalized ingredients
+		normalized_list += normalize_ingredient(ingredient)
 	return normalized_list
 
 
 func ingredients_match(recipe_ingredients: Array, stove_ingredients: Array) -> bool:
 	var normalized_recipe = normalize_ingredients(recipe_ingredients)
 	var normalized_stove = normalize_ingredients(stove_ingredients)
-	for ingredient in normalized_recipe:
-		if normalized_stove.count(ingredient) < normalized_recipe.count(ingredient):
-			return false
-	return true
+	normalized_recipe.sort()
+	normalized_stove.sort()
+	return normalized_recipe == normalized_stove
+#
+# END OF PARSER
+# ************************************ 

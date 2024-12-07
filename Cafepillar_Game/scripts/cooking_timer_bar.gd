@@ -26,6 +26,7 @@ var cooking : bool = false
 var tween
 # default value
 var _food_quality = "undercooked"
+var recipe: String = ""
 
 
 func _ready() -> void:
@@ -69,13 +70,14 @@ func _update_timer_bar_color() -> void:
 
 	
 func _on_StartButton_pressed():
-	var recipe = stove_slot.check_recipe()
+	recipe = stove_slot.check_recipe()
 	if recipe != "Null":
 		# put all the code below in the if statement checking for valid food
 		cooking = true
 		color_rect.visible = true
 		done_button.visible = true
 		start_button.visible = false
+		remove_button.visible = false
 		status_label.text = "Preparing " + recipe + "..."
 		# animate cooking timer
 		if tween == null:
@@ -90,24 +92,25 @@ func _on_DoneButton_pressed():
 	start_button.visible = true
 	color_rect.visible = false
 	done_button.visible = false
+	remove_button.visible = true
+	
+	# remove all cards on stove
+	var children = stove_slot.get_children()
+	for child in children:
+		child.free()
+		
+	stove_slot.card_resources.clear()
+	
+	# add dish card on stove
+	card_factory.create_card_for_stove(recipe.to_lower().replace(" ", "_"), "dishes")
+	
 	# spawn food card
-	print("Spawn " + str(_food_quality) + " food card")
+	print("Spawn " + str(_food_quality) + " " + recipe)
 
 
 func _on_RemoveButton_pressed():
-	while stove_slot.get_child_count() > 0:
+	while !stove_slot.card_resources.is_empty():
 		stove_slot.remove_child(stove_slot.get_child(0))
 		# add back to hand
 		card_factory.create_card(stove_slot.card_resources[0], "ingredients")
 		stove_slot.card_resources.pop_front()
-
-# function that checks the current ingredients in the slot
-# return the food card that matches the recipe book, otherwise return null
-# update the time it takes to cook the food
-func _check_valid_food():
-	pass
-	# check if the ingredient cards in the slot match the ingredients of one of the food cards
-	# if it does, get the food card; if not, return null
-	# _time_it_takes_to_cook = food.time
-	# _timer_duration = _time_it_takes_to_cook / PERFECT_MIN_PERCENT
-	# return food_card
