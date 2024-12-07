@@ -2,7 +2,7 @@ extends Control
 
 var recipes = [
 	{
-		"title": "Omlette",
+		"title": "Omelette",
 		"ingredients": ["Cheese", "Egg"],
 	},
 	{
@@ -18,7 +18,7 @@ var recipes = [
 		"ingredients": ["Nuts", "Flour"],
 	},
 	{
-		"title": "Fuirty Salad",
+		"title": "Fruity Salad",
 		"ingredients": ["Strawberry x2", "Lettuce"],
 	},
 	{
