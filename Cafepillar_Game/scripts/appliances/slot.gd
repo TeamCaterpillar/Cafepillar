@@ -34,16 +34,3 @@ func _on_child_entered_tree(node: Node) -> void:
 	if node.is_in_group("Ingredient"):
 		card_resources.append(node.card_resource.name)
 		print("Dropped " , card_resources.back(), " into " , get_parent().name , " slot.")
-	else:
-		print("ERROR WHY IS ", node, " BEING ADDED!!")
-		move_card_back_to_deck(node)
-
-
-func move_card_back_to_deck(child : Node) -> void:
-	pass
-	#deck.add_child(child)
-	#remove_child(child)
-
-
-func get_card_resources() -> Array:
-	return card_resources

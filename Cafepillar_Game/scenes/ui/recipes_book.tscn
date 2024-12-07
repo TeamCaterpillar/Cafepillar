@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b7fu4bn5lsbqf"]
 
 [ext_resource type="Texture2D" uid="uid://bnxdfg7mb7p41" path="res://assets/cards/blank_card.png" id="1_c8vbv"]
-[ext_resource type="Script" path="res://scripts/ui/v_box_container.gd" id="2_ficl4"]
+[ext_resource type="Script" path="res://scripts/ui/recipes.gd" id="2_ficl4"]
 [ext_resource type="Texture2D" uid="uid://bw1fmv0qu2wme" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="3_6k3mo"]
 [ext_resource type="Texture2D" uid="uid://coo02j84jd71a" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="4_0e7ny"]
 [ext_resource type="Texture2D" uid="uid://j5d686jeggqh" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="5_4gksq"]
@@ -16,21 +16,21 @@ position = Vector2(171.25, 217.75)
 scale = Vector2(0.476523, 0.448428)
 texture = ExtResource("1_c8vbv")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Recipes" type="VBoxContainer" parent="."]
 offset_left = 17.0
 offset_top = 32.0
 offset_right = 331.0
 offset_bottom = 195.0
 script = ExtResource("2_ficl4")
 
-[node name="RecipeTitle" type="Label" parent="VBoxContainer"]
+[node name="RecipeTitle" type="Label" parent="Recipes"]
 modulate = Color(1, 0.559918, 0.869049, 1)
 visibility_layer = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 
-[node name="RecipeIngredients" type="Label" parent="VBoxContainer"]
+[node name="RecipeIngredients" type="Label" parent="Recipes"]
 modulate = Color(0, 0, 0, 1)
 visibility_layer = 3
 layout_mode = 2
