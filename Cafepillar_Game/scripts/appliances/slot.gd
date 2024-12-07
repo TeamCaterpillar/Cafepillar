@@ -37,16 +37,16 @@ func _on_child_entered_tree(node: Node) -> void:
 		print("Dropped " , card_resources.back(), " into " , get_parent().name , " slot.")
 
 
-func check_recipe() -> bool:
+func check_recipe() -> String:
 	for recipe in recipes:
 		var normalized_recipe_ingredients = normalize_ingredients(recipe["ingredients"])
 		var normalized_stove_ingredients = normalize_ingredients(card_resources)
 		
 		if ingredients_match(normalized_recipe_ingredients, normalized_stove_ingredients):
 			print("Matched Recipe: ", recipe["title"])
-			return true
+			return recipe["title"]
 	print("No matching recipe found.")
-	return false
+	return "Null"
 
 
 func normalize_ingredient(ingredient: String) -> Array:

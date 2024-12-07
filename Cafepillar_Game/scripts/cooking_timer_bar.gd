@@ -5,6 +5,7 @@ extends Control
 @onready var remove_button: TextureButton = $RemoveButton
 @onready var timer_bar: ProgressBar = $ColorRect/TimerBar
 @onready var color_rect: ColorRect = $ColorRect
+@onready var status_label: Label = $Status
 @onready var stove_slot: Slot = $"../Stove/StoveSlot"
 @onready var card_factory: Node = $"../CardFactory"
 
@@ -68,19 +69,20 @@ func _update_timer_bar_color() -> void:
 
 	
 func _on_StartButton_pressed():
-	
-	if stove_slot.check_recipe():
+	var recipe = stove_slot.check_recipe()
+	if recipe != "Null":
 		# put all the code below in the if statement checking for valid food
 		cooking = true
 		color_rect.visible = true
 		done_button.visible = true
 		start_button.visible = false
+		status_label.text = "Preparing " + recipe + "..."
 		# animate cooking timer
 		if tween == null:
 			tween = create_tween()
 			tween.tween_property(timer_bar, "value", 100.0, _timer_duration)
-	#else:
-	# show some kind of error message to the screen saying to follow the recipe correctly or smt
+	else:
+		status_label.text = "No Recipes Found..."
 
 
 func _on_DoneButton_pressed():
