@@ -324,7 +324,6 @@ func _get_slot_under_point(global_pos : Vector2) -> Control:
 	for slot in slots:
 		if slot.is_inside_tree():
 			if Rect2(slot.global_position, slot.size).has_point(global_pos):
-				#print("reached")
 				return slot
 	return null
 	

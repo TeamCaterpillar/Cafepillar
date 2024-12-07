@@ -2,8 +2,11 @@ extends Control
 
 @onready var start_button: TextureButton = $StartButton
 @onready var done_button: TextureButton = $DoneButton
+@onready var remove_button: TextureButton = $RemoveButton
 @onready var timer_bar: ProgressBar = $ColorRect/TimerBar
 @onready var color_rect: ColorRect = $ColorRect
+@onready var stove_slot: Slot = $"../Stove/StoveSlot"
+@onready var card_factory: Node = $"../CardFactory"
 
 
 # the tick mark at 70% is the time it takes to make the food according to the food card
@@ -27,6 +30,7 @@ var _food_quality = "undercooked"
 func _ready() -> void:
 	$StartButton.connect("pressed", Callable(self, "_on_StartButton_pressed"))
 	$DoneButton.connect("pressed", Callable(self, "_on_DoneButton_pressed"))
+	$RemoveButton.connect("pressed", Callable(self, "_on_RemoveButton_pressed"))
 	color_rect.visible = false
 	done_button.visible = false
 
@@ -64,8 +68,11 @@ func _update_timer_bar_color() -> void:
 
 	
 func _on_StartButton_pressed():
-	# check if food card can be made with available ingredients
-	#if _check_valid_food() != null:
+	
+	print(stove_slot.get_card_resources())
+	
+	
+	
 	# put all the code below in the if statement checking for valid food
 	cooking = true
 	color_rect.visible = true
@@ -87,6 +94,13 @@ func _on_DoneButton_pressed():
 	# spawn food card
 	print("Spawn " + str(_food_quality) + " food card")
 
+
+func _on_RemoveButton_pressed():
+	while stove_slot.get_child_count() > 0:
+		stove_slot.remove_child(stove_slot.get_child(0))
+		# add back to hand
+		card_factory.create_card(stove_slot.card_resources[0], "ingredients")
+		stove_slot.card_resources.pop_front()
 
 # function that checks the current ingredients in the slot
 # return the food card that matches the recipe book, otherwise return null

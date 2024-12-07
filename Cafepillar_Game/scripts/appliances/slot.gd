@@ -5,7 +5,7 @@ class_name Slot
 
 # @onready var yes_button: TextureButton = $"../../Tray/YesButton"
 
-var card_resource
+var card_resources = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -32,14 +32,18 @@ func _process(_delta: float) -> void:
 
 func _on_child_entered_tree(node: Node) -> void:
 	if node.is_in_group("Ingredient"):
-		card_resource = node.card_resource
-		print("Dropped " , card_resource.name, " into " , get_parent().name , " slot.")
+		card_resources.append(node.card_resource.name)
+		print("Dropped " , card_resources.back(), " into " , get_parent().name , " slot.")
 	else:
 		print("ERROR WHY IS ", node, " BEING ADDED!!")
-		_move_card_back_to_deck(node)
+		move_card_back_to_deck(node)
 
 
-func _move_card_back_to_deck(child : Node) -> void:
-	remove_child(child)
-	deck.add_child(child)
-	 
+func move_card_back_to_deck(child : Node) -> void:
+	pass
+	#deck.add_child(child)
+	#remove_child(child)
+
+
+func get_card_resources() -> Array:
+	return card_resources
