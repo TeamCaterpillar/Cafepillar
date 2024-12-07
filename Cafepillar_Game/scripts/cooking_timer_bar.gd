@@ -69,19 +69,16 @@ func _update_timer_bar_color() -> void:
 	
 func _on_StartButton_pressed():
 	
-	print(stove_slot.get_card_resources())
-	
-	
-	
-	# put all the code below in the if statement checking for valid food
-	cooking = true
-	color_rect.visible = true
-	done_button.visible = true
-	start_button.visible = false
-	# animate cooking timer
-	if tween == null:
-		tween = create_tween()
-		tween.tween_property(timer_bar, "value", 100.0, _timer_duration)
+	if stove_slot.check_recipe():
+		# put all the code below in the if statement checking for valid food
+		cooking = true
+		color_rect.visible = true
+		done_button.visible = true
+		start_button.visible = false
+		# animate cooking timer
+		if tween == null:
+			tween = create_tween()
+			tween.tween_property(timer_bar, "value", 100.0, _timer_duration)
 	#else:
 	# show some kind of error message to the screen saying to follow the recipe correctly or smt
 

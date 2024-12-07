@@ -3,9 +3,10 @@ class_name Slot
 
 @export var deck : GCardHandLayout
 
+@onready var recipes: Array = $"../../RecipesBook/Recipes".recipes
 # @onready var yes_button: TextureButton = $"../../Tray/YesButton"
 
-var card_resources = []
+var card_resources: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,3 +35,44 @@ func _on_child_entered_tree(node: Node) -> void:
 	if node.is_in_group("Ingredient"):
 		card_resources.append(node.card_resource.name)
 		print("Dropped " , card_resources.back(), " into " , get_parent().name , " slot.")
+
+
+func check_recipe() -> bool:
+	for recipe in recipes:
+		var normalized_recipe_ingredients = normalize_ingredients(recipe["ingredients"])
+		var normalized_stove_ingredients = normalize_ingredients(card_resources)
+		
+		if ingredients_match(normalized_recipe_ingredients, normalized_stove_ingredients):
+			print("Matched Recipe: ", recipe["title"])
+			return true
+	print("No matching recipe found.")
+	return false
+
+
+func normalize_ingredient(ingredient: String) -> Array:
+	var parts = ingredient.split(" x")
+	var name = parts[0].to_lower().replace(" ", "_")
+	var quantity = int(parts[1]) if parts.size() > 1 else 1
+	
+	# Create an array with the ingredient repeated `quantity` times
+	var result = []
+	for i in range(quantity):
+		result.append(name)
+	
+	return result
+
+
+func normalize_ingredients(ingredients: Array) -> Array:
+	var normalized_list = []
+	for ingredient in ingredients:
+		normalized_list += normalize_ingredient(ingredient)
+	return normalized_list
+
+
+func ingredients_match(recipe_ingredients: Array, stove_ingredients: Array) -> bool:
+	var normalized_recipe = normalize_ingredients(recipe_ingredients)
+	var normalized_stove = normalize_ingredients(stove_ingredients)
+	for ingredient in normalized_recipe:
+		if normalized_stove.count(ingredient) < normalized_recipe.count(ingredient):
+			return false
+	return true
