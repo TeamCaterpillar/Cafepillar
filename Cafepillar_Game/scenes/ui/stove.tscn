@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dww8ran2hstjq"]
 
-[ext_resource type="Texture2D" uid="uid://ciobj7lbcprkd" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="1_dsmq1"]
+[ext_resource type="Texture2D" uid="uid://sthkpipkrr4e" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="1_dsmq1"]
 [ext_resource type="Script" path="res://scripts/appliances/slot.gd" id="2_rscoo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_islog"]

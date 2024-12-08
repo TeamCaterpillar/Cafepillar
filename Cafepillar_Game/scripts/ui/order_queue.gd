@@ -2,17 +2,23 @@ extends Control
 class_name OrderQueue
 
 @onready var queue_container = $VBoxContainer
+@onready var recipes: Array = $"../RecipesBook/Recipes".recipes
+# @onready var recipes: Array = $Recipes.recipes
 
 # timer to randomly add food items every second
 # remove later
 var _timer: float = 0.0
 
-var food_items = ["burger", "steak", "taco", "soup"]
+var food_items = []
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_add_order("burger")
+	#_add_order("burger")
+	for recipe in recipes:
+		var title = recipe["title"].to_lower().replace(" ", "_")
+		food_items.append(title)
+	_add_order(food_items[0])
 
 
 func _process(delta: float) -> void:

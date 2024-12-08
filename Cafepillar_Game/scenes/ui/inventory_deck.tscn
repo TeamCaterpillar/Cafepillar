@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://4qmb7oyj0hhb"]
 
 [ext_resource type="Script" path="res://scripts/ui/inventory_deck.gd" id="1_dtivv"]
-[ext_resource type="Texture2D" uid="uid://dcm7ttmu8gbms" path="res://assets/cards/deck.png" id="1_dudpo"]
+[ext_resource type="Texture2D" uid="uid://bub3dsikjlig0" path="res://assets/cards/deck.png" id="1_dudpo"]
 
 [node name="InventoryDeck" type="Control"]
 layout_mode = 3

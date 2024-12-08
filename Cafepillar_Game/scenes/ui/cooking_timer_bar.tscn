@@ -1,15 +1,15 @@
 [gd_scene load_steps=12 format=3 uid="uid://cw37cfifxghu0"]
 
 [ext_resource type="Script" path="res://scripts/cooking_timer_bar.gd" id="1_2spa5"]
-[ext_resource type="Texture2D" uid="uid://bhfudbe6pxgin" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="2_35lrn"]
-[ext_resource type="Texture2D" uid="uid://cwhssdmxavasd" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="3_488x5"]
-[ext_resource type="Texture2D" uid="uid://crqjjdfnmmtqs" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="4_iaxg2"]
-[ext_resource type="Texture2D" uid="uid://c78d2gyyvsux2" path="res://assets/Buttons Pixel Animation Pack/store/72px/store02.png" id="5_wu6rb"]
-[ext_resource type="Texture2D" uid="uid://7gtkj8omh4g4" path="res://assets/Buttons Pixel Animation Pack/store/72px/store03.png" id="6_f01hx"]
-[ext_resource type="Texture2D" uid="uid://cyairvai4t3wt" path="res://assets/Buttons Pixel Animation Pack/store/72px/store04.png" id="7_xodom"]
-[ext_resource type="Texture2D" uid="uid://bw1fmv0qu2wme" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="8_ja1dm"]
+[ext_resource type="Texture2D" uid="uid://d1l4bda7bs41g" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="2_35lrn"]
+[ext_resource type="Texture2D" uid="uid://qmn7ovpmmyck" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="3_488x5"]
+[ext_resource type="Texture2D" uid="uid://cyqcpoctkov62" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="4_iaxg2"]
+[ext_resource type="Texture2D" uid="uid://dmwbb3ta4wghn" path="res://assets/Buttons Pixel Animation Pack/store/72px/store02.png" id="5_wu6rb"]
+[ext_resource type="Texture2D" uid="uid://cosgfy8w3lc04" path="res://assets/Buttons Pixel Animation Pack/store/72px/store03.png" id="6_f01hx"]
+[ext_resource type="Texture2D" uid="uid://bv5kj1b24jij5" path="res://assets/Buttons Pixel Animation Pack/store/72px/store04.png" id="7_xodom"]
+[ext_resource type="Texture2D" uid="uid://csf44fshjmqwm" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="8_ja1dm"]
 [ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="8_mlpau"]
-[ext_resource type="Texture2D" uid="uid://coo02j84jd71a" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="9_ggag8"]
+[ext_resource type="Texture2D" uid="uid://cpl8ygaknga0k" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="9_ggag8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bydme"]
 font_size = 40
@@ -43,6 +43,7 @@ texture_pressed = ExtResource("6_f01hx")
 texture_hover = ExtResource("7_xodom")
 
 [node name="RemoveButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = -41.0
 offset_top = 253.0
 offset_right = 103.0

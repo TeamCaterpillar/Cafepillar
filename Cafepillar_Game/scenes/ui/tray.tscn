@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://e87i8t6lw4ak"]
 
 [ext_resource type="Script" path="res://scripts/appliances/tray.gd" id="1_xgh0v"]
-[ext_resource type="Texture2D" uid="uid://1jkfr3e4t23p" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="2_8dt6f"]
+[ext_resource type="Texture2D" uid="uid://sthkpipkrr4e" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="2_8dt6f"]
 [ext_resource type="Script" path="res://scripts/appliances/slot.gd" id="3_frftv"]
-[ext_resource type="Texture2D" uid="uid://bd3tl0b7akrin" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="4_noimq"]
-[ext_resource type="Texture2D" uid="uid://wwivgvvwl5h3" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="5_puf10"]
-[ext_resource type="Texture2D" uid="uid://tbqq7h711hfo" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="6_s8nwy"]
+[ext_resource type="Texture2D" uid="uid://d1l4bda7bs41g" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="4_noimq"]
+[ext_resource type="Texture2D" uid="uid://qmn7ovpmmyck" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="5_puf10"]
+[ext_resource type="Texture2D" uid="uid://cyqcpoctkov62" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="6_s8nwy"]
 
 [node name="Tray" type="Control"]
 layout_mode = 3

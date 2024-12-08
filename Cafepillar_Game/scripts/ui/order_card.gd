@@ -6,6 +6,7 @@ extends Panel
 @onready var food_label = $FoodNameLabel
 @onready var timer_label = $TimerLabel
 @onready var timer_bar: ProgressBar = $ColorRect/TimerBar
+@onready var food_sprite: Sprite2D = $FoodIcon
 
 # timer for how long player has to complete the food order
 var _timer_duration: float = 5.0 
@@ -14,8 +15,26 @@ var _time_left: float = _timer_duration
 
 func _ready() -> void:
 	# show food order details in queue
-	food_label.text = food_name
+	food_label.text = ""
 	timer_label.text = str(_time_left)
+	food_sprite.visible = false
+
+	var food_icon_path = "res://assets/cards/" + str(food_name) + ".png"
+	
+	# omelette is spelled differently for (idk if I should change it or not)
+	# for now, use check statement for omelette image
+	if food_name == "omelette":
+		food_icon_path =  "res://assets/cards/omelet.png"
+
+	# gets the corresponding image of the food name
+	if ResourceLoader.exists(food_icon_path):
+		var food_icon = load(food_icon_path)
+		food_sprite.visible = true
+		food_sprite.texture = food_icon
+	# if there is no image, just show the word name
+	else:
+		food_label.text = format_string(food_name)
+
 	# use tween to animate timer smoothly
 	var tween = create_tween()
 	tween.tween_property(timer_bar, "value", 0.0, _timer_duration)
@@ -44,3 +63,11 @@ func _update_timer_bar_color() -> void:
 	# color is red
 	else:
 		timer_bar.set_theme_type_variation("TimerBarLow")
+
+
+func format_string(input: String) -> String:
+	var words = input.split("_")  # Split the string by underscores
+	for i in range(words.size()):
+		# Capitalize the first letter of each word and make the rest lowercase
+		words[i] = words[i].capitalize()
+	return " ".join(words)  # Join the words with spaces
