@@ -67,3 +67,7 @@ func _swap_to_from_kitchen() -> void:
 		kitchen_scene.grab_focus()
 		
 		
+
+
+func _on_skip_day_pressed() -> void:
+	pass # Replace with function body.

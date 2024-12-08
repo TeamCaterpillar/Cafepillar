@@ -122,3 +122,7 @@ func _on_RemoveButton_pressed():
 	var children = stove_slot.get_children()
 	for child in children:
 		child.free()
+
+
+func _on_start_button_pressed() -> void:
+	pass # Replace with function body.
