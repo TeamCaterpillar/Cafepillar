@@ -1,5 +1,5 @@
 class_name Customer
-extends Node
+extends StaticBody2D
 
 @export var wait_time:float = 25.0
 @export var order:String
@@ -12,6 +12,8 @@ func _ready():
 	_timer.one_shot = true
 	add_child(_timer)
 	_timer.start(wait_time)
+	# temporary position change so we can see them!!!
+	position.x += randi_range(-50, 50)
 	
 
 func _process(delta):
