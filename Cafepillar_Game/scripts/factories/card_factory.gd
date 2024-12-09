@@ -8,10 +8,12 @@ const HAND_SIZE: int = 5
 # @export var card_scene: PackedScene # Card scene to instantiate
 @export var card_deck: GCardHandLayout # Reference to the card deck
 
+@export var stove_output: GCardHandLayout
+
 @onready var inventory_deck: TextureButton = $"../InventoryDeck/TextureButton"
 @onready var stove_slot: Slot = $"../Stove/StoveSlot"
 
-var card_size : Vector2 = Vector2(80.0, 100.0) # replace with whatever size needed, must have ratio 4/5 - x/y
+var card_size : Vector2 = Vector2(160.0, 200.0) # replace with whatever size needed, must have ratio 4/5 - x/y
 var card_pivot : Vector2 = Vector2(card_size.x/2, 0.0) # must be half the x size value
 var cur_subset_num: int = 0
 
@@ -68,9 +70,11 @@ func create_card_for_stove(card_name: String, card_type: String) -> void:
 	card_instance.pivot_offset = card_pivot 
 	card_instance.scale = Vector2(0.08, 0.1)
 	card_instance.add_to_group("Dish", false)
-	stove_slot.add_child(card_instance)
+	stove_output.add_child(card_instance)
 	# Print the card's state
 	print("Created card: ", card_name, " of type: ", card_type, " from resource path: ", resource_path)
+
+
 func clear_hand() -> void:
 	for card in card_deck.get_children():
 		card_deck.remove_child(card)

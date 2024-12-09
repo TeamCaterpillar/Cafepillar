@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://drm58n2vnmmoa"]
 
-[ext_resource type="Texture2D" uid="uid://dxpqbxcj5p1ih" path="res://assets/tile_maps/iso tile set/Isometric-Tiles.png" id="1_q7mo5"]
-[ext_resource type="Texture2D" uid="uid://d0tp7y3l5sshe" path="res://assets/tile_maps/tiles.png" id="2_hi5rp"]
+[ext_resource type="Texture2D" uid="uid://jh5oluf3gbd5" path="res://assets/tile_maps/iso tile set/Isometric-Tiles.png" id="1_q7mo5"]
+[ext_resource type="Texture2D" uid="uid://bg80slrp4bm51" path="res://assets/tile_maps/tiles.png" id="2_hi5rp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebre1"]
 texture = ExtResource("1_q7mo5")

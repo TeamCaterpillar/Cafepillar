@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/scene/kitchen.gd" id="1_tfllf"]
-[ext_resource type="Texture2D" uid="uid://2eqrp5mmj6a1" path="res://assets/backgrounds/kitchen_background.png" id="2_scie6"]
+[ext_resource type="Texture2D" uid="uid://ddmeymterhagk" path="res://assets/backgrounds/kitchen_background.png" id="2_scie6"]
 [ext_resource type="PackedScene" uid="uid://b7fu4bn5lsbqf" path="res://scenes/ui/recipes_book.tscn" id="3_7126w"]
 [ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="6_noatd"]
 [ext_resource type="Script" path="res://scripts/factories/card_factory.gd" id="7_8i4sf"]
@@ -54,10 +54,10 @@ anchor_left = 0.464
 anchor_top = 0.444
 anchor_right = 0.464
 anchor_bottom = 0.444
-offset_left = -55.88
-offset_top = -379.52
-offset_right = 196.12
-offset_bottom = -310.52
+offset_left = -43.88
+offset_top = -462.52
+offset_right = 208.12
+offset_bottom = -393.52
 text = "Kitchen!!!!!"
 label_settings = SubResource("LabelSettings_au7mt")
 
@@ -102,10 +102,11 @@ offset_top = 469.0
 offset_right = 1907.0
 offset_bottom = 1909.0
 
-[node name="CardFactory" type="Node2D" parent="." node_paths=PackedStringArray("card_deck")]
+[node name="CardFactory" type="Node2D" parent="." node_paths=PackedStringArray("card_deck", "stove_output")]
 position = Vector2(957, 863)
 script = ExtResource("7_8i4sf")
 card_deck = NodePath("../Deck")
+stove_output = NodePath("../StoveOutput")
 
 [node name="Tray" parent="." instance=ExtResource("8_tg0xe")]
 offset_left = 1621.0
@@ -117,33 +118,48 @@ offset_bottom = -1.0
 layout_mode = 1
 anchor_top = -1.4
 anchor_bottom = -1.4
-offset_left = 936.0
-offset_top = 2356.0
-offset_right = 984.0
-offset_bottom = 2396.0
+offset_left = 882.0
+offset_top = 2252.0
+offset_right = 1011.0
+offset_bottom = 2355.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_noatd")
-dynamic_radius_factor = 70.0
+dynamic_radius_factor = 180.0
+circle_percentage = 0.08
+enable_dragging = true
+
+[node name="StoveOutput" type="Control" parent="."]
+layout_mode = 1
+anchor_top = -1.4
+anchor_bottom = -1.4
+offset_left = 859.0
+offset_top = 1634.0
+offset_right = 988.0
+offset_bottom = 1737.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_noatd")
+dynamic_radius_factor = 180.0
 circle_percentage = 0.08
 enable_dragging = true
 
 [node name="Stove" parent="." instance=ExtResource("8_ab558")]
 layout_mode = 0
-offset_left = 851.0
-offset_top = 376.0
-offset_right = 1051.0
-offset_bottom = 576.0
+offset_left = 849.0
+offset_top = 417.0
+offset_right = 1049.0
+offset_bottom = 617.0
 
 [node name="CookingTimerBar" parent="." instance=ExtResource("9_u4igr")]
-offset_left = 712.0
-offset_top = 259.0
-offset_right = 1229.0
-offset_bottom = 608.0
+offset_left = 717.0
+offset_top = 299.0
+offset_right = 1234.0
+offset_bottom = 648.0
 
 [node name="InventoryDeck" parent="." instance=ExtResource("10_fo2lv")]
 layout_mode = 1
-offset_left = 693.0
-offset_top = 847.0
-offset_right = -1227.0
-offset_bottom = -233.0
+offset_left = 116.0
+offset_top = 776.0
+offset_right = -1804.0
+offset_bottom = -304.0

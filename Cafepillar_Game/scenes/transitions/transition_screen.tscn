@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cel0sd7oddtbu"]
 
 [ext_resource type="Script" path="res://scripts/ui/transition_screen.gd" id="1_chiqy"]
-[ext_resource type="Texture2D" uid="uid://bgk1w5fwfejs8" path="res://assets/transition_screen.png" id="2_7x0bx"]
+[ext_resource type="Texture2D" uid="uid://lbd2ldn8v0o5" path="res://assets/transition_screen.png" id="2_7x0bx"]
 
 [sub_resource type="Animation" id="Animation_xbl8a"]
 length = 0.001

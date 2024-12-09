@@ -1,29 +1,33 @@
 [gd_scene load_steps=7 format=3 uid="uid://4qmb7oyj0hhb"]
 
 [ext_resource type="Script" path="res://scripts/ui/inventory_deck.gd" id="1_dtivv"]
-[ext_resource type="Texture2D" uid="uid://dmfgxgb8davb6" path="res://assets/cards/deck.png" id="1_dudpo"]
+[ext_resource type="Texture2D" uid="uid://bub3dsikjlig0" path="res://assets/cards/deck.png" id="1_dudpo"]
 [ext_resource type="PackedScene" uid="uid://dbqq2xk1wnbh4" path="res://scenes/sounds.tscn" id="3_q1w6w"]
 [ext_resource type="Script" path="res://scripts/sounds/InventoryDeck.gd" id="4_taq8o"]
-[ext_resource type="AudioStream" uid="uid://biithianepc2p" path="res://assets/audio/button_click.wav" id="5_h4nqu"]
-[ext_resource type="AudioStream" uid="uid://dsgi4unhp8ben" path="res://assets/audio/538525__escobarrb26__card-shuffle.mp3" id="6_ybcvc"]
+[ext_resource type="AudioStream" uid="uid://bhgltwuqqrrtf" path="res://assets/audio/button_click.wav" id="5_h4nqu"]
+[ext_resource type="AudioStream" uid="uid://bbf0yn2pwhqkl" path="res://assets/audio/538525__escobarrb26__card-shuffle.mp3" id="6_ybcvc"]
 
 [node name="InventoryDeck" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1920.0
-offset_bottom = -1080.0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = -1769.0
+offset_bottom = -879.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dtivv")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_right = 716.0
-offset_bottom = 969.0
+offset_right = 1480.0
+offset_bottom = 2003.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("1_dudpo")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="Sounds" parent="." instance=ExtResource("3_q1w6w")]
 script = ExtResource("4_taq8o")
@@ -35,6 +39,7 @@ stream = ExtResource("5_h4nqu")
 stream = ExtResource("6_ybcvc")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Sounds"]
+position = Vector2(84, 101)
 stream = ExtResource("6_ybcvc")
 volume_db = 15.0
 pitch_scale = 5.0

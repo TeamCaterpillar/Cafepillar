@@ -18,7 +18,7 @@ func _process(_delta: float) -> void:
 	pass
 	# uncomment this when we have a food card
 	# only let yes button be visible if a food card is in slot
-	#if name == "TraySlot":
+	# if name == "TraySlot":
 		# check if food card is in slot
 	#	if get_child_count() > 0:
 	#		var food_card = get_child(0)
@@ -32,6 +32,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_child_entered_tree(node: Node) -> void:
+	# shrink card size when dropped to fit slot
+	node.size = node.size / 2
 	if node.is_in_group("Ingredient"):
 		card_resources.append(node.card_resource.name)
 		print("Dropped " , card_resources.back(), " into " , get_parent().name , " slot.")
