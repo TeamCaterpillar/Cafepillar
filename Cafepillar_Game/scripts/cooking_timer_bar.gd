@@ -8,6 +8,7 @@ extends Control
 @onready var status_label: Label = $Status
 @onready var stove_slot: Slot = $"../Stove/StoveSlot"
 @onready var card_factory: Node = $"../CardFactory"
+@onready var stove_output: GCardHandLayout = $"../StoveOutput"
 
 
 # the tick mark at 70% is the time it takes to make the food according to the food card
@@ -71,7 +72,7 @@ func _update_timer_bar_color() -> void:
 	
 func _on_StartButton_pressed():
 	recipe = stove_slot.check_recipe()
-	if recipe != "Null":
+	if recipe != "Null" and stove_output.get_child_count() < 1:
 		# put all the code below in the if statement checking for valid food
 		cooking = true
 		color_rect.visible = true
@@ -83,6 +84,8 @@ func _on_StartButton_pressed():
 		if tween == null:
 			tween = create_tween()
 			tween.tween_property(timer_bar, "value", 100.0, _timer_duration)
+	elif stove_output.get_child_count() >= 1:
+		status_label.text = "Clear the stove first!"
 	else:
 		status_label.text = "No Recipes Found..."
 
