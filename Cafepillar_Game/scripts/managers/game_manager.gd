@@ -8,11 +8,9 @@ var active_orders: Array[Variant]     = []
 var waiter_queue: Array[Variant]      = []
 
 # Scene references
-var current_scene           = null
+var current_scene  = null
 const SCENE_KITCHEN: String = "res://scenes/world/kitchen.tscn"
 const SCENE_DINER: String   = "res://scenes/world/diner.tscn"
-
-
 
 # Signal for scene changes
 #signal scene_changed
@@ -35,7 +33,7 @@ func change_scene(scene_path: String):
 	var new_scene = load(scene_path).instantiate()
 	get_tree().root.add_child(new_scene)
 	current_scene = new_scene
-	emit_signal("scene_changed", scene_path)
+	GameSignals.scene_changed.emit(scene_path)
 
 # Track golden seeds
 func update_score(new_seeds: int):

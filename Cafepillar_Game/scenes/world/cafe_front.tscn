@@ -1,14 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://chpbhr22qe5ac"]
+[gd_scene load_steps=9 format=3 uid="uid://chpbhr22qe5ac"]
 
 [ext_resource type="Script" path="res://scripts/scene/cafe_front.gd" id="1_yyml1"]
 [ext_resource type="PackedScene" uid="uid://drm58n2vnmmoa" path="res://scenes/world/diner.tscn" id="2_xqgsl"]
 [ext_resource type="PackedScene" uid="uid://dn3urr1xccmik" path="res://scenes/world/kitchen.tscn" id="3_obr0u"]
-[ext_resource type="PackedScene" uid="uid://dkw27imy3jwh1" path="res://scenes/characters/player.tscn" id="4_67kfq"]
 [ext_resource type="Script" path="res://scripts/ui/player_camera.gd" id="5_tnu4n"]
 [ext_resource type="PackedScene" uid="uid://cookffcxckdkf" path="res://scenes/world/test_scene.tscn" id="6_0nkb0"]
 [ext_resource type="Script" path="res://scripts/scene/day_night_cycle.gd" id="7_trvda"]
-[ext_resource type="PackedScene" uid="uid://dbqq2xk1wnbh4" path="res://scenes/sounds.tscn" id="8_ub8j2"]
-[ext_resource type="AudioStream" uid="uid://diw18ae0x16xd" path="res://assets/audio/button_click.wav" id="9_wotb0"]
+[ext_resource type="PackedScene" path="res://scenes/sounds.tscn" id="8_ub8j2"]
+[ext_resource type="AudioStream" uid="uid://ceb8kiuev152y" path="res://assets/audio/button_click.wav" id="9_wotb0"]
 
 [node name="CafeFront" type="Node2D"]
 script = ExtResource("1_yyml1")
@@ -21,14 +20,6 @@ offset_left = -2077.0
 offset_top = -1904.0
 offset_right = -157.0
 offset_bottom = -824.0
-
-[node name="Player" parent="." instance=ExtResource("4_67kfq")]
-position = Vector2(73, 26)
-
-[node name="PlayerCamera" type="Camera2D" parent="Player" node_paths=PackedStringArray("subject")]
-zoom = Vector2(3.5, 3.5)
-script = ExtResource("5_tnu4n")
-subject = NodePath("..")
 
 [node name="TestScene" parent="." instance=ExtResource("6_0nkb0")]
 position = Vector2(2359, -796)
@@ -95,6 +86,11 @@ offset_bottom = -105.0
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("9_wotb0")
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+position = Vector2(73, 26)
+zoom = Vector2(3.5, 3.5)
+script = ExtResource("5_tnu4n")
 
 [connection signal="pressed" from="DayNightCycle/SkipDay" to="Sounds" method="_on_skip_day_pressed"]
 [connection signal="pressed" from="DayNightCycle/EndOfDayScreen/NextDay" to="Sounds" method="_on_next_day_pressed"]
