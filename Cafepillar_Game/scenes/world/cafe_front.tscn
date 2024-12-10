@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://scripts/ui/player_camera.gd" id="5_tnu4n"]
 [ext_resource type="PackedScene" uid="uid://cookffcxckdkf" path="res://scenes/world/test_scene.tscn" id="6_0nkb0"]
 [ext_resource type="Script" path="res://scripts/scene/day_night_cycle.gd" id="7_trvda"]
-[ext_resource type="PackedScene" uid="uid://dbqq2xk1wnbh4" path="res://scenes/sounds.tscn" id="8_ub8j2"]
-[ext_resource type="AudioStream" uid="uid://diw18ae0x16xd" path="res://assets/audio/button_click.wav" id="9_wotb0"]
+[ext_resource type="PackedScene" path="res://scenes/sounds.tscn" id="8_ub8j2"]
+[ext_resource type="AudioStream" uid="uid://cjhddsdd2mjk8" path="res://assets/audio/button_click.wav" id="9_wotb0"]
 
 [node name="CafeFront" type="Node2D"]
 script = ExtResource("1_yyml1")

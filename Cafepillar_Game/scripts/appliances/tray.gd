@@ -7,11 +7,9 @@ class_name Tray
 
 @onready var order_queue: OrderQueue = $"../OrderQueue"
 @onready var tray_slot: Slot = $TraySlot
-@onready var yes_button: TextureButton = $YesButton
 
 func _ready() -> void:
-	$YesButton.connect("pressed", Callable(self, "_on_YesButton_pressed"))
-
+	pass
 
 func _process(_delta: float) -> void:
 	pass
