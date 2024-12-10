@@ -20,6 +20,7 @@ func _ready():
 	restart_button.pressed.connect(_on_restart_button_pressed)
 	skip_button.pressed.connect(_on_skip_button_pressed)
 
+
 func _process(delta):
 	# Update time of day
 	if not day_ended:
@@ -34,10 +35,12 @@ func _process(delta):
 		update_light()
 		update_timer()
 
+
 func update_background():
 	# Smooth gradient between night (dark blue) and day (light blue)
 	var gradient = sin(time_of_day * PI)  # Smooth transition
 	background.color = Color(0.05, 0.05, 0.2).lerp(Color(0.5, 0.8, 1.0), gradient)
+
 
 func update_light():
 	# Change light intensity and color based on time of day
@@ -49,6 +52,7 @@ func update_light():
 	# Optional: Change light color to be warmer during the day and cooler at night
 	light.color = Color(1.0, 0.9, 0.7).lerp(Color(0.5, 0.6, 1.0), 1.0 - light.energy)
 
+
 func update_timer():
 	# Calculate hours and minutes from time_of_day
 	var total_minutes = int(time_of_day * 24 * 60)  # Total minutes in a day
@@ -59,20 +63,26 @@ func update_timer():
 	# Update the TimerLabel
 	timer_label.text = "%02d:%02d" % [hours, minutes]
 
+
 func end_day():
 	# Mark the day as ended
 	day_ended = true
-
+	
 	# Show the End of Day screen
 	end_of_day_screen.visible = true
+
 
 func _on_restart_button_pressed():
 	# Reset the day
 	day_ended = false
 	time_of_day = 0.0
+	
+	# emit signal to let other components know that next day has started
+	GameSignals.next_day_started.emit()
 
 	# Hide the End of Day screen
 	end_of_day_screen.visible = false
+
 
 func _on_skip_button_pressed():
 	# Skip to the end of the day

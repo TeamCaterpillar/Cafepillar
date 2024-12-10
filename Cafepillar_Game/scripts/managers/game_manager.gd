@@ -1,7 +1,7 @@
 extends Node
 
 # Game state variables
-var current_day : int = 0
+var current_day : int = 1
 var golden_seeds : int = 0
 var kitchen_inventory: Array[Variant] = []
 var active_orders: Array[Variant]     = []
@@ -12,7 +12,6 @@ var finished_dishes: Array[Variant]   = []
 var current_scene           = null
 const SCENE_KITCHEN: String = "res://scenes/world/kitchen.tscn"
 const SCENE_DINER: String   = "res://scenes/world/diner.tscn"
-
 
 
 # Signal for scene changes
@@ -26,7 +25,14 @@ func _ready():
 	# initialize inventory to have starter ingredients
 	initialize_inventory()
 	
-	pass
+	# connect signals
+	GameSignals.next_day_started.connect(_on_next_day_started)
+
+
+func _on_next_day_started() -> void:
+	current_day += 1
+	print("moving onto day " + str(current_day))
+
 
 # Function to change scenes
 func change_scene(scene_path: String):
@@ -38,10 +44,12 @@ func change_scene(scene_path: String):
 	current_scene = new_scene
 	emit_signal("scene_changed", scene_path)
 
+
 # Track golden seeds
 func update_score(new_seeds: int):
 	golden_seeds += new_seeds
 	print("Total Golden Seeds updated:", golden_seeds)
+
 
 # MANAGE ORDER QUEUE
 func add_order_to_queue() -> void:
@@ -52,17 +60,13 @@ func remove_order_from_queue() -> void:
 	pass
 
 
-
 # HANDLE CURRENCY
 func add_currency(_amount: int) -> void:
-	pass
+	golden_seeds += _amount
 
 
 func remove_currency(_amount: int) -> void:
-	pass
-
-
-
+	golden_seeds -= _amount
 
 
 # Manage kitchen ingrediants storage
@@ -71,10 +75,12 @@ func add_to_storage(item: String, quantity: int): # ADD CARD OBJECT USING FACTOR
 		kitchen_inventory.append(item)
 	print("Added to inventory:" + str(quantity) + item)
 
+
 func remove_from_storage(item: String):
 	if item in kitchen_inventory:
 		kitchen_inventory.erase(item)
 		print("Removed from inventory:", item)
+
 
 # Handle waiter actions
 func assign_order_to_waiter(order):
@@ -85,9 +91,11 @@ func assign_order_to_waiter(order):
 	else:
 		print("No waiters available!")
 
+
 func add_waiter_to_queue(waiter):
 	waiter_queue.append(waiter)
 	print("Waiter added to queue:", waiter)
+
 
 # Timer utilities for gameplay
 func start_cooking_timer(duration: float, callback: Callable):
@@ -97,6 +105,7 @@ func start_cooking_timer(duration: float, callback: Callable):
 	timer.connect("timeout", callback)
 	add_child(timer)
 	timer.start()
+
 
 # inventory management methods
 func initialize_inventory() -> void:
