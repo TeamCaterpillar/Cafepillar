@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://e87i8t6lw4ak"]
+[gd_scene load_steps=10 format=3 uid="uid://e87i8t6lw4ak"]
 
 [ext_resource type="Script" path="res://scripts/appliances/tray.gd" id="1_xgh0v"]
-[ext_resource type="Texture2D" uid="uid://ciobj7lbcprkd" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="2_8dt6f"]
+[ext_resource type="Texture2D" uid="uid://sthkpipkrr4e" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="2_8dt6f"]
 [ext_resource type="Script" path="res://scripts/appliances/slot.gd" id="3_frftv"]
-[ext_resource type="PackedScene" path="res://scenes/sounds.tscn" id="7_3n21c"]
+[ext_resource type="PackedScene" uid="uid://dbqq2xk1wnbh4" path="res://scenes/sounds.tscn" id="7_3n21c"]
+[ext_resource type="Texture2D" uid="uid://d1l4bda7bs41g" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="7_nt3p0"]
+[ext_resource type="Texture2D" uid="uid://qmn7ovpmmyck" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="8_lsin4"]
 [ext_resource type="Script" path="res://scripts/sounds/TraySounds.gd" id="8_lxd14"]
-[ext_resource type="AudioStream" uid="uid://cjhddsdd2mjk8" path="res://assets/audio/button_click.wav" id="9_vyoxx"]
+[ext_resource type="Texture2D" uid="uid://cyqcpoctkov62" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="9_7w0ov"]
+[ext_resource type="AudioStream" uid="uid://bhgltwuqqrrtf" path="res://assets/audio/button_click.wav" id="9_vyoxx"]
 
 [node name="Tray" type="Control"]
 layout_mode = 3
@@ -15,15 +18,15 @@ script = ExtResource("1_xgh0v")
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 300.0
-offset_bottom = 206.0
+offset_bottom = 249.0
 color = Color(0.47788, 0.47788, 0.47788, 1)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 117.0
-offset_top = 9.0
-offset_right = 178.0
-offset_bottom = 45.0
+offset_left = 118.0
+offset_top = -1.0
+offset_right = 179.0
+offset_bottom = 35.0
 theme_override_font_sizes/font_size = 26
 text = "Tray"
 
@@ -34,10 +37,10 @@ anchor_left = 0.404
 anchor_top = 0.789
 anchor_right = 0.404
 anchor_bottom = 0.789
-offset_left = 39.0
-offset_top = 51.0
-offset_right = 256.0
-offset_bottom = 200.0
+offset_left = 43.0
+offset_top = 40.0
+offset_right = 260.0
+offset_bottom = 189.0
 texture = ExtResource("2_8dt6f")
 expand_mode = 1
 script = ExtResource("3_frftv")
@@ -47,3 +50,13 @@ script = ExtResource("8_lxd14")
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="TraySounds"]
 stream = ExtResource("9_vyoxx")
+
+[node name="SendButton" type="TextureButton" parent="."]
+offset_left = 94.0
+offset_top = 189.0
+offset_right = 238.0
+offset_bottom = 267.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("7_nt3p0")
+texture_pressed = ExtResource("8_lsin4")
+texture_hover = ExtResource("9_7w0ov")

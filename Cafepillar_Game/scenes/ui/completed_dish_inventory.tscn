@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbeth81wdaykt"]
+
+[ext_resource type="Script" path="res://scripts/completed_dish_inventory.gd" id="1_8aiqf"]
+[ext_resource type="Texture2D" uid="uid://eqjkyedjv3o4" path="res://assets/Buttons Pixel Animation Pack/list/72px/list02.png" id="2_n43xp"]
+[ext_resource type="Texture2D" uid="uid://cj286ti2tsj46" path="res://assets/Buttons Pixel Animation Pack/list/72px/list03.png" id="3_xro4m"]
+[ext_resource type="Texture2D" uid="uid://cr6ekpomgks2x" path="res://assets/Buttons Pixel Animation Pack/list/72px/list04.png" id="4_t435t"]
+
+[node name="CompletedDishInventory" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_8aiqf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 287.0
+offset_bottom = 209.0
+color = Color(0.349316, 0.884061, 0.550491, 1)
+
+[node name="GridContainer" type="GridContainer" parent="."]
+offset_right = 285.0
+offset_bottom = 209.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 5.0
+offset_right = 180.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Inventory"
+
+[node name="ListButton" type="TextureButton" parent="."]
+offset_left = 256.0
+offset_top = -51.0
+offset_right = 400.0
+offset_bottom = 21.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_n43xp")
+texture_pressed = ExtResource("3_xro4m")
+texture_hover = ExtResource("4_t435t")
