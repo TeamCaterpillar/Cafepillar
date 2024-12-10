@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://fr1wahud7s72" path="res://assets/Buttons Pixel Animation Pack/next/72px/next02.png" id="6_jkbbr"]
 [ext_resource type="Texture2D" uid="uid://doc4ya3hwp3qt" path="res://assets/Buttons Pixel Animation Pack/next/72px/next03.png" id="7_p6aa6"]
 [ext_resource type="Texture2D" uid="uid://da7k2nxcvofgk" path="res://assets/Buttons Pixel Animation Pack/next/72px/next04.png" id="8_13l8t"]
-[ext_resource type="PackedScene" path="res://scenes/sounds.tscn" id="9_1wyp0"]
+[ext_resource type="PackedScene" uid="uid://c2ct3c5b0l41d" path="res://scenes/sounds.tscn" id="9_1wyp0"]
 [ext_resource type="Script" path="res://scripts/sounds/recipe_book_sounds.gd" id="10_bjyii"]
 [ext_resource type="AudioStream" uid="uid://ceb8kiuev152y" path="res://assets/audio/button_click.wav" id="11_248e6"]
 

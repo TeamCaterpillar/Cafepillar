@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://chpbhr22qe5ac"]
+[gd_scene load_steps=10 format=3 uid="uid://chpbhr22qe5ac"]
 
 [ext_resource type="Script" path="res://scripts/scene/cafe_front.gd" id="1_yyml1"]
 [ext_resource type="PackedScene" uid="uid://drm58n2vnmmoa" path="res://scenes/world/diner.tscn" id="2_xqgsl"]
@@ -81,6 +81,12 @@ offset_left = 26.0
 offset_top = -128.0
 offset_right = 66.0
 offset_bottom = -105.0
+
+[node name="CompletedDishInventory" parent="." instance=ExtResource("8_kmfh7")]
+offset_left = -79.0
+offset_top = -74.0
+offset_right = -79.0
+offset_bottom = -74.0
 
 [node name="Sounds" parent="." instance=ExtResource("8_ub8j2")]
 

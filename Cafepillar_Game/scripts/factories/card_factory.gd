@@ -50,6 +50,7 @@ func create_card(card_name: String, card_type: String) -> void:
 	card_instance.pivot_offset = card_pivot 
 	card_instance.scale = Vector2(0.08, 0.1)
 	card_instance.add_to_group("Ingredient", false)
+	card_instance.food_name = card_name
 	card_deck.add_child(card_instance)
 	# Print the card's state
 	print("Created card: ", card_name, " of type: ", card_type, " from resource path: ", resource_path)
@@ -70,6 +71,7 @@ func create_card_for_stove(card_name: String, card_type: String) -> void:
 	card_instance.pivot_offset = card_pivot 
 	card_instance.scale = Vector2(0.08, 0.1)
 	card_instance.add_to_group("Dish", false)
+	card_instance.food_name = card_name
 	stove_output.add_child(card_instance)
 	# Print the card's state
 	print("Created card: ", card_name, " of type: ", card_type, " from resource path: ", resource_path)

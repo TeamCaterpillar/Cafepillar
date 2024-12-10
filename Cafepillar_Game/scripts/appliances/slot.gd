@@ -7,6 +7,7 @@ class_name Slot
 # @onready var yes_button: TextureButton = $"../../Tray/YesButton"
 
 var card_resources: Array = []
+var dishes: Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -33,10 +34,12 @@ func _process(_delta: float) -> void:
 
 func _on_child_entered_tree(node: Node) -> void:
 	# shrink card size when dropped to fit slot
-	node.size = node.size / 2
 	if node.is_in_group("Ingredient"):
 		card_resources.append(node.card_resource.name)
 		print("Dropped " , card_resources.back(), " into " , get_parent().name , " slot.")
+	
+	if node.is_in_group("Dish"):
+		print("Dish added")
 
 
 func check_recipe() -> String:

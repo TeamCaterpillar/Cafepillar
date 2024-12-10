@@ -4,10 +4,12 @@ extends Node2D
 @onready var kitchen_cam = $Kitchen/KitchenCamera
 @onready var player_camera = $PlayerCamera
 @onready var test_cam = $TestScene/Camera2D
+@onready var completed_dish_inventory: Control = $CompletedDishInventory
 
 func _ready():
 	kitchen_scene.visible = false
 	player_camera.make_current()
+	# completed_dish_inventory.visible = false
 
 
 func _process(_delta):

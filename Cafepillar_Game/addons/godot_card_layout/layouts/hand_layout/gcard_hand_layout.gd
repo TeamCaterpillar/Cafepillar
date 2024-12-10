@@ -329,19 +329,36 @@ func _get_slot_under_point(global_pos : Vector2) -> Control:
 	
 	
 func _place_card_in_slot(card: Control, slot: Control) -> void:
-	# Remove the card from its current parent
-	if card.get_parent():
+	print(slot.name)
+	
+	if slot.name == "StoveSlot" and card.is_in_group("Ingredient"):
 		card.get_parent().remove_child(card)
+		# Add the card to the slot
+		slot.add_child(card)
+		
+		card.size = card.size / 2
+		
+		if slot.get_child_count() == 1:
+			card.global_position = slot.global_position
+		else:
+			# Subsequent cards: Randomized offset relative to the first card
+			var random_offset = Vector2(
+				randi_range(-15, 15),  # Horizontal randomness
+				(slot.get_child_count() - 1) * 20 + randi_range(-10, 10)  # Vertical stacking with randomness
+			)
+			card.position = random_offset
 	
-	# Add the card to the slot
-	slot.add_child(card)
-	
-	if slot.get_child_count() == 1:
-		card.global_position = slot.global_position
-	else:
-		# Subsequent cards: Randomized offset relative to the first card
-		var random_offset = Vector2(
-			randi_range(-15, 15),  # Horizontal randomness
-			(slot.get_child_count() - 1) * 20 + randi_range(-10, 10)  # Vertical stacking with randomness
-		)
-		card.position = random_offset
+	if slot.name == "TraySlot" and card.is_in_group("Dish") and slot.get_child_count() < 2:
+		card.get_parent().remove_child(card)
+		# Add the card to the slot
+		slot.add_child(card)
+		
+		card.size = card.size / 2
+		
+		var vert_offset = (slot.get_size().y - card.get_size().y) / 3
+		var horizontal_offset = (slot.get_size().x - 30 - card.get_size().x)
+		
+		if slot.get_child_count() == 1:
+			card.global_position = slot.global_position + Vector2(20, vert_offset)
+		elif slot.get_child_count() == 2:
+			card.global_position = slot.global_position + Vector2(horizontal_offset, vert_offset)
