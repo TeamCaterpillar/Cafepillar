@@ -73,7 +73,7 @@ func remove_currency(_amount: int) -> void:
 func add_to_storage(item: String, quantity: int): # ADD CARD OBJECT USING FACTORY TO INVENTORY
 	for i in range(quantity):
 		kitchen_inventory.append(item)
-	print("Added to inventory:" + str(quantity) + item)
+	print("Added to inventory:" + str(quantity) + " " + item)
 
 
 func remove_from_storage(item: String):
