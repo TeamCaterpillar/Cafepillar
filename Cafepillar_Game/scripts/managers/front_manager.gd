@@ -23,4 +23,5 @@ func _process(delta):
 			and not day_night_cycle.day_ended:
 		_spawn_timer.start(customer_spawn_rate)
 		spec_customer = customer_factory.generate_rand_customer()
-		$CustomerSpawn.add_child(spec_customer)	
+		GameSignals.emit_signal("customer_added", spec_customer)
+		$CustomerSpawn.add_child(spec_customer)

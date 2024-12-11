@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ui/order_card.gd" id="1_ybp7j"]
 [ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="2_pr0mi"]
-[ext_resource type="Texture2D" uid="uid://dm5xh4crvt82k" path="res://assets/cards/rose_cake.png" id="3_qkqs5"]
+[ext_resource type="Texture2D" uid="uid://cs8t0uwfymdyw" path="res://assets/cards/rose_cake.png" id="3_qkqs5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wun7"]
 bg_color = Color(0.831373, 0.878431, 0.792157, 1)
