@@ -30,7 +30,8 @@ func _on_SendButton_pressed():
 		order_queue.remove_order(food_card.food_name)
 		# appends the whole card
 		# not sure if we want to have an array of just names or cards
-		GameManager.finished_dishes.append(food_card)
+		_add_order_to_dish_inventory(food_card.food_name, food_card.food_condition)
+		food_card.queue_free()
 
 
 func format_string(input: String) -> String:
@@ -39,3 +40,12 @@ func format_string(input: String) -> String:
 		# Capitalize the first letter of each word and make the rest lowercase
 		words[i] = words[i].capitalize()
 	return " ".join(words)  # Join the words with spaces
+
+
+func _add_order_to_dish_inventory(food_name: String, food_condition: String):
+	# add food order to queue
+	var dish_card_scene = load("res://scenes/ui/dish_card.tscn")
+	var dish_card = dish_card_scene.instantiate()
+	dish_card.food_name = food_name
+	dish_card.food_condition = food_condition
+	GameManager.finished_dishes.append(dish_card)

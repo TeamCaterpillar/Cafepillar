@@ -56,7 +56,7 @@ func create_card(card_name: String, card_type: String) -> void:
 	print("Created card: ", card_name, " of type: ", card_type, " from resource path: ", resource_path)
 
 
-func create_card_for_stove(card_name: String, card_type: String) -> void:
+func create_card_for_stove(card_name: String, card_type: String, food_quality: String) -> void:
 	var resource_path: String = "%s%s/%s.tres" % [base_path, card_type, card_name] # Build resource path
 	var card_resource = load(resource_path)
 	if not card_resource:
@@ -72,6 +72,7 @@ func create_card_for_stove(card_name: String, card_type: String) -> void:
 	card_instance.scale = Vector2(0.08, 0.1)
 	card_instance.add_to_group("Dish", false)
 	card_instance.food_name = card_name
+	card_instance.food_condition = food_quality
 	stove_output.add_child(card_instance)
 	# Print the card's state
 	print("Created card: ", card_name, " of type: ", card_type, " from resource path: ", resource_path)
