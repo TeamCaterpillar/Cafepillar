@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bfhw8yymgx11a"]
+
+[node name="Seats" type="Node2D"]
+
+[node name="Seat1" type="Marker2D" parent="."]
+position = Vector2(174.927, 50.5726)
+
+[node name="Seat2" type="Marker2D" parent="."]
+position = Vector2(111.931, 98.4496)
+
+[node name="Seat3" type="Marker2D" parent="."]
+position = Vector2(145.004, 82.0706)
+
+[node name="Seat4" type="Marker2D" parent="."]
+position = Vector2(46.7297, 34.5086)
+
+[node name="Seat5" type="Marker2D" parent="."]
+position = Vector2(80.1176, 50.5726)
+
+[node name="Seat6" type="Marker2D" parent="."]
+position = Vector2(128.94, 26.3191)
+
+[node name="Seat7" type="Marker2D" parent="."]
+position = Vector2(95.2367, 10.5701)
+
+[node name="Seat8" type="Marker2D" parent="."]
+position = Vector2(47.9896, -13.0535)
+
+[node name="Seat9" type="Marker2D" parent="."]
+position = Vector2(15.8616, -29.4324)
+
+[node name="Seat10" type="Marker2D" parent="."]
+position = Vector2(-32.3303, -4.86397)
+
+[node name="Seat11" type="Marker2D" parent="."]
+position = Vector2(0.11264, 10.885)
+
+[node name="Seat12" type="Marker2D" parent="."]
+position = Vector2(-47.7644, 18.7596)

@@ -1,4 +1,5 @@
 class_name Command
+extends Node2D
 
 enum Status {
 	ACTIVE,

@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://celk4vhbyjbe3"]
+
+[ext_resource type="PackedScene" uid="uid://bfhw8yymgx11a" path="res://scenes/world/seats.tscn" id="1_uhplm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjfg6"]
+size = Vector2(12, 12)
+
+[node name="Seats" instance=ExtResource("1_uhplm")]
+
+[node name="Area2D" type="Area2D" parent="Seat1" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seat1/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_tjfg6")
+
+[node name="Area2D" type="Area2D" parent="Seat2" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seat2/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_tjfg6")
+
+[node name="Area2D" type="Area2D" parent="Seat3" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seat3/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_tjfg6")
+
+[node name="Area2D" type="Area2D" parent="Seat4" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seat4/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_tjfg6")
+
+[node name="Area2D" type="Area2D" parent="Seat5" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seat5/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_tjfg6")
+
+[node name="Area2D" type="Area2D" parent="Seat6" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seat6/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_tjfg6")
+
+[node name="Area2D" type="Area2D" parent="Seat7" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seat7/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_tjfg6")
+
+[node name="Area2D" type="Area2D" parent="Seat8" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seat8/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_tjfg6")
+
+[node name="Area2D" type="Area2D" parent="Seat9" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seat9/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_tjfg6")
+
+[node name="Area2D" type="Area2D" parent="Seat10" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seat10/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_tjfg6")
+
+[node name="Area2D" type="Area2D" parent="Seat11" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seat11/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_tjfg6")
+
+[node name="Area2D" type="Area2D" parent="Seat12" index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seat12/Area2D" index="0"]
+shape = SubResource("RectangleShape2D_tjfg6")

@@ -16,7 +16,7 @@ func _ready() -> void:
 	label.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# remove food cards from tray to dish inventory
 	for food in GameManager.finished_dishes:
 		var parent = food.get_parent()

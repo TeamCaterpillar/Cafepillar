@@ -105,3 +105,7 @@ func initialize_inventory() -> void:
 	add_to_storage("coffee_bean", 20)
 	add_to_storage("cheese", 20)
 	kitchen_inventory.shuffle()
+
+# helpers
+func get_global_mouse_pos() -> Vector2:
+	return Vector2.ZERO

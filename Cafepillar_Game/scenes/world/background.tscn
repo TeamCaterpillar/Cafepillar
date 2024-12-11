@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://dta8ywnphhy4"]
+
+[ext_resource type="Script" path="res://scripts/scene/day_night_cycle.gd" id="1_5w26l"]
+
+[node name="DayNightCycle" type="Node2D"]
+position = Vector2(22.5, 30.5)
+script = ExtResource("1_5w26l")
+
+[node name="Background" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -281.0
+offset_top = -173.0
+offset_right = 414.0
+offset_bottom = 225.0
+
+[node name="Light" type="DirectionalLight2D" parent="."]
+visible = false
+energy = 0.0
+height = 0.59
+
+[node name="SkipDay" type="Button" parent="."]
+offset_left = 241.5
+offset_top = 137.5
+offset_right = 316.5
+offset_bottom = 168.5
+text = "Skip Day"
+
+[node name="EndOfDayScreen" type="Panel" parent="."]
+visible = false
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -222.0
+offset_top = -137.0
+offset_right = 366.0
+offset_bottom = 180.0
+
+[node name="DayEndText" type="Label" parent="EndOfDayScreen"]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 14.0
+offset_right = 92.0
+offset_bottom = 37.0
+text = "Day End"
+
+[node name="NextDay" type="Button" parent="EndOfDayScreen"]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 10.0
+offset_right = 567.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 20
+text = "NextDay
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="EndOfDayScreen"]
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = 26.0
+offset_top = -128.0
+offset_right = 66.0
+offset_bottom = -105.0
