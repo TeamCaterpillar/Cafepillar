@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cel0sd7oddtbu"]
 
 [ext_resource type="Script" path="res://scripts/ui/transition_screen.gd" id="1_chiqy"]
-[ext_resource type="Texture2D" uid="uid://dlccsvra3cmy8" path="res://assets/transition_screen.png" id="2_7x0bx"]
+[ext_resource type="Texture2D" uid="uid://0qhbx1iakj45" path="res://assets/transition_screen2.png" id="2_auahi"]
 
 [sub_resource type="Animation" id="Animation_xbl8a"]
 length = 0.001
@@ -28,10 +28,10 @@ tracks/0/path = NodePath("clouds:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0.0333333, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-2396, 1069), Vector2(-216, 1073)]
+"values": [Vector2(-2456, 1447), Vector2(-199, 1447)]
 }
 
 [sub_resource type="Animation" id="Animation_a47wp"]
@@ -47,7 +47,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1902, 1069), Vector2(-216, 1073)]
+"values": [Vector2(1915, 1447), Vector2(-186, 1447)]
 }
 
 [sub_resource type="Animation" id="Animation_0ss3t"]
@@ -63,7 +63,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-216, 1073), Vector2(1921, 1076)]
+"values": [Vector2(-199, 1447), Vector2(1915, 1447)]
 }
 
 [sub_resource type="Animation" id="Animation_dycj7"]
@@ -76,10 +76,10 @@ tracks/0/path = NodePath("clouds:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0.0333333, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-216, 1073), Vector2(-2400, 1073)]
+"values": [Vector2(-186, 1447), Vector2(-2415, 1447)]
 }
 
 [sub_resource type="Animation" id="Animation_6fbhc"]
@@ -110,9 +110,9 @@ libraries = {
 }
 
 [node name="clouds" type="TextureRect" parent="."]
-offset_left = -2400.0
-offset_top = 1073.0
-offset_right = -420.0
-offset_bottom = 3472.0
+offset_left = 4.0
+offset_top = 1089.0
+offset_right = 1984.0
+offset_bottom = 3488.0
 rotation = -1.56658
-texture = ExtResource("2_7x0bx")
+texture = ExtResource("2_auahi")

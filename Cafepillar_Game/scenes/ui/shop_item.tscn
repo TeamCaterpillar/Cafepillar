@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8nllxwpeftvu"]
+
+[ext_resource type="Texture2D" uid="uid://cl8kfcitsu3ey" path="res://assets/ui/shop_item.png" id="1_2cvwn"]
+[ext_resource type="Script" path="res://scripts/ui/shop_item.gd" id="1_ytvjp"]
+[ext_resource type="Texture2D" uid="uid://bwubw4w4mdclm" path="res://assets/cards/blank_card.png" id="2_knql2"]
+
+[node name="ShopItem" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1630.0
+offset_bottom = -679.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ytvjp")
+
+[node name="ItemIcon" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(143, 175)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_knql2")
+
+[node name="ShopItemBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_2cvwn")
+
+[node name="ItemLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 291.0
+offset_right = 172.0
+offset_bottom = 319.0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 20
+text = "item name
+"
+
+[node name="CostLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 332.0
+offset_right = 204.0
+offset_bottom = 355.0
+theme_override_colors/font_color = Color(0.907252, 0.759184, 0.141457, 1)
+theme_override_font_sizes/font_size = 16
+text = "x golden seeds"

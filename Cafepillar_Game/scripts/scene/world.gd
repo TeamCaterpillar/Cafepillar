@@ -5,11 +5,14 @@ extends Node2D
 @onready var player_camera = $PlayerCamera
 @onready var test_cam = $TestScene/Camera2D
 @onready var completed_dish_inventory: Control = $CompletedDishInventory
+@onready var color_rect: ColorRect = $CompletedDishInventory/ColorRect
+@onready var grid_container: GridContainer = $CompletedDishInventory/GridContainer
+@onready var label: Label = $CompletedDishInventory/Label
+@onready var label_2: Label = $CompletedDishInventory/Label2
 
 func _ready():
 	kitchen_scene.visible = false
 	player_camera.make_current()
-	# completed_dish_inventory.visible = false
 
 
 func _process(_delta):
@@ -61,13 +64,17 @@ func _swap_to_from_kitchen() -> void:
 		kitchen_scene.release_focus()
 		player_camera.make_current()
 		kitchen_scene.visible = false
+		if color_rect.visible:
+			color_rect.visible = false
+			grid_container.visible = false
+			label.visible = false
+			label_2.visible = false
 	else:
 		TransitionScreen.transition_to_kitchen()
 		await TransitionScreen.on_transition_finished
 		kitchen_scene.visible = true
 		kitchen_cam.make_current()
 		kitchen_scene.grab_focus()
-		
 		
 
 

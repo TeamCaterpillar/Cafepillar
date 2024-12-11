@@ -31,7 +31,7 @@ var astar_grid : AStarGrid2D
 var start_cell : Vector2i
 var end_cell : Vector2i
 var player_move : bool = false
-var path_coordinates 
+var path_coordinates
 
 
 func _ready():
@@ -40,8 +40,8 @@ func _ready():
 	_init_grid()
 	_update_pathable_cells()
 	find_path()
-	
-	
+
+
 	# spawning customers - temp
 	_spawn_timer = Timer.new()
 	_spawn_timer.one_shot = false
@@ -50,16 +50,17 @@ func _ready():
 
 
 func _process(_delta):
-	if (	_spawn_timer.time_left < 1 
+	if (	_spawn_timer.time_left < 1
 		and customer_spawn.get_child_count() < 10 \
 		and not day_night_cycle.day_ended):
-			
+
 		_spawn_timer.start(customer_spawn_rate)
 		spec_customer = customer_factory.generate_rand_customer()
+		GameSignals.emit_signal("customer_added", spec_customer)
 		customer_spawn.add_child(spec_customer)
 	if player_move:
 		path.begin = true
-		
+
 
 
 # old	######
@@ -77,7 +78,7 @@ func _on_layout_updated() -> void:
 func _on_marker_positions_updated() -> void:
 	var new_start_cell = ground_layer.local_to_map(player_start_position.position)
 	var new_end_cell = ground_layer.local_to_map(player_end_position.position)
-	
+
 	if new_start_cell != start_cell or new_end_cell != end_cell:
 		find_path()
 
@@ -87,7 +88,7 @@ func _init_grid() -> void:
 	astar_grid.cell_shape = AStarGrid2D.CELL_SHAPE_ISOMETRIC_DOWN
 	astar_grid.cell_size = ground_layer.tile_set.tile_size
 	astar_grid.region = ground_layer.get_used_rect()
-	
+
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 
 	astar_grid.update()
@@ -101,7 +102,7 @@ func _update_pathable_cells() -> void:
 				astar_grid.set_point_solid(id)
 				print("Cell @ ", id, " has been blocked from pathing!")
 				ground_layer.get_cell_tile_data(id).texture_origin = Vector2(0, 0)
-				
+
 func find_path() -> void:
 	print("PATH FINDING BEGUN ---------------")
 	path.curve.clear_points()
@@ -110,11 +111,11 @@ func find_path() -> void:
 	# replace with logic for coding the seat of choice
 	end_cell = ground_layer.local_to_map(random_seat_position())
 	print("END CELL: ", end_cell)
-	
+
 	if start_cell == end_cell or !astar_grid.is_in_boundsv(start_cell) or !astar_grid.is_in_boundsv(end_cell):
 		push_error("SOMETHING WRONG IN FIND_PATH")
 		return
-	
+
 	var id_path = astar_grid.get_id_path(start_cell, end_cell)
 	print("ASTAR CALCULATED ID PATH: ", id_path)
 	for id in id_path:
@@ -125,24 +126,24 @@ func find_path() -> void:
 		path.curve.add_point(id_local_position)
 		#ground_layer.get_cell_tile_data(id).modulate = Color(0, 0, 0, 0.5)
 		print("Added point ", id_local_position, " to the path!")
-		
-	
+
+
 func random_seat_position() -> Vector2:
 	var random_seat_marker = seats_array.get_children().pick_random()
 	var marker_local_position = to_local(random_seat_marker.global_position)
 	return to_local(marker_local_position)
-	
-	
-	
+
+
+
 func is_cell_blocked(id) -> bool:
-	if (ground_layer.get_cell_source_id(id) >= 0 
+	if (ground_layer.get_cell_source_id(id) >= 0
 		and ground_layer.get_cell_tile_data(id).get_custom_data('Obstacle') # if the tile is a not a pathblock
 		):#and obstacle_layer.get_cell_tile_data(id).get_custom_data('Obstacle')): # if the tile has an obstacle on it
 		return true
 	else:
 		return false
-		
-		
+
+
 func _on_texture_button_pressed() -> void:
 	print("button pressed")
 	path_follow.begin = true

@@ -23,8 +23,11 @@ func _ready() -> void:
 	
 	# omelette is spelled differently for (idk if I should change it or not)
 	# for now, use check statement for omelette image
+	# same for beef and leaf stew
 	if food_name == "omelette":
 		food_icon_path =  "res://assets/cards/omelet.png"
+	elif food_name == "beef_leaf_stew":
+		food_icon_path = "res://assets/cards/beefnleaf_stew.png"
 
 	# gets the corresponding image of the food name
 	if ResourceLoader.exists(food_icon_path):

@@ -33,10 +33,12 @@ func stop_drag(global_mouse_position: Vector2, slots_group: String):
 	_dragging_card = null
 	_dragging_index = -1
 
+
 # Processes dragging of a card
 func process_drag(global_mouse_position: Vector2):
 	if _dragging_card:
 		_dragging_card.global_position = global_mouse_position - _dragging_mouse_position
+
 
 # Finds a slot under the given global position
 func _get_slot_under_point(global_pos: Vector2, slots_group: String) -> Control:

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dish" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="Dish" load_steps=2 format=3 uid="uid://donslpeb8k8fn"]
 
 [ext_resource type="Script" path="res://scripts/resources/dish.gd" id="1_jqtxx"]
 
@@ -11,6 +11,6 @@ quality_thresholds = {
 "perfect": 10.0,
 "satisfactory": 12.0
 }
-sprite_path = "res://assets/cards/placeholder_ingredient.png"
+sprite_path = "res://assets/cards/beefnleaf_stew.png"
 ingredients = ["beef", "beef", "lettuce"]
 cookware = ["pan"]
