@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://crhem5u84rltp"]
+
+[ext_resource type="Texture2D" uid="uid://cyteyj6udsw7s" path="res://assets/cutscene ui/dialogue box.png" id="1_88f2d"]
+
+[node name="Dialogue" type="TextureRect"]
+offset_left = 147.0
+offset_top = 717.0
+offset_right = 1800.0
+offset_bottom = 1034.0
+texture = ExtResource("1_88f2d")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 1604.0
+offset_bottom = 280.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 56
+text = "placeholder text"
+autowrap_mode = 3
