@@ -4,8 +4,9 @@ extends Node2D
 
 const TILE_TEXTURE_OFFSET : Vector2 = Vector2(0, -8)
 
-@export var customer_spawn_rate:float = 2.0
-@export var debug_enabled : bool = true
+@export var customer_spawn_rate:float = 2
+#@export 
+var debug_enabled : bool = true
 
 # @onready world variables
 @onready var ground_layer : TileMapLayer = $GroundLayer
@@ -56,13 +57,18 @@ func _ready():
 
 func _process(_delta):
 	if (	_spawn_timer.time_left < 1
-		and customer_spawn.get_child_count() <= 12 \
+		and customer_spawn.get_child_count() <= 10 \
 		and not day_night_cycle.day_ended):
 
 		_spawn_timer.start(customer_spawn_rate)
 		spec_customer = customer_factory.generate_rand_customer()
 		GameSignals.emit_signal("customer_added", spec_customer)
 		customer_spawn.add_child(spec_customer)
+		var pathy = find_path(customer_spawn.position)
+		set_customer_path(pathy)
+		print(spec_customer.path)
+		GameSignals.customer_can_move.emit()
+		
 
 
 func _init_grid() -> void:
@@ -127,8 +133,6 @@ func find_path(start_position : Vector2) -> Array:
 		print("PATH FINDING INFO:")
 		print("START CELL: ", start_cell)
 		print("END CELL: ", end_cell)
-		print("ASTAR CALCULATED ID PATH: ", player_path_coords)
-		print("ASTAR CALCULATED POSITION PATH: ", player_path_positions)
 		print("---------------------------------------------------")
 
 	return id_path
@@ -142,6 +146,8 @@ func set_player_path(id_path : Array = find_path(player_start_position)) -> void
 		var cell_local_position = ground_layer.map_to_local(id)
 		player_path_coords.append(id)
 		player_path_positions.append(cell_local_position)
+	print("ASTAR CALCULATED ID PATH: ", player_path_coords)
+	print("ASTAR CALCULATED POSITION PATH: ", player_path_positions)
 
 
 func set_customer_path(id_path : Array) -> void:
@@ -151,6 +157,8 @@ func set_customer_path(id_path : Array) -> void:
 		var cell_local_position = ground_layer.map_to_local(id)
 		customer_path_coords.append(id)
 		customer_path_positions.append(cell_local_position)
+	print("ASTAR CALCULATED ID PATH: ", customer_path_coords)
+	print("ASTAR CALCULATED POSITION PATH: ", customer_path_positions)
 
 
 func random_seat_position() -> Vector2:
@@ -161,11 +169,11 @@ func random_seat_position() -> Vector2:
 	else:
 		seats_taken.get_or_add(random_seat_marker) # only will ever add (I think)
 
-	var marker_local_position = to_local(random_seat_marker.global_position)
+	var marker_local_position = to_local(random_seat_marker.position)
 
 	if debug_enabled: # debug print
 		print("Random seat produced: ", marker_local_position)
-	return to_local(marker_local_position)
+	return marker_local_position
 	
 
 func is_cell_blocked(id) -> bool:

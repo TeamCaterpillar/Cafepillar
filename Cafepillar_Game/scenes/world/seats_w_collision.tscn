@@ -8,11 +8,13 @@ size = Vector2(12, 12)
 [node name="Seats" instance=ExtResource("1_uhplm")]
 
 [node name="Area2D" type="Area2D" parent="Seat1" index="0"]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Seat1/Area2D" index="0"]
 shape = SubResource("RectangleShape2D_tjfg6")
 
 [node name="Area2D" type="Area2D" parent="Seat2" index="0"]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Seat2/Area2D" index="0"]
 shape = SubResource("RectangleShape2D_tjfg6")

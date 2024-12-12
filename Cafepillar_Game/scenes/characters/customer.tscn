@@ -29,10 +29,13 @@ _data = {
 radius = 11.0
 height = 36.0
 
-[node name="Customer" type="CharacterBody2D"]
+[node name="Customer" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 z_index = 2
 y_sort_enabled = true
+collision_mask = 2
+motion_mode = 1
 script = ExtResource("1_goek5")
+sprite = NodePath("CustomerSprite")
 
 [node name="CustomerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_lcutu")

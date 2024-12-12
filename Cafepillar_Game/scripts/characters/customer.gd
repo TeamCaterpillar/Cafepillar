@@ -15,7 +15,6 @@ extends Character
 @onready var texture_button: TextureButton = $TextureButton
 @onready var label: Label = $TextureButton/Label
 #@onready var texture_button: TextureButton = $TextureButton
-@onready var area_2d: Area2D = $Area2D
 
 var current_path_index: int = 0
 var path: Array[Vector2] = []
@@ -23,6 +22,7 @@ var movement_speed: float = 100.0
 var arrive_threshold: float = 1.0
 var return_to_start : bool = false
 
+var move_is_go : bool = false
 var _timer:Timer
 var food_name : String
 var customer_id: int = 1
@@ -32,12 +32,11 @@ func _ready():
 	assign_id()
 	label.text = "Customer " + str(customer_id)
 	# texture_button.connect("pressed", Callable(self, "_on_DeliverButton_pressed"))
-	tree_entered.connect(_its_go_time)
+	GameSignals.customer_can_move.connect(_its_go_time)
 	animation_player.play("walk")
 	arrive_threshold = clamp(arrive_threshold, 1.0, 16.0)
 	velocity = Vector2.ZERO
-	path.clear()
-
+	
 	# GameSignals.customer_clicked.connect(_on_customer_clicked)
 	#_timer = Timer.new()
 	#_timer.one_shot = true
@@ -71,13 +70,14 @@ func _ready():
 		#var food_icon = load(food_icon_path)
 		#texture_button.visible = true
 		#texture_button.texture_normal = food_icon
-
+	
 
 func _physics_process(delta: float) -> void:
 	#if _timer.is_stopped():
 		#remove_customer()
-
-	if !path.is_empty():
+	
+		
+	if !path.is_empty() and move_is_go:
 		handle_path_movement()
 	elif return_to_start:
 		handle_return_movement() # leave the cafe based on food delivered
@@ -107,11 +107,7 @@ func handle_path_movement() -> void:
 func handle_return_movement() -> void:
 	# change to be triggered on food delivery
 	if current_path_index < 0:
-		return_to_start = false
-		velocity = Vector2.ZERO
-		path.clear()
-		GameSignals.player_finished_delivery.emit()
-		return
+		queue_free()
 
 	var target_position = path[current_path_index]
 	var direction = global_position.direction_to(target_position)
@@ -147,7 +143,7 @@ func return_to_start_position() -> void:
 	return_to_start = true
 
 func _its_go_time() -> void:
-	pass
+	move_is_go = true
 
 
 ############## TIM FUNCTIONS #########################
@@ -162,23 +158,12 @@ func _its_go_time() -> void:
 func _on_card_click() -> void:
 	pass
 
-func _on_customer_clicked(order: String):
-	print("Customer's order: ", order)
-
-
-func _on_DeliverButton_pressed(event) -> void:
-	if event is InputEvent:
-		print("Clicked button!")
-
-
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-
-	if event is InputEventMouseButton:
-		print("Customer's order: ", "sgfbaigjas")
-
 
 func assign_id():
 	# assign an id to customer
+	if GameManager.customer_ids.is_empty():
+		queue_free()
+		return
 	customer_id = GameManager.customer_ids.pop_back()
 
 
@@ -186,5 +171,5 @@ func remove_customer():
 	for person in GameManager.customers_waiting:
 		if person == self:
 			GameManager.customers_waiting.erase(self)
-			queue_free() # customer death when theyre sick of waiting lmfao
+			return_to_start = true # customer death when theyre sick of waiting lmfao
 			dish_inventory.remove_customer_from_queue(customer_id)

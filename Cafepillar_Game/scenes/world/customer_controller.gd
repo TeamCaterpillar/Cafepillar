@@ -31,7 +31,7 @@ func send_customer_to_seat() -> void:\
 	print("HELLO")
 
 
-func handle_path_movement(customer : Customer) -> void:
+func handle_path_movement(thing : Customer) -> void:
 	if current_path_index >= path.size():
 		deliver_dish = false
 		velocity = Vector2.ZERO
@@ -44,11 +44,11 @@ func handle_path_movement(customer : Customer) -> void:
 		current_path_index += 1
 	else:
 		#motion_mode = MOTION_MODE_FLOATING
-		velocity = direction * movement_speed * get_physics_process_delta_time()
-		update_sprite_orientation(direction, customer)
+		velocity = direction * movement_speed
+		update_sprite_orientation(direction, thing)
 
 
-func handle_return_movement(customer : Customer) -> void:
+func handle_return_movement(thing : Customer) -> void:
 	if current_path_index < 0:
 		return_to_start = false
 		velocity = Vector2.ZERO
@@ -63,8 +63,8 @@ func handle_return_movement(customer : Customer) -> void:
 		current_path_index -= 1
 	else:
 		#motion_mode = MOTION_MODE_FLOATING
-		velocity = direction * movement_speed * get_physics_process_delta_time()
-		update_sprite_orientation(direction, customer)
+		velocity = direction * movement_speed 
+		update_sprite_orientation(direction, thing)
 
 
 func move_along_path(new_path: Array[Vector2]) -> void:

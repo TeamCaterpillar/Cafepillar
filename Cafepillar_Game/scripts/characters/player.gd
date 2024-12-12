@@ -63,7 +63,7 @@ func handle_return_movement() -> void:
 		current_path_index -= 1
 	else:
 		motion_mode = MOTION_MODE_FLOATING
-		velocity = direction * movement_speed * get_physics_process_delta_time()
+		velocity = direction * movement_speed
 		update_sprite_orientation(direction)
 
 func update_sprite_orientation(direction: Vector2) -> void:
