@@ -7,7 +7,7 @@ extends Control
 @onready var timer_bar: ProgressBar = $ColorRect/TimerBar
 @onready var color_rect: ColorRect = $ColorRect
 @onready var status_label: Label = $Status
-@onready var stove_slot: Slot = $"../../Stove/Slot"
+@onready var cookware_slot: Slot = get_cookware_slot()
 @onready var card_factory: Node = $"../../CardFactory"
 @onready var stove_output: GCardHandLayout = $"../../Output"
 
@@ -29,6 +29,16 @@ var tween
 # default value
 var _food_condition = "Undercooked"
 var recipe: String = ""
+
+
+func get_cookware_slot() -> Slot:
+	# Get the parent (assumed to be the cookware) and find the slot
+	var cookware = get_parent()
+	if cookware and cookware.has_node("Slot"):
+		return cookware.get_node("Slot")
+	else:
+		print("Error: No Slot found in cookware ", cookware.name)
+		return null
 
 
 func _ready() -> void:
@@ -72,7 +82,7 @@ func _update_timer_bar_color() -> void:
 
 	
 func _on_StartButton_pressed():
-	recipe = stove_slot.check_recipe()
+	recipe = cookware_slot.check_recipe()
 	if recipe != "Null" and stove_output.get_child_count() < 1:
 		# put all the code below in the if statement checking for valid food
 		cooking = true
@@ -81,6 +91,8 @@ func _on_StartButton_pressed():
 		start_button.visible = false
 		remove_button.visible = false
 		status_label.text = "Preparing " + recipe + "..."
+		cookware_slot.remove_from_group("CardSlot")
+		
 		# animate cooking timer
 		if tween == null:
 			tween = create_tween()
@@ -97,13 +109,14 @@ func _on_DoneButton_pressed():
 	color_rect.visible = false
 	done_button.visible = false
 	remove_button.visible = true
+	cookware_slot.add_to_group("CardSlot")
 	
 	# remove all cards on stove
-	var children = stove_slot.get_children()
+	var children = cookware_slot.get_children()
 	for child in children:
 		child.free()
 		
-	stove_slot.card_resources.clear()
+	cookware_slot.card_resources.clear()
 	
 	# add dish card on stove
 	card_factory.create_card_for_stove(recipe.to_lower().replace(" ", "_"), "dishes", _food_condition)
@@ -116,11 +129,11 @@ func _on_RemoveButton_pressed():
 	status_label.text = ""
 	
 	# Remove all ingredients from array
-	var children = stove_slot.get_children()
+	var children = cookware_slot.get_children()
 	for child in children:
 		child.free()
 	
-	stove_slot.card_resources.clear()
+	cookware_slot.card_resources.clear()
 
 
 func _on_start_button_pressed() -> void:
