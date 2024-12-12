@@ -67,6 +67,7 @@ var _mouse_in:bool = false
 var _dragging_card:Control
 var _dragging_index:int = -100
 var _dragging_mouse_position:Vector2
+@onready var card_factory = $"../CardFactory"
 
 func _ready():
 	_dragging_index = -100
@@ -347,6 +348,8 @@ func _place_card_in_slot(card: Control, slot: Control) -> void:
 				(slot.get_child_count() - 1) * 20 + randi_range(-10, 10)  # Vertical stacking with randomness
 			)
 			card.position = random_offset
+		
+		card_factory.create_card(card.card_resource.name, "ingredients")
 	
 	if slot.name == "TraySlot" and card.is_in_group("Dish") and slot.get_child_count() < 2:
 		card.get_parent().remove_child(card)

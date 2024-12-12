@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b4jylv27c7es2"]
 
-[ext_resource type="Texture2D" uid="uid://ckhfci2tp6dug" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="1_dsmq1"]
-[ext_resource type="Texture2D" uid="uid://cfi1bd2alqpws" path="res://assets/kitchen_equipment/stove2.png" id="1_vuxi8"]
+[ext_resource type="Texture2D" uid="uid://ciobj7lbcprkd" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="1_dsmq1"]
+[ext_resource type="Texture2D" uid="uid://dudit37tsrpeb" path="res://assets/kitchen_equipment/stove2.png" id="1_vuxi8"]
 [ext_resource type="Script" path="res://scripts/appliances/slot.gd" id="2_rscoo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_islog"]

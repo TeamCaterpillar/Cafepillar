@@ -114,17 +114,12 @@ func _on_RemoveButton_pressed():
 	# Clear status label
 	status_label.text = ""
 	
-	# Remove all ingredients and add them to hand
-	while !stove_slot.card_resources.is_empty():
-		stove_slot.remove_child(stove_slot.get_child(0))
-		# add back to hand
-		card_factory.create_card(stove_slot.card_resources[0], "ingredients")
-		stove_slot.card_resources.pop_front()
-	
-	# Remove the rest non-ingredients card
+	# Remove all ingredients from array
 	var children = stove_slot.get_children()
 	for child in children:
 		child.free()
+	
+	stove_slot.card_resources.clear()
 
 
 func _on_start_button_pressed() -> void:

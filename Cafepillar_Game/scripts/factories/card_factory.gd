@@ -27,7 +27,7 @@ func _ready() -> void:
 func _on_deck_click() -> void:
 	cur_subset_num += 1
 	@warning_ignore("integer_division")
-	if cur_subset_num >= GameManager.kitchen_inventory.size() / HAND_SIZE:
+	if cur_subset_num >= GameManager.kitchen_inventory.size() / HAND_SIZE + 1:
 		cur_subset_num = 0
 	print("currently on subset " + str(cur_subset_num))
 	
@@ -85,7 +85,7 @@ func clear_hand() -> void:
 
 func transfer_cards_into_hand() -> void:
 	var subset_start = cur_subset_num * HAND_SIZE
-	var subset_end = (cur_subset_num * HAND_SIZE) + HAND_SIZE
+	var subset_end = min((cur_subset_num * HAND_SIZE) + HAND_SIZE, GameManager.kitchen_inventory.size())
 	var subset = GameManager.kitchen_inventory.slice(subset_start, subset_end)
 	for item in subset:
 		create_card(item, "ingredients")

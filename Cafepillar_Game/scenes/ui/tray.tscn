@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://e87i8t6lw4ak"]
 
 [ext_resource type="Script" path="res://scripts/appliances/tray.gd" id="1_xgh0v"]
-[ext_resource type="Texture2D" uid="uid://ckhfci2tp6dug" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="2_8dt6f"]
+[ext_resource type="Texture2D" uid="uid://ciobj7lbcprkd" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="2_8dt6f"]
 [ext_resource type="Script" path="res://scripts/appliances/slot.gd" id="3_frftv"]
-[ext_resource type="PackedScene" uid="uid://c2ct3c5b0l41d" path="res://scenes/sounds.tscn" id="7_3n21c"]
-[ext_resource type="Texture2D" uid="uid://boe2fgvxhx245" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="7_nt3p0"]
-[ext_resource type="Texture2D" uid="uid://cqmo0wxbol88s" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="8_lsin4"]
+[ext_resource type="PackedScene" path="res://scenes/sounds.tscn" id="7_3n21c"]
+[ext_resource type="Texture2D" uid="uid://bhfudbe6pxgin" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="7_nt3p0"]
+[ext_resource type="Texture2D" uid="uid://cwhssdmxavasd" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="8_lsin4"]
 [ext_resource type="Script" path="res://scripts/sounds/TraySounds.gd" id="8_lxd14"]
-[ext_resource type="Texture2D" uid="uid://d318w71syahbl" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="9_7w0ov"]
-[ext_resource type="AudioStream" uid="uid://ceb8kiuev152y" path="res://assets/audio/button_click.wav" id="9_vyoxx"]
+[ext_resource type="Texture2D" uid="uid://crqjjdfnmmtqs" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="9_7w0ov"]
+[ext_resource type="AudioStream" uid="uid://cjhddsdd2mjk8" path="res://assets/audio/button_click.wav" id="9_vyoxx"]
 
 [node name="Tray" type="Control"]
 layout_mode = 3

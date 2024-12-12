@@ -100,10 +100,8 @@ offset_left = 26.0
 offset_top = -128.0
 offset_right = 66.0
 offset_bottom = -105.0
-metadata/_edit_use_anchors_ = true
 
 [node name="CompletedDishInventory" parent="." instance=ExtResource("8_kmfh7")]
-visible = false
 offset_left = -79.0
 offset_top = -74.0
 offset_right = -79.0
