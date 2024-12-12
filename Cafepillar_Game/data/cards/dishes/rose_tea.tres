@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dish" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="Dish" load_steps=2 format=3 uid="uid://bepiwaq3lhq2i"]
 
 [ext_resource type="Script" path="res://scripts/resources/dish.gd" id="1_gpt7h"]
 
@@ -11,6 +11,6 @@ quality_thresholds = {
 "perfect": 3.0,
 "satisfactory": 4.0
 }
-sprite_path = "res://assets/cards/rose_petals.png"
+sprite_path = "res://assets/cards/rose_tea.png"
 ingredients = ["rose_petal", "rose_petal", "tea_leave"]
 cookware = ["cup"]

@@ -50,6 +50,8 @@ label_settings = SubResource("LabelSettings_mfo7w")
 horizontal_alignment = 1
 
 [node name="CookingTimerBar" parent="." instance=ExtResource("4_hc3gt")]
-offset_top = 11.0
-offset_bottom = 360.0
+offset_left = -6.0
+offset_top = -47.0
+offset_right = 511.0
+offset_bottom = 302.0
 script = ExtResource("5_t5lyp")

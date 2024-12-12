@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dn3urr1xccmik"]
+[gd_scene load_steps=13 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/scene/kitchen.gd" id="1_tfllf"]
 [ext_resource type="Texture2D" uid="uid://dcyth14jcjfmq" path="res://assets/backgrounds/kitchen_background.png" id="2_scie6"]
@@ -6,10 +6,11 @@
 [ext_resource type="Script" path="res://scripts/factories/card_factory.gd" id="7_8i4sf"]
 [ext_resource type="PackedScene" uid="uid://b4jylv27c7es2" path="res://scenes/ui/stove.tscn" id="8_ab558"]
 [ext_resource type="PackedScene" uid="uid://e87i8t6lw4ak" path="res://scenes/ui/tray.tscn" id="8_tg0xe"]
+[ext_resource type="PackedScene" uid="uid://dcciyy4gnwna0" path="res://scenes/ui/blender.tscn" id="9_0088y"]
 [ext_resource type="PackedScene" uid="uid://duqnvcuyncuk8" path="res://scenes/ui/recipes_book_new.tscn" id="9_b7q2u"]
 [ext_resource type="Script" path="res://scripts/ui/order_queue.gd" id="10_765us"]
 [ext_resource type="PackedScene" uid="uid://bot3qm286xjeh" path="res://scenes/ui/inventory_deck.tscn" id="10_fo2lv"]
-[ext_resource type="PackedScene" uid="uid://bmqfwyvh3jesd" path="res://counter.tscn" id="10_w6rx6"]
+[ext_resource type="PackedScene" uid="uid://bmqfwyvh3jesd" path="res://scenes/ui/counter.tscn" id="10_w6rx6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
 font_size = 50
@@ -149,17 +150,24 @@ enable_dragging = true
 
 [node name="Stove" parent="." instance=ExtResource("8_ab558")]
 layout_mode = 0
-offset_left = 276.0
-offset_top = 331.0
-offset_right = 476.0
-offset_bottom = 531.0
+offset_left = 257.0
+offset_top = 346.0
+offset_right = 457.0
+offset_bottom = 546.0
 
 [node name="Counter" parent="." instance=ExtResource("10_w6rx6")]
 layout_mode = 0
-offset_left = 700.0
-offset_top = 186.0
-offset_right = 740.0
-offset_bottom = 226.0
+offset_left = 650.0
+offset_top = 205.0
+offset_right = 690.0
+offset_bottom = 245.0
+
+[node name="Blender" parent="." instance=ExtResource("9_0088y")]
+layout_mode = 0
+offset_left = 1151.0
+offset_top = 207.0
+offset_right = 1191.0
+offset_bottom = 247.0
 
 [node name="InventoryDeck" parent="." instance=ExtResource("10_fo2lv")]
 layout_mode = 1

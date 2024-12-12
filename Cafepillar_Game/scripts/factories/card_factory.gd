@@ -61,7 +61,7 @@ func create_card_for_stove(card_name: String, card_type: String, food_quality: S
 	if not card_resource:
 		push_error("Failed to load resource path: %s" % resource_path)
 		return
-
+	
 	var card_instance: CardInstance = CardInstance.new()
 	card_instance.card_resource = card_resource # Assign the resource to the card
 	card_instance.texture = load(card_resource.sprite_path)

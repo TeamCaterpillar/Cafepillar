@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dish" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="Dish" load_steps=2 format=3 uid="uid://cnaud8yhuinrc"]
 
 [ext_resource type="Script" path="res://scripts/resources/dish.gd" id="1_v26bu"]
 
@@ -11,6 +11,6 @@ quality_thresholds = {
 "perfect": 5.0,
 "satisfactory": 6.0
 }
-sprite_path = "res://assets/cards/honey_roast_coffee.png"
+sprite_path = "res://assets/cards/honey_roasted_coffee.png"
 ingredients = ["coffee_bean", "honey", "nut"]
 cookware = ["cup"]

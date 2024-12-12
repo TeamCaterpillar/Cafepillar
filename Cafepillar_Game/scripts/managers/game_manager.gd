@@ -114,3 +114,11 @@ func initialize_inventory() -> void:
 	add_to_storage("lettuce")
 	add_to_storage("coffee_bean")
 	add_to_storage("cheese")
+	
+	#Testing
+	add_to_storage("beef")
+	add_to_storage("flour")
+	add_to_storage("honey")
+	add_to_storage("milk")
+	add_to_storage("rose_petal")
+	add_to_storage("strawberry")

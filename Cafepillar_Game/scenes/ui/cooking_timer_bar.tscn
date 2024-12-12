@@ -20,8 +20,10 @@ font_color = Color(0.0121183, 0.0121183, 0.0121183, 1)
 [node name="CookingTimerBar" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 517.0
-offset_bottom = 349.0
+offset_left = -1.0
+offset_top = 5.0
+offset_right = 516.0
+offset_bottom = 354.0
 
 [node name="StartButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -99,10 +101,10 @@ default_color = Color(0, 0, 0, 1)
 
 [node name="Status" type="Label" parent="."]
 layout_mode = 0
-offset_left = 53.0
-offset_top = 3.0
-offset_right = 573.0
-offset_bottom = 93.0
+offset_left = 55.0
+offset_top = 13.0
+offset_right = 575.0
+offset_bottom = 103.0
 scale = Vector2(0.75, 0.75)
 theme_override_font_sizes/font_size = 10
 label_settings = SubResource("LabelSettings_bydme")

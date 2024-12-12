@@ -29,17 +29,17 @@ var recipes = [
 	},
 	{
 		"use": "Stove",
-		"title": "Beef n Leaf Stew",
+		"title": "Beef Leaf Stew",
 		"ingredients": ["Lettuce x2", "Beef x1"]
 	},
 	{
-		"use": "Oven",
+		"use": "Stove",
 		"title": "Rose Cake",
 		"ingredients": ["Rose Petals x1", "Flour x1", "Eggs x1", "Milk x1"]
 	},
 	{
 		"use": "Stove",
-		"title": "Burger :D",
+		"title": "Burger",
 		"ingredients": ["Beef x1", "Cheese x1", "Lettuce x1", "Flour x1"]
 	},
 
