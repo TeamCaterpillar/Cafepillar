@@ -1,10 +1,14 @@
 class_name ShopItem
 extends TextureButton
 
+const UNCHECKED_BOX_SPRITE_PATH = "res://assets/ui/shop_item_checkbox.png"
+const CHECKED_BOX_SPRITE_PATH = "res://assets/ui/shop_item_checkbox_checked.png"
+
 @export var shop_item_name : String
 @onready var item_label = $ItemLabel
 @onready var item_icon = $ItemIcon
 @onready var cost_label = $CostLabel
+@onready var checkbox = $Checkbox
 
 
 # state variables
@@ -12,7 +16,11 @@ var is_selected:bool = false
 
 
 func _ready() -> void:
+	# load shop item graphics
 	load_shop_item()
+	checkbox.texture = load(UNCHECKED_BOX_SPRITE_PATH)
+	
+	# connect signals
 	self.pressed.connect(_on_item_clicked)
 
 
@@ -21,8 +29,10 @@ func _on_item_clicked():
 	
 	if is_selected:
 		GameSignals.item_selected.emit(shop_item_name)
+		checkbox.texture = load(CHECKED_BOX_SPRITE_PATH)
 	else:
 		GameSignals.item_deselected.emit(shop_item_name)
+		checkbox.texture = load(UNCHECKED_BOX_SPRITE_PATH)
 	
 	
 func load_shop_item() -> void:
