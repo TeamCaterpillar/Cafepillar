@@ -8,11 +8,19 @@ const ITEM_LIST = {
 
 const SHOP_ITEM_SCENE_PATH = "res://scenes/ui/shop_item.tscn"
 
+# node references
 @onready var shop_container = $ShopContainer
 
+# other variables
+var shopping_cart = []
+
+
 func _ready() -> void:
+	# connect signals
 	GameSignals.day_ended.connect(fill_shop)
 	GameSignals.next_day_started.connect(clear_shop)
+	GameSignals.item_selected.connect(add_item_to_cart)
+	GameSignals.item_deselected.connect(remove_item_from_cart)
 
 
 func fill_shop() -> void:
@@ -34,3 +42,13 @@ func create_shop_item(item:String) -> void:
 	new_shop_item.shop_item_name = item
 	
 	shop_container.add_child(new_shop_item)
+
+
+func add_item_to_cart(item:String) -> void:
+	shopping_cart.append(item)
+	print("added " + item + " to cart!")
+
+
+func remove_item_from_cart(item:String) -> void:
+	shopping_cart.erase(item)
+	print("removed " + item + " from cart!")

@@ -7,7 +7,26 @@ extends TextureButton
 @onready var cost_label = $CostLabel
 
 
+# state variables
+var is_selected:bool = false
+
+
 func _ready() -> void:
+	load_shop_item()
+	self.pressed.connect(_on_item_clicked)
+
+
+func _on_item_clicked():
+	is_selected = !is_selected
+	
+	if is_selected:
+		GameSignals.item_selected.emit(shop_item_name)
+	else:
+		GameSignals.item_deselected.emit(shop_item_name)
+	
+	
+func load_shop_item() -> void:
+	# construct file path to resource file
 	var item_res_path = "res://data/cards/ingredients/" \
 						+ str(shop_item_name) \
 						+ ".tres"
