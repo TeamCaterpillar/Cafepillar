@@ -2,7 +2,7 @@ extends Node
 
 # Game state variables
 var current_day : int = 1
-var golden_seeds : int = 0
+var golden_seeds : int = 100
 var kitchen_inventory: Array[Variant] = []
 var active_orders: Array[Variant]     = []
 var waiter_queue: Array[Variant]      = []

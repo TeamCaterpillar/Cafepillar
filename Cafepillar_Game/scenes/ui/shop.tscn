@@ -42,12 +42,23 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 21
 text = "shop"
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="BuyButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 161.0
-offset_top = 206.0
-offset_right = 951.0
-offset_bottom = 549.0
-scale = Vector2(0.1, 0.1)
+offset_left = 178.0
+offset_top = 196.0
+offset_right = 968.0
+offset_bottom = 539.0
+scale = Vector2(0.06, 0.06)
 texture_normal = ExtResource("3_t0c8h")
 texture_pressed = ExtResource("4_ip6al")
+
+[node name="BuyingStatusLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 219.0
+offset_right = 339.0
+offset_bottom = 242.0
+theme_override_colors/font_color = Color(0.374139, 0.374139, 0.374139, 1)
+theme_override_font_sizes/font_size = 12
+text = "insert text"
+horizontal_alignment = 1

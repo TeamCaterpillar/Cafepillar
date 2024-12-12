@@ -33,14 +33,15 @@ texture = ExtResource("1_2cvwn")
 
 [node name="ItemLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 208.333
-offset_top = 733.333
-offset_right = 416.333
-offset_bottom = 788.333
+offset_left = 58.3333
+offset_top = 725.0
+offset_right = 463.333
+offset_bottom = 780.0
 scale = Vector2(1.5, 1.5)
 theme_override_font_sizes/font_size = 40
 text = "item name
 "
+horizontal_alignment = 1
 
 [node name="CostLabel" type="Label" parent="."]
 layout_mode = 0
@@ -51,3 +52,4 @@ offset_bottom = 857.333
 theme_override_colors/font_color = Color(0.907252, 0.759184, 0.141457, 1)
 theme_override_font_sizes/font_size = 35
 text = "x golden seeds"
+horizontal_alignment = 1

@@ -7,9 +7,12 @@ const ITEM_LIST = {
 }
 
 const SHOP_ITEM_SCENE_PATH = "res://scenes/ui/shop_item.tscn"
+const ITEM_PRICE = 20
 
 # node references
 @onready var shop_container = $ShopContainer
+@onready var buy_button = $BuyButton
+@onready var buying_status_label = $BuyingStatusLabel
 
 # other variables
 var shopping_cart = []
@@ -21,6 +24,7 @@ func _ready() -> void:
 	GameSignals.next_day_started.connect(clear_shop)
 	GameSignals.item_selected.connect(add_item_to_cart)
 	GameSignals.item_deselected.connect(remove_item_from_cart)
+	buy_button.pressed.connect(checkout)
 
 
 func fill_shop() -> void:
@@ -52,3 +56,26 @@ func add_item_to_cart(item:String) -> void:
 func remove_item_from_cart(item:String) -> void:
 	shopping_cart.erase(item)
 	print("removed " + item + " from cart!")
+
+
+func calc_total_cost() -> int:
+	return shopping_cart.size() * ITEM_PRICE
+
+
+func checkout() -> void:
+	var total_cost = calc_total_cost()
+	
+	if shopping_cart.is_empty():
+		buying_status_label.text = "no items selected!"
+		return
+	
+	if GameManager.golden_seeds < total_cost:
+		buying_status_label.text = "not enough golden seeds to buy!"
+	else:
+		buying_status_label.text = "purchased!"
+		
+		for item in shopping_cart:
+			GameManager.add_to_storage(item)
+		
+		GameManager.remove_currency(total_cost)
+	
