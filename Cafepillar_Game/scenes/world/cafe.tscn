@@ -1,14 +1,16 @@
-[gd_scene load_steps=6 format=4 uid="uid://drm58n2vnmmoa"]
+[gd_scene load_steps=7 format=4 uid="uid://drm58n2vnmmoa"]
 
 [ext_resource type="Script" path="res://scripts/managers/front_manager.gd" id="1_btvhg"]
 [ext_resource type="TileSet" uid="uid://c11awdbng7yss" path="res://assets/tile_sets/cafe_tile_set.tres" id="2_pdjny"]
 [ext_resource type="PackedScene" uid="uid://dkw27imy3jwh1" path="res://scenes/characters/player.tscn" id="4_8ipbn"]
 [ext_resource type="Script" path="res://scripts/ground_layer.gd" id="4_ovqdr"]
+[ext_resource type="Script" path="res://scenes/world/customer_controller.gd" id="5_yx5pc"]
 [ext_resource type="PackedScene" uid="uid://celk4vhbyjbe3" path="res://scenes/world/seats_w_collision.tscn" id="6_3g2lx"]
 
 [node name="Cafe" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_btvhg")
+customer_spawn_rate = null
 debug_enabled = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("start_marker") instance=ExtResource("4_8ipbn")]
@@ -53,6 +55,7 @@ position = Vector2(64, 33)
 
 [node name="CustomerSpawnPoint" type="Node2D" parent="."]
 position = Vector2(-96, 122)
+script = ExtResource("5_yx5pc")
 
 [node name="KitchenExit" type="Marker2D" parent="."]
 position = Vector2(206, 9)

@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkw27imy3jwh1"]
+[gd_scene load_steps=7 format=3 uid="uid://d0payewvjpxv6"]
 
-[ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_l15gy"]
-[ext_resource type="Texture2D" uid="uid://cuxov187qptpg" path="res://assets/sprites/customer.png" id="2_rt2ka"]
+[ext_resource type="Script" path="res://scripts/characters/waiter.gd" id="1_31sva"]
+[ext_resource type="Texture2D" uid="uid://cuxov187qptpg" path="res://assets/sprites/customer.png" id="2_r84sd"]
 
 [sub_resource type="Animation" id="Animation_qxe33"]
 length = 0.001
@@ -43,18 +43,17 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_evmxx"]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+[node name="Waiter" type="CharacterBody2D"]
 z_index = 2
 y_sort_enabled = true
 collision_layer = 2
-script = ExtResource("1_l15gy")
-sprite = NodePath("PlayerSprite")
+script = ExtResource("1_31sva")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
-texture = ExtResource("2_rt2ka")
+rotation = 0.47822
+texture = ExtResource("2_r84sd")
 offset = Vector2(0, -8)
-flip_h = true
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerSprite"]

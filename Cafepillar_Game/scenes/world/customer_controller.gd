@@ -1,8 +1,9 @@
-class_name Player
-extends Character
+class_name CustomerController
+extends Node2D
 
 @export var start_marker : Marker2D
 @export var sprite : Sprite2D
+@export var customer : Customer
 
 @onready var start_pos : Vector2 = start_marker.global_position
 
@@ -13,26 +14,22 @@ var path: Array[Vector2] = []
 var movement_speed: float = 100 
 var arrive_threshold: float = 1.0
 var return_to_start : bool = false
+var velocity
+var motion_mode
 
-
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	super()
-	global_position = start_pos # move player to kitchen door
-	animation_player.play("walk")
-	arrive_threshold = clamp(arrive_threshold, 1.0, 16.0)
-	velocity = Vector2.ZERO
+	child_order_changed.connect(send_customer_to_seat)
 
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if deliver_dish and !path.is_empty():
-		handle_path_movement()
-	elif return_to_start:
-		handle_return_movement()
-	else:
-		velocity = Vector2.ZERO
-		
-	move_and_slide()
+	pass
 
-func handle_path_movement() -> void:
+func send_customer_to_seat() -> void:\
+	pass
+
+func handle_path_movement(char : Customer) -> void:
 	if current_path_index >= path.size():
 		deliver_dish = false
 		velocity = Vector2.ZERO
@@ -44,11 +41,11 @@ func handle_path_movement() -> void:
 	if global_position.distance_to(target_position) < arrive_threshold:
 		current_path_index += 1
 	else:
-		motion_mode = MOTION_MODE_FLOATING
+		#motion_mode = MOTION_MODE_FLOATING
 		velocity = direction * movement_speed * get_physics_process_delta_time()
-		update_sprite_orientation(direction)
+		update_sprite_orientation(direction, char)
 
-func handle_return_movement() -> void:
+func handle_return_movement(char : Customer) -> void:
 	if current_path_index < 0:
 		return_to_start = false
 		velocity = Vector2.ZERO
@@ -62,11 +59,11 @@ func handle_return_movement() -> void:
 	if global_position.distance_to(target_position) < arrive_threshold:
 		current_path_index -= 1
 	else:
-		motion_mode = MOTION_MODE_FLOATING
+		#motion_mode = MOTION_MODE_FLOATING
 		velocity = direction * movement_speed * get_physics_process_delta_time()
-		update_sprite_orientation(direction)
+		update_sprite_orientation(direction, char)
 
-func update_sprite_orientation(direction: Vector2) -> void:
+func update_sprite_orientation(direction: Vector2, char : Customer) -> void:
 	if direction.x < 0 and direction.y > 0: # down and to left
 		sprite.flip_h = true
 		sprite.rotation_degrees = -30.0
@@ -85,8 +82,3 @@ func move_along_path(new_path: Array[Vector2]) -> void:
 	current_path_index = 0
 	deliver_dish = true
 	return_to_start = false
-
-func return_to_start_position() -> void:
-	deliver_dish = false  # Stop any current delivery, bad if used mid movement
-	current_path_index = path.size() - 1 # change to possibly be whatever path index is closest to current position, since will bug when pressed during movement
-	return_to_start = true

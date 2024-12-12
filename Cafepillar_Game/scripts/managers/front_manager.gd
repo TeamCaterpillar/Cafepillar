@@ -17,11 +17,11 @@ const TILE_TEXTURE_OFFSET : Vector2 = Vector2(0, -8)
 
 @onready var customer_factory:CustomerFactory = CustomerFactory.new()
 @onready var day_night_cycle: DayNightCycle = $"../DayNightCycle"
-@onready var customer_spawn: Node2D = $CustomerSpawnPoint
+@onready var customer_spawn: CustomerController = $CustomerSpawnPoint
 @onready var camera_snap_point : Node2D = $CameraSnapPoint
 
-@onready var path_coords : Array[Vector2i]= [] 
-@onready var path_positions : Array[Vector2] = [] 
+@onready var player_path_coords : Array[Vector2i]= [] 
+@onready var player_path_positions : Array[Vector2] = [] 
 
 var spec_customer:Customer
 var _spawn_timer:Timer
@@ -29,8 +29,7 @@ var camera_in_scene : bool = false
 var player_end_position : Marker2D
 
 var astar_grid : AStarGrid2D
-var start_cell : Vector2i
-var end_cell : Vector2i
+
 var player_move : bool = false
 
 
@@ -40,7 +39,7 @@ func _ready():
 	_init_grid()
 	_update_pathable_cells()
 	find_path()
-
+	GameSignals.player_finished_delivery.connect(find_path) # change after delivery logic is implemented
 	# spawning customers - temp
 	_spawn_timer = Timer.new()
 	_spawn_timer.one_shot = false
@@ -50,7 +49,7 @@ func _ready():
 
 func _process(_delta):
 	if (	_spawn_timer.time_left < 1
-		and customer_spawn.get_child_count() < 10 \
+		and customer_spawn.get_child_count() <= 12 \
 		and not day_night_cycle.day_ended):
 
 		_spawn_timer.start(customer_spawn_rate)
@@ -117,34 +116,50 @@ func _update_pathable_cells() -> void:
 						polygon.z_index = 5
 						add_child(polygon)
 
-func find_path() -> void:
-	path_coords.clear()
-	path_positions.clear()
-	start_cell = ground_layer.local_to_map(player_start_position.position)
-	# replace with logic for coding the seat of choice
+func path_priors(start_position : Vector2) -> void:
+	var start_cell : Vector2i
+	var end_cell : Vector2i
+	start_cell = ground_layer.local_to_map(start_position)
 	end_cell = ground_layer.local_to_map(random_seat_position())
-
-	if start_cell == end_cell or !astar_grid.is_in_boundsv(start_cell) or !astar_grid.is_in_boundsv(end_cell):
-		push_error("SOMETHING WRONG IN FIND_PATH")
-		return
 	
-	var id_path = astar_grid.get_id_path(start_cell, end_cell)	
-	for id in id_path:
-		var cell_local_position = ground_layer.map_to_local(id)
-		path_coords.append(id)
-		path_positions.append(cell_local_position)
-	if debug_enabled: # debug print
-		print("---------------------------------------------------")
-		print("PATH FINDING INFO:")	
-		print("START CELL: ", start_cell)	
-		print("END CELL: ", end_cell)	
-		print("ASTAR CALCULATED ID PATH: ", path_coords)
-		print("ASTAR CALCULATED POSITION PATH: ", path_positions)
-		print("---------------------------------------------------")
+	
+	
+	
+func find_path() -> void: 
+	player_path_coords.clear()
+	player_path_positions.clear()
+	
+	# replace with logic for coding the seat of choice
+	
+
+	#if start_cell == end_cell or !astar_grid.is_in_boundsv(start_cell) or !astar_grid.is_in_boundsv(end_cell):
+		#push_error("SOMETHING WRONG IN FIND_PATH")
+		#return
+	#
+	#var id_path = astar_grid.get_id_path(start_cell, end_cell)
+	#for id in id_path:
+		#var cell_local_position = ground_layer.map_to_local(id)
+		#player_path_coords.append(id)
+		#player_path_positions.append(cell_local_position)
+	#if debug_enabled: # debug print
+		#print("---------------------------------------------------")
+		#print("PATH FINDING INFO (PLAYER):")
+		#print("START CELL: ", start_cell)
+		#print("END CELL: ", end_cell)
+		#print("ASTAR CALCULATED ID PATH: ", player_path_coords)
+		#print("ASTAR CALCULATED POSITION PATH: ", player_path_positions)
+		#print("---------------------------------------------------")
 
 func random_seat_position() -> Vector2:
+	var seats_taken : Dictionary = {}
 	var random_seat_marker = seats_array.get_children().pick_random()
+	if seats_taken.has(random_seat_marker):
+		random_seat_position()
+	else:
+		seats_taken.get_or_add(random_seat_marker) # only will ever add (I think)
+	
 	var marker_local_position = to_local(random_seat_marker.global_position)
+	
 	if debug_enabled: # debug print
 		print("Random seat produced: ", marker_local_position)
 	return to_local(marker_local_position)
@@ -169,7 +184,10 @@ func is_cell_blocked(id) -> bool:
 	
 	return not_pathable_block or obstacle_on_block
 
-
-func _on_texture_button_pressed() -> void:
+func _on_send_player_pressed() -> void:
 	player.move_along_path(path_positions)
 	print("BUTTON PRESSED")
+
+
+func _on_return_player_pressed() -> void:
+	player.return_to_start_position()

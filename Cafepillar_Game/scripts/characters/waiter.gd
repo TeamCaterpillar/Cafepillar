@@ -1,5 +1,7 @@
-class_name Player
+class_name Waiter
 extends Character
+
+###################################################################### YET TO BE CHANGED FOR WAITER CAPACITY ##################################################################################
 
 @export var start_marker : Marker2D
 @export var sprite : Sprite2D
@@ -45,15 +47,13 @@ func handle_path_movement() -> void:
 		current_path_index += 1
 	else:
 		motion_mode = MOTION_MODE_FLOATING
-		velocity = direction * movement_speed * get_physics_process_delta_time()
+		velocity = direction * movement_speed
 		update_sprite_orientation(direction)
 
 func handle_return_movement() -> void:
 	if current_path_index < 0:
 		return_to_start = false
 		velocity = Vector2.ZERO
-		path.clear()
-		GameSignals.player_finished_delivery.emit()
 		return
 	
 	var target_position = path[current_path_index]
@@ -63,7 +63,7 @@ func handle_return_movement() -> void:
 		current_path_index -= 1
 	else:
 		motion_mode = MOTION_MODE_FLOATING
-		velocity = direction * movement_speed * get_physics_process_delta_time()
+		velocity = direction * movement_speed
 		update_sprite_orientation(direction)
 
 func update_sprite_orientation(direction: Vector2) -> void:
