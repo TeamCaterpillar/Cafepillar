@@ -43,26 +43,30 @@ func _on_child_entered_tree(node: Node) -> void:
 
 
 func check_recipe() -> String:
+	var cookware = get_parent().name.to_lower()  # Get the cookware the slot is on
 	for recipe in recipes:
-		var normalized_recipe_ingredients = normalize_ingredients(recipe["ingredients"])
-		var normalized_stove_ingredients = normalize_ingredients(card_resources)
-		
-		if ingredients_match(normalized_recipe_ingredients, normalized_stove_ingredients):
-			print("Matched Recipe: ", recipe["title"])
-			return recipe["title"]
+		# Ensure the recipe's cookware matches the current cookware
+		if recipe["use"].to_lower() == cookware:
+			var normalized_recipe_ingredients = normalize_ingredients(recipe["ingredients"])
+			var normalized_stove_ingredients = normalize_ingredients(card_resources)
+
+			# Match ingredients
+			if ingredients_match(normalized_recipe_ingredients, normalized_stove_ingredients):
+				print("Matched Recipe: ", recipe["title"])
+				return recipe["title"]
 	print("No matching recipe found.")
 	return "Null"
 
 # ************************************ 
-# Parser for normalizing recipes for comparision
+# Updated Parser for Normalizing Recipes with Cookware Check
 #
 func normalize_ingredient(ingredient: String) -> Array:
 	var parts = ingredient.split(" x")
-	var ingreidient_name = parts[0].to_lower().replace(" ", "_")
+	var ingredient_name = parts[0].to_lower().replace(" ", "_")
 	
 	# Remove trailing 's' to singularize
-	if ingreidient_name.ends_with("s") and !ingreidient_name.ends_with(" x2"):  
-		ingreidient_name = ingreidient_name.substr(0, ingreidient_name.length() - 1)
+	if ingredient_name.ends_with("s") and !ingredient_name.ends_with(" x2"):  
+		ingredient_name = ingredient_name.substr(0, ingredient_name.length() - 1)
 	
 	# Handle quantities
 	var quantity = int(parts[1]) if parts.size() > 1 else 1
@@ -70,17 +74,15 @@ func normalize_ingredient(ingredient: String) -> Array:
 	# Create an array with the ingredient repeated `quantity` times
 	var result = []
 	for i in range(quantity):
-		result.append(ingreidient_name)
+		result.append(ingredient_name)
 	
 	return result
-
 
 func normalize_ingredients(ingredients: Array) -> Array:
 	var normalized_list = []
 	for ingredient in ingredients:
 		normalized_list += normalize_ingredient(ingredient)
 	return normalized_list
-
 
 func ingredients_match(recipe_ingredients: Array, stove_ingredients: Array) -> bool:
 	var normalized_recipe = normalize_ingredients(recipe_ingredients)

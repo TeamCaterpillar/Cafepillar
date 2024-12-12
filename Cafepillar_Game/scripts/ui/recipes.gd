@@ -29,17 +29,17 @@ var recipes = [
 	},
 	{
 		"use": "Stove",
-		"title": "Beef n Leaf Stew",
+		"title": "Beef Leaf Stew",
 		"ingredients": ["Lettuce x2", "Beef x1"]
 	},
 	{
-		"use": "Oven",
+		"use": "Stove",
 		"title": "Rose Cake",
 		"ingredients": ["Rose Petals x1", "Flour x1", "Eggs x1", "Milk x1"]
 	},
 	{
 		"use": "Stove",
-		"title": "Burger :D",
+		"title": "Burger",
 		"ingredients": ["Beef x1", "Cheese x1", "Lettuce x1", "Flour x1"]
 	},
 
@@ -81,18 +81,20 @@ var recipes = [
 
 func _ready():
 	show_main_page()
-	$RecipeDetailContainer/BackButton.connect("pressed", Callable(self, "_on_BackButton_pressed"))
+	$BackButton.connect("pressed", Callable(self, "_on_BackButton_pressed"))
 
 
 func show_main_page():
 	$MainContainer.visible = true
 	$RecipeDetailContainer.visible = false
+	$BackButton.visible = false
 	populate_recipe_list()
 
 
 func show_recipe_detail(recipe_index):
 	$MainContainer.visible = false
 	$RecipeDetailContainer.visible = true
+	$BackButton.visible = true
 	display_recipe(recipes[recipe_index])
 
 

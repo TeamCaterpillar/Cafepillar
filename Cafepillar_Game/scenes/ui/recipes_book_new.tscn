@@ -80,8 +80,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 horizontal_alignment = 1
 
-[node name="BackButton" type="TextureButton" parent="RecipeDetailContainer"]
+[node name="BackButton" type="TextureButton" parent="."]
 layout_mode = 2
+offset_left = 171.0
+offset_top = 409.0
+offset_right = 315.0
+offset_bottom = 481.0
 size_flags_horizontal = 4
 texture_normal = ExtResource("3_pkmln")
 texture_pressed = ExtResource("4_y6ntc")

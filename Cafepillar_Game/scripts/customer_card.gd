@@ -1,17 +1,16 @@
-class_name DishCard
 extends Button
-
+class_name CustomerCard
 
 @export var food_name: String
-@export var food_condition: String
+@export var customer_id : int
 @onready var food_sprite: Sprite2D = $FoodIcon
-@onready var food_label: Label = $FoodNameLabel
+@onready var customer_label: Label = $CustomerLabel
 @onready var food_color: ColorRect = $FoodColor
-@onready var completed_dish_inventory: CompletedDishInventory = $"../../"
+@onready var completed_dish_inventory: CompletedDishInventory = $"../../../"
 
 func _ready() -> void:
 	self.connect("pressed", Callable(self, "_on_Dish_pressed"))
-	food_label.text = ""
+	customer_label.text = ""
 	food_sprite.visible = false
 	var food_icon_path = "res://assets/cards/" + str(food_name) + ".png"
 	
@@ -28,18 +27,7 @@ func _ready() -> void:
 		var food_icon = load(food_icon_path)
 		food_sprite.visible = true
 		food_sprite.texture = food_icon
-	# if there is no image, just show the word name
-	else:
-		food_label.text = format_string(food_name)
-		
-	if food_condition == "Undercooked":
-		food_color.color = Color("yellow")
-	elif food_condition == "Satisfactory":
-		food_color.color =Color("blue")
-	elif food_condition == "Perfect":
-		food_color.color = Color("green")
-	elif food_condition == "Burnt":
-		food_color.color = Color("red")
+		customer_label.text = "Customer " + str(customer_id)
 
 
 func _process(_delta: float) -> void:
@@ -57,9 +45,9 @@ func format_string(input: String) -> String:
 func _on_Dish_pressed() -> void:
 	# completed_dish_inventory.close_inventory()
 	# delivering_food.emit()
-	# completed_dish_inventory.selected_food_to_deliver = self
-	GameSignals.dish_selected.emit(self)
-	print("clicked on ", food_name, " ", food_condition)
+	# completed_dish_inventory.selected_customer = self
+	GameSignals.customer_selected.emit(self)
+	print("clicked on customer ", str(customer_id), " who ordered ", food_name)
 	
 	# Logic:
 	# click card to deliver

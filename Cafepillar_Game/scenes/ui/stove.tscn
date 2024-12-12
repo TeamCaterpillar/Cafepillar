@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4jylv27c7es2"]
+[gd_scene load_steps=7 format=3 uid="uid://dww8ran2hstjq"]
 
-[ext_resource type="Texture2D" uid="uid://ckhfci2tp6dug" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="1_dsmq1"]
-[ext_resource type="Texture2D" uid="uid://cfi1bd2alqpws" path="res://assets/kitchen_equipment/stove2.png" id="1_vuxi8"]
+[ext_resource type="Texture2D" uid="uid://bjuyjlebiava4" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="1_dsmq1"]
+[ext_resource type="Texture2D" uid="uid://cvf4orf4p52ho" path="res://assets/kitchen_equipment/stove2.png" id="1_vuxi8"]
 [ext_resource type="Script" path="res://scripts/appliances/slot.gd" id="2_rscoo"]
-[ext_resource type="PackedScene" uid="uid://gc6m30k1tvd8" path="res://scenes/ui/cooking_timer_bar.tscn" id="4_u2ye5"]
+[ext_resource type="PackedScene" path="res://scenes/ui/cooking_timer_bar.tscn" id="4_u2ye5"]
+[ext_resource type="Script" path="res://scripts/ui/cooking_timer_bar.gd" id="5_y3rqh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_islog"]
 font_size = 40
@@ -14,7 +15,7 @@ offset_left = 865.0
 offset_top = 288.0
 offset_right = 1065.0
 offset_bottom = 488.0
-color = Color(0.139191, 0.000225878, 0.349418, 1)
+color = Color(0.137255, 0, 0.34902, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(101, 69)
@@ -41,17 +42,18 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -95.0
-offset_top = 31.0
-offset_right = 105.0
-offset_bottom = 231.0
+offset_left = -97.0
+offset_top = 33.0
+offset_right = 103.0
+offset_bottom = 233.0
 grow_horizontal = 2
 text = "Stove!!"
 label_settings = SubResource("LabelSettings_islog")
 horizontal_alignment = 1
 
 [node name="CookingTimerBar" parent="." instance=ExtResource("4_u2ye5")]
-offset_left = -129.0
-offset_top = -130.0
-offset_right = 388.0
-offset_bottom = 219.0
+offset_left = -142.0
+offset_top = -179.0
+offset_right = 375.0
+offset_bottom = 170.0
+script = ExtResource("5_y3rqh")

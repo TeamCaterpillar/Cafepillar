@@ -1,3 +1,4 @@
+class_name CookingTimer
 extends Control
 
 @onready var start_button: TextureButton = $StartButton
@@ -6,24 +7,38 @@ extends Control
 @onready var timer_bar: ProgressBar = $ColorRect/TimerBar
 @onready var color_rect: ColorRect = $ColorRect
 @onready var status_label: Label = $Status
-@onready var stove_slot: Slot = $"../../Stove/Slot"
+@onready var cookware_slot: Slot = get_cookware_slot()
 @onready var card_factory: Node = $"../../CardFactory"
-@onready var output: GCardHandLayout = $"../../Output"
+@onready var stove_output: GCardHandLayout = $"../../Output"
 
 
-var _perfect_min_percent = GameManager.COOKING_DIFFCULTY["PERFECT_MIN_PERCENT"]
-var _perfect_max_percent = GameManager.COOKING_DIFFCULTY["PERFECT_MAX_PERCENT"]
-var _satisfactory_min_percent = GameManager.COOKING_DIFFCULTY["SATISFACTORY_MIN_PERCENT"]
-var _times_to_cook = GameManager.COOKING_DIFFCULTY["TIME"]
+# the tick mark at 70% is the time it takes to make the food according to the food card
+const PERFECT_MIN_PERCENT = 0.70 
+# player has a few seconds (until the tick mark at 80%) to collect the good food before it gets burnt
+const PERFECT_MAX_PERCENT = 0.80
+# foods between 50% and 70% are satisfactory
+const SATISFACTORY_MIN_PERCENT = 0.50
 
+# default value
+var _time_it_takes_to_cook = 6.0
 # calculates the total bar
-var _timer_duration = _times_to_cook / _perfect_min_percent
+var _timer_duration = _time_it_takes_to_cook / PERFECT_MIN_PERCENT
 var _time_elapsed : float = 0.0
 var cooking : bool = false
 var tween
 # default value
-var _food_condition = "Undercooked"
+var _food_condition = "Underdone"
 var recipe: String = ""
+
+
+func get_cookware_slot() -> Slot:
+	# Get the parent (assumed to be the cookware) and find the slot
+	var cookware = get_parent()
+	if cookware and cookware.has_node("Slot"):
+		return cookware.get_node("Slot")
+	else:
+		print("Error: No Slot found in cookware ", cookware.name)
+		return null
 
 
 func _ready() -> void:
@@ -49,25 +64,25 @@ func _process(delta: float) -> void:
 
 func _update_timer_bar_color() -> void:
 	# color is green; food is perfect
-	if _time_elapsed >= _timer_duration * _perfect_min_percent and _time_elapsed <= _timer_duration * _perfect_max_percent:
+	if _time_elapsed >= _timer_duration * PERFECT_MIN_PERCENT and _time_elapsed <= _timer_duration * PERFECT_MAX_PERCENT:
 		timer_bar.set_theme_type_variation("TimerBar")
 		_food_condition = "Perfect"
 	# color is yellow; food is undercooked
-	elif _time_elapsed < _timer_duration * _satisfactory_min_percent:
+	elif _time_elapsed < _timer_duration * SATISFACTORY_MIN_PERCENT:
 		timer_bar.set_theme_type_variation("TimerBarMid")
-		_food_condition = "Undercooked"
+		_food_condition = "Underdone"
 	# color is blue; food is satisfactory
-	elif _time_elapsed >= _timer_duration * _satisfactory_min_percent and _time_elapsed < _timer_duration * _perfect_min_percent:
+	elif _time_elapsed >= _timer_duration * SATISFACTORY_MIN_PERCENT and _time_elapsed < _timer_duration * PERFECT_MIN_PERCENT:
 		timer_bar.set_theme_type_variation("SatisfactoryBar")
 		_food_condition = "Satisfactory"
 	# color is red; food is burnt
 	else:
 		timer_bar.set_theme_type_variation("TimerBarLow")
-		_food_condition = "Burnt"
+		_food_condition = "Overdone"
 
 	
 func _on_StartButton_pressed():
-	recipe = stove_slot.check_recipe()
+	recipe = cookware_slot.check_recipe()
 	if recipe != "Null":
 		# put all the code below in the if statement checking for valid food
 		cooking = true
@@ -76,7 +91,8 @@ func _on_StartButton_pressed():
 		start_button.visible = false
 		remove_button.visible = false
 		status_label.text = "Preparing " + recipe + "..."
-		stove_slot.remove_from_group("CardSlot")
+		cookware_slot.remove_from_group("CardSlot")
+		
 		# animate cooking timer
 		if tween == null:
 			tween = create_tween()
@@ -91,13 +107,14 @@ func _on_DoneButton_pressed():
 	color_rect.visible = false
 	done_button.visible = false
 	remove_button.visible = true
-	stove_slot.add_to_group("CardSlot")
+	cookware_slot.add_to_group("CardSlot")
+	
 	# remove all cards on stove
-	var children = stove_slot.get_children()
+	var children = cookware_slot.get_children()
 	for child in children:
 		child.free()
 		
-	stove_slot.card_resources.clear()
+	cookware_slot.card_resources.clear()
 	
 	# add dish card on stove
 	card_factory.create_card_for_stove(recipe.to_lower().replace(" ", "_"), "dishes", _food_condition)
@@ -110,11 +127,11 @@ func _on_RemoveButton_pressed():
 	status_label.text = ""
 	
 	# Remove all ingredients from array
-	var children = stove_slot.get_children()
+	var children = cookware_slot.get_children()
 	for child in children:
 		child.free()
 	
-	stove_slot.card_resources.clear()
+	cookware_slot.card_resources.clear()
 
 
 func _on_start_button_pressed() -> void:

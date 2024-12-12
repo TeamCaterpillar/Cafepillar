@@ -7,7 +7,7 @@ const TILE_TEXTURE_OFFSET : Vector2 = Vector2(0, -8)
 @export var customer_spawn_rate:float = 2.0
 @export var debug_enabled : bool = true
 
-# @onready world variables 
+# @onready world variables
 @onready var ground_layer : TileMapLayer = $GroundLayer
 @onready var obstacle_layer : TileMapLayer = $ObstacleLayer
 @onready var day_night_cycle: DayNightCycle = $"../DayNightCycle"
@@ -16,14 +16,14 @@ const TILE_TEXTURE_OFFSET : Vector2 = Vector2(0, -8)
 # @onready player variables
 @onready var player : Player = $Player
 @onready var player_start_position : Vector2 = $KitchenExit.position
-@onready var player_path_coords : Array[Vector2i]= [] 
-@onready var player_path_positions : Array[Vector2] = [] 
+@onready var player_path_coords : Array[Vector2i]= []
+@onready var player_path_positions : Array[Vector2] = []
 
 # @onready customer variables
 @onready var customer_factory:CustomerFactory = CustomerFactory.new()
 @onready var customer_spawn: CustomerController = $CustomerSpawnPoint
-@onready var customer_path_coords : Array[Vector2i]= [] 
-@onready var customer_path_positions : Array[Vector2] = [] 
+@onready var customer_path_coords : Array[Vector2i]= []
+@onready var customer_path_positions : Array[Vector2] = []
 
 @onready var seats_array : Node2D = $Seats
 #@onready var tile_select_material : ShaderMaterial = load("res://assets/tile_sets/tile_select_material.tres")
@@ -39,14 +39,14 @@ var player_move : bool = false
 
 func _ready():
 	camera_in_scene = true # viewing/process enable flag
-	
+
 	# AStar setup
 	_init_grid()
 	_update_pathable_cells()
 	set_player_path(find_path(player_start_position))
-	
+
 	GameSignals.player_finished_delivery.connect(_player_finished_delivery) # signal will be sent when player has returned to kitchen point
-	
+
 	# spawning customers - temp
 	_spawn_timer = Timer.new()
 	_spawn_timer.one_shot = false
@@ -115,13 +115,13 @@ func find_path(start_position : Vector2) -> Array:
 	var end_cell : Vector2i
 	start_cell = ground_layer.local_to_map(start_position)
 	end_cell = ground_layer.local_to_map(random_seat_position()) # internally checks seat occupancy
-	
+
 	if start_cell == end_cell or !astar_grid.is_in_boundsv(start_cell) or !astar_grid.is_in_boundsv(end_cell):
 		push_error("SOMETHING WRONG IN FIND_PATH")
 		return Array()
 	
 	var id_path = astar_grid.get_id_path(start_cell, end_cell)
-	
+
 	if debug_enabled: # debug print
 		print("---------------------------------------------------")
 		print("PATH FINDING INFO:")
@@ -130,21 +130,21 @@ func find_path(start_position : Vector2) -> Array:
 		print("ASTAR CALCULATED ID PATH: ", player_path_coords)
 		print("ASTAR CALCULATED POSITION PATH: ", player_path_positions)
 		print("---------------------------------------------------")
-	
-	return id_path 
+
+	return id_path
 
 
 # default value is the players starting position (kitchenexit)
-func set_player_path(id_path : Array = find_path(player_start_position)) -> void: 
+func set_player_path(id_path : Array = find_path(player_start_position)) -> void:
 	player_path_coords.clear()
 	player_path_positions.clear()
 	for id in id_path:
 		var cell_local_position = ground_layer.map_to_local(id)
 		player_path_coords.append(id)
 		player_path_positions.append(cell_local_position)
-	
 
-func set_customer_path(id_path : Array) -> void: 
+
+func set_customer_path(id_path : Array) -> void:
 	customer_path_coords.clear()
 	customer_path_positions.clear()
 	for id in id_path:
@@ -160,9 +160,9 @@ func random_seat_position() -> Vector2:
 		random_seat_position()
 	else:
 		seats_taken.get_or_add(random_seat_marker) # only will ever add (I think)
-	
+
 	var marker_local_position = to_local(random_seat_marker.global_position)
-	
+
 	if debug_enabled: # debug print
 		print("Random seat produced: ", marker_local_position)
 	return to_local(marker_local_position)
@@ -194,7 +194,7 @@ func _on_send_player_pressed() -> void:
 
 func _on_return_player_pressed() -> void:
 	player.return_to_start_position()
-	
+
 func _player_finished_delivery() -> void:
 	set_player_path()
 

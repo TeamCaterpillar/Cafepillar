@@ -7,19 +7,14 @@ var kitchen_inventory: Array[Variant] = []
 var active_orders: Array[Variant]     = []
 var waiter_queue: Array[Variant]      = []
 var finished_dishes: Array[Variant]   = []
+var customer_ids : Array = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+var customers_waiting : Array[Variant] = []
 
 # Scene references
 var current_scene  = null
 const SCENE_KITCHEN: String = "res://scenes/world/kitchen.tscn"
 const SCENE_DINER: String   = "res://scenes/world/diner.tscn"
 
-# Cooking difficulty
-const COOKING_DIFFCULTY = {
-	"PERFECT_MIN_PERCENT": 0.70,
-	"PERFECT_MAX_PERCENT": 0.90,
-	"SATISFACTORY_MIN_PERCENT": 0.50,
-	"TIME": 6
-}
 
 # Signal for scene changes
 #signal scene_changed
@@ -121,3 +116,11 @@ func initialize_inventory() -> void:
 	add_to_storage("lettuce")
 	add_to_storage("coffee_bean")
 	add_to_storage("cheese")
+	
+	#Testing
+	add_to_storage("beef")
+	add_to_storage("flour")
+	add_to_storage("honey")
+	add_to_storage("milk")
+	add_to_storage("rose_petal")
+	add_to_storage("strawberry")

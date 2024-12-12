@@ -1,14 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://dn3urr1xccmik"]
+[gd_scene load_steps=15 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/scene/kitchen.gd" id="1_tfllf"]
-[ext_resource type="Texture2D" uid="uid://becw0p6mtlkj6" path="res://assets/backgrounds/kitchen_background.png" id="2_scie6"]
+[ext_resource type="Texture2D" uid="uid://dfft7evi0bbdc" path="res://assets/backgrounds/kitchen_background.png" id="2_scie6"]
 [ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="6_noatd"]
 [ext_resource type="Script" path="res://scripts/factories/card_factory.gd" id="7_8i4sf"]
-[ext_resource type="PackedScene" uid="uid://b4jylv27c7es2" path="res://scenes/ui/stove.tscn" id="8_ab558"]
+[ext_resource type="PackedScene" uid="uid://dww8ran2hstjq" path="res://scenes/ui/stove.tscn" id="8_ab558"]
 [ext_resource type="PackedScene" uid="uid://e87i8t6lw4ak" path="res://scenes/ui/tray.tscn" id="8_tg0xe"]
-[ext_resource type="PackedScene" uid="uid://b2rhnhr8vk32l" path="res://scenes/ui/recipes_book_new.tscn" id="9_b7q2u"]
+[ext_resource type="PackedScene" path="res://scenes/ui/blender.tscn" id="9_0088y"]
+[ext_resource type="PackedScene" path="res://scenes/ui/recipes_book_new.tscn" id="9_b7q2u"]
 [ext_resource type="Script" path="res://scripts/ui/order_queue.gd" id="10_765us"]
-[ext_resource type="PackedScene" uid="uid://bot3qm286xjeh" path="res://scenes/ui/inventory_deck.tscn" id="10_fo2lv"]
+[ext_resource type="PackedScene" path="res://scenes/ui/inventory_deck.tscn" id="10_fo2lv"]
+[ext_resource type="PackedScene" path="res://scenes/ui/counter.tscn" id="10_w6rx6"]
+[ext_resource type="Texture2D" uid="uid://8i4evtdqq1xm" path="res://assets/ui/trash.png" id="12_6a2mi"]
+[ext_resource type="Texture2D" uid="uid://bjuyjlebiava4" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="12_dv7ss"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
 font_size = 50
@@ -60,6 +64,10 @@ label_settings = SubResource("LabelSettings_au7mt")
 
 [node name="OrderQueue" type="Control" parent="."]
 anchors_preset = 0
+offset_left = -1.0
+offset_top = -159.0
+offset_right = -1.0
+offset_bottom = -159.0
 script = ExtResource("10_765us")
 
 [node name="ColorRect" type="ColorRect" parent="OrderQueue"]
@@ -72,8 +80,8 @@ anchor_bottom = -0.148
 offset_left = 1675.0
 offset_top = 404.0
 offset_right = 1921.0
-offset_bottom = 1080.0
-color = Color(0.497474, 0.497474, 0.497474, 1)
+offset_bottom = 1242.0
+color = Color(1, 0.992157, 0.870588, 1)
 
 [node name="Label" type="Label" parent="OrderQueue"]
 layout_mode = 1
@@ -82,6 +90,7 @@ offset_left = 1706.0
 offset_top = 408.0
 offset_right = 1889.0
 offset_bottom = 461.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
 text = "Order Queue"
 horizontal_alignment = 1
@@ -97,7 +106,7 @@ anchor_bottom = -0.088
 offset_left = 1692.0
 offset_top = 469.0
 offset_right = 1907.0
-offset_bottom = 1909.0
+offset_bottom = 1244.0
 
 [node name="CardFactory" type="Node2D" parent="." node_paths=PackedStringArray("card_deck", "stove_output")]
 position = Vector2(957, 863)
@@ -115,10 +124,10 @@ offset_bottom = -1.0
 layout_mode = 1
 anchor_top = -1.4
 anchor_bottom = -1.4
-offset_left = 882.0
-offset_top = 2252.0
-offset_right = 1011.0
-offset_bottom = 2355.0
+offset_left = 904.0
+offset_top = 2356.0
+offset_right = 1033.0
+offset_bottom = 2459.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_noatd")
@@ -130,10 +139,10 @@ enable_dragging = true
 layout_mode = 1
 anchor_top = -1.4
 anchor_bottom = -1.4
-offset_left = 859.0
-offset_top = 1634.0
-offset_right = 988.0
-offset_bottom = 1737.0
+offset_left = 917.0
+offset_top = 2119.0
+offset_right = 1046.0
+offset_bottom = 2222.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_noatd")
@@ -143,16 +152,70 @@ enable_dragging = true
 
 [node name="Stove" parent="." instance=ExtResource("8_ab558")]
 layout_mode = 0
-offset_left = 849.0
-offset_top = 417.0
-offset_right = 1049.0
-offset_bottom = 617.0
+offset_left = 257.0
+offset_top = 346.0
+offset_right = 457.0
+offset_bottom = 546.0
+
+[node name="Counter" parent="." instance=ExtResource("10_w6rx6")]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 205.0
+offset_right = 690.0
+offset_bottom = 245.0
+
+[node name="Blender" parent="." instance=ExtResource("9_0088y")]
+layout_mode = 0
+offset_left = 1151.0
+offset_top = 207.0
+offset_right = 1191.0
+offset_bottom = 247.0
 
 [node name="InventoryDeck" parent="." instance=ExtResource("10_fo2lv")]
 layout_mode = 1
-offset_left = 116.0
-offset_top = 776.0
-offset_right = -1804.0
-offset_bottom = -304.0
+offset_left = 1466.0
+offset_top = 744.0
+offset_right = -454.0
+offset_bottom = -336.0
 
 [node name="RecipesBook" parent="." instance=ExtResource("9_b7q2u")]
+offset_left = -4.0
+offset_top = 571.0
+offset_right = 329.0
+offset_bottom = 992.0
+
+[node name="TrashBin" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 184.0
+offset_bottom = 163.0
+color = Color(0.00392157, 0.380392, 0.0588235, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="TrashBin"]
+position = Vector2(84, 49)
+scale = Vector2(2.35938, 2.00781)
+texture = ExtResource("12_6a2mi")
+
+[node name="Label" type="Label" parent="TrashBin"]
+offset_left = 18.0
+offset_top = 112.0
+offset_right = 193.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 24
+text = "Discard Dish"
+
+[node name="TrashSlot" type="TextureRect" parent="TrashBin" groups=["CardSlot"]]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.789
+anchor_right = 0.404
+anchor_bottom = 0.789
+offset_left = -108.74
+offset_top = -163.185
+offset_right = 127.26
+offset_bottom = 50.815
+texture = ExtResource("12_dv7ss")
+expand_mode = 1
