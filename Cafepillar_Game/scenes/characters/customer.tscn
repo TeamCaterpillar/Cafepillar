@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpjkh8i4nyusl"]
+[gd_scene load_steps=6 format=3 uid="uid://dpjkh8i4nyusl"]
 
 [ext_resource type="Script" path="res://scripts/characters/customer.gd" id="1_goek5"]
 [ext_resource type="Texture2D" uid="uid://cuxov187qptpg" path="res://assets/sprites/customer.png" id="2_lcutu"]
@@ -22,16 +22,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dbaie"]
 _data = {
-"RESET": SubResource("Animation_qxe33"),
 "walk": SubResource("Animation_lapao")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dp0t5"]
 radius = 11.0
 height = 36.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7sxd"]
-size = Vector2(24.6353, 33.1336)
 
 [node name="Customer" type="CharacterBody2D"]
 z_index = 2
