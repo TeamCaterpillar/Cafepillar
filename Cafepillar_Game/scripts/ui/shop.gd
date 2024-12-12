@@ -22,6 +22,7 @@ var shopping_cart = []
 
 func _ready() -> void:
 	nothing_in_shop_label.visible = false
+	buying_status_label.text = ""
 	# connect signals
 	GameSignals.day_ended.connect(fill_shop)
 	GameSignals.next_day_started.connect(clear_shop)
@@ -42,8 +43,13 @@ func fill_shop() -> void:
 
 
 func clear_shop() -> void:
+	# remove the shop item components and reset labels to default
 	for item in shop_container.get_children():
 		item.queue_free()
+	buying_status_label.text = ""
+	nothing_in_shop_label.visible = false
+	# clear shopping cart to ensure nothing carries over across days
+	shopping_cart.clear()
 
 
 func create_shop_item(item:String) -> void:
@@ -58,11 +64,17 @@ func create_shop_item(item:String) -> void:
 func add_item_to_cart(item:String) -> void:
 	shopping_cart.append(item)
 	print("added " + item + " to cart!")
+	buying_status_label.text = "total cost: "\
+								+ str(calc_total_cost())\
+								+ " golden seeds"
 
 
 func remove_item_from_cart(item:String) -> void:
 	shopping_cart.erase(item)
 	print("removed " + item + " from cart!")
+	buying_status_label.text = "total cost: "\
+								+ str(calc_total_cost())\
+								+ " golden seeds"
 
 
 func calc_total_cost() -> int:
