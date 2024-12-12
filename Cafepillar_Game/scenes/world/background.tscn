@@ -37,6 +37,7 @@ offset_right = 282.0
 offset_bottom = 160.0
 
 [node name="Shop" parent="EndOfDayScreen" instance=ExtResource("2_4icya")]
+z_index = 4000
 layout_mode = 1
 offset_left = 85.0
 offset_top = 53.0
@@ -64,6 +65,7 @@ text = "NextDay
 [node name="Sprite2D" type="Sprite2D" parent="EndOfDayScreen"]
 
 [node name="TimerLabel" type="Label" parent="."]
+z_index = 4000
 offset_left = -20.0
 offset_top = -148.0
 offset_right = 20.0
