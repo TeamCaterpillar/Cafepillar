@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dkw27imy3jwh1"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_l15gy"]
-[ext_resource type="Texture2D" uid="uid://ctk0yrwgvfxan" path="res://assets/sprites/char free/global.png" id="2_lbw7u"]
+[ext_resource type="Texture2D" uid="uid://3oje578j5j7j" path="res://assets/sprites/char free/global.png" id="2_lbw7u"]
 
 [sub_resource type="Animation" id="Animation_ae30t"]
 length = 0.001
