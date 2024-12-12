@@ -8,10 +8,11 @@ script = ExtResource("1_5w26l")
 
 [node name="Background" type="ColorRect" parent="."]
 z_index = -1
-offset_left = -281.0
-offset_top = -173.0
-offset_right = 414.0
-offset_bottom = 225.0
+offset_left = -288.0
+offset_top = -160.0
+offset_right = 1632.0
+offset_bottom = 920.0
+scale = Vector2(0.3, 0.3)
 
 [node name="Light" type="DirectionalLight2D" parent="."]
 visible = false
@@ -19,10 +20,10 @@ energy = 0.0
 height = 0.59
 
 [node name="SkipDay" type="Button" parent="."]
-offset_left = 270.0
-offset_top = 148.0
-offset_right = 345.0
-offset_bottom = 179.0
+offset_left = 184.0
+offset_top = 96.0
+offset_right = 259.0
+offset_bottom = 127.0
 text = "Skip Day"
 metadata/_edit_use_anchors_ = true
 
@@ -62,7 +63,7 @@ text = "NextDay
 [node name="Sprite2D" type="Sprite2D" parent="EndOfDayScreen"]
 
 [node name="TimerLabel" type="Label" parent="."]
-offset_left = 26.0
-offset_top = -128.0
-offset_right = 66.0
-offset_bottom = -105.0
+offset_left = -20.0
+offset_top = -148.0
+offset_right = 20.0
+offset_bottom = -125.0

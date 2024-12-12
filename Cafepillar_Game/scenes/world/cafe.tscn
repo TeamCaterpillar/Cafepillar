@@ -63,7 +63,7 @@ loop = false
 script = ExtResource("5_4u24f")
 
 [node name="Player" parent="Path/FollowNode" instance=ExtResource("4_8ipbn")]
-position = Vector2(-0.059112, -3.99956)
+position = Vector2(0.0443295, 2.99967)
 
 [node name="KitchenExit" type="Marker2D" parent="."]
 position = Vector2(206, 9)
