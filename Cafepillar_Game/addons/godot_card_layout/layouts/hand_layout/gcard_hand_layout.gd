@@ -362,3 +362,6 @@ func _place_card_in_slot(card: Control, slot: Control) -> void:
 			card.global_position = slot.global_position + Vector2(20, vert_offset)
 		elif slot.get_child_count() == 2:
 			card.global_position = slot.global_position + Vector2(horizontal_offset, vert_offset)
+	
+	print(card.name, card.type)
+	#CardFactory.create_card(card)
