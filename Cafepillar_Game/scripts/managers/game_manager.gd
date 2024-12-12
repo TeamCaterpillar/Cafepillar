@@ -9,7 +9,7 @@ var waiter_queue: Array[Variant]      = []
 var finished_dishes: Array[Variant]   = []
 
 # Scene references
-var current_scene           = null
+var current_scene  = null
 const SCENE_KITCHEN: String = "res://scenes/world/kitchen.tscn"
 const SCENE_DINER: String   = "res://scenes/world/diner.tscn"
 

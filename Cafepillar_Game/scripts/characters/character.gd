@@ -1,35 +1,14 @@
+class_name Character
 extends CharacterBody2D
 
-
 const SPEED = 0.1
-const JUMP_VELOCITY = -400.0
 
-@onready var animation_player : AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var animation_player : AnimationPlayer = get_child(0).get_child(0)
+
+var target_position : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	animation_player.play("RESET")
-
-
-#func _physics_process(delta: float) -> void:
-	## Add the gravity.
-	#if not is_on_floor():
-		#velocity.y += get_gravity().y * delta
-#
-	## Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-#
-	## Get the input direction and handle the movement/deceleration.
-	## As good practice, you should replace UI actions with custom gameplay actions.
-	#var direction := Input.get_axis("ui_left", "ui_right")
-	#if direction:
-		#velocity.x = direction * SPEED
-		#if velocity.x > 0:
-			#animation_player.play("walk_right")
-		#elif velocity.x < 0:
-			#animation_player.play("walk_left")
-		#position += velocity
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
-#
-	#move_and_slide()
+	
+func move_to() -> void:
+	global_position = get_global_mouse_position()

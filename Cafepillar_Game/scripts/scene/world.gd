@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var kitchen_scene = $Kitchen
 @onready var kitchen_cam = $Kitchen/KitchenCamera
-@onready var player_camera = $"Player/PlayerCamera"
+@onready var player_camera = $PlayerCamera
 @onready var test_cam = $TestScene/Camera2D
 @onready var completed_dish_inventory: Control = $CompletedDishInventory
 @onready var color_rect: ColorRect = $CompletedDishInventory/ColorRect

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dpjkh8i4nyusl"]
 
 [ext_resource type="Script" path="res://scripts/characters/customer.gd" id="1_goek5"]
-[ext_resource type="Texture2D" uid="uid://lr7d4on3iiqc" path="res://assets/sprites/customer.png" id="2_lcutu"]
+[ext_resource type="Texture2D" uid="uid://cuxov187qptpg" path="res://assets/sprites/customer.png" id="2_lcutu"]
 
 [sub_resource type="Animation" id="Animation_qxe33"]
 length = 0.001
@@ -45,7 +45,7 @@ _data = {
 radius = 11.0
 height = 36.0
 
-[node name="Customer" type="StaticBody2D"]
+[node name="Customer" type="CharacterBody2D"]
 script = ExtResource("1_goek5")
 
 [node name="CustomerSprite" type="Sprite2D" parent="."]

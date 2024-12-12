@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func _on_deck_click() -> void:
 	cur_subset_num += 1
-	
+	@warning_ignore("integer_division")
 	if cur_subset_num >= GameManager.kitchen_inventory.size() / HAND_SIZE + 1:
 		cur_subset_num = 0
 	print("currently on subset " + str(cur_subset_num))

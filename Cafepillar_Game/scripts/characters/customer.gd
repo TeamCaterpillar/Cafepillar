@@ -1,5 +1,5 @@
 class_name Customer
-extends StaticBody2D
+extends Character
 
 @export var wait_time:float = 25.0
 @export var order:String
@@ -16,6 +16,6 @@ func _ready():
 	position.x += randi_range(-50, 50)
 	
 
-func _process(delta):
+func _process(_delta):
 	if _timer.is_stopped():
 		queue_free() # customer death when theyre sick of waiting lmfao

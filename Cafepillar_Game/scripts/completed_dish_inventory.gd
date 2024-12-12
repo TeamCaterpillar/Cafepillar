@@ -16,11 +16,11 @@ func _ready() -> void:
 	label.visible = false
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_ListButton_pressed() -> void:
-	# display inventory 
+	# display inventory
 	if color_rect.visible == false:
 		color_rect.visible = true
 		grid_container.visible = true
@@ -35,7 +35,7 @@ func _on_ListButton_pressed() -> void:
 		if _contains_food(food) == false:
 			grid_container.add_child(food)
 			food.size = dish_card_size
-	
+
 	# display message that no foods are in the inventory
 	if GameManager.finished_dishes.size() == 0 and color_rect.visible == true:
 		label_2.visible = true

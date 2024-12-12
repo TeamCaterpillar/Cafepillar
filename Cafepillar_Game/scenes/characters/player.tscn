@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dkw27imy3jwh1"]
 
-[ext_resource type="Script" path="res://scripts/characters/character.gd" id="1_pf0fd"]
+[ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_l15gy"]
 [ext_resource type="Texture2D" uid="uid://3oje578j5j7j" path="res://assets/sprites/char free/global.png" id="2_lbw7u"]
 
 [sub_resource type="Animation" id="Animation_ae30t"]
@@ -8,7 +8,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -25,7 +25,7 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -42,7 +42,7 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -62,24 +62,25 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_llyhe"]
 size = Vector2(12, 20)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 2
-script = ExtResource("1_pf0fd")
+script = ExtResource("1_l15gy")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PlayerSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
 texture = ExtResource("2_lbw7u")
 hframes = 8
 vframes = 12
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerSprite"]
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_gabbo")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 y_sort_enabled = true
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_llyhe")
