@@ -37,16 +37,21 @@ func _on_item_clicked():
 	
 func load_shop_item() -> void:
 	# construct file path to resource file
-	var item_res_path = "res://data/cards/ingredients/" \
+	var ingredient_res_path = "res://data/cards/ingredients/" \
 						+ str(shop_item_name) \
 						+ ".tres"
 	
+	# for ingredient items:
 	# load item's info if a corresponding resource file exists
-	if ResourceLoader.exists(item_res_path):
-		var item_info = load(item_res_path)
+	if ResourceLoader.exists(ingredient_res_path):
+		var item_info = load(ingredient_res_path)
 		item_icon.texture = load(item_info.sprite_path)
-		item_label.text = format_string(shop_item_name)
 	
+	# for waiters
+	if shop_item_name == "waiter":
+		pass
+	
+	item_label.text = format_string(shop_item_name)
 	cost_label.text = "20 golden seeds"
 
 
