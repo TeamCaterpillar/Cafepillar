@@ -52,6 +52,7 @@ script = ExtResource("8_lxd14")
 stream = ExtResource("9_vyoxx")
 
 [node name="SendButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 94.0
 offset_top = 189.0
 offset_right = 238.0

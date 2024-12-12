@@ -10,14 +10,30 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8aiqf")
 
+[node name="ListButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = -51.0
+offset_right = 400.0
+offset_bottom = 21.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("2_n43xp")
+texture_pressed = ExtResource("3_xro4m")
+texture_hover = ExtResource("4_t435t")
+
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 287.0
 offset_bottom = 209.0
 color = Color(0.349316, 0.884061, 0.550491, 1)
 
 [node name="GridContainer" type="GridContainer" parent="."]
-offset_right = 285.0
-offset_bottom = 209.0
+layout_mode = 0
+offset_left = 6.0
+offset_top = 31.0
+offset_right = 279.0
+offset_bottom = 205.0
+columns = 5
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -28,12 +44,12 @@ offset_bottom = 28.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Inventory"
 
-[node name="ListButton" type="TextureButton" parent="."]
-offset_left = 256.0
-offset_top = -51.0
-offset_right = 400.0
-offset_bottom = 21.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("2_n43xp")
-texture_pressed = ExtResource("3_xro4m")
-texture_hover = ExtResource("4_t435t")
+[node name="Label2" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 65.0
+offset_top = 93.0
+offset_right = 223.0
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "No dishes to deliver!"
