@@ -14,6 +14,8 @@
 script = ExtResource("1_7tooo")
 
 [node name="Cafe" parent="." instance=ExtResource("2_8xdw4")]
+debug_enabled = false
+metadata/_edit_lock_ = true
 
 [node name="Kitchen" parent="." instance=ExtResource("3_wvu77")]
 offset_left = -2077.0
@@ -47,9 +49,12 @@ stream = ExtResource("9_pguc0")
 [node name="attach_json_loader_to_node_to_build_card_resources_from_json_data" type="Node" parent="."]
 
 [node name="TextureButton" type="TextureButton" parent="."]
+z_index = 4096
 offset_left = 176.0
 offset_top = 176.0
 offset_right = 966.0
 offset_bottom = 519.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("9_sb1ik")
+
+[connection signal="pressed" from="TextureButton" to="Cafe" method="_on_texture_button_pressed"]

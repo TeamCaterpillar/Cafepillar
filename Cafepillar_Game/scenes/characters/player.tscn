@@ -43,14 +43,18 @@ _data = {
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_evmxx"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
+z_index = 2
 y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_l15gy")
+sprite = NodePath("PlayerSprite")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
 y_sort_enabled = true
+rotation = 0.47822
 texture = ExtResource("2_rt2ka")
+offset = Vector2(0, -8)
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerSprite"]
@@ -60,8 +64,10 @@ libraries = {
 autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 5
 y_sort_enabled = true
-position = Vector2(0, 6)
-rotation = 1.5708
-scale = Vector2(0.79, 1.18)
+position = Vector2(-1.19209e-07, -1)
+rotation = 0.420624
+scale = Vector2(0.549, 0.91)
+skew = 1.04022
 shape = SubResource("CapsuleShape2D_evmxx")

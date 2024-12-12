@@ -46,6 +46,8 @@ radius = 11.0
 height = 36.0
 
 [node name="Customer" type="CharacterBody2D"]
+z_index = 2
+y_sort_enabled = true
 script = ExtResource("1_goek5")
 
 [node name="CustomerSprite" type="Sprite2D" parent="."]
