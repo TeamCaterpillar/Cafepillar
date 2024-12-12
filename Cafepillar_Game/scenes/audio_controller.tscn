@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://v1vkltsucqr3"]
+
+[ext_resource type="Script" path="res://scripts/sounds/audio_controller.gd" id="1_s4noa"]
+[ext_resource type="AudioStream" uid="uid://27tn5r6f38uw" path="res://assets/audio/song that plays when you enter the caterpillar cafe _bossa nova__4.mp3" id="2_s5qap"]
+
+[node name="AudioController" type="Node"]
+script = ExtResource("1_s4noa")
+
+[node name="bg_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s5qap")
+volume_db = -15.0
