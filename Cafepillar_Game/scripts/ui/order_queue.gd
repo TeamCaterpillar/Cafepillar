@@ -42,6 +42,7 @@ func _add_order(curr_order: Customer):
 	
 	order_card.food_name = order_name
 	order_card._timer_duration = curr_order.wait_time
+	order_card._time_left = curr_order.wait_time
 	
 	queue_container.add_child(order_card) 
 
