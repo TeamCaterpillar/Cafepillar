@@ -10,8 +10,6 @@
 [node name="Cafe" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_btvhg")
-customer_spawn_rate = null
-debug_enabled = true
 
 [node name="Player" parent="." node_paths=PackedStringArray("start_marker") instance=ExtResource("4_8ipbn")]
 position = Vector2(205, 9.75)

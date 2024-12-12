@@ -5,7 +5,7 @@ extends Node2D
 @export var sprite : Sprite2D
 @export var customer : Customer
 
-@onready var start_pos : Vector2 = start_marker.global_position
+#@onready var start_pos : Vector2 = start_marker.global_position
 
 var deliver_dish : bool = false
 var deliver_path = []
@@ -26,10 +26,12 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	pass
 
-func send_customer_to_seat() -> void:\
-	pass
 
-func handle_path_movement(char : Customer) -> void:
+func send_customer_to_seat() -> void:\
+	print("HELLO")
+
+
+func handle_path_movement(customer : Customer) -> void:
 	if current_path_index >= path.size():
 		deliver_dish = false
 		velocity = Vector2.ZERO
@@ -43,9 +45,10 @@ func handle_path_movement(char : Customer) -> void:
 	else:
 		#motion_mode = MOTION_MODE_FLOATING
 		velocity = direction * movement_speed * get_physics_process_delta_time()
-		update_sprite_orientation(direction, char)
+		update_sprite_orientation(direction, customer)
 
-func handle_return_movement(char : Customer) -> void:
+
+func handle_return_movement(customer : Customer) -> void:
 	if current_path_index < 0:
 		return_to_start = false
 		velocity = Vector2.ZERO
@@ -61,9 +64,17 @@ func handle_return_movement(char : Customer) -> void:
 	else:
 		#motion_mode = MOTION_MODE_FLOATING
 		velocity = direction * movement_speed * get_physics_process_delta_time()
-		update_sprite_orientation(direction, char)
+		update_sprite_orientation(direction, customer)
 
-func update_sprite_orientation(direction: Vector2, char : Customer) -> void:
+
+func move_along_path(new_path: Array[Vector2]) -> void:
+	path = new_path
+	current_path_index = 0
+	deliver_dish = true
+	return_to_start = false
+
+
+func update_sprite_orientation(direction: Vector2, character : Customer) -> void:
 	if direction.x < 0 and direction.y > 0: # down and to left
 		sprite.flip_h = true
 		sprite.rotation_degrees = -30.0
@@ -76,9 +87,3 @@ func update_sprite_orientation(direction: Vector2, char : Customer) -> void:
 	elif direction.x > 0 and direction.y < 0: # up and to right
 		sprite.flip_h = false
 		sprite.rotation_degrees = -30.0
-
-func move_along_path(new_path: Array[Vector2]) -> void:
-	path = new_path
-	current_path_index = 0
-	deliver_dish = true
-	return_to_start = false

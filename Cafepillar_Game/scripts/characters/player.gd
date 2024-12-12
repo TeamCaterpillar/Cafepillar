@@ -10,7 +10,7 @@ var deliver_dish : bool = false
 var deliver_path = []
 var current_path_index: int = 0
 var path: Array[Vector2] = []
-var movement_speed: float = 100 
+var movement_speed: float = 100.0
 var arrive_threshold: float = 1.0
 var return_to_start : bool = false
 
@@ -45,7 +45,7 @@ func handle_path_movement() -> void:
 		current_path_index += 1
 	else:
 		motion_mode = MOTION_MODE_FLOATING
-		velocity = direction * movement_speed * get_physics_process_delta_time()
+		velocity = direction * movement_speed
 		update_sprite_orientation(direction)
 
 func handle_return_movement() -> void:
