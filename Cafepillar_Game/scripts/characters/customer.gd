@@ -149,8 +149,6 @@ func return_to_start_position() -> void:
 func _its_go_time() -> void:
 	pass
 
-func _process(_delta):
-
 
 ############## TIM FUNCTIONS #########################
 
