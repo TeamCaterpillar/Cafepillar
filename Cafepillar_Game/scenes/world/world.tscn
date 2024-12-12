@@ -32,6 +32,8 @@ position = Vector2(72, 56)
 zoom = Vector2(3.5, 3.5)
 
 [node name="CompletedDishInventory" parent="." instance=ExtResource("7_jd73d")]
+visible = false
+z_index = 4000
 offset_left = -200.0
 offset_top = -96.0
 offset_right = -200.0
@@ -45,9 +47,9 @@ stream = ExtResource("9_pguc0")
 [node name="attach_json_loader_to_node_to_build_card_resources_from_json_data" type="Node" parent="."]
 
 [node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 264.0
-offset_top = 112.0
-offset_right = 1054.0
-offset_bottom = 455.0
+offset_left = 176.0
+offset_top = 176.0
+offset_right = 966.0
+offset_bottom = 519.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("9_sb1ik")

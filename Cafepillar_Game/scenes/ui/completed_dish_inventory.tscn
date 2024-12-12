@@ -12,9 +12,9 @@ script = ExtResource("1_8aiqf")
 
 [node name="ListButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 472.0
-offset_right = 616.0
-offset_bottom = 72.0
+offset_top = 264.0
+offset_right = 144.0
+offset_bottom = 336.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("2_n43xp")
 texture_pressed = ExtResource("3_xro4m")

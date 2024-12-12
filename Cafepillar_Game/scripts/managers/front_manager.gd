@@ -97,32 +97,39 @@ func _update_pathable_cells() -> void:
 	for i in range(region_position.x, region_position.x + region_size.x):
 		for j in range(region_position.y, region_position.y + region_size.y):
 			var id = Vector2i(i, j)
+			
+			# Check if there's an actual obstacle at this position, removes a trigger on render boxes since there is map layers
+			var obstacle_tile_data = obstacle_layer.get_cell_tile_data(id)
+			var is_direct_obstacle : bool = obstacle_tile_data != null and obstacle_tile_data.get_custom_data("Obstacle")
+			
 			if is_cell_blocked(id):
 				astar_grid.set_point_solid(id)
-				print("Cell @ ", id, " has been blocked from pathing!")
-				## placing a picture for reference
-				## Create a polygon node instead of a ColorRect
-				#var polygon = Polygon2D.new()
-#
-				## Define the diamond shape points
-				## Starting from top, going clockwise
-				#var points = PackedVector2Array([
-					#Vector2(0, -8),   # Top point
-					#Vector2(16, 0),   # Right point
-					#Vector2(0, 8),  # Bottom point
-					#Vector2(0, 16),     # Left point
-					#Vector2(0, 8),   # Top point
-					#Vector2(-16, 0),   # Right point
-					#Vector2(0, -8),  # Bottom point
-					#Vector2(0, -16)     # Left point
-				#])
-#
-				#polygon.polygon = points
-				#polygon.color = Color(0, 0, 0, 0.5)  # Semi-transparent black
-				#polygon.position = ground_layer.map_to_local(id) #+ TILE_TEXTURE_OFFSET
-				#polygon.z_index = 4096
-#
-				#add_child(polygon)
+				
+				if !is_direct_obstacle:
+					print("Cell @ ", id, " has been blocked from pathing!")
+					# placing a picture for reference
+					# Create a polygon node instead of a ColorRect
+					var polygon = Polygon2D.new()
+
+					# Define the diamond shape points
+					# Starting from top, going clockwise
+					var points = PackedVector2Array([
+						Vector2(0, -8),   # Top point
+						Vector2(16, 0),   # Right point
+						Vector2(0, 8),  # Bottom point
+						Vector2(0, 16),     # Left point
+						Vector2(0, 8),   # Top point
+						Vector2(-16, 0),   # Right point
+						Vector2(0, -8),  # Bottom point
+						Vector2(0, -16)     # Left point
+					])
+
+					polygon.polygon = points
+					polygon.color = Color(0, 0, 0, 0.5)  # Semi-transparent black
+					polygon.position = ground_layer.map_to_local(id) #+ TILE_TEXTURE_OFFSET
+					polygon.z_index = 5
+
+					add_child(polygon)
 
 func find_path() -> void:
 	print("---------------------------------------------------")

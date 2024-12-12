@@ -11,6 +11,7 @@ var movement_progress : float = 0
 func _ready() -> void:
 	super()
 	position = Vector2(206, 9)
+	animation_player.play("walk")
 
 func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("click") and can_move and !moving:

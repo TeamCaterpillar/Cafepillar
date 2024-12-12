@@ -1,14 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkw27imy3jwh1"]
+[gd_scene load_steps=7 format=3 uid="uid://dkw27imy3jwh1"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_l15gy"]
 [ext_resource type="Texture2D" uid="uid://cuxov187qptpg" path="res://assets/sprites/customer.png" id="2_rt2ka"]
 
-[sub_resource type="Animation" id="Animation_ae30t"]
+[sub_resource type="Animation" id="Animation_qxe33"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -18,45 +18,27 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_vmho8"]
-resource_name = "walk_left"
-length = 4.0
-step = 0.5
+[sub_resource type="Animation" id="Animation_lapao"]
+resource_name = "walk"
+length = 0.75
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:frame")
-tracks/0/interp = 0
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [8, 9, 10, 11, 12, 13, 14, 15]
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_0bytj"]
-resource_name = "walk_right"
-length = 4.0
-step = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:frame")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gabbo"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dbaie"]
 _data = {
-"RESET": SubResource("Animation_ae30t"),
-"walk_left": SubResource("Animation_vmho8"),
-"walk_right": SubResource("Animation_0bytj")
+"RESET": SubResource("Animation_qxe33"),
+"walk": SubResource("Animation_lapao")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_evmxx"]
@@ -72,10 +54,10 @@ texture = ExtResource("2_rt2ka")
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerSprite"]
-root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_gabbo")
+"": SubResource("AnimationLibrary_dbaie")
 }
+autoplay = "walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true

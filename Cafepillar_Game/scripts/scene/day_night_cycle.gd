@@ -2,7 +2,7 @@ class_name DayNightCycle
 extends Node2D
 
 # Time management
-@export var day_length: float = 60.0  # Duration of one day in seconds
+@export var day_length: float = 300.0  # Duration of one day in seconds
 var time_of_day: float = 0.0  # Normalized time (0.0 = midnight, 0.5 = noon)
 var day_ended: bool = false  # Track if the day has ended
 
