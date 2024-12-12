@@ -100,29 +100,29 @@ func _update_pathable_cells() -> void:
 			if is_cell_blocked(id):
 				astar_grid.set_point_solid(id)
 				print("Cell @ ", id, " has been blocked from pathing!")
-				# placing a picture for reference
-				# Create a polygon node instead of a ColorRect
-				var polygon = Polygon2D.new()
-
-				# Define the diamond shape points
-				# Starting from top, going clockwise
-				var points = PackedVector2Array([
-					Vector2(0, -8),   # Top point
-					Vector2(16, 0),   # Right point
-					Vector2(0, 8),  # Bottom point
-					Vector2(0, 16),     # Left point
-					Vector2(0, 8),   # Top point
-					Vector2(-16, 0),   # Right point
-					Vector2(0, -8),  # Bottom point
-					Vector2(0, -16)     # Left point
-				])
-
-				polygon.polygon = points
-				polygon.color = Color(0, 0, 0, 0.5)  # Semi-transparent black
-				polygon.position = ground_layer.map_to_local(id) #+ TILE_TEXTURE_OFFSET
-				polygon.z_index = 4096
-
-				add_child(polygon)
+				## placing a picture for reference
+				## Create a polygon node instead of a ColorRect
+				#var polygon = Polygon2D.new()
+#
+				## Define the diamond shape points
+				## Starting from top, going clockwise
+				#var points = PackedVector2Array([
+					#Vector2(0, -8),   # Top point
+					#Vector2(16, 0),   # Right point
+					#Vector2(0, 8),  # Bottom point
+					#Vector2(0, 16),     # Left point
+					#Vector2(0, 8),   # Top point
+					#Vector2(-16, 0),   # Right point
+					#Vector2(0, -8),  # Bottom point
+					#Vector2(0, -16)     # Left point
+				#])
+#
+				#polygon.polygon = points
+				#polygon.color = Color(0, 0, 0, 0.5)  # Semi-transparent black
+				#polygon.position = ground_layer.map_to_local(id) #+ TILE_TEXTURE_OFFSET
+				#polygon.z_index = 4096
+#
+				#add_child(polygon)
 
 func find_path() -> void:
 	print("---------------------------------------------------")
