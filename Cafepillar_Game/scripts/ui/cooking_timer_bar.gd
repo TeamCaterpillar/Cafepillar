@@ -8,20 +8,16 @@ extends Control
 @onready var status_label: Label = $Status
 @onready var stove_slot: Slot = $"../../Stove/Slot"
 @onready var card_factory: Node = $"../../CardFactory"
-@onready var stove_output: GCardHandLayout = $"../../Output"
+@onready var output: GCardHandLayout = $"../../Output"
 
 
-# the tick mark at 70% is the time it takes to make the food according to the food card
-const PERFECT_MIN_PERCENT = 0.70 
-# player has a few seconds (until the tick mark at 80%) to collect the good food before it gets burnt
-const PERFECT_MAX_PERCENT = 0.80
-# foods between 50% and 70% are satisfactory
-const SATISFACTORY_MIN_PERCENT = 0.50
+var _perfect_min_percent = GameManager.cooking_difficulty["PERFECT_MIN_PERCENT"]
+var _perfect_max_percent = GameManager.cooking_difficulty["PERFECT_MAX_PERCENT"]
+var _satisfactory_min_percent = GameManager.cooking_difficulty["SATISFACTORY_MIN_PERCENT"]
+var _times_to_cook = GameManager.cooking_difficulty["TIME"]
 
-# default value
-var _time_it_takes_to_cook = 10.0
 # calculates the total bar
-var _timer_duration = _time_it_takes_to_cook / PERFECT_MIN_PERCENT
+var _timer_duration = _times_to_cook / _perfect_min_percent
 var _time_elapsed : float = 0.0
 var cooking : bool = false
 var tween
@@ -53,15 +49,15 @@ func _process(delta: float) -> void:
 
 func _update_timer_bar_color() -> void:
 	# color is green; food is perfect
-	if _time_elapsed >= _timer_duration * PERFECT_MIN_PERCENT and _time_elapsed <= _timer_duration * PERFECT_MAX_PERCENT:
+	if _time_elapsed >= _timer_duration * _perfect_min_percent and _time_elapsed <= _timer_duration * _perfect_max_percent:
 		timer_bar.set_theme_type_variation("TimerBar")
 		_food_condition = "Perfect"
 	# color is yellow; food is undercooked
-	elif _time_elapsed < _timer_duration * SATISFACTORY_MIN_PERCENT:
+	elif _time_elapsed < _timer_duration * _satisfactory_min_percent:
 		timer_bar.set_theme_type_variation("TimerBarMid")
 		_food_condition = "Undercooked"
 	# color is blue; food is satisfactory
-	elif _time_elapsed >= _timer_duration * SATISFACTORY_MIN_PERCENT and _time_elapsed < _timer_duration * PERFECT_MIN_PERCENT:
+	elif _time_elapsed >= _timer_duration * _satisfactory_min_percent and _time_elapsed < _timer_duration * _perfect_min_percent:
 		timer_bar.set_theme_type_variation("SatisfactoryBar")
 		_food_condition = "Satisfactory"
 	# color is red; food is burnt
@@ -72,7 +68,7 @@ func _update_timer_bar_color() -> void:
 	
 func _on_StartButton_pressed():
 	recipe = stove_slot.check_recipe()
-	if recipe != "Null" and stove_output.get_child_count() < 1:
+	if recipe != "Null":
 		# put all the code below in the if statement checking for valid food
 		cooking = true
 		color_rect.visible = true
@@ -80,12 +76,11 @@ func _on_StartButton_pressed():
 		start_button.visible = false
 		remove_button.visible = false
 		status_label.text = "Preparing " + recipe + "..."
+		stove_slot.remove_from_group("CardSlot")
 		# animate cooking timer
 		if tween == null:
 			tween = create_tween()
 			tween.tween_property(timer_bar, "value", 100.0, _timer_duration)
-	elif stove_output.get_child_count() >= 1:
-		status_label.text = "Clear the stove first!"
 	else:
 		status_label.text = "No Recipes Found..."
 
@@ -96,7 +91,7 @@ func _on_DoneButton_pressed():
 	color_rect.visible = false
 	done_button.visible = false
 	remove_button.visible = true
-	
+	stove_slot.add_to_group("CardSlot")
 	# remove all cards on stove
 	var children = stove_slot.get_children()
 	for child in children:
