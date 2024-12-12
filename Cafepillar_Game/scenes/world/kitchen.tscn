@@ -1,16 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://dn3urr1xccmik"]
+[gd_scene load_steps=15 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/scene/kitchen.gd" id="1_tfllf"]
-[ext_resource type="Texture2D" uid="uid://2eqrp5mmj6a1" path="res://assets/backgrounds/kitchen_background.png" id="2_scie6"]
+[ext_resource type="Texture2D" uid="uid://dfft7evi0bbdc" path="res://assets/backgrounds/kitchen_background.png" id="2_scie6"]
 [ext_resource type="Script" path="res://addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd" id="6_noatd"]
 [ext_resource type="Script" path="res://scripts/factories/card_factory.gd" id="7_8i4sf"]
-[ext_resource type="PackedScene" uid="uid://b4jylv27c7es2" path="res://scenes/ui/stove.tscn" id="8_ab558"]
+[ext_resource type="PackedScene" uid="uid://dww8ran2hstjq" path="res://scenes/ui/stove.tscn" id="8_ab558"]
 [ext_resource type="PackedScene" uid="uid://e87i8t6lw4ak" path="res://scenes/ui/tray.tscn" id="8_tg0xe"]
 [ext_resource type="PackedScene" path="res://scenes/ui/blender.tscn" id="9_0088y"]
-[ext_resource type="PackedScene" uid="uid://duqnvcuyncuk8" path="res://scenes/ui/recipes_book_new.tscn" id="9_b7q2u"]
+[ext_resource type="PackedScene" path="res://scenes/ui/recipes_book_new.tscn" id="9_b7q2u"]
 [ext_resource type="Script" path="res://scripts/ui/order_queue.gd" id="10_765us"]
-[ext_resource type="PackedScene" uid="uid://bot3qm286xjeh" path="res://scenes/ui/inventory_deck.tscn" id="10_fo2lv"]
+[ext_resource type="PackedScene" path="res://scenes/ui/inventory_deck.tscn" id="10_fo2lv"]
 [ext_resource type="PackedScene" path="res://scenes/ui/counter.tscn" id="10_w6rx6"]
+[ext_resource type="Texture2D" uid="uid://8i4evtdqq1xm" path="res://assets/ui/trash.png" id="12_6a2mi"]
+[ext_resource type="Texture2D" uid="uid://bjuyjlebiava4" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="12_dv7ss"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
 font_size = 50
@@ -181,3 +183,39 @@ offset_left = -4.0
 offset_top = 571.0
 offset_right = 329.0
 offset_bottom = 992.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -2.0
+offset_right = 242.0
+offset_bottom = 215.0
+color = Color(0.00392157, 0.380392, 0.0588235, 1)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(116, 71)
+scale = Vector2(3.25, 3.17187)
+texture = ExtResource("12_6a2mi")
+
+[node name="Label" type="Label" parent="Sprite2D2"]
+offset_left = -28.3077
+offset_top = 24.9064
+offset_right = 32.6923
+offset_bottom = 60.9064
+theme_override_font_sizes/font_size = 10
+text = "Discard Dish"
+
+[node name="TrashSlot" type="TextureRect" parent="." groups=["CardSlot"]]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.404
+anchor_top = 0.789
+anchor_right = 0.404
+anchor_bottom = 0.789
+offset_left = -776.68
+offset_top = -856.12
+offset_right = -540.68
+offset_bottom = -642.12
+texture = ExtResource("12_dv7ss")
+expand_mode = 1

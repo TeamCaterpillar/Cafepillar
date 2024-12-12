@@ -9,3 +9,4 @@ script = ExtResource("1_s4noa")
 [node name="bg_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_s5qap")
 volume_db = -15.0
+parameters/looping = false
