@@ -5,13 +5,15 @@
 
 [node name="DayNightCycle" type="Node2D"]
 script = ExtResource("1_5w26l")
+metadata/_edit_lock_ = true
 
 [node name="Background" type="ColorRect" parent="."]
 z_index = -1
-offset_left = -281.0
-offset_top = -173.0
-offset_right = 414.0
-offset_bottom = 225.0
+offset_left = -288.0
+offset_top = -160.0
+offset_right = 1632.0
+offset_bottom = 920.0
+scale = Vector2(0.3, 0.3)
 
 [node name="Light" type="DirectionalLight2D" parent="."]
 visible = false
@@ -19,27 +21,27 @@ energy = 0.0
 height = 0.59
 
 [node name="SkipDay" type="Button" parent="."]
-offset_left = 270.0
-offset_top = 148.0
-offset_right = 345.0
-offset_bottom = 179.0
+offset_left = 184.0
+offset_top = 96.0
+offset_right = 259.0
+offset_bottom = 127.0
 text = "Skip Day"
 metadata/_edit_use_anchors_ = true
 
 [node name="EndOfDayScreen" type="Panel" parent="."]
 visible = false
 self_modulate = Color(0, 0, 0, 1)
-offset_left = -222.0
-offset_top = -137.0
-offset_right = 366.0
-offset_bottom = 180.0
+offset_left = -283.0
+offset_top = -156.0
+offset_right = 282.0
+offset_bottom = 160.0
 
 [node name="Shop" parent="EndOfDayScreen" instance=ExtResource("2_4icya")]
 layout_mode = 1
-offset_left = 90.0
-offset_top = 50.0
-offset_right = -91.0
-offset_bottom = -19.0
+offset_left = 85.0
+offset_top = 53.0
+offset_right = -96.0
+offset_bottom = -16.0
 
 [node name="DayEndText" type="Label" parent="EndOfDayScreen"]
 layout_mode = 0
@@ -51,10 +53,10 @@ text = "Day End"
 
 [node name="NextDay" type="Button" parent="EndOfDayScreen"]
 layout_mode = 0
-offset_left = 475.0
-offset_top = 10.0
-offset_right = 567.0
-offset_bottom = 46.0
+offset_left = 464.0
+offset_top = 7.0
+offset_right = 556.0
+offset_bottom = 43.0
 theme_override_font_sizes/font_size = 20
 text = "NextDay
 "
@@ -62,7 +64,7 @@ text = "NextDay
 [node name="Sprite2D" type="Sprite2D" parent="EndOfDayScreen"]
 
 [node name="TimerLabel" type="Label" parent="."]
-offset_left = 26.0
-offset_top = -128.0
-offset_right = 66.0
-offset_bottom = -105.0
+offset_left = -20.0
+offset_top = -148.0
+offset_right = 20.0
+offset_bottom = -125.0
