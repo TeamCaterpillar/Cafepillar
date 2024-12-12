@@ -68,6 +68,9 @@ func end_day():
 	# Mark the day as ended
 	day_ended = true
 	
+	# Emit day_ended signal to trigger connected functions in other components
+	GameSignals.day_ended.emit()
+	
 	# Show the End of Day screen
 	end_of_day_screen.visible = true
 
