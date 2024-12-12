@@ -25,30 +25,30 @@ offset_bottom = 349.0
 
 [node name="StartButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 357.0
-offset_top = 253.0
-offset_right = 501.0
-offset_bottom = 331.0
+offset_left = 375.0
+offset_top = 121.0
+offset_right = 519.0
+offset_bottom = 199.0
 texture_normal = ExtResource("2_35lrn")
 texture_pressed = ExtResource("3_488x5")
 texture_hover = ExtResource("4_iaxg2")
 
 [node name="DoneButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 356.0
-offset_top = 113.0
-offset_right = 500.0
-offset_bottom = 191.0
+offset_left = 376.0
+offset_top = 121.0
+offset_right = 520.0
+offset_bottom = 199.0
 texture_normal = ExtResource("5_wu6rb")
 texture_pressed = ExtResource("6_f01hx")
 texture_hover = ExtResource("7_xodom")
 
 [node name="RemoveButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = -41.0
-offset_top = 253.0
-offset_right = 103.0
-offset_bottom = 331.0
+offset_left = 375.0
+offset_top = 185.0
+offset_right = 519.0
+offset_bottom = 263.0
 texture_normal = ExtResource("8_ja1dm")
 texture_pressed = ExtResource("9_ggag8")
 texture_hover = ExtResource("8_ja1dm")
@@ -61,10 +61,11 @@ anchor_left = 0.263
 anchor_top = 0.175
 anchor_right = 0.652
 anchor_bottom = 0.281
-offset_left = 0.0289917
-offset_top = -18.075
-offset_right = -0.0840149
-offset_bottom = -18.069
+offset_left = -71.971
+offset_top = 274.925
+offset_right = -72.084
+offset_bottom = 274.931
+rotation = -1.56528
 
 [node name="TimerBar" type="ProgressBar" parent="ColorRect"]
 custom_minimum_size = Vector2(100, 30)
@@ -98,10 +99,12 @@ default_color = Color(0, 0, 0, 1)
 
 [node name="Status" type="Label" parent="."]
 layout_mode = 0
-offset_left = -14.0
-offset_top = 357.0
-offset_right = 506.0
-offset_bottom = 447.0
+offset_left = 53.0
+offset_top = 3.0
+offset_right = 573.0
+offset_bottom = 93.0
+scale = Vector2(0.75, 0.75)
+theme_override_font_sizes/font_size = 10
 label_settings = SubResource("LabelSettings_bydme")
 horizontal_alignment = 1
 vertical_alignment = 1

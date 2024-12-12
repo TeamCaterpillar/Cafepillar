@@ -61,6 +61,10 @@ label_settings = SubResource("LabelSettings_au7mt")
 
 [node name="OrderQueue" type="Control" parent="."]
 anchors_preset = 0
+offset_left = -1.0
+offset_top = -159.0
+offset_right = -1.0
+offset_bottom = -159.0
 script = ExtResource("10_765us")
 
 [node name="ColorRect" type="ColorRect" parent="OrderQueue"]
@@ -73,8 +77,8 @@ anchor_bottom = -0.148
 offset_left = 1675.0
 offset_top = 404.0
 offset_right = 1921.0
-offset_bottom = 1080.0
-color = Color(0.497474, 0.497474, 0.497474, 1)
+offset_bottom = 1242.0
+color = Color(1, 0.992157, 0.870588, 1)
 
 [node name="Label" type="Label" parent="OrderQueue"]
 layout_mode = 1
@@ -83,6 +87,7 @@ offset_left = 1706.0
 offset_top = 408.0
 offset_right = 1889.0
 offset_bottom = 461.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 29
 text = "Order Queue"
 horizontal_alignment = 1
@@ -98,7 +103,7 @@ anchor_bottom = -0.088
 offset_left = 1692.0
 offset_top = 469.0
 offset_right = 1907.0
-offset_bottom = 1909.0
+offset_bottom = 1244.0
 
 [node name="CardFactory" type="Node2D" parent="." node_paths=PackedStringArray("card_deck", "stove_output")]
 position = Vector2(957, 863)
@@ -116,10 +121,10 @@ offset_bottom = -1.0
 layout_mode = 1
 anchor_top = -1.4
 anchor_bottom = -1.4
-offset_left = 882.0
-offset_top = 2252.0
-offset_right = 1011.0
-offset_bottom = 2355.0
+offset_left = 904.0
+offset_top = 2356.0
+offset_right = 1033.0
+offset_bottom = 2459.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_noatd")
@@ -131,10 +136,10 @@ enable_dragging = true
 layout_mode = 1
 anchor_top = -1.4
 anchor_bottom = -1.4
-offset_left = 859.0
-offset_top = 1634.0
-offset_right = 988.0
-offset_bottom = 1737.0
+offset_left = 917.0
+offset_top = 2119.0
+offset_right = 1046.0
+offset_bottom = 2222.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_noatd")
@@ -144,23 +149,27 @@ enable_dragging = true
 
 [node name="Stove" parent="." instance=ExtResource("8_ab558")]
 layout_mode = 0
-offset_left = 655.0
-offset_top = 419.0
-offset_right = 855.0
-offset_bottom = 619.0
-
-[node name="InventoryDeck" parent="." instance=ExtResource("10_fo2lv")]
-layout_mode = 1
-offset_left = 116.0
-offset_top = 776.0
-offset_right = -1804.0
-offset_bottom = -304.0
-
-[node name="RecipesBook" parent="." instance=ExtResource("9_b7q2u")]
+offset_left = 276.0
+offset_top = 331.0
+offset_right = 476.0
+offset_bottom = 531.0
 
 [node name="Counter" parent="." instance=ExtResource("10_w6rx6")]
 layout_mode = 0
-offset_left = 1131.0
-offset_top = 278.0
-offset_right = 1171.0
-offset_bottom = 318.0
+offset_left = 700.0
+offset_top = 186.0
+offset_right = 740.0
+offset_bottom = 226.0
+
+[node name="InventoryDeck" parent="." instance=ExtResource("10_fo2lv")]
+layout_mode = 1
+offset_left = 1466.0
+offset_top = 744.0
+offset_right = -454.0
+offset_bottom = -336.0
+
+[node name="RecipesBook" parent="." instance=ExtResource("9_b7q2u")]
+offset_left = -4.0
+offset_top = 571.0
+offset_right = 329.0
+offset_bottom = 992.0
