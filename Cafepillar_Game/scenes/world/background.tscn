@@ -1,9 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dta8ywnphhy4"]
+[gd_scene load_steps=3 format=3 uid="uid://dta8ywnphhy4"]
 
 [ext_resource type="Script" path="res://scripts/scene/day_night_cycle.gd" id="1_5w26l"]
+[ext_resource type="PackedScene" uid="uid://i2jd74yhry5i" path="res://scenes/ui/shop.tscn" id="2_4icya"]
 
 [node name="DayNightCycle" type="Node2D"]
-position = Vector2(22.5, 30.5)
 script = ExtResource("1_5w26l")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -19,11 +19,12 @@ energy = 0.0
 height = 0.59
 
 [node name="SkipDay" type="Button" parent="."]
-offset_left = 241.5
-offset_top = 137.5
-offset_right = 316.5
-offset_bottom = 168.5
+offset_left = 270.0
+offset_top = 148.0
+offset_right = 345.0
+offset_bottom = 179.0
 text = "Skip Day"
+metadata/_edit_use_anchors_ = true
 
 [node name="EndOfDayScreen" type="Panel" parent="."]
 visible = false
@@ -32,6 +33,13 @@ offset_left = -222.0
 offset_top = -137.0
 offset_right = 366.0
 offset_bottom = 180.0
+
+[node name="Shop" parent="EndOfDayScreen" instance=ExtResource("2_4icya")]
+layout_mode = 1
+offset_left = 90.0
+offset_top = 50.0
+offset_right = -91.0
+offset_bottom = -19.0
 
 [node name="DayEndText" type="Label" parent="EndOfDayScreen"]
 layout_mode = 0

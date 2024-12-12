@@ -1,17 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://cw37cfifxghu0"]
+[gd_scene load_steps=14 format=3 uid="uid://gc6m30k1tvd8"]
 
-[ext_resource type="Script" path="res://scripts/cooking_timer_bar.gd" id="1_2spa5"]
-[ext_resource type="Texture2D" uid="uid://bhfudbe6pxgin" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="2_35lrn"]
-[ext_resource type="Texture2D" uid="uid://cwhssdmxavasd" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="3_488x5"]
-[ext_resource type="Texture2D" uid="uid://crqjjdfnmmtqs" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="4_iaxg2"]
-[ext_resource type="Texture2D" uid="uid://c78d2gyyvsux2" path="res://assets/Buttons Pixel Animation Pack/store/72px/store02.png" id="5_wu6rb"]
-[ext_resource type="Texture2D" uid="uid://7gtkj8omh4g4" path="res://assets/Buttons Pixel Animation Pack/store/72px/store03.png" id="6_f01hx"]
-[ext_resource type="Texture2D" uid="uid://cyairvai4t3wt" path="res://assets/Buttons Pixel Animation Pack/store/72px/store04.png" id="7_xodom"]
-[ext_resource type="Texture2D" uid="uid://bw1fmv0qu2wme" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="8_ja1dm"]
+[ext_resource type="Texture2D" uid="uid://boe2fgvxhx245" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="2_35lrn"]
+[ext_resource type="Texture2D" uid="uid://cqmo0wxbol88s" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="3_488x5"]
+[ext_resource type="Texture2D" uid="uid://d318w71syahbl" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="4_iaxg2"]
+[ext_resource type="Texture2D" uid="uid://0u20qu2ledrl" path="res://assets/Buttons Pixel Animation Pack/store/72px/store02.png" id="5_wu6rb"]
+[ext_resource type="Texture2D" uid="uid://csxxwybegxom6" path="res://assets/Buttons Pixel Animation Pack/store/72px/store03.png" id="6_f01hx"]
+[ext_resource type="Texture2D" uid="uid://dx4h8ck0mvkv6" path="res://assets/Buttons Pixel Animation Pack/store/72px/store04.png" id="7_xodom"]
+[ext_resource type="Texture2D" uid="uid://cw2eh8geyo0y1" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="8_ja1dm"]
 [ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="8_mlpau"]
-[ext_resource type="Texture2D" uid="uid://coo02j84jd71a" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="9_ggag8"]
-[ext_resource type="PackedScene" path="res://scenes/sounds.tscn" id="11_57rex"]
-[ext_resource type="AudioStream" uid="uid://cjhddsdd2mjk8" path="res://assets/audio/button_click.wav" id="12_0hyaw"]
+[ext_resource type="Texture2D" uid="uid://bh3iulmeotfoq" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="9_ggag8"]
+[ext_resource type="PackedScene" uid="uid://c2ct3c5b0l41d" path="res://scenes/sounds.tscn" id="11_57rex"]
+[ext_resource type="AudioStream" uid="uid://ceb8kiuev152y" path="res://assets/audio/button_click.wav" id="12_0hyaw"]
 [ext_resource type="Script" path="res://scripts/sounds/cooking_timer_bar_sounds.gd" id="12_vrcwg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bydme"]
@@ -23,7 +22,6 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 517.0
 offset_bottom = 349.0
-script = ExtResource("1_2spa5")
 
 [node name="StartButton" type="TextureButton" parent="."]
 layout_mode = 0
