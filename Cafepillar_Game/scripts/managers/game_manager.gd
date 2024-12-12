@@ -7,6 +7,8 @@ var kitchen_inventory: Array[Variant] = []
 var active_orders: Array[Variant]     = []
 var waiter_queue: Array[Variant]      = []
 var finished_dishes: Array[Variant]   = []
+var customer_ids : Array = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+var customers_waiting : Array[Variant] = []
 
 # Scene references
 var current_scene  = null

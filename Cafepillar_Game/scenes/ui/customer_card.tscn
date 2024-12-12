@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqaplfp3ykhuf"]
+
+[ext_resource type="Script" path="res://scripts/customer_card.gd" id="1_hyqnp"]
+[ext_resource type="Texture2D" uid="uid://dm5xh4crvt82k" path="res://assets/cards/rose_cake.png" id="2_4w4pd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2y2uv"]
+bg_color = Color(0.831373, 0.878431, 0.792157, 1)
+
+[node name="CustomerCard" type="Button"]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 200.0
+offset_bottom = 200.0
+scale = Vector2(0.25, 0.25)
+theme_override_styles/normal = SubResource("StyleBoxFlat_2y2uv")
+script = ExtResource("1_hyqnp")
+
+[node name="FoodIcon" type="Sprite2D" parent="."]
+position = Vector2(24, 24)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_4w4pd")
+region_enabled = true
+region_rect = Rect2(73.5138, 20.4219, 643.938, 818.326)
+
+[node name="FoodColor" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(25, 8)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.175
+offset_left = 1.0
+offset_top = 1.0
+offset_right = -1.0
+color = Color(0.831373, 0.878431, 0.792157, 1)
+
+[node name="CustomerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = 40.0
+offset_right = 48.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+text = "Customer "
+horizontal_alignment = 1
+autowrap_mode = 2

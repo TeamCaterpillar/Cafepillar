@@ -9,3 +9,5 @@ signal item_selected(shop_item)
 signal item_deselected(shop_item)
 signal player_moving
 signal waiter_moving
+signal dish_selected(dish_card)
+signal customer_selected(customer_card)

@@ -68,8 +68,18 @@ shape = SubResource("CapsuleShape2D_dp0t5")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 offset_left = -19.0
-offset_top = -66.0
+offset_top = -61.0
 offset_right = 769.0
-offset_bottom = 952.0
+offset_bottom = 957.0
 scale = Vector2(0.05, 0.05)
 texture_normal = ExtResource("3_qea6u")
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 79.9998
+offset_top = 800.0
+offset_right = 568.0
+offset_bottom = 934.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 98
+text = "Customer: "

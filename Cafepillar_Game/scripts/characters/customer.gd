@@ -7,14 +7,20 @@ extends Character
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 # @onready var order_sprite: Sprite2D = $OrderSprite
 @onready var dish_inventory: CompletedDishInventory = $"../../../CompletedDishInventory"
+@onready var customer_queue: GridContainer = $"../../../CompletedDishInventory/ColorRect/GridContainer"
 # @onready var button: Button = $Control/Button
 @onready var texture_button: TextureButton = $TextureButton
+@onready var label: Label = $TextureButton/Label
 
 var _timer:Timer
 var food_name : String
+var customer_id: int = 1
+
 
 func _ready(): 
-	texture_button.connect("pressed", Callable(self, "_on_DeliverButton_pressed"))
+	assign_id()
+	label.text = "Customer " + str(customer_id)
+	# texture_button.connect("pressed", Callable(self, "_on_DeliverButton_pressed"))
 	# GameSignals.customer_clicked.connect(_on_customer_clicked)
 	_timer = Timer.new()
 	_timer.one_shot = true
@@ -40,17 +46,14 @@ func _ready():
 		var food_icon = load(food_icon_path)
 		texture_button.visible = true
 		texture_button.texture_normal = food_icon
+	
+	dish_inventory.add_customer_to_queue(food_name, customer_id)
+	GameManager.customers_waiting.append(self)
 
 
 func _process(_delta):
 	if _timer.is_stopped():
-		queue_free() # customer death when theyre sick of waiting lmfao
-
-#func _input(event):
-#	# problem is that when you click on it, it affects all customers instead of individual ones
-#	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-#		if collision_shape_2d.get_shape().get_size().has_point(to_local(event.position)):
-#			GameSignals.emit_signal("customer_clicked", food_name)
+		remove_customer()
 
 
 func _on_customer_clicked(order: String):
@@ -59,3 +62,16 @@ func _on_customer_clicked(order: String):
 
 func _on_DeliverButton_pressed() -> void:
 	print("Clicked button!")
+
+
+func assign_id():
+	# assign an id to customer
+	customer_id = GameManager.customer_ids.pop_back()
+
+
+func remove_customer():
+	for person in GameManager.customers_waiting:
+		if person == self:
+			GameManager.customers_waiting.erase(self)
+			queue_free() # customer death when theyre sick of waiting lmfao
+			dish_inventory.remove_customer_from_queue(customer_id)
