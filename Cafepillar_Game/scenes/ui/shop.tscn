@@ -19,9 +19,23 @@ offset_bottom = 40.0
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_xqqqy")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="ShopContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 20.0
+offset_top = 80.0
+offset_right = 3671.0
+offset_bottom = 1084.0
+scale = Vector2(0.1, 0.1)
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ShopLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 41.0
-offset_top = 40.0
-offset_right = 372.0
-offset_bottom = 222.0
+offset_left = 177.0
+offset_top = 10.0
+offset_right = 226.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "shop"
