@@ -2,7 +2,7 @@ extends Control
 class_name OrderQueue
 
 @onready var queue_container = $VBoxContainer
-@onready var recipes: Array = $"../RecipesBook/Recipes".recipes
+@onready var recipes: Array = $"../RecipesBook".recipes
 # @onready var recipes: Array = $Recipes.recipes
 
 # timer to randomly add food items every second

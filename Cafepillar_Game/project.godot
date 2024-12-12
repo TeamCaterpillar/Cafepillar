@@ -21,6 +21,7 @@ GameManager="*res://scripts/managers/game_manager.gd"
 TransitionScreen="*res://scenes/transitions/transition_screen.tscn"
 RecipeBookTransition="*res://scenes/transitions/recipe_book_transition.tscn"
 GameSignals="*res://scripts/signals.gd"
+AudioController="*res://scenes/audio_controller.tscn"
 
 [display]
 
@@ -30,7 +31,7 @@ window/size/resizable=false
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_card_layout/plugin.cfg")
+enabled=PackedStringArray()
 
 [global_group]
 
