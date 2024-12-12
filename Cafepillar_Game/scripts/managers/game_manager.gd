@@ -13,6 +13,13 @@ var current_scene  = null
 const SCENE_KITCHEN: String = "res://scenes/world/kitchen.tscn"
 const SCENE_DINER: String   = "res://scenes/world/diner.tscn"
 
+# Cooking difficulty
+const COOKING_DIFFCULTY = {
+	"PERFECT_MIN_PERCENT": 0.70,
+	"PERFECT_MAX_PERCENT": 0.90,
+	"SATISFACTORY_MIN_PERCENT": 0.50,
+	"TIME": 6
+}
 
 # Signal for scene changes
 #signal scene_changed

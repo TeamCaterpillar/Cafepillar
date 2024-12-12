@@ -8,6 +8,7 @@ class_name CompletedDishInventory
 @onready var label_2: Label = $Label2
 
 var dish_card_size : Vector2 = Vector2(160.0, 200.0)
+var selected_food_to_deliver : Variant = null
 
 func _ready() -> void:
 	list_button.connect("pressed", Callable(self, "_on_ListButton_pressed"))
@@ -26,9 +27,7 @@ func _on_ListButton_pressed() -> void:
 		grid_container.visible = true
 		label.visible = true
 	else:
-		color_rect.visible = false
-		grid_container.visible = false
-		label.visible = false
+		close_inventory()
 
 	# show foods in the inventory
 	for food in GameManager.finished_dishes:
@@ -49,3 +48,10 @@ func _contains_food(food: Variant) -> bool:
 		if food == child:
 			return true
 	return false
+
+
+func close_inventory() -> void:
+	color_rect.visible = false
+	grid_container.visible = false
+	label.visible = false
+	label_2.visible = false
