@@ -13,9 +13,6 @@
 [node name="World" type="Node2D"]
 script = ExtResource("1_7tooo")
 
-[node name="Cafe" parent="." instance=ExtResource("2_8xdw4")]
-position = Vector2(-41, 24)
-
 [node name="Kitchen" parent="." instance=ExtResource("3_wvu77")]
 offset_left = -2077.0
 offset_top = -1904.0
@@ -50,4 +47,4 @@ offset_bottom = 359.0
 scale = Vector2(0.1, 0.1)
 texture_normal = ExtResource("9_sb1ik")
 
-[connection signal="pressed" from="TextureButton" to="Cafe" method="_on_texture_button_pressed"]
+[node name="Cafe" parent="." instance=ExtResource("2_8xdw4")]
