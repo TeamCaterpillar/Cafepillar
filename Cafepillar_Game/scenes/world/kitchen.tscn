@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dn3urr1xccmik"]
+[gd_scene load_steps=12 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/scene/kitchen.gd" id="1_tfllf"]
 [ext_resource type="Texture2D" uid="uid://dcyth14jcjfmq" path="res://assets/backgrounds/kitchen_background.png" id="2_scie6"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://duqnvcuyncuk8" path="res://scenes/ui/recipes_book_new.tscn" id="9_b7q2u"]
 [ext_resource type="Script" path="res://scripts/ui/order_queue.gd" id="10_765us"]
 [ext_resource type="PackedScene" uid="uid://bot3qm286xjeh" path="res://scenes/ui/inventory_deck.tscn" id="10_fo2lv"]
+[ext_resource type="PackedScene" uid="uid://bmqfwyvh3jesd" path="res://counter.tscn" id="10_w6rx6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
 font_size = 50
@@ -143,10 +144,10 @@ enable_dragging = true
 
 [node name="Stove" parent="." instance=ExtResource("8_ab558")]
 layout_mode = 0
-offset_left = 849.0
-offset_top = 417.0
-offset_right = 1049.0
-offset_bottom = 617.0
+offset_left = 655.0
+offset_top = 419.0
+offset_right = 855.0
+offset_bottom = 619.0
 
 [node name="InventoryDeck" parent="." instance=ExtResource("10_fo2lv")]
 layout_mode = 1
@@ -156,3 +157,10 @@ offset_right = -1804.0
 offset_bottom = -304.0
 
 [node name="RecipesBook" parent="." instance=ExtResource("9_b7q2u")]
+
+[node name="Counter" parent="." instance=ExtResource("10_w6rx6")]
+layout_mode = 0
+offset_left = 1131.0
+offset_top = 278.0
+offset_right = 1171.0
+offset_bottom = 318.0

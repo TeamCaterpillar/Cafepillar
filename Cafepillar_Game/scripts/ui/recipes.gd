@@ -81,18 +81,20 @@ var recipes = [
 
 func _ready():
 	show_main_page()
-	$RecipeDetailContainer/BackButton.connect("pressed", Callable(self, "_on_BackButton_pressed"))
+	$BackButton.connect("pressed", Callable(self, "_on_BackButton_pressed"))
 
 
 func show_main_page():
 	$MainContainer.visible = true
 	$RecipeDetailContainer.visible = false
+	$BackButton.visible = false
 	populate_recipe_list()
 
 
 func show_recipe_detail(recipe_index):
 	$MainContainer.visible = false
 	$RecipeDetailContainer.visible = true
+	$BackButton.visible = true
 	display_recipe(recipes[recipe_index])
 
 

@@ -98,10 +98,10 @@ default_color = Color(0, 0, 0, 1)
 
 [node name="Status" type="Label" parent="."]
 layout_mode = 0
-offset_left = -26.0
-offset_top = 320.0
-offset_right = 494.0
-offset_bottom = 410.0
+offset_left = -14.0
+offset_top = 357.0
+offset_right = 506.0
+offset_bottom = 447.0
 label_settings = SubResource("LabelSettings_bydme")
 horizontal_alignment = 1
 vertical_alignment = 1

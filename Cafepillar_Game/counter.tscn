@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmqfwyvh3jesd"]
+[gd_scene load_steps=7 format=3 uid="uid://bmqfwyvh3jesd"]
 
 [ext_resource type="Texture2D" uid="uid://ct1pcsyabfdsv" path="res://assets/kitchen_equipment/counter.png" id="1_oyy00"]
 [ext_resource type="Texture2D" uid="uid://cnye5548ep6s1" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="2_5llie"]
 [ext_resource type="Script" path="res://scripts/appliances/slot.gd" id="3_fj6ya"]
 [ext_resource type="PackedScene" uid="uid://gc6m30k1tvd8" path="res://scenes/ui/cooking_timer_bar.tscn" id="4_hc3gt"]
+[ext_resource type="Script" path="res://scripts/ui/cooking_timer_bar.gd" id="5_t5lyp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mfo7w"]
 font_size = 40
@@ -14,8 +15,8 @@ offset_bottom = 40.0
 color = Color(1, 1, 1, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(236.125, 239.125)
-scale = Vector2(0.253472, 0.279398)
+position = Vector2(234, 207.063)
+scale = Vector2(0.253472, 0.273958)
 texture = ExtResource("1_oyy00")
 
 [node name="Slot" type="TextureRect" parent="." groups=["CardSlot"]]
@@ -25,10 +26,10 @@ anchor_left = 0.404
 anchor_top = 0.789
 anchor_right = 0.404
 anchor_bottom = 0.789
-offset_left = 179.84
-offset_top = 228.44
-offset_right = 269.84
-offset_bottom = 338.44
+offset_left = 173.84
+offset_top = 197.44
+offset_right = 263.84
+offset_bottom = 307.44
 texture = ExtResource("2_5llie")
 expand_mode = 1
 script = ExtResource("3_fj6ya")
@@ -38,10 +39,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 120.0
-offset_top = 204.0
-offset_right = 320.0
-offset_bottom = 404.0
+offset_left = 115.0
+offset_top = 173.0
+offset_right = 315.0
+offset_bottom = 373.0
 grow_horizontal = 2
 text = "Counter!
 "
@@ -51,3 +52,4 @@ horizontal_alignment = 1
 [node name="CookingTimerBar" parent="." instance=ExtResource("4_hc3gt")]
 offset_top = 11.0
 offset_bottom = 360.0
+script = ExtResource("5_t5lyp")

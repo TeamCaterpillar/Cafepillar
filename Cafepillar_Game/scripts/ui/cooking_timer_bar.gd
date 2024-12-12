@@ -27,7 +27,7 @@ var _time_elapsed : float = 0.0
 var cooking : bool = false
 var tween
 # default value
-var _food_condition = "Undercooked"
+var _food_condition = "Underdone"
 var recipe: String = ""
 
 
@@ -70,7 +70,7 @@ func _update_timer_bar_color() -> void:
 	# color is yellow; food is undercooked
 	elif _time_elapsed < _timer_duration * SATISFACTORY_MIN_PERCENT:
 		timer_bar.set_theme_type_variation("TimerBarMid")
-		_food_condition = "Undercooked"
+		_food_condition = "Underdone"
 	# color is blue; food is satisfactory
 	elif _time_elapsed >= _timer_duration * SATISFACTORY_MIN_PERCENT and _time_elapsed < _timer_duration * PERFECT_MIN_PERCENT:
 		timer_bar.set_theme_type_variation("SatisfactoryBar")
@@ -78,12 +78,12 @@ func _update_timer_bar_color() -> void:
 	# color is red; food is burnt
 	else:
 		timer_bar.set_theme_type_variation("TimerBarLow")
-		_food_condition = "Burnt"
+		_food_condition = "Overdone"
 
 	
 func _on_StartButton_pressed():
 	recipe = cookware_slot.check_recipe()
-	if recipe != "Null" and stove_output.get_child_count() < 1:
+	if recipe != "Null":
 		# put all the code below in the if statement checking for valid food
 		cooking = true
 		color_rect.visible = true
@@ -97,8 +97,6 @@ func _on_StartButton_pressed():
 		if tween == null:
 			tween = create_tween()
 			tween.tween_property(timer_bar, "value", 100.0, _timer_duration)
-	elif stove_output.get_child_count() >= 1:
-		status_label.text = "Clear the stove first!"
 	else:
 		status_label.text = "No Recipes Found..."
 
