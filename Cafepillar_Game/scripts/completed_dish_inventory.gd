@@ -16,7 +16,7 @@ func _ready() -> void:
 	label.visible = false
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_ListButton_pressed() -> void:

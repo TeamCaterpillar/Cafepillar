@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 0.1
 
-@onready var animation_player : AnimationPlayer = $Sprite2D/AnimationPlayer
+@onready var animation_player : AnimationPlayer = get_child(0).get_child(0)
 
 var target_position : Vector2 = Vector2.ZERO
 
@@ -12,4 +12,3 @@ func _ready() -> void:
 	
 func move_to() -> void:
 	global_position = get_global_mouse_position()
-	

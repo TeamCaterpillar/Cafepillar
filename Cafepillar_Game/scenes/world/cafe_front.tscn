@@ -1,16 +1,16 @@
 [gd_scene load_steps=12 format=3 uid="uid://chpbhr22qe5ac"]
 
-[ext_resource type="Script" path="res://scripts/scene/cafe_front.gd" id="1_yyml1"]
-[ext_resource type="PackedScene" uid="uid://drm58n2vnmmoa" path="res://scenes/world/diner.tscn" id="2_xqgsl"]
+[ext_resource type="Script" path="res://scripts/scene/world.gd" id="1_yyml1"]
+[ext_resource type="PackedScene" uid="uid://drm58n2vnmmoa" path="res://scenes/world/cafe.tscn" id="2_xqgsl"]
 [ext_resource type="PackedScene" uid="uid://dn3urr1xccmik" path="res://scenes/world/kitchen.tscn" id="3_obr0u"]
 [ext_resource type="PackedScene" uid="uid://dkw27imy3jwh1" path="res://scenes/characters/player.tscn" id="4_67kfq"]
 [ext_resource type="Script" path="res://scripts/ui/player_camera.gd" id="5_tnu4n"]
 [ext_resource type="PackedScene" uid="uid://cookffcxckdkf" path="res://scenes/world/test_scene.tscn" id="6_0nkb0"]
 [ext_resource type="Script" path="res://scripts/scene/day_night_cycle.gd" id="7_trvda"]
-[ext_resource type="PackedScene" uid="uid://i2jd74yhry5i" path="res://scenes/ui/shop.tscn" id="8_01jfv"]
+[ext_resource type="PackedScene" path="res://scenes/ui/shop.tscn" id="8_01jfv"]
 [ext_resource type="PackedScene" uid="uid://cbeth81wdaykt" path="res://scenes/ui/completed_dish_inventory.tscn" id="8_kmfh7"]
-[ext_resource type="PackedScene" uid="uid://dbqq2xk1wnbh4" path="res://scenes/sounds.tscn" id="8_ub8j2"]
-[ext_resource type="AudioStream" uid="uid://bhgltwuqqrrtf" path="res://assets/audio/button_click.wav" id="9_wotb0"]
+[ext_resource type="PackedScene" uid="uid://c2ct3c5b0l41d" path="res://scenes/sounds.tscn" id="8_ub8j2"]
+[ext_resource type="AudioStream" uid="uid://ceb8kiuev152y" path="res://assets/audio/button_click.wav" id="9_wotb0"]
 
 [node name="CafeFront" type="Node2D"]
 script = ExtResource("1_yyml1")
@@ -58,6 +58,7 @@ offset_top = 148.0
 offset_right = 345.0
 offset_bottom = 179.0
 text = "Skip Day"
+metadata/_edit_use_anchors_ = true
 
 [node name="EndOfDayScreen" type="Panel" parent="DayNightCycle"]
 visible = false
@@ -99,8 +100,10 @@ offset_left = 26.0
 offset_top = -128.0
 offset_right = 66.0
 offset_bottom = -105.0
+metadata/_edit_use_anchors_ = true
 
 [node name="CompletedDishInventory" parent="." instance=ExtResource("8_kmfh7")]
+visible = false
 offset_left = -79.0
 offset_top = -74.0
 offset_right = -79.0

@@ -35,7 +35,7 @@ func _ready() -> void:
 		food_color.color = Color("red")
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 
