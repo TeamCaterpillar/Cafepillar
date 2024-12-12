@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpjkh8i4nyusl"]
+[gd_scene load_steps=8 format=3 uid="uid://dpjkh8i4nyusl"]
 
 [ext_resource type="Script" path="res://scripts/characters/customer.gd" id="1_goek5"]
-[ext_resource type="Texture2D" uid="uid://cuxov187qptpg" path="res://assets/sprites/customer.png" id="2_lcutu"]
+[ext_resource type="Texture2D" uid="uid://drlcbviybq0vu" path="res://assets/sprites/customer.png" id="2_lcutu"]
+[ext_resource type="Texture2D" uid="uid://dm5xh4crvt82k" path="res://assets/cards/rose_cake.png" id="3_v84t7"]
 
 [sub_resource type="Animation" id="Animation_qxe33"]
 length = 0.001
@@ -62,3 +63,8 @@ autoplay = "walk"
 position = Vector2(0, 5)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dp0t5")
+
+[node name="OrderSprite" type="Sprite2D" parent="."]
+position = Vector2(-1, -36)
+scale = Vector2(0.04283, 0.04283)
+texture = ExtResource("3_v84t7")
