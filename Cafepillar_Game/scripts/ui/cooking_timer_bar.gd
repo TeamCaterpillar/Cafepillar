@@ -6,9 +6,9 @@ extends Control
 @onready var timer_bar: ProgressBar = $ColorRect/TimerBar
 @onready var color_rect: ColorRect = $ColorRect
 @onready var status_label: Label = $Status
-@onready var stove_slot: Slot = $"../Stove/StoveSlot"
-@onready var card_factory: Node = $"../CardFactory"
-@onready var stove_output: GCardHandLayout = $"../StoveOutput"
+@onready var stove_slot: Slot = $"../../Stove/Slot"
+@onready var card_factory: Node = $"../../CardFactory"
+@onready var stove_output: GCardHandLayout = $"../../Output"
 
 
 # the tick mark at 70% is the time it takes to make the food according to the food card
