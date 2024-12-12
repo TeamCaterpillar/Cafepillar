@@ -17,7 +17,7 @@ func generate_rand_customer() -> Customer:
 	var dish_files:Array = DirAccess.get_files_at(dish_path)
 	var random_dish = dish_files.pick_random() # name of dish!!!
 	var dish_obj = load(dish_path + random_dish) # load it up
-	var dish_wait = dish_obj.cook_time # grab the dish's wait time
+	var dish_wait = dish_obj.cook_time + 20.0 # grab the dish's wait time
 	
 	# create and return
 	var new_customer = create_customer(CustomerBasicSpec.new(random_dish, dish_wait))

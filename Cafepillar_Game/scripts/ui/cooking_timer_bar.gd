@@ -20,7 +20,7 @@ const PERFECT_MAX_PERCENT = 0.80
 const SATISFACTORY_MIN_PERCENT = 0.50
 
 # default value
-var _time_it_takes_to_cook = 10.0
+var _time_it_takes_to_cook = 6.0
 # calculates the total bar
 var _timer_duration = _time_it_takes_to_cook / PERFECT_MIN_PERCENT
 var _time_elapsed : float = 0.0

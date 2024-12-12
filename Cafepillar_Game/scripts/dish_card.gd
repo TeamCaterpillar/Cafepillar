@@ -1,5 +1,6 @@
-extends Button
 class_name DishCard
+extends Button
+
 
 @export var food_name: String
 @export var food_condition: String

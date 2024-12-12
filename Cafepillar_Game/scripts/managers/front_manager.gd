@@ -4,7 +4,7 @@ extends Node2D
 
 const TILE_TEXTURE_OFFSET : Vector2 = Vector2(0, -8)
 
-@export var customer_spawn_rate:float = 2.0
+@export var customer_spawn_rate:float = 10.0
 @export var debug_enabled : bool = false
 
 @onready var tile_select_material : ShaderMaterial = load("res://assets/tile_sets/tile_select_material.tres")
