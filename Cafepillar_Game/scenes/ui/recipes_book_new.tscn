@@ -1,0 +1,94 @@
+[gd_scene load_steps=9 format=3 uid="uid://duqnvcuyncuk8"]
+
+[ext_resource type="Script" path="res://scripts/ui/recipes.gd" id="1_jsua6"]
+[ext_resource type="Texture2D" uid="uid://creo0gmc0r1yv" path="res://assets/cards/blank_card.png" id="2_v74uk"]
+[ext_resource type="Texture2D" uid="uid://drgtikybebkml" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="3_pkmln"]
+[ext_resource type="Texture2D" uid="uid://b2xxoc347w2qe" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="4_y6ntc"]
+[ext_resource type="Texture2D" uid="uid://bogpxfjah7nsy" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="5_cfy4w"]
+[ext_resource type="PackedScene" uid="uid://c2ct3c5b0l41d" path="res://scenes/sounds.tscn" id="6_6huem"]
+[ext_resource type="Script" path="res://scripts/sounds/recipe_book_sounds.gd" id="7_trhr7"]
+[ext_resource type="AudioStream" uid="uid://xia7wuxbxxuf" path="res://assets/audio/button_click.wav" id="8_o5y5b"]
+
+[node name="RecipesBook" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 333.0
+offset_bottom = 421.0
+script = ExtResource("1_jsua6")
+
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(242.732, 253.243)
+scale = Vector2(0.674808, 0.521686)
+texture = ExtResource("2_v74uk")
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.045
+anchor_right = 0.045
+offset_left = 42.015
+offset_top = 21.0
+offset_right = 418.015
+offset_bottom = 480.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.663958, 0.0603083, 0.692255, 1)
+theme_override_font_sizes/font_size = 40
+text = "Recipes"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainContainer"]
+custom_minimum_size = Vector2(0, 350)
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="RecipeListContainer" type="VBoxContainer" parent="MainContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="RecipeDetailContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 28.0
+offset_right = 462.0
+offset_bottom = 485.0
+
+[node name="RecipeTitle" type="Label" parent="RecipeDetailContainer"]
+modulate = Color(1, 0.559918, 0.869049, 1)
+visibility_layer = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+
+[node name="RecipeTool" type="Label" parent="RecipeDetailContainer"]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="RecipeIngredients" type="Label" parent="RecipeDetailContainer"]
+modulate = Color(0, 0, 0, 1)
+visibility_layer = 3
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 1
+
+[node name="BackButton" type="TextureButton" parent="RecipeDetailContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_pkmln")
+texture_pressed = ExtResource("4_y6ntc")
+texture_hover = ExtResource("5_cfy4w")
+
+[node name="Sounds" parent="." instance=ExtResource("6_6huem")]
+script = ExtResource("7_trhr7")
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource("8_o5y5b")

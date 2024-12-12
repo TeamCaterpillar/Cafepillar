@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bot3qm286xjeh"]
 
 [ext_resource type="Script" path="res://scripts/ui/inventory_deck.gd" id="1_dtivv"]
-[ext_resource type="Texture2D" uid="uid://dmfgxgb8davb6" path="res://assets/cards/deck.png" id="1_dudpo"]
+[ext_resource type="Texture2D" uid="uid://cuvu60c5u162c" path="res://assets/cards/deck.png" id="1_dudpo"]
 [ext_resource type="PackedScene" uid="uid://c2ct3c5b0l41d" path="res://scenes/sounds.tscn" id="3_q1w6w"]
 [ext_resource type="Script" path="res://scripts/sounds/InventoryDeck.gd" id="4_taq8o"]
-[ext_resource type="AudioStream" uid="uid://biithianepc2p" path="res://assets/audio/button_click.wav" id="5_h4nqu"]
-[ext_resource type="AudioStream" uid="uid://dsgi4unhp8ben" path="res://assets/audio/538525__escobarrb26__card-shuffle.mp3" id="6_ybcvc"]
+[ext_resource type="AudioStream" uid="uid://ceb8kiuev152y" path="res://assets/audio/button_click.wav" id="5_h4nqu"]
+[ext_resource type="AudioStream" uid="uid://bn108au40wjub" path="res://assets/audio/538525__escobarrb26__card-shuffle.mp3" id="6_ybcvc"]
 
 [node name="InventoryDeck" type="Control"]
 layout_mode = 3
