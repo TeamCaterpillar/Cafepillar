@@ -27,6 +27,9 @@ func _process(_delta):
 	if Input.is_action_just_pressed("test_scene"):
 		_swap_to_from_test()
 		
+	#if(Input.is_action_just_pressed("food_delivered")):
+		#print("asdf")
+		
 
 
 func show_kitchen():

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dta8ywnphhy4" path="res://scenes/world/background.tscn" id="7_oxtdv"]
 [ext_resource type="PackedScene" uid="uid://cbeth81wdaykt" path="res://scenes/ui/completed_dish_inventory.tscn" id="8_kmfh7"]
 [ext_resource type="PackedScene" uid="uid://c2ct3c5b0l41d" path="res://scenes/sounds.tscn" id="8_ub8j2"]
-[ext_resource type="AudioStream" uid="uid://bhgltwuqqrrtf" path="res://assets/audio/button_click.wav" id="9_wotb0"]
+[ext_resource type="AudioStream" uid="uid://biithianepc2p" path="res://assets/audio/button_click.wav" id="9_wotb0"]
 
 [node name="CafeFront" type="Node2D"]
 script = ExtResource("1_yyml1")
