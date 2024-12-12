@@ -11,7 +11,6 @@ const HAND_SIZE: int = 5
 @export var stove_output: GCardHandLayout
 
 @onready var inventory_deck: TextureButton = $"../InventoryDeck/TextureButton"
-@onready var stove_slot: Slot = $"../Stove/Slot"
 
 var card_size : Vector2 = Vector2(160.0, 200.0) # replace with whatever size needed, must have ratio 4/5 - x/y
 var card_pivot : Vector2 = Vector2(card_size.x/2, 0.0) # must be half the x size value
