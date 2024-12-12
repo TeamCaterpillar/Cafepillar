@@ -184,28 +184,28 @@ offset_top = 571.0
 offset_right = 329.0
 offset_bottom = 992.0
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TrashBin" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -1.0
 offset_top = -2.0
-offset_right = 242.0
-offset_bottom = 215.0
+offset_right = 184.0
+offset_bottom = 163.0
 color = Color(0.00392157, 0.380392, 0.0588235, 1)
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(116, 71)
-scale = Vector2(3.25, 3.17187)
+[node name="Sprite2D2" type="Sprite2D" parent="TrashBin"]
+position = Vector2(84, 49)
+scale = Vector2(2.35938, 2.00781)
 texture = ExtResource("12_6a2mi")
 
-[node name="Label" type="Label" parent="Sprite2D2"]
-offset_left = -28.3077
-offset_top = 24.9064
-offset_right = 32.6923
-offset_bottom = 60.9064
-theme_override_font_sizes/font_size = 10
+[node name="Label" type="Label" parent="TrashBin"]
+offset_left = 18.0
+offset_top = 112.0
+offset_right = 193.0
+offset_bottom = 170.0
+theme_override_font_sizes/font_size = 24
 text = "Discard Dish"
 
-[node name="TrashSlot" type="TextureRect" parent="." groups=["CardSlot"]]
+[node name="TrashSlot" type="TextureRect" parent="TrashBin" groups=["CardSlot"]]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -213,9 +213,9 @@ anchor_left = 0.404
 anchor_top = 0.789
 anchor_right = 0.404
 anchor_bottom = 0.789
-offset_left = -776.68
-offset_top = -856.12
-offset_right = -540.68
-offset_bottom = -642.12
+offset_left = -108.74
+offset_top = -163.185
+offset_right = 127.26
+offset_bottom = 50.815
 texture = ExtResource("12_dv7ss")
 expand_mode = 1
