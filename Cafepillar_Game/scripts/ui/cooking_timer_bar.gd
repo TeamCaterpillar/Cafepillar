@@ -11,10 +11,10 @@ extends Control
 @onready var output: GCardHandLayout = $"../../Output"
 
 
-var _perfect_min_percent = GameManager.cooking_difficulty["PERFECT_MIN_PERCENT"]
-var _perfect_max_percent = GameManager.cooking_difficulty["PERFECT_MAX_PERCENT"]
-var _satisfactory_min_percent = GameManager.cooking_difficulty["SATISFACTORY_MIN_PERCENT"]
-var _times_to_cook = GameManager.cooking_difficulty["TIME"]
+var _perfect_min_percent = GameManager.COOKING_DIFFCULTY["PERFECT_MIN_PERCENT"]
+var _perfect_max_percent = GameManager.COOKING_DIFFCULTY["PERFECT_MAX_PERCENT"]
+var _satisfactory_min_percent = GameManager.COOKING_DIFFCULTY["SATISFACTORY_MIN_PERCENT"]
+var _times_to_cook = GameManager.COOKING_DIFFCULTY["TIME"]
 
 # calculates the total bar
 var _timer_duration = _times_to_cook / _perfect_min_percent
