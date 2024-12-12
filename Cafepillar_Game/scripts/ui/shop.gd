@@ -13,12 +13,15 @@ const ITEM_PRICE = 20
 @onready var shop_container = $ShopContainer
 @onready var buy_button = $BuyButton
 @onready var buying_status_label = $BuyingStatusLabel
+@onready var nothing_in_shop_label = $NothingInShopLabel
+
 
 # other variables
 var shopping_cart = []
 
 
 func _ready() -> void:
+	nothing_in_shop_label.visible = false
 	# connect signals
 	GameSignals.day_ended.connect(fill_shop)
 	GameSignals.next_day_started.connect(clear_shop)
@@ -28,6 +31,10 @@ func _ready() -> void:
 
 
 func fill_shop() -> void:
+	if !ITEM_LIST.has(GameManager.current_day):
+		nothing_in_shop_label.visible = true
+		return
+	
 	var curr_day_items = ITEM_LIST[GameManager.current_day]
 	
 	for item in curr_day_items:
