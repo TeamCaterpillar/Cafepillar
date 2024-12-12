@@ -332,7 +332,7 @@ func _get_slot_under_point(global_pos : Vector2) -> Control:
 func _place_card_in_slot(card: Control, slot: Control) -> void:
 	print(slot.name)
 	
-	if slot.name == "StoveSlot" and card.is_in_group("Ingredient"):
+	if slot.name == "Slot" and card.is_in_group("Ingredient"):
 		card.get_parent().remove_child(card)
 		# Add the card to the slot
 		slot.add_child(card)

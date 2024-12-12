@@ -3,7 +3,7 @@ class_name Slot
 
 @export var deck : GCardHandLayout
 
-@onready var recipes: Array = $"../../RecipesBook/Recipes".recipes
+@onready var recipes: Array = $"../../RecipesBook".recipes
 # @onready var yes_button: TextureButton = $"../../Tray/YesButton"
 
 var card_resources: Array = []
@@ -46,6 +46,8 @@ func check_recipe() -> String:
 	for recipe in recipes:
 		var normalized_recipe_ingredients = normalize_ingredients(recipe["ingredients"])
 		var normalized_stove_ingredients = normalize_ingredients(card_resources)
+		print(normalized_recipe_ingredients)
+		print(normalized_stove_ingredients)
 		
 		if ingredients_match(normalized_recipe_ingredients, normalized_stove_ingredients):
 			print("Matched Recipe: ", recipe["title"])

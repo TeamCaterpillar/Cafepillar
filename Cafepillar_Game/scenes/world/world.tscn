@@ -1,14 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://chpbhr22qe5ac"]
+[gd_scene load_steps=10 format=3 uid="uid://cjiwrdpnqvmg7"]
 
 [ext_resource type="Script" path="res://scripts/scene/world.gd" id="1_7tooo"]
-[ext_resource type="PackedScene" uid="uid://drm58n2vnmmoa" path="res://scenes/world/cafe.tscn" id="2_8xdw4"]
+[ext_resource type="PackedScene" uid="uid://dp12tkgg66mxr" path="res://scenes/world/cafe.tscn" id="2_8xdw4"]
 [ext_resource type="PackedScene" uid="uid://dn3urr1xccmik" path="res://scenes/world/kitchen.tscn" id="3_wvu77"]
 [ext_resource type="PackedScene" uid="uid://cookffcxckdkf" path="res://scenes/world/test_scene.tscn" id="4_wy5p2"]
 [ext_resource type="PackedScene" uid="uid://dta8ywnphhy4" path="res://scenes/world/background.tscn" id="5_rjga5"]
 [ext_resource type="PackedScene" uid="uid://cbeth81wdaykt" path="res://scenes/ui/completed_dish_inventory.tscn" id="7_jd73d"]
-[ext_resource type="PackedScene" uid="uid://c2ct3c5b0l41d" path="res://scenes/sounds.tscn" id="8_ndixe"]
-[ext_resource type="AudioStream" uid="uid://ceb8kiuev152y" path="res://assets/audio/button_click.wav" id="9_pguc0"]
-[ext_resource type="Texture2D" uid="uid://lygr4j4lcehm" path="res://assets/Buttons Pixel Animation Pack/about/343px/about02.png" id="9_sb1ik"]
+[ext_resource type="PackedScene" path="res://scenes/sounds.tscn" id="8_ndixe"]
+[ext_resource type="AudioStream" uid="uid://cjhddsdd2mjk8" path="res://assets/audio/button_click.wav" id="9_pguc0"]
+[ext_resource type="Texture2D" uid="uid://c1krilcanpevr" path="res://assets/Buttons Pixel Animation Pack/about/343px/about02.png" id="9_sb1ik"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_7tooo")
