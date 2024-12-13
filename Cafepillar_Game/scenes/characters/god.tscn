@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dent2h7w2bi06"]
 
 [ext_resource type="Texture2D" uid="uid://djbmsuqm4lcoa" path="res://assets/sprites/GOD.png" id="1_2dd0y"]
-[ext_resource type="Script" path="res://scripts/characters/character.gd" id="1_5aefq"]
+[ext_resource type="Script" path="res://scripts/characters/npc.gd" id="1_fmgkb"]
 
 [sub_resource type="Animation" id="Animation_dsxi1"]
 length = 0.001
@@ -69,13 +69,13 @@ size = Vector2(481.667, 418.809)
 [node name="GOD" type="CharacterBody2D"]
 position = Vector2(907, 462)
 scale = Vector2(2.1, 2.1)
-script = ExtResource("1_5aefq")
+script = ExtResource("1_fmgkb")
 
-[node name="GOD" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("1_2dd0y")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GOD"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 libraries = {
 "": SubResource("AnimationLibrary_app7o")
 }

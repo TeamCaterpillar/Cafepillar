@@ -1,10 +1,10 @@
 class_name SummonCmd
 extends DurativeAnimationCmd
 
-var _character: Character
+var _character: NPC
 
 
-func _init(character: Character) -> void:
+func _init(character: NPC) -> void:
 	_character = character
 
 
