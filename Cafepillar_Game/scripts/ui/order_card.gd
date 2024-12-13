@@ -9,7 +9,7 @@ extends Panel
 @onready var food_sprite: Sprite2D = $FoodIcon
 
 # timer for how long player has to complete the food order
-var _timer_duration: float = 5.0 
+var _timer_duration: float = 60.0 
 var _time_left: float = _timer_duration
 
 
@@ -53,7 +53,7 @@ func _process(delta: float) -> void:
 		queue_free()
 	else:
 		# show time with one decimal point (ex: 2.4)
-		timer_label.text = str(_time_left).substr(0, 3)
+		timer_label.text = str(_time_left).substr(0, 4)
 
 
 func _update_timer_bar_color() -> void:

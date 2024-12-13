@@ -1,21 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://crhem5u84rltp"]
+[gd_scene load_steps=3 format=3 uid="uid://crhem5u84rltp"]
 
 [ext_resource type="Texture2D" uid="uid://cyteyj6udsw7s" path="res://assets/cutscene ui/dialogue box.png" id="1_88f2d"]
+[ext_resource type="Script" path="res://scripts/ui/dialogue_box.gd" id="1_uuoml"]
 
-[node name="Dialogue" type="TextureRect"]
-offset_left = 147.0
-offset_top = 717.0
-offset_right = 1800.0
-offset_bottom = 1034.0
+[node name="Dialogue" type="TextureButton"]
+script = ExtResource("1_uuoml")
+
+[node name="DialogueBg" type="TextureRect" parent="."]
+offset_right = 1653.0
+offset_bottom = 317.0
 texture = ExtResource("1_88f2d")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 32.0
-offset_top = 40.0
-offset_right = 1604.0
-offset_bottom = 280.0
+[node name="DialogueLabel" type="Label" parent="DialogueBg"]
+layout_mode = 2
+offset_left = 44.0
+offset_top = 35.0
+offset_right = 1606.0
+offset_bottom = 112.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 56
-text = "placeholder text"
 autowrap_mode = 3

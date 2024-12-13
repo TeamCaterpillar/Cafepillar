@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var kitchen_scene = $Kitchen
 @onready var kitchen_cam = $Kitchen/KitchenCamera
+@onready var cutscene_camera: Camera2D = $Cutscene/CutsceneCamera
 @onready var player_camera = $PlayerCamera
 @onready var test_cam = $TestScene/Camera2D
 @onready var completed_dish_inventory: Control = $CompletedDishInventory
@@ -30,6 +31,9 @@ func _process(_delta):
 	#if(Input.is_action_just_pressed("food_delivered")):
 		#print("asdf")
 		
+	if Input.is_action_just_pressed("cutscene"):
+		_swap_to_from_cutscene()
+		
 
 
 func show_kitchen():
@@ -50,6 +54,12 @@ func hide_kitchen():
 	player_camera.zoom = Vector2(3.5, 3.5) # Revert Camera to original zoom
 	# Add any teardown logic here (e.g., changing game state, saving kitchen state etc.)
 
+
+func _swap_to_from_cutscene() -> void:
+	if cutscene_camera.is_current():
+		player_camera.make_current()
+	else:
+		cutscene_camera.make_current()
 
 
 # added to do easy swapping, unsure if causes problems yet

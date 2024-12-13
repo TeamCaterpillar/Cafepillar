@@ -6,7 +6,7 @@ const TILE_TEXTURE_OFFSET : Vector2 = Vector2(0, -8)
 
 @export var customer_spawn_rate:float = 2
 #@export 
-var debug_enabled : bool = true
+var debug_enabled : bool = false
 
 # @onready world variables
 @onready var ground_layer : TileMapLayer = $GroundLayer
@@ -57,7 +57,7 @@ func _ready():
 
 func _process(_delta):
 	if (	_spawn_timer.time_left < 1
-		and customer_spawn.get_child_count() <= 10 \
+		and customer_spawn.get_child_count() <= 2 \
 		and not day_night_cycle.day_ended):
 
 		_spawn_timer.start(customer_spawn_rate)
@@ -98,23 +98,23 @@ func _update_pathable_cells() -> void:
 					if !is_direct_obstacle:
 						print("Cell @ ", id, " has been blocked from pathing!")
 						# placing a picture for reference
-						var polygon = Polygon2D.new()
-						# diamond shape points
-						var points = PackedVector2Array([
-							Vector2(0, -8),   # Top point
-							Vector2(16, 0),   # Right point
-							Vector2(0, 8),  # Bottom point
-							Vector2(0, 16),     # RIGHT point
-							Vector2(0, 8),   # Top point
-							Vector2(-16, 0),   # Right point
-							Vector2(0, -8),  # Bottom point
-							Vector2(0, -16)     # Left point
-						])
-						polygon.polygon = points
-						polygon.color = Color(0, 0, 0, 0.5) # transparent black
-						polygon.position = ground_layer.map_to_local(id) #+ TILE_TEXTURE_OFFSET
-						polygon.z_index = 5
-						add_child(polygon)
+						#var polygon = Polygon2D.new()
+						## diamond shape points
+						#var points = PackedVector2Array([
+							#Vector2(0, -8),   # Top point
+							#Vector2(16, 0),   # Right point
+							#Vector2(0, 8),  # Bottom point
+							#Vector2(0, 16),     # RIGHT point
+							#Vector2(0, 8),   # Top point
+							#Vector2(-16, 0),   # Right point
+							#Vector2(0, -8),  # Bottom point
+							#Vector2(0, -16)     # Left point
+						#])
+						#polygon.polygon = points
+						#polygon.color = Color(0, 0, 0, 0.5) # transparent black
+						#polygon.position = ground_layer.map_to_local(id) #+ TILE_TEXTURE_OFFSET
+						#polygon.z_index = 5
+						#add_child(polygon)
 
 func find_path(start_position : Vector2) -> Array:
 	var start_cell : Vector2i

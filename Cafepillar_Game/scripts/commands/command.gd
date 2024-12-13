@@ -7,5 +7,5 @@ enum Status {
 	ERROR,
 }
 
-func execute(_character: Character) -> Status:
+func execute() -> Status:
 	return Status.DONE

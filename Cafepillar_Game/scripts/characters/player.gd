@@ -2,7 +2,8 @@ class_name Player
 extends Character
 
 @export var start_marker : Marker2D
-@export var sprite : Sprite2D
+#@export var sprite : Sprite2D
+@onready var sprite: Sprite2D = $PlayerSprite
 
 @onready var start_pos : Vector2 = start_marker.global_position
 
@@ -10,13 +11,14 @@ var deliver_dish : bool = false
 var deliver_path = []
 var current_path_index: int = 0
 var path: Array[Vector2] = []
-var movement_speed: float = 100.0
+#var movement_speed: float = 100.0
 var arrive_threshold: float = 1.0
 var return_to_start : bool = false
 
 
 func _ready() -> void:
 	super()
+	movement_speed = 100.0
 	global_position = start_pos # move player to kitchen door
 	animation_player.play("walk")
 	arrive_threshold = clamp(arrive_threshold, 1.0, 16.0)
