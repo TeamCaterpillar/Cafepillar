@@ -57,7 +57,7 @@ func _ready():
 
 func _process(_delta):
 	if (	_spawn_timer.time_left < 1
-		and customer_spawn.get_child_count() <= 10 \
+		and customer_spawn.get_child_count() <= 2 \
 		and not day_night_cycle.day_ended):
 
 		_spawn_timer.start(customer_spawn_rate)
