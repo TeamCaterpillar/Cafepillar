@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgbskni4qasl0"]
+[gd_scene load_steps=8 format=3 uid="uid://dgbskni4qasl0"]
 
 [ext_resource type="Texture2D" uid="uid://jao7mimemrpt" path="res://assets/sprites/player.png" id="1_43m0c"]
+[ext_resource type="Script" path="res://scripts/characters/character.gd" id="1_yp7ri"]
 
 [sub_resource type="Animation" id="Animation_xkd1m"]
 length = 0.001
@@ -97,6 +98,8 @@ size = Vector2(190, 107)
 
 [node name="NPC player" type="CharacterBody2D"]
 position = Vector2(1343, 563)
+collision_layer = 2
+script = ExtResource("1_yp7ri")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(5.025, 5.025)

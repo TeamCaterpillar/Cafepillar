@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://d5fp1ujp6rc7"]
+[gd_scene load_steps=9 format=4 uid="uid://d5fp1ujp6rc7"]
 
 [ext_resource type="Script" path="res://scripts/managers/front_manager.gd" id="1_btvhg"]
 [ext_resource type="TileSet" uid="uid://c11awdbng7yss" path="res://assets/tile_sets/cafe_tile_set.tres" id="2_pdjny"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/world/customer_controller.gd" id="5_yx5pc"]
 [ext_resource type="PackedScene" uid="uid://celk4vhbyjbe3" path="res://scenes/world/seats_w_collision.tscn" id="6_3g2lx"]
 [ext_resource type="Script" path="res://scripts/manage_gold.gd" id="6_5p76q"]
+[ext_resource type="FontFile" uid="uid://o7y1brfmbdd5" path="res://assets/ui/Minecraft.ttf" id="8_6apc2"]
 
 [node name="Cafe" type="Node2D"]
 y_sort_enabled = true
@@ -70,9 +71,10 @@ script = ExtResource("6_5p76q")
 [node name="SeedLabel" type="Label" parent="Node"]
 z_index = 16
 offset_left = 174.0
-offset_top = -101.0
+offset_top = -88.0
 offset_right = 322.0
-offset_bottom = -65.0
-theme_override_font_sizes/font_size = 18
+offset_bottom = -52.0
+theme_override_fonts/font = ExtResource("8_6apc2")
+theme_override_font_sizes/font_size = 16
 text = "Golden Seeds: 10
 "

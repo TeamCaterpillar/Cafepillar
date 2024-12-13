@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cg8j82i710fdr"]
+[gd_scene load_steps=11 format=3 uid="uid://cg8j82i710fdr"]
 
 [ext_resource type="Script" path="res://scripts/scene/world.gd" id="1_7tooo"]
 [ext_resource type="PackedScene" uid="uid://d5fp1ujp6rc7" path="res://scenes/world/cafe.tscn" id="2_skrju"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dta8ywnphhy4" path="res://scenes/world/background.tscn" id="5_rjga5"]
 [ext_resource type="PackedScene" uid="uid://cbeth81wdaykt" path="res://scenes/ui/completed_dish_inventory.tscn" id="7_jd73d"]
 [ext_resource type="PackedScene" uid="uid://c2ct3c5b0l41d" path="res://scenes/sounds.tscn" id="8_ndixe"]
-[ext_resource type="AudioStream" uid="uid://ceb8kiuev152y" path="res://assets/audio/button_click.wav" id="9_pguc0"]
-[ext_resource type="PackedScene" path="res://scenes/cutscene.tscn" id="10_pdr1q"]
+[ext_resource type="FontFile" uid="uid://o7y1brfmbdd5" path="res://assets/ui/Minecraft.ttf" id="9_oemax"]
+[ext_resource type="AudioStream" uid="uid://diw18ae0x16xd" path="res://assets/audio/button_click.wav" id="9_pguc0"]
+[ext_resource type="PackedScene" uid="uid://bncvkt22xkeor" path="res://scenes/cutscene.tscn" id="10_pdr1q"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_7tooo")
@@ -52,6 +53,7 @@ offset_left = 264.0
 offset_top = 8.0
 offset_right = 315.0
 offset_bottom = 39.0
+theme_override_fonts/font = ExtResource("9_oemax")
 text = "SEND"
 
 [node name="ReturnPlayer" type="Button" parent="."]
@@ -60,6 +62,7 @@ offset_left = 256.0
 offset_top = 40.0
 offset_right = 327.0
 offset_bottom = 71.0
+theme_override_fonts/font = ExtResource("9_oemax")
 text = "RETURN"
 
 [node name="Cutscene" parent="." instance=ExtResource("10_pdr1q")]
