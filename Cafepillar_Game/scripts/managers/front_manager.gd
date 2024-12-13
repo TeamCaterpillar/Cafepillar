@@ -36,7 +36,7 @@ var camera_in_scene : bool = false
 var player_end_position : Marker2D
 var astar_grid : AStarGrid2D
 var player_move : bool = false
-var seats_taken : Dictionary = {}
+
 
 func _ready():
 	camera_in_scene = true # viewing/process enable flag
@@ -59,16 +59,15 @@ func _process(_delta):
 	if (	_spawn_timer.time_left < 1
 		and customer_spawn.get_child_count() <= 2 \
 		and not day_night_cycle.day_ended):
-		
-		if customer_spawn.get_child_count() <= 10:
-			_spawn_timer.start(customer_spawn_rate)
-			spec_customer = customer_factory.generate_rand_customer()
-			GameSignals.emit_signal("customer_added", spec_customer)
-			random_seat_node().add_child(spec_customer)
-		#var pathy = find_path(customer_spawn.position)
-		#set_customer_path(pathy)
-		#print(spec_customer.path)
-		#GameSignals.customer_can_move.emit()
+
+		_spawn_timer.start(customer_spawn_rate)
+		spec_customer = customer_factory.generate_rand_customer()
+		GameSignals.emit_signal("customer_added", spec_customer)
+		customer_spawn.add_child(spec_customer)
+		var pathy = find_path(customer_spawn.position)
+		set_customer_path(pathy)
+		print(spec_customer.path)
+		GameSignals.customer_can_move.emit()
 		
 
 
@@ -78,8 +77,8 @@ func _init_grid() -> void:
 	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	astar_grid.region = ground_layer.get_used_rect()
 	astar_grid.update()
-	#if debug_enabled: # debug print
-		#print("Astar region: ", astar_grid.region)
+	if debug_enabled: # debug print
+		print("Astar region: ", astar_grid.region)
 
 
 func _update_pathable_cells() -> void:
@@ -95,9 +94,9 @@ func _update_pathable_cells() -> void:
 			
 			if is_cell_blocked(id):
 				astar_grid.set_point_solid(id)
-				#if debug_enabled: # debug print
-					#if !is_direct_obstacle:
-						#print("Cell @ ", id, " has been blocked from pathing!")
+				if debug_enabled: # debug print
+					if !is_direct_obstacle:
+						print("Cell @ ", id, " has been blocked from pathing!")
 						# placing a picture for reference
 						#var polygon = Polygon2D.new()
 						## diamond shape points
@@ -117,15 +116,6 @@ func _update_pathable_cells() -> void:
 						#polygon.z_index = 5
 						#add_child(polygon)
 
-func random_seat_node() -> Marker2D:
-	var random_seat_marker = seats_array.get_children().pick_random()
-	if seats_taken.has(random_seat_marker):
-		return random_seat_node()
-	else:
-		seats_taken.get_or_add(random_seat_marker)
-		return random_seat_marker# only will ever add (I think)
-
-
 func find_path(start_position : Vector2) -> Array:
 	var start_cell : Vector2i
 	var end_cell : Vector2i
@@ -138,12 +128,12 @@ func find_path(start_position : Vector2) -> Array:
 	
 	var id_path = astar_grid.get_id_path(start_cell, end_cell)
 
-	#if debug_enabled: # debug print
-		#print("---------------------------------------------------")
-		#print("PATH FINDING INFO:")
-		#print("START CELL: ", start_cell)
-		#print("END CELL: ", end_cell)
-		#print("---------------------------------------------------")
+	if debug_enabled: # debug print
+		print("---------------------------------------------------")
+		print("PATH FINDING INFO:")
+		print("START CELL: ", start_cell)
+		print("END CELL: ", end_cell)
+		print("---------------------------------------------------")
 
 	return id_path
 
@@ -156,8 +146,8 @@ func set_player_path(id_path : Array = find_path(player_start_position)) -> void
 		var cell_local_position = ground_layer.map_to_local(id)
 		player_path_coords.append(id)
 		player_path_positions.append(cell_local_position)
-	#print("ASTAR CALCULATED ID PATH: ", player_path_coords)
-	#print("ASTAR CALCULATED POSITION PATH: ", player_path_positions)
+	print("ASTAR CALCULATED ID PATH: ", player_path_coords)
+	print("ASTAR CALCULATED POSITION PATH: ", player_path_positions)
 
 
 func set_customer_path(id_path : Array) -> void:
@@ -167,11 +157,12 @@ func set_customer_path(id_path : Array) -> void:
 		var cell_local_position = ground_layer.map_to_local(id)
 		customer_path_coords.append(id)
 		customer_path_positions.append(cell_local_position)
-	#print("ASTAR CALCULATED ID PATH: ", customer_path_coords)
-	#print("ASTAR CALCULATED POSITION PATH: ", customer_path_positions)
+	print("ASTAR CALCULATED ID PATH: ", customer_path_coords)
+	print("ASTAR CALCULATED POSITION PATH: ", customer_path_positions)
 
 
 func random_seat_position() -> Vector2:
+	var seats_taken : Dictionary = {}
 	var random_seat_marker = seats_array.get_children().pick_random()
 	if seats_taken.has(random_seat_marker):
 		random_seat_position()

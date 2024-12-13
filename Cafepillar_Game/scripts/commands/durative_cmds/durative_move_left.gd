@@ -2,9 +2,9 @@ class_name DurativeMoveLeft
 extends DurativeAnimationCmd
 
 var _duration:float
-var _character:NPC
+var _character:Character
 
-func _init(character: NPC, duration: float = 0.1):
+func _init(character: Character, duration: float = 0.1):
 	_duration = duration
 	_character = character
 	

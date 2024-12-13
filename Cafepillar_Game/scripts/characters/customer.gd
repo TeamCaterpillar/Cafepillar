@@ -9,8 +9,8 @@ extends Character
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 # @onready var order_sprite: Sprite2D = $OrderSprite
-@onready var dish_inventory: CompletedDishInventory = $/root/World/CompletedDishInventory
-@onready var customer_queue: GridContainer = $/root/World/CompletedDishInventory/ColorRect/GridContainer
+@onready var dish_inventory: CompletedDishInventory = $"../../../CompletedDishInventory"
+@onready var customer_queue: GridContainer = $"../../../CompletedDishInventory/ColorRect/GridContainer"
 # @onready var button: Button = $Control/Button
 @onready var texture_button: TextureButton = $TextureButton
 @onready var label: Label = $TextureButton/Label
