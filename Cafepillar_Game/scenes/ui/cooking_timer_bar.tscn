@@ -1,16 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://gc6m30k1tvd8"]
+[gd_scene load_steps=15 format=3 uid="uid://gc6m30k1tvd8"]
 
-[ext_resource type="Texture2D" uid="uid://boe2fgvxhx245" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="2_35lrn"]
-[ext_resource type="Texture2D" uid="uid://cqmo0wxbol88s" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="3_488x5"]
-[ext_resource type="Texture2D" uid="uid://d318w71syahbl" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="4_iaxg2"]
-[ext_resource type="Texture2D" uid="uid://0u20qu2ledrl" path="res://assets/Buttons Pixel Animation Pack/store/72px/store02.png" id="5_wu6rb"]
-[ext_resource type="Texture2D" uid="uid://csxxwybegxom6" path="res://assets/Buttons Pixel Animation Pack/store/72px/store03.png" id="6_f01hx"]
-[ext_resource type="Texture2D" uid="uid://dx4h8ck0mvkv6" path="res://assets/Buttons Pixel Animation Pack/store/72px/store04.png" id="7_xodom"]
-[ext_resource type="Texture2D" uid="uid://cw2eh8geyo0y1" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="8_ja1dm"]
+[ext_resource type="Texture2D" uid="uid://btpv300bpkia1" path="res://assets/ui/appliance_confirm_button.png" id="1_gdm3u"]
+[ext_resource type="Texture2D" uid="uid://3e361sth28c8" path="res://assets/ui/appliance_confirm_button_pressed.png" id="2_x2r75"]
+[ext_resource type="Texture2D" uid="uid://l8e1atdogprv" path="res://assets/ui/appliance_confirm_button_hover.png" id="3_jf0we"]
+[ext_resource type="Texture2D" uid="uid://b8top5l1tx37o" path="res://assets/ui/appliance_finish_button.png" id="4_afdho"]
+[ext_resource type="Texture2D" uid="uid://btfdoihnacqm4" path="res://assets/ui/appliance_finish_button_pressed.png" id="5_34ub1"]
+[ext_resource type="Texture2D" uid="uid://bgfgme6vmx5aq" path="res://assets/ui/appliance_finish_button_hover.png" id="6_ymrwg"]
+[ext_resource type="Texture2D" uid="uid://dr0isowh3uv5g" path="res://assets/ui/appliance_cancel_button.png" id="7_nc6cg"]
+[ext_resource type="Texture2D" uid="uid://b420lpyqwmbmq" path="res://assets/ui/appliance_cancel_button_pressed.png" id="8_0fyuk"]
 [ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="8_mlpau"]
-[ext_resource type="Texture2D" uid="uid://bh3iulmeotfoq" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="9_ggag8"]
+[ext_resource type="Texture2D" uid="uid://dh8dmt7ye250l" path="res://assets/ui/appliance_cancel_button_hover.png" id="9_u1hoh"]
 [ext_resource type="PackedScene" uid="uid://c2ct3c5b0l41d" path="res://scenes/sounds.tscn" id="11_57rex"]
-[ext_resource type="AudioStream" uid="uid://ceb8kiuev152y" path="res://assets/audio/button_click.wav" id="12_0hyaw"]
+[ext_resource type="AudioStream" uid="uid://dmdmy48fc5ph6" path="res://assets/audio/button_click.wav" id="12_0hyaw"]
 [ext_resource type="Script" path="res://scripts/sounds/cooking_timer_bar_sounds.gd" id="12_vrcwg"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bydme"]
@@ -31,9 +32,10 @@ offset_left = 375.0
 offset_top = 121.0
 offset_right = 519.0
 offset_bottom = 199.0
-texture_normal = ExtResource("2_35lrn")
-texture_pressed = ExtResource("3_488x5")
-texture_hover = ExtResource("4_iaxg2")
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("1_gdm3u")
+texture_pressed = ExtResource("2_x2r75")
+texture_hover = ExtResource("3_jf0we")
 
 [node name="DoneButton" type="TextureButton" parent="."]
 layout_mode = 0
@@ -41,19 +43,21 @@ offset_left = 376.0
 offset_top = 121.0
 offset_right = 520.0
 offset_bottom = 199.0
-texture_normal = ExtResource("5_wu6rb")
-texture_pressed = ExtResource("6_f01hx")
-texture_hover = ExtResource("7_xodom")
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("4_afdho")
+texture_pressed = ExtResource("5_34ub1")
+texture_hover = ExtResource("6_ymrwg")
 
 [node name="RemoveButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 375.0
-offset_top = 185.0
-offset_right = 519.0
-offset_bottom = 263.0
-texture_normal = ExtResource("8_ja1dm")
-texture_pressed = ExtResource("9_ggag8")
-texture_hover = ExtResource("8_ja1dm")
+offset_left = 376.0
+offset_top = 238.0
+offset_right = 876.0
+offset_bottom = 738.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("7_nc6cg")
+texture_pressed = ExtResource("8_0fyuk")
+texture_hover = ExtResource("9_u1hoh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(100, 30)

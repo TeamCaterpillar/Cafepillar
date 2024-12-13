@@ -3,9 +3,9 @@ extends DurativeAnimationCmd
 
 var _duration:float
 var _direction:String
-var _character: Character
+var _character: NPC
 
-func _init(character: Character, duration: float = 0.1, direction: String = "left"):
+func _init(character: NPC, duration: float = 0.1, direction: String = "left"):
 	_duration = duration
 	_direction = direction
 	_character = character

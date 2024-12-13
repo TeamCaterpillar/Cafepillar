@@ -8,7 +8,7 @@ func execute() -> Status:
 	return Status.ERROR
 	
 	
-func _manage_durative_animation_cmd(character: Character, animation: String, duration: float = 0.0) -> Status:
+func _manage_durative_animation_cmd(character: NPC, animation: String, duration: float = 0.0) -> Status:
 	if _timer == null:
 		character.animation_player.play(animation)
 		_timer = Timer.new()
