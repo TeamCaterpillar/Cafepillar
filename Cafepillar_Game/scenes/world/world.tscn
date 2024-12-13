@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dta8ywnphhy4" path="res://scenes/world/background.tscn" id="5_rjga5"]
 [ext_resource type="PackedScene" uid="uid://cbeth81wdaykt" path="res://scenes/ui/completed_dish_inventory.tscn" id="7_jd73d"]
 [ext_resource type="PackedScene" uid="uid://c2ct3c5b0l41d" path="res://scenes/sounds.tscn" id="8_ndixe"]
-[ext_resource type="FontFile" uid="uid://o7y1brfmbdd5" path="res://assets/ui/Minecraft.ttf" id="9_oemax"]
-[ext_resource type="AudioStream" uid="uid://diw18ae0x16xd" path="res://assets/audio/button_click.wav" id="9_pguc0"]
+[ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="9_oemax"]
+[ext_resource type="AudioStream" uid="uid://ceb8kiuev152y" path="res://assets/audio/button_click.wav" id="9_pguc0"]
 [ext_resource type="PackedScene" uid="uid://bncvkt22xkeor" path="res://scenes/cutscene.tscn" id="10_pdr1q"]
 
 [node name="World" type="Node2D"]
@@ -34,6 +34,7 @@ position = Vector2(72, 56)
 zoom = Vector2(3.5, 3.5)
 
 [node name="CompletedDishInventory" parent="." instance=ExtResource("7_jd73d")]
+unique_name_in_owner = true
 z_index = 4000
 offset_left = -200.0
 offset_top = -96.0
