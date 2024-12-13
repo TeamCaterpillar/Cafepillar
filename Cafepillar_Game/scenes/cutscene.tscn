@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bncvkt22xkeor"]
 
 [ext_resource type="Script" path="res://scripts/scene/cutscene.gd" id="1_8gri5"]
-[ext_resource type="Texture2D" uid="uid://d5efifkxo25n" path="res://assets/backgrounds/cutscenebg.png" id="1_rujeu"]
+[ext_resource type="Texture2D" uid="uid://bu7trjdyin5mj" path="res://assets/backgrounds/cutscenebg.png" id="1_rujeu"]
 [ext_resource type="PackedScene" uid="uid://dent2h7w2bi06" path="res://scenes/characters/god.tscn" id="3_vb0vy"]
 [ext_resource type="PackedScene" uid="uid://crhem5u84rltp" path="res://scenes/ui/dialogue_box.tscn" id="4_qvf0e"]
 [ext_resource type="PackedScene" uid="uid://dgbskni4qasl0" path="res://scenes/characters/npc_player.tscn" id="5_tu46e"]
