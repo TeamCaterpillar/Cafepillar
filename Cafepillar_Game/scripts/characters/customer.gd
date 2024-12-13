@@ -4,7 +4,7 @@ extends Character
 @export var start_marker : Marker2D
 @export var sprite : Sprite2D
 
-@export var wait_time:float = 25.0
+@export var wait_time:float = 60.0
 @export var order:String
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
