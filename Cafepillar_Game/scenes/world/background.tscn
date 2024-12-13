@@ -43,9 +43,9 @@ offset_bottom = 160.0
 z_index = 4000
 layout_mode = 1
 offset_left = 85.0
-offset_top = 33.0
-offset_right = -74.0
-offset_bottom = -36.0
+offset_top = 53.0
+offset_right = -96.0
+offset_bottom = -16.0
 
 [node name="DayEndText" type="Label" parent="EndOfDayScreen"]
 layout_mode = 0
@@ -57,12 +57,11 @@ theme_override_fonts/font = ExtResource("3_ldyky")
 text = "Day End"
 
 [node name="NextDay" type="Button" parent="EndOfDayScreen"]
-z_index = 4001
 layout_mode = 0
-offset_left = 393.0
-offset_top = 41.0
-offset_right = 485.0
-offset_bottom = 77.0
+offset_left = 464.0
+offset_top = 7.0
+offset_right = 556.0
+offset_bottom = 43.0
 theme_override_fonts/font = ExtResource("3_ldyky")
 theme_override_font_sizes/font_size = 16
 text = "NextDay
