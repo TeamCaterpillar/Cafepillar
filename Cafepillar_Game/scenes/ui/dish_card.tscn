@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvk2b14cn3dif"]
 
 [ext_resource type="Script" path="res://scripts/dish_card.gd" id="1_odcj8"]
-[ext_resource type="Texture2D" uid="uid://bcqq6o7xgesla" path="res://assets/cards/rose_cake.png" id="2_2c2rx"]
+[ext_resource type="Texture2D" uid="uid://dm5xh4crvt82k" path="res://assets/cards/rose_cake.png" id="2_2c2rx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2y2uv"]
 bg_color = Color(0.831373, 0.878431, 0.792157, 1)

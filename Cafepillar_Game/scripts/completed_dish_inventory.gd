@@ -35,12 +35,12 @@ func _on_YesButton_pressed() -> void:
 		if selected_food_to_deliver.food_name == selected_customer.food_name:
 			var satisfied_customer = get_customer_by_id(selected_customer.customer_id) 
 			satisfied_customer.remove_customer()
-			remove_customer_from_queue(selected_customer.customer_id)
 			print("Successfully gave ", selected_food_to_deliver.food_condition, " ", selected_food_to_deliver.food_name, " to Customer ", selected_customer.customer_id)
 			remove_dish_from_inventory(selected_food_to_deliver)
 			
 			# Success! Send a signal or smt.
 			# Distribute money here
+			GameSignals.food_delivered.emit(selected_food_to_deliver)
 
 func get_customer_by_id(id: int) -> Customer:
 	for customer in GameManager.customers_waiting:

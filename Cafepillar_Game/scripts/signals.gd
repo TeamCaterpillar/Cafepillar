@@ -13,3 +13,4 @@ signal player_finished_delivery
 signal dish_selected(dish_card)
 signal customer_selected(customer_card)
 signal customer_can_move
+signal food_delivered(dish_card)

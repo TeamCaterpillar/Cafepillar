@@ -32,13 +32,13 @@ func _ready() -> void:
 	else:
 		food_label.text = format_string(food_name)
 		
-	if food_condition == "Undercooked":
+	if food_condition == "Underdone":
 		food_color.color = Color("yellow")
 	elif food_condition == "Satisfactory":
 		food_color.color =Color("blue")
 	elif food_condition == "Perfect":
 		food_color.color = Color("green")
-	elif food_condition == "Burnt":
+	elif food_condition == "Overdone":
 		food_color.color = Color("red")
 
 

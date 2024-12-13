@@ -109,6 +109,7 @@ func handle_return_movement() -> void:
 	# change to be triggered on food delivery
 	if current_path_index < 0:
 		queue_free()
+		return
 
 	var target_position = path[current_path_index]
 	var direction = global_position.direction_to(target_position)
@@ -172,5 +173,6 @@ func remove_customer():
 	for person in GameManager.customers_waiting:
 		if person == self:
 			GameManager.customers_waiting.erase(self)
-			return_to_start = true # customer death when theyre sick of waiting lmfao
+			# return_to_start = true # customer death when theyre sick of waiting lmfao
+			return_to_start_position()
 			dish_inventory.remove_customer_from_queue(customer_id)

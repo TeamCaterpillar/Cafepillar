@@ -29,7 +29,7 @@ func _ready():
 	
 	# connect signals
 	GameSignals.next_day_started.connect(_on_next_day_started)
-
+	GameSignals.food_delivered.connect(update_currency)
 
 func _on_next_day_started() -> void:
 	current_day += 1
@@ -63,6 +63,23 @@ func remove_order_from_queue() -> void:
 
 
 # HANDLE CURRENCY
+
+func update_currency(dish_card: DishCard):
+	var food_name = dish_card.food_name
+	var food_condition = dish_card.food_condition
+	var base_payment = 10
+	var base_multiplier = 1.0
+	if food_condition == "Underdone":
+		base_multiplier = 0.5
+	elif food_condition == "Overdone":
+		base_multiplier = 0.5
+	elif food_condition == "Satisfactory":
+		base_multiplier = 1.0
+	elif food_condition == "Perfect":
+		base_multiplier = 2.0
+	
+	add_currency(base_payment * base_multiplier)
+
 func add_currency(_amount: int) -> void:
 	golden_seeds += _amount
 
