@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://cbeth81wdaykt"]
 
 [ext_resource type="Script" path="res://scripts/completed_dish_inventory.gd" id="1_8aiqf"]
-[ext_resource type="Texture2D" uid="uid://bo4xq2yak0mxi" path="res://assets/Buttons Pixel Animation Pack/list/72px/list02.png" id="2_n43xp"]
-[ext_resource type="Texture2D" uid="uid://ccuhvnauynrpv" path="res://assets/Buttons Pixel Animation Pack/list/72px/list03.png" id="3_xro4m"]
-[ext_resource type="Texture2D" uid="uid://x2tmph354j21" path="res://assets/Buttons Pixel Animation Pack/list/72px/list04.png" id="4_t435t"]
-[ext_resource type="Texture2D" uid="uid://boe2fgvxhx245" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="5_a1uwk"]
-[ext_resource type="Texture2D" uid="uid://cqmo0wxbol88s" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="6_v647b"]
-[ext_resource type="Texture2D" uid="uid://d318w71syahbl" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="7_ao2m1"]
+[ext_resource type="Texture2D" uid="uid://bu1wdu1pw1eq0" path="res://assets/Buttons Pixel Animation Pack/list/72px/list02.png" id="2_n43xp"]
+[ext_resource type="Texture2D" uid="uid://betdov6mumonv" path="res://assets/Buttons Pixel Animation Pack/list/72px/list03.png" id="3_xro4m"]
+[ext_resource type="Texture2D" uid="uid://c3aqwdkxeao5q" path="res://assets/Buttons Pixel Animation Pack/list/72px/list04.png" id="4_t435t"]
+[ext_resource type="Texture2D" uid="uid://bc56wjbw3clmn" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="5_a1uwk"]
+[ext_resource type="Texture2D" uid="uid://bjw47kofih35f" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="6_v647b"]
+[ext_resource type="Texture2D" uid="uid://c1tlaptp1js1b" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="7_ao2m1"]
 
 [node name="CompletedDishInventory" type="Control"]
 layout_mode = 3

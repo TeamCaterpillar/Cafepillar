@@ -3,15 +3,17 @@ extends DurativeAnimationCmd
 
 var _duration:float
 var _direction:String
+var _character: Character
 
-func _init(duration: float = 1.0, direction: String = "left"):
+func _init(character: Character, duration: float = 0.1, direction: String = "left"):
 	_duration = duration
 	_direction = direction
+	_character = character
 	
 	
-func execute(character: Character) -> Command.Status:
+func execute() -> Command.Status:
 	if _direction == "right":
-		character.sprite.flip_h = true
+		_character.char_sprite.flip_h = false
 	else:
-		character.sprite.flip_h = false
-	return _manage_durative_animation_cmd(character, "idle", _duration)
+		_character.char_sprite.flip_h = true
+	return _manage_durative_animation_cmd(_character, "idle", _duration)

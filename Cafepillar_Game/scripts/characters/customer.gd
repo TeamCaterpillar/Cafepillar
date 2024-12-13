@@ -4,7 +4,7 @@ extends Character
 @export var start_marker : Marker2D
 @export var sprite : Sprite2D
 
-@export var wait_time:float = 25.0
+@export var wait_time:float = 60.0
 @export var order:String
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
@@ -18,7 +18,7 @@ extends Character
 
 var current_path_index: int = 0
 var path: Array[Vector2] = []
-var movement_speed: float = 100.0
+#var movement_speed: float = 100.0
 var arrive_threshold: float = 1.0
 var return_to_start : bool = false
 
@@ -30,6 +30,7 @@ var customer_id: int = 1
 
 func _ready(): 
 	assign_id()
+	movement_speed = 100.0
 	label.text = "Customer " + str(customer_id)
 	# texture_button.connect("pressed", Callable(self, "_on_DeliverButton_pressed"))
 	GameSignals.customer_can_move.connect(_its_go_time)
