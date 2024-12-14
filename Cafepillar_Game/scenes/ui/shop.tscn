@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://i2jd74yhry5i"]
 
 [ext_resource type="Script" path="res://scripts/ui/shop.gd" id="1_2d4cj"]
-[ext_resource type="Texture2D" uid="uid://crop0pgg2jhsu" path="res://assets/ui/shop_menu.png" id="2_xqqqy"]
-[ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="3_38mub"]
-[ext_resource type="Texture2D" uid="uid://owysqcwefamj" path="res://assets/Buttons Pixel Animation Pack/yes/343px/yes01.png" id="3_t0c8h"]
-[ext_resource type="Texture2D" uid="uid://b56dfrb8wadut" path="res://assets/Buttons Pixel Animation Pack/yes/343px/yes02.png" id="4_ip6al"]
+[ext_resource type="Texture2D" uid="uid://dnu5fdclgfq3v" path="res://assets/ui/shop_menu.png" id="2_xqqqy"]
+[ext_resource type="FontFile" uid="uid://ls2a2yldby6s" path="res://assets/ui/Minecraft.ttf" id="3_38mub"]
+[ext_resource type="Texture2D" uid="uid://ccyhmb67vkogr" path="res://assets/Buttons Pixel Animation Pack/yes/343px/yes01.png" id="3_t0c8h"]
+[ext_resource type="Texture2D" uid="uid://dtb2gy76adai" path="res://assets/Buttons Pixel Animation Pack/yes/343px/yes02.png" id="4_ip6al"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
