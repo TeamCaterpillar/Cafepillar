@@ -18,7 +18,7 @@ const ARRIVAL_THRESHOLD: float = 1.0
 @onready var label: Label = $TextureButton/Label
 #@onready var texture_button: TextureButton = $TextureButton
 @onready var assigned_seat : Marker2D
-@onready var timer_bar: ProgressBar = $ColorRect/TimerBar
+@onready var timer_bar: ProgressBar = $TextureButton/ColorRect/TimerBar
 # @onready var timer_label: Label = $ColorRect/TimerLabel
 
 var current_path_index: int = 0
