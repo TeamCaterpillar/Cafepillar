@@ -107,7 +107,8 @@ The implementation of the Day/Night cycle involved placing a timer at the very t
 
 The Recipe Book makes sure the player has an easy-to-navigate system to look up any recipe that they might need in order to make their food. In a time-pressured environment like the kitchen, it had to be easy to read and simple enough to manage that it doesn't inadventedly add an additional difficulty on top of the already existing gameplay. Minh later improved upon my original design to make everything more streamlined.
 
-## User Interface / Card Mechanics - E Chan
+## User Interface / Card Mechanics
+### E Chan
 I mostly worked on designing and implementing UI components in the game such as the shop. I also implemented some parts of the gameplay mechanics such as the ingredient inventory. In doing these tasks, I also worked on bridging the UI and game mechanics/data.
 **Shop**
 
@@ -210,4 +211,10 @@ When building the project up from scratch, there were instances where too many c
 * Attempted to separate the drag and drop mechanics from the hand layout into different code files, but since the code is provided by a plugin with a lot of dependencies, I invested a lot of time but had little success. 
 * Refactored the Stove into a separate scene for better reusability, which I used to create the Counter and the Blender appliances. 
 * Combined tray.gd, which handles the dropping of the dish card onto the serving tray, to gcard_hand_layout.gd which handles other dropping functionalities to centralize the code for the dropping mechanics.
+
+## Visuals
+### E Chan
+I created various UI component assets such as the [shop background](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/shop_menu.png), the [shop item box](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/shop_item.png), and the kitchen appliance buttons([1](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button.png), [2](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button_hover.png), [3](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button_pressed.png), [4](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button.png), [5](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button_hover.png), [6](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button_pressed.png), [7](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button.png), [8](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button_hover.png), [9](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button_pressed.png)). I also created the blank ingredient card templates ([ingredient](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/cards/blank_card.png), [dish](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/cards/blank_dish_card.png)). I also created various unused assets such as a [start menu background](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/start_menu.png).
+
+In creating these assets, I aimed to adhere to our game's cutesy, whimsical art direction.
 
