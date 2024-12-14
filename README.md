@@ -6,9 +6,9 @@
 
 ## Project Resources
 
-[Web-playable version of your game.](https://itch.io/)  
-[Trailor](https://youtube.com)  
-[Press Kit](https://dopresskit.com/)  
+[Web-playable version of your game.](https://aroshia.itch.io/cafepillar?secret=sxRkwzsfKWNpgYkhKWZI1OWhH0)  
+[Trailor](https://youtu.be/aDJ_-KLX_5c)  
+[Press Kit](https://github.com/TeamCaterpillar/Cafepillar/blob/1f56d638723ec2c0116c272568b60dbe65acfa32/PressKit.md)  
 [Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)  
 
 ## Gameplay Explanation ##
