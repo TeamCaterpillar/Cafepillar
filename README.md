@@ -102,7 +102,7 @@ I mainly took care of implementing the Day/Night Cycle for our game, making sure
 **Day/Night Cycle**
 
 The implementation of the Day/Night cycle involved placing a timer at the very top that scaled to however long we wanted the day to be, and making sure it started at 6am and would display and end of day screen once it hit 6pm. In addition, I implemented the next day and skip day buttons to navigate through all the cycles.
-
+![ss](https://github.com/TeamCaterpillar/Cafepillar/blob/9f04f4fc2c944e51e219049d4157fb1a5f8a2b50/Cafepillar_Game/screenshots/Screenshot%202024-12-14%20at%2012.30.19%E2%80%AFAM.png)
 **Recipe Book**
 
 The Recipe Book makes sure the player has an easy-to-navigate system to look up any recipe that they might need in order to make their food. In a time-pressured environment like the kitchen, it had to be easy to read and simple enough to manage that it doesn't inadventedly add an additional difficulty on top of the already existing gameplay. Minh later improved upon my original design to make everything more streamlined.
