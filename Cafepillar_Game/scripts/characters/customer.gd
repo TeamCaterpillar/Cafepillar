@@ -15,6 +15,8 @@ extends Character
 @onready var texture_button: TextureButton = $TextureButton
 @onready var label: Label = $TextureButton/Label
 #@onready var texture_button: TextureButton = $TextureButton
+@onready var timer_bar: ProgressBar = $ColorRect/TimerBar
+# @onready var timer_label: Label = $ColorRect/TimerLabel
 
 var current_path_index: int = 0
 var path: Array[Vector2] = []
@@ -73,12 +75,19 @@ func _ready():
 		#texture_button.visible = true
 		#texture_button.texture_normal = food_icon
 	
+	# use tween to animate timer smoothly
+	var tween = create_tween()
+	tween.tween_property(timer_bar, "value", 0.0, wait_time)
 
 func _physics_process(_delta: float) -> void:
 	_patience_timer -= _delta
+	_update_timer_bar_color()
+	
 	if _patience_timer <= 0.0:
 		remove_customer()
 		_patience_timer = wait_time
+	# else:
+	# 	timer_label.text = str(_patience_timer).substr(0, 4)
 	
 	#if !path.is_empty() and move_is_go:
 		#handle_path_movement()
@@ -175,6 +184,18 @@ func remove_customer():
 	for person in GameManager.customers_waiting:
 		if person == self:
 			GameManager.customers_waiting.erase(self)
-			return_to_start = true # customer death when theyre sick of waiting lmfao
-			# return_to_start_position()
+			# return_to_start = true # customer death when theyre sick of waiting lmfao
+			return_to_start_position()
 			dish_inventory.remove_customer_from_queue(customer_id)
+
+
+func _update_timer_bar_color() -> void:
+	# color is green
+	if _patience_timer > wait_time * 0.5:
+		timer_bar.set_theme_type_variation("TimerBar")
+	# color is yellow 
+	elif _patience_timer > wait_time * 0.25:
+		timer_bar.set_theme_type_variation("TimerBarMid")
+	# color is red
+	else:
+		timer_bar.set_theme_type_variation("TimerBarLow")

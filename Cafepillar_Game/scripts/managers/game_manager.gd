@@ -3,6 +3,7 @@ extends Node
 # Game state variables
 var current_day : int 					= 1
 var golden_seeds : int 					= 100
+var amount_gained : int 					= 0
 var kitchen_inventory: Array[Variant] 	= []
 var active_orders: Array[Variant]     	= []
 var waiter_queue: Array[Variant]      	= []
@@ -84,6 +85,7 @@ func update_currency(dish_card: DishCard):
 	add_currency(base_payment * base_multiplier)
 
 func add_currency(_amount: int) -> void:
+	amount_gained = _amount
 	golden_seeds += _amount
 
 

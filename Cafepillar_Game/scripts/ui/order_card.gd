@@ -58,10 +58,10 @@ func _process(delta: float) -> void:
 
 func _update_timer_bar_color() -> void:
 	# color is green
-	if _time_left > _timer_duration * 0.66:
+	if _time_left > _timer_duration * 0.5:
 		timer_bar.set_theme_type_variation("TimerBar")
 	# color is yellow 
-	elif _time_left > _timer_duration * 0.33:
+	elif _time_left > _timer_duration * 0.25:
 		timer_bar.set_theme_type_variation("TimerBarMid")
 	# color is red
 	else:

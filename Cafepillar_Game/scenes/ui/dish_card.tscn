@@ -1,16 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://bvk2b14cn3dif"]
 
 [ext_resource type="Script" path="res://scripts/dish_card.gd" id="1_odcj8"]
-[ext_resource type="Texture2D" uid="uid://bcqq6o7xgesla" path="res://assets/cards/rose_cake.png" id="2_2c2rx"]
+[ext_resource type="Texture2D" uid="uid://dm5xh4crvt82k" path="res://assets/cards/rose_cake.png" id="2_2c2rx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2y2uv"]
 bg_color = Color(0.831373, 0.878431, 0.792157, 1)
 
 [node name="DishCard" type="Button"]
 custom_minimum_size = Vector2(50, 50)
-offset_right = 200.0
-offset_bottom = 200.0
-scale = Vector2(0.25, 0.25)
+offset_right = 50.0
+offset_bottom = 50.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_2y2uv")
 script = ExtResource("1_odcj8")
 
@@ -33,11 +32,9 @@ region_enabled = true
 region_rect = Rect2(73.5138, 20.4219, 643.938, 818.326)
 
 [node name="FoodColor" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(25, 8)
+custom_minimum_size = Vector2(50, 8)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.175
-offset_left = 1.0
-offset_top = 1.0
-offset_right = -1.0
+offset_bottom = -0.75

@@ -9,6 +9,8 @@ extends Button
 @onready var food_color: ColorRect = $FoodColor
 @onready var completed_dish_inventory: CompletedDishInventory = $"../../"
 
+var selected = false
+
 func _ready() -> void:
 	self.connect("pressed", Callable(self, "_on_Dish_pressed"))
 	food_label.text = ""
@@ -43,7 +45,13 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	pass
+	var style = StyleBoxFlat.new()
+	if selected:
+		style.bg_color = Color(0, 0, 1)
+		self.add_theme_stylebox_override("normal", style) 
+	else:
+		style.bg_color = Color(0.831, 0.878, 0.792, 1)
+		self.add_theme_stylebox_override("normal", style)
 
 
 func format_string(input: String) -> String:
