@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dkw27imy3jwh1" path="res://scenes/characters/player.tscn" id="4_8ipbn"]
 [ext_resource type="Script" path="res://scripts/ground_layer.gd" id="4_ovqdr"]
 [ext_resource type="Script" path="res://scenes/world/customer_controller.gd" id="5_yx5pc"]
-[ext_resource type="PackedScene" uid="uid://celk4vhbyjbe3" path="res://scenes/world/seats_w_collision.tscn" id="6_3g2lx"]
+[ext_resource type="PackedScene" path="res://scenes/world/seats_w_collision.tscn" id="6_3g2lx"]
 [ext_resource type="Script" path="res://scripts/manage_gold.gd" id="6_5p76q"]
-[ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="8_6apc2"]
+[ext_resource type="FontFile" uid="uid://dbk21w2t5vmji" path="res://assets/ui/Minecraft.ttf" id="8_6apc2"]
 
 [node name="Cafe" type="Node2D"]
 y_sort_enabled = true

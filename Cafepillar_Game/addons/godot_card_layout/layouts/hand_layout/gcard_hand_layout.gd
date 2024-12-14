@@ -351,20 +351,15 @@ func _place_card_in_slot(card: Control, slot: Control) -> void:
 		
 		card_factory.create_card(card.card_resource.name, "ingredients")
 	
-	if slot.name == "TraySlot" and card.is_in_group("Dish") and slot.get_child_count() < 2:
+	if slot.name == "TraySlot" and card.is_in_group("Dish"):
 		card.get_parent().remove_child(card)
-		# Add the card to the slot
-		slot.add_child(card)
 		
-		card.size = card.size / 2
-		
-		var vert_offset = (slot.get_size().y - card.get_size().y) / 3
-		var horizontal_offset = (slot.get_size().x - 30 - card.get_size().x)
-		
-		if slot.get_child_count() == 1:
-			card.global_position = slot.global_position + Vector2(20, vert_offset)
-		elif slot.get_child_count() == 2:
-			card.global_position = slot.global_position + Vector2(horizontal_offset, vert_offset)
+		var dish_card_scene = load("res://scenes/ui/dish_card.tscn")
+		var dish_card = dish_card_scene.instantiate()
+		dish_card.food_name = card.food_name
+		dish_card.food_condition = card.food_condition
+		GameManager.finished_dishes.append(dish_card)
+	
 	
 	if slot.name == "TrashSlot" and card.is_in_group("Dish"):
 		card.queue_free()
