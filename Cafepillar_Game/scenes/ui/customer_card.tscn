@@ -65,6 +65,7 @@ value = 100.0
 show_percentage = false
 
 [node name="TimerLabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = -33.0
 offset_top = -2.0
 offset_right = 84.0

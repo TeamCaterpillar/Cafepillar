@@ -95,6 +95,7 @@ texture_hover = ExtResource("7_ao2m1")
 
 [node name="SuccessLabel" type="Label" parent="."]
 z_index = 16
+layout_mode = 0
 offset_left = 425.0
 offset_top = 31.0
 offset_right = 573.0
