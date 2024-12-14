@@ -104,7 +104,7 @@ I mainly took care of implementing the Day/Night Cycle for our game, making sure
 The implementation of the Day/Night cycle involved placing a timer at the very top that scaled to however long we wanted the day to be, and making sure it started at 6am and would display and end of day screen once it hit 6pm. In addition, I implemented the next day and skip day buttons to navigate through all the cycles.
 **Recipe Book**
 
-The Recipe Book makes sure the player has an easy-to-navigate system to look up any recipe that they might need in order to make their food. In a time-pressured environment like the kitchen, it had to be easy to read and simple enough to manage that it doesn't inadventedly add an additional difficulty on top of the already existing gameplay.
+The Recipe Book makes sure the player has an easy-to-navigate system to look up any recipe that they might need in order to make their food. In a time-pressured environment like the kitchen, it had to be easy to read and simple enough to manage that it doesn't inadventedly add an additional difficulty on top of the already existing gameplay. Minh later improved upon my original design to make everything more streamlined.
 
 # Sub-Roles
 
@@ -112,10 +112,7 @@ The Recipe Book makes sure the player has an easy-to-navigate system to look up 
 ### Michelle Lu
 
 **Audio Sources**
-The button and shuffling sound effects were sourced from [freesound.org](https://freesound.org/search/?q=shuffle+card&f=tag%3A%22shuffling%22), and the background music was sourced from a [youtube video](https://www.youtube.com/watch?v=zhhA3drWwcw&pp=ygUQY2F0ZXJwaWxsYXIgc29uZw%3D%3D) that allowed viewers to use their music for free.
-**Describe the implementation of your audio system.**
-
-**Document the sound style.** 
+The button and shuffling sound effects were sourced from [freesound.org](https://freesound.org/search/?q=shuffle+card&f=tag%3A%22shuffling%22), and the background music was sourced from a [youtube video](https://www.youtube.com/watch?v=zhhA3drWwcw&pp=ygUQY2F0ZXJwaWxsYXIgc29uZw%3D%3D) that allowed viewers to use their music for free. Signals are sent every time a button is pressed, and for each scene, there is a script that is listening for the signals and emits the button_pressed sound effect when it reads the signal. The background music is autoloaded when the game boots up and loops, ensuring no breakups in the music when switching between the front of house and the kitchen. The sound style is meant to be relaxing and reminiscent of a coffee shop, so we chose a comfy bossa-nova track to play in our game.
 
 ## Gameplay Testing
 
