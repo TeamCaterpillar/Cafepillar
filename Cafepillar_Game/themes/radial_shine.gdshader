@@ -37,29 +37,29 @@ void fragment() {
     vec2 centered_uv = (UV - 0.5) * size;
     float radius = length(centered_uv);
     float angle = atan(centered_uv.y, centered_uv.x) + PI; // Add PI to fix left side cutoff
-    
+
     vec2 ray1 = vec2(angle * ray1_density + TIME * speed + seed + sin(angle * 3.0), radius * 2.0);
     vec2 ray2 = vec2(angle * ray2_density + TIME * speed * 1.5 + seed + cos(angle * 2.0), radius * 2.0);
-    
+
     float cut = 1.0 - smoothstep(cutoff, cutoff + 0.2, radius);
     ray1 *= cut;
     ray2 *= cut;
-    
-    float rays = hdr ? 
+
+    float rays = hdr ?
         noise(ray1) + (noise(ray2) * ray2_intensity) :
         clamp(noise(ray1) + (noise(ray2) * ray2_intensity), 0., 1.);
-    
+
     rays *= smoothstep(spread, spread * 0.3, radius);
     float core = smoothstep(0.2, 0.0, radius) * core_intensity;
     rays += core;
-    
+
     vec4 gradient_color = texture(gradient, vec2(rays, 0.5));
     vec3 shine = vec3(rays) * gradient_color.rgb;
-    
+
     float blur_amount = radius * 0.1;
     vec2 blur_uv = SCREEN_UV + centered_uv * blur_amount;
     vec4 blurred = texture(SCREEN_TEXTURE, blur_uv);
     shine = screen(blurred, vec4(shine, rays)).rgb;
-    
+
     COLOR = vec4(shine, rays * gradient_color.a);
 }

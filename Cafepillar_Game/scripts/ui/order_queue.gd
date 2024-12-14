@@ -20,7 +20,7 @@ func _ready() -> void:
 		#food_items.append(title)
 	#_add_order(food_items[0])
 	GameSignals.connect("customer_added", _add_order)
-
+	GameSignals.day_ended.connect(remove_order_end_day)
 #
 #
 #func _process(delta: float) -> void:
@@ -52,3 +52,9 @@ func remove_order(food_name: String):
 		if child.food_name == food_name:
 			child.queue_free()
 			break
+
+func remove_order_end_day(food_name: String):
+	for child in queue_container.get_children():
+		if child.food_name == food_name:
+			child.queue_free()
+			
