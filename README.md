@@ -44,9 +44,16 @@ That is the main game of Cafepillar! Be sure to manage your time well by cooking
 
 # Main Roles #
 
-<details>
-  <summary><bold>List of members</bold></summary>
-  Detailed explanation of the pathfinding implementation.
+# Main Roles #
+ 
+<details><summary>List of members</summary>
+<p>Lynn Nguyen <br>
+Minh Nguyen<br>
+Michelle Lu<br>
+Emma Chan<br>
+Dillon Mannion<br>
+Tim Ha
+</p>
 </details>
 
 Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
@@ -106,6 +113,57 @@ I made sure that the customers orders would be reflected in the queue that is on
 **List your assets, including their sources and licenses.**
 
 **Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
+
+## Game Logic / Movement / Tools ##
+### Dillon Mannion
+![commit_chart_DM](https://github.com/user-attachments/assets/db32e129-a980-42ac-ac4f-dd093f183746)
+1. Repository and Project Initialization 
+   * Created the repository and managed project file organization. 
+     ![repo_setup_DM](https://github.com/user-attachments/assets/adff4dee-9cb9-4b85-afc9-458fb5a6aa61)
+
+   * Set up the gitignore file and ensured relevant files were committed properly.
+   * Managed GitHub repository, branches, and pull requests.
+     * Acted as the main merge conflict resolver, as `.tscn` files were almsot always changed by multiple people.
+   * Set up gantt chart and task board on [Notion](https://alder-mat-b2b.notion.site/cafepillar-project-board) and coordinated with the team to determine if my created steps/goals were adequate.
+
+2. Game State and Data Management 
+   * Developed the [Game Manager](https://github.com/TeamCaterpillar/Cafepillar/blob/48f67ffdb448fa6a6735dc59d7eb392155a13b1a/Cafepillar_Game/scripts/managers/game_manager.gd#L22) along side [Emma](E:/Cafepillar/README.md:218) for global state management, scene switching, and data structure handling. 
+   * Built a JSON loader/parser along with template resources for dynamic creation(saved to disk) of food-related [resource files](https://github.com/TeamCaterpillar/Cafepillar/tree/48f67ffdb448fa6a6735dc59d7eb392155a13b1a/Cafepillar_Game/scripts/resources).
+     ![json](https://github.com/user-attachments/assets/b566de49-f5c5-47c5-9eb7-af41cc4c9f27)
+     * This supports future food additions through updating the [JSON](https://github.com/TeamCaterpillar/Cafepillar/blob/c873aa81fb40cc5fb9f1caf84e3f631b1b0422ed/Cafepillar_Game/data/data.json) and attaching the script to the world scene's json node.
+
+3. Card Mechanics Development
+   * Built the card [drag-and-drop system](https://github.com/TeamCaterpillar/Cafepillar/blob/32a234665e65f1cc15d4deb5568c97b98fb6da07/Cafepillar_Game/scripts/card.gd)(now deprecated) using lerp to achieve a delayed follow and snap back.
+![drag_and_drop_DM](https://github.com/user-attachments/assets/eb78d376-3af0-4e2f-82f0-dd9b7238e720)
+   * Designed a card factory, integrated barebones deck system and card drop with it.
+   * Refactored a third-party card hand layout plugin to work with our need to [drop cards onto appliance slots](https://github.com/TeamCaterpillar/Cafepillar/blob/117f4ff3168906bd2f00ebef94c63eaae48d6b57/Cafepillar_Game/addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd#L297C1-L349C45) and pass the card data to the appliance.
+   * Utilized the [observer pattern](https://github.com/TeamCaterpillar/Cafepillar/blob/117f4ff3168906bd2f00ebef94c63eaae48d6b57/Cafepillar_Game/addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd#L311) so the cards could signal the deck/cafe with their passed resource reference once repareneted rather than a tree_changed node.
+
+4. Pathfinding and Movement Systems
+   * Built custom pathfinding using AStar2DGrid for customers, players, and future characters.
+     ![pathing (2)](https://github.com/user-attachments/assets/db8da83c-f6a0-478c-91d8-4ac0c9752dfc)
+     
+   * Created a [shading](https://github.com/TeamCaterpillar/Cafepillar/blob/03d871b3075998c76ad7428d7356f9e00116ff63/Cafepillar_Game/assets/tile_sets/isometric_tile_select.gdshader) script for pathable tiles and visual feedback.
+   
+   
+     ![shader](https://github.com/user-attachments/assets/8b623385-7f63-4c5f-982e-3669f8ef06e2)
+   * Changed the tile set to have specific cells with the custom data of "pathable" and "obstacle" for the AStarGrid build process.
+
+5. Player and Character Control
+   * Implemented a [command pattern](https://github.com/TeamCaterpillar/Cafepillar/blob/03d871b3075998c76ad7428d7356f9e00116ff63/Cafepillar_Game/scripts/characters/player.gd#L15C1-L22C18) for player movement using mouse input. 
+   * Built a base character class for shared movement logic, following OOP principles of inheritance.
+   * Utilized above path finding alogirthm to move the player and customers to their desired locations through signaling of game state.
+
+## Organization and Project Management
+
+1. Team Communication and Organization
+   * Created the Discord server and managed channels for team communication.
+![discord](https://github.com/user-attachments/assets/f14219ca-6769-4594-9a65-a06773939e49)
+   * Organized team meetings and created timelines for task tracking.
+
+2. Scene and Asset Management
+   * Consistently reviewed scene node layouts and organized them by compressing scripts into a singluar file or creating new group scene files.
+   * Organized project assets, scripts, etc. into folders for easy access and management.
 
 ## Kitchen Mechanics/Logic
 
@@ -339,3 +397,18 @@ When building the project up from scratch, there were instances where too many c
 I created various UI component assets such as the [shop background](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/shop_menu.png), the [shop item box](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/shop_item.png), and the kitchen appliance buttons([1](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button.png), [2](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button_hover.png), [3](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button_pressed.png), [4](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button.png), [5](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button_hover.png), [6](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button_pressed.png), [7](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button.png), [8](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button_hover.png), [9](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button_pressed.png)). I also created the blank ingredient card templates ([ingredient](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/cards/blank_card.png), [dish](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/cards/blank_dish_card.png)). I also created various unused assets such as a [start menu background](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/start_menu.png).
 
 In creating these assets, I aimed to adhere to our game's cutesy, whimsical art direction.
+
+## Game Feel and UI Design
+### Dillon Mannion
+
+1. UI Feedback and Iteration
+   * Provided continuous feedback on card mechanics, appliance layouts, and cafe mechanics.
+     ![feedback1](https://github.com/user-attachments/assets/0a760536-a935-4ce7-825c-b6e9be5099f8)
+     ![feedback2](https://github.com/user-attachments/assets/c586cce2-4104-4274-b8c4-674af170664e)
+
+   * Adjusted UI components for improved balance and game flow.
+
+2. Visual and Interaction Enhancements
+   * Prompted asset creation for both cafe and kitchen scenes.
+     ![feedback3](https://github.com/user-attachments/assets/e40b8a2b-f155-43a0-ab89-3b74008aede0)
+   * Suggested and integrated improvements like [collapsible recipe books](E:/Cafepillar/README.md:345) and enhanced progress bars for better visibility.
