@@ -63,7 +63,6 @@ offset_bottom = 958.0
 scale = Vector2(0.04, 0.04)
 
 [node name="ColorRect" type="ColorRect" parent="TextureButton"]
-z_index = 10
 custom_minimum_size = Vector2(28, 4)
 layout_mode = 1
 anchors_preset = -1
@@ -74,7 +73,6 @@ offset_right = -38.0
 offset_bottom = -78.15
 
 [node name="TimerBar" type="ProgressBar" parent="TextureButton/ColorRect"]
-z_index = 10
 custom_minimum_size = Vector2(28, 4)
 layout_mode = 1
 anchors_preset = -1

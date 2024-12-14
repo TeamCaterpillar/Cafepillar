@@ -48,9 +48,9 @@ func _on_YesButton_pressed() -> void:
 			var satisfied_customer = get_customer_by_id(selected_customer.customer_id) 
 			satisfied_customer.remove_customer()
 			print("Successfully gave ", selected_food_to_deliver.food_condition, " ", selected_food_to_deliver.food_name, " to Customer ", selected_customer.customer_id)
+			GameSignals.food_delivered.emit(selected_food_to_deliver)
 			remove_dish_from_inventory(selected_food_to_deliver)
 			# add money to acconut
-			GameSignals.food_delivered.emit(selected_food_to_deliver)
 			close_inventory()
 			show_coins = true
 		else:

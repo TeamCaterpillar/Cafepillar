@@ -61,6 +61,7 @@ extends Control
 ## Plays when a card is hovered.
 @export var hover_sound:AudioStreamPlayer2D
 
+var card_size : Vector2 = Vector2(160.0, 200.0)
 var gcard_hand_layout_service := GCardHandLayoutService.new()
 var _reset_position_tween:Tween
 var _mouse_in:bool = false
@@ -69,7 +70,6 @@ var _dragging_index:int = -100
 var _dragging_mouse_position:Vector2
 @onready var card_factory = $"../CardFactory"
 @onready var order_queue: OrderQueue = $"../OrderQueue"
-
 
 func _ready():
 	_dragging_index = -100
@@ -339,7 +339,7 @@ func _place_card_in_slot(card: Control, slot: Control) -> void:
 		# Add the card to the slot
 		slot.add_child(card)
 		
-		card.size = card.size / 2
+		card.size = card_size / 2
 		
 		if slot.get_child_count() == 1:
 			card.global_position = slot.global_position

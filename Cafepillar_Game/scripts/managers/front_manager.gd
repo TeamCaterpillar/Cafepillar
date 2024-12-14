@@ -148,7 +148,7 @@ func _update_pathable_cells() -> void:
 
 
 #region Player Pathing
-func get_customer_to_deliver() -> Variant:
+func get_customer_to_deliver(dish_card : DishCard) -> Variant:
 	return
 
 
@@ -156,7 +156,7 @@ func find_path_player() -> Array:
 	var start_cell : Vector2i
 	var end_cell : Vector2i
 	start_cell = ground_layer.local_to_map(player_start_position)
-	end_cell = ground_layer.local_to_map(get_customer_to_deliver().position)
+	end_cell = ground_layer.local_to_map(get_customer_to_deliver(null).position)
 
 	if start_cell == end_cell or !astar_grid.is_in_boundsv(start_cell) or !astar_grid.is_in_boundsv(end_cell):
 		push_error("SOMETHING WRONG IN FIND_PATH")

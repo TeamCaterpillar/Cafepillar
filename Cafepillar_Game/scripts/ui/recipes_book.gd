@@ -1,6 +1,7 @@
 extends Control
 
-var recipes = Recipes.recipes
+# var recipes = Recipes.recipes
+@onready var recipes = Recipes.recipes
 
 @onready var recipe_list_container = $MainContainer/ScrollContainer/RecipeListContainer
 

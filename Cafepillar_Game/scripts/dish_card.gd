@@ -47,7 +47,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var style = StyleBoxFlat.new()
 	if selected:
-		style.bg_color = Color(0, 0, 1)
+		style.bg_color = Color(0.25, 0.25, 0.25)
 		self.add_theme_stylebox_override("normal", style) 
 	else:
 		style.bg_color = Color(0.831, 0.878, 0.792, 1)

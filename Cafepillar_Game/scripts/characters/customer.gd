@@ -197,6 +197,7 @@ func remove_customer():
 			return_to_start = true # customer death when theyre sick of waiting lmfao
 			return_to_start_position()
 			dish_inventory.remove_customer_from_queue(customer_id)
+			queue_free()
 			GameSignals.kill_customer.emit(self)
 
 
