@@ -83,23 +83,6 @@ I ensured that the customers can be created through a customer factory. Customer
 
 I made sure that the customers orders would be reflected in the queue that is on display in the kitchen scene. The signal that is emitted from the front manager is connected to the order_queue script, which calls the [_add_order method](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/ui/order_queue.gd#L34). This method receives the name and the wait time of the order corresponding with the customer and loads it into the order_card instance, which allows the order_card to display the image of the dish in queue as well as the amount of time that the order card starts with.
 
-## User Interface and Input
-
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
-**Describe the default input configuration.**
-
-**Add an entry for each platform or input style your project supports.**
-
-## Movement/Physics
-
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
-
-## Animation and Visuals
-
-**List your assets, including their sources and licenses.**
-
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
-
 ## Game Logic / Movement / Tools ##
 ### Dillon Mannion
 ![commit_chart_DM](https://github.com/user-attachments/assets/db32e129-a980-42ac-ac4f-dd093f183746)
