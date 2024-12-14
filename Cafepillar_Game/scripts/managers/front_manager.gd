@@ -98,7 +98,6 @@ func assign_random_seat(customer : Customer) -> Vector2:
 	print("seat assigned: " , random_seat_marker)
 	customer.assigned_seat = random_seat_marker
 	return to_local(random_seat_marker.global_position)
-		
 
 
 func _init_grid() -> void:

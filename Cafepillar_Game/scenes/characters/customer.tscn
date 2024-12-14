@@ -31,7 +31,7 @@ radius = 11.0
 height = 36.0
 
 [node name="Customer" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
-z_index = 2
+z_index = 28
 y_sort_enabled = true
 collision_layer = 0
 collision_mask = 32768
@@ -41,6 +41,7 @@ sprite = NodePath("CustomerSprite")
 
 [node name="CustomerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_lcutu")
+offset = Vector2(0, -8)
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CustomerSprite"]
