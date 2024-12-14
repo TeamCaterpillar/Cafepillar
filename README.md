@@ -14,8 +14,23 @@ To escape this caterpillar fate, you must listen to what your fellow caterpillar
 
 ## Gameplay Explanation ##
 
-**In this section, explain how the game should be played. Treat this as a manual within a game. Explaining the button mappings and the most optimal gameplay strategy is encouraged.**
+Welcome to Cafepillar! Upon opening the game, you will see the Front of House, where your caterpillar customers will enter and sit! They each have their own order request, with a timer above their heads indicating how long they will wait.
 
+To play the game, please press the [P] key on your keyboard to enter the Kitchen! This is where all your cooking will happen. You will see the customers and their orders on the right, as well as the time left. Each order has a unique recipe, which can be accessed in the Recipe Book by clicking the recipe book button on the left. Verify the ingredients you need as well as the appliance to use.
+
+Once you know what you're looking for, search through your deck of cards! You will have five on hand at all times, and you can cycle through five at a time by clicking on your deck of ingredients on the right next to the order queue. Use your mouse to click, drag, and drop the desired ingredients onto the correct appliance slot! Don't worry if you've added the wrong ingredients; click the red [X] button next to the appliance, and the cards will return to your hand. Ingredients also automatically refresh, so you can add multiple of the same ingredient.
+
+When you're ready to let it cook, click the green checkmark button next to the appliance. If it matches the recipe, it'll begin cooking! A timer will appear on the left side to indicate its status. If you pull it off the appliance when the timer is yellow, it'll be undercooked; for blue, it's satisfactory; for green, it's perfect; and for red, it's overdone. This will affect how many Golden Seeds (your currency!) you will earn from serving the customer.
+
+After it's pulled off of the appliance, it'll be added to your hand again above your ingredients. Remember to drag the dish to your serving tray on the top right to bring it to the Front of House! Press [P] on your keyboard again to return to the front, where your customers are waiting.
+
+To serve your hungry caterpillars, click on your list of customers with the [LIST] button on the bottom left. This will show your inventory of dishes on the left and your customer list on the right. Select the dish and the corresponding customer, and click the [YES] button to confirm! Congratulations, you've just served your caterpillar guest! Based on the quality of your cooking, you'll receive Golden Seeds.
+
+When the work day ends, a shop will appear on your screen. Here, you can select more ingredients to buy, which will give you access to more recipes for dishes that'll earn you more Golden Seeds! Select the ingredients you want to acquire and click [YES] to buy, and/or click the [NEXT DAY] button on the top right to continue to the next work day.
+
+(A brief cutscene is also available to be seen by pressing [C] on your keyboard! When you enter, click the dialogue box to continue. When it is complete, press [C] again to return to your game. Do keep in mind that your customers and kitchen will continue working while you're away!)
+
+That is the main game of Cafepillar! Be sure to manage your time well by cooking dishes at the same time on all the appliances, and choose the customers you are able to serve wisely! We hope these instructions were clear and that you enjoy :)
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
@@ -56,7 +71,7 @@ Our second desired style was a pixel-art style that would fit our desired isomet
 
 I ensured that the customers can be created through a customer factory. Customer each have [designated variables](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/characters/customer.gd#L9) for the amount of time they will wait for their order as well as the name of the order they want. Based on this and [the specifications class for the customer](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/specs/customer_basic_spec.gd#L13), we can [create customers on command](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/factories/customer_factory.gd#L7) so we can control when they are created as well as what they order. This also allows for [random generation of customers](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/factories/customer_factory.gd#L15) so that they are spawned with random order requests and are given the corresponding wait time for the dish they want. [Customers are spawned in the front_manager](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/managers/front_manager.gd#L69) after the specified spawn timer has finished, the number of customers is sparse, the day hasn't ended and there are still seats available. When this occurs, [a signal is sent to the order queue that a customer has been created](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/managers/front_manager.gd#L80). The signal also sends the specifications of the randomly generated customer.
 
-![screenshot_customer_factory]()
+![screenshot_customer_factory](https://github.com/TeamCaterpillar/Cafepillar/blob/3f7ada62a1e300bd7e3e74eb70696eed6139ebc4/Cafepillar_Game/screenshots/customerfactory.JPG)
 
 **Customer Orders to Kitchen Queue**
 
@@ -181,7 +196,6 @@ The button and shuffling sound effects were sourced from [freesound.org](https:/
 
 ## Narrative Design
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.**
 ### Lynn Nguyen
 
 As aforementioned, I took care of the art direction of the game to reflect the premise of our game, so the art and the gameplay was determined to reflect a cafe managed by a caterpillar for other caterpillars. I also added to the story of our game by adding a cutscene section of the game that would act as a prologue to the player's experience and explain why they were in a cafe cooking for caterpillars. I also determined the recipes that the player can cook and the caterpillars can eat, with some ingredients reflecting actual caterpillar diets (and others less so, for the fun of it, but I think if it really wanted to a caterpillar could *probably* eat a burger...)
