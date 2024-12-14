@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cookffcxckdkf"]
 
-[ext_resource type="PackedScene" uid="uid://dvbabvbpqlu7k" path="res://scenes/ui/kitchen_door.tscn" id="1_vrxbu"]
+[ext_resource type="PackedScene" path="res://scenes/ui/kitchen_door.tscn" id="1_vrxbu"]
 
 [node name="TestScene" type="Node2D"]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dpjkh8i4nyusl"]
 
 [ext_resource type="Script" path="res://scripts/characters/customer.gd" id="1_goek5"]
-[ext_resource type="Texture2D" uid="uid://caw53d0rts4w6" path="res://assets/sprites/customer.png" id="2_lcutu"]
+[ext_resource type="Texture2D" uid="uid://cuxov187qptpg" path="res://assets/sprites/customer.png" id="2_lcutu"]
 [ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="3_b7ipx"]
 
 [sub_resource type="Animation" id="Animation_lapao"]
