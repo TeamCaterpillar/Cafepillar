@@ -1,16 +1,19 @@
 # Cafepillar #
 
-## Summary ##
+## Summary ## 
 
 The end of spring is coming, and your caterpillar friends have yet to transform into their butterfly forms! The God of Metamorphosis has tasked you with helping them by running the caterpillar cafe; only by feeding them enough to transform before summer begins will this God grant you the mercy of transforming yourself!
 To escape this caterpillar fate, you must listen to what your fellow caterpillars are requesting, as they need very particular meals to grow. Then, use the surplus of fresh ingredients (courtesy of your God!) to follow the recipes of the food that’s been requested. Be sure to cook it to perfection to get the greatest quality meal! Serve the completed food the caterpillars and they will reward you with Golden Seeds, which you will collect as proof of your service. Earn enough Golden Seeds in the three days before summer or you’ll be stuck as a little caterpillar forever!
 
-## Project Resources
+## Project Resources ##
+| Resource                                            | Description                                                                    | Link         |
+|-----------------------------------------------------|--------------------------------------------------------------------------------|--------------|
+| <p style="text-align: center;">Web-playable version</p> | <p style="text-align: center;">Hosted on the best* indie game dev website!</p> | [Link](https://aroshia.itch.io/cafepillar?secret=sxRkwzsfKWNpgYkhKWZI1OWhH0) |
+| <p style="text-align: center;">Trailer</p>              | <p style="text-align: center;">"Historically" accurate gameplay footage</p>    | [Link](https://youtu.be/aDJ_-KLX_5c)  |
+| <p style="text-align: center;">Press Kit</p>        | <p style="text-align: center;">A showcase of our game</p>                      | [Link](https://github.com/TeamCaterpillar/Cafepillar/blob/1f56d638723ec2c0116c272568b60dbe65acfa32/PressKit.md) |
+| <p style="text-align: center;">Proposal</p>                            | <p style="text-align: center;">Prompted by a Hungry hungry caterpillar fever dream (and our games music)</p> |   [Link](https://docs.google.com/document/d/1RK9_fZNIhu6455-4KIbZJjABS-V4PLPm4asVfd11XNw/edit?usp=sharing) |
 
-[Web-playable version of your game.](https://aroshia.itch.io/cafepillar?secret=sxRkwzsfKWNpgYkhKWZI1OWhH0)  
-[Trailor](https://youtu.be/aDJ_-KLX_5c)  
-[Press Kit](https://github.com/TeamCaterpillar/Cafepillar/blob/1f56d638723ec2c0116c272568b60dbe65acfa32/PressKit.md)  
-[Proposal: make your own copy of the linked doc.](https://docs.google.com/document/d/1qwWCpMwKJGOLQ-rRJt8G8zisCa2XHFhv6zSWars0eWM/edit?usp=sharing)  
+&nbsp;&nbsp;&nbsp;&nbsp;\* itch.io can be taken down by ~~Funko Pops~~ a company we will not name with the click of a button
 
 ## Gameplay Explanation ##
 
@@ -34,7 +37,17 @@ That is the main game of Cafepillar! Be sure to manage your time well by cooking
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
+![alt text][logo]
+
+[logo]: https://octodex.github.com/godotocat/ "GodotCat"
+
+
 # Main Roles #
+
+<details>
+  <summary><bold>List of members</bold></summary>
+  Detailed explanation of the pathfinding implementation.
+</details>
 
 Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 
@@ -115,9 +128,9 @@ Within slot.gd, which handles the handling of the dropped cards, I implemented a
 For example, a typical entry in the recipes dictionary can look like this:
 
 { \
-    "use": "Stove",\
-    "title": "Sunny Side Up",\
-    "ingredients": ["Eggs x2"]\
+"use": "Stove",\
+"title": "Sunny Side Up",\
+"ingredients": ["Eggs x2"]\
 }
 
 Going through the formatter, the title would transform to snake case, in this case, sunny_side_up, consistent with our resources file naming conventions in order to generate the correct card texture and resource. The formatter would also handle the “x2” at the end the ingredient element, creating a duplicate element or more corresponding to the amount specified. It also removes the ‘s’ at the end of the ingredient’s name for consistent plurality of our resource naming methodologies. In this example, [“Eggs x2”] is transformed into [egg, egg], matching the slot’s resource array, which when compared will return the recipe that matches the exact name and quantity of ingredients present.
@@ -215,7 +228,7 @@ The crux of our cafe management gameplay is cooking and serving orders in our ga
 ## Press Kit and Trailer
 
 [Trailor](https://youtu.be/aDJ_-KLX_5c)  
-[Press Kit](https://github.com/TeamCaterpillar/Cafepillar/blob/1f56d638723ec2c0116c272568b60dbe65acfa32/PressKit.md)  
+[Press Kit](https://github.com/TeamCaterpillar/Cafepillar/blob/1f56d638723ec2c0116c272568b60dbe65acfa32/PressKit.md)
 
 The trailor starts off with clips from the opening cutscene that unfortunately couldn't be implemented in time, so I decided to include it in the trailer. I picked clips from the cutscene that would concisely summarize the lore along with on-screen text explaining the rest. In addition, there are 2 main "rooms" in the game, with those being the front of house and the kitchen. The trailer starts off by showing the front of house and the customers filtering in, which is what the player will first see when they boot up the game. It then transitions into showing off the kitchen and how the food cooking mechanic works, and how to serve the food after it's done. I made the trailer progress similarly to how the player would progress through the game, starting with the front of house, going into the kitchen where some cooking failures happen at first, into successfully creating a dish.
 Screenshots in the press kit were chosen to show off every major screen of the game, with those being the cutscene, front of house, kitchen, and end of day screen where the shop pops up.
