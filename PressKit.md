@@ -18,7 +18,9 @@
 
 ## About CafePillar
 
-*Cafepillar* is a cozy cafe-managing game
+*Cafepillar* is a cozy cafe-managing game where you are a caterpillar living your best life in the forest, and it's very sunny and warm and it's just about to be summer. The problem is, every caterpillar including you should have transformed by now... The god of metamorphasis visits you, wondering why you haven't transformed yet. They say they can't help directly, but is able to appoint you as their apostle to help everyone else transform. The god gives you ingredients and tells you that you can only transform after bringing the money you earn back.
+Thus, you have three days to get as many caterpillars to eat.
+
 
 ## Downloads
 

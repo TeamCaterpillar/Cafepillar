@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpjkh8i4nyusl"]
+[gd_scene load_steps=7 format=3 uid="uid://dpjkh8i4nyusl"]
 
 [ext_resource type="Script" path="res://scripts/characters/customer.gd" id="1_goek5"]
-[ext_resource type="Texture2D" uid="uid://cuxov187qptpg" path="res://assets/sprites/customer.png" id="2_lcutu"]
+[ext_resource type="Texture2D" uid="uid://drlcbviybq0vu" path="res://assets/sprites/customer.png" id="2_lcutu"]
+[ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="3_2gx0p"]
 
 [sub_resource type="Animation" id="Animation_lapao"]
 resource_name = "walk"
@@ -54,18 +55,41 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dp0t5")
 
 [node name="TextureButton" type="TextureButton" parent="."]
-offset_left = -19.0
-offset_top = -61.0
-offset_right = 769.0
-offset_bottom = 957.0
-scale = Vector2(0.05, 0.05)
+offset_left = -16.0
+offset_top = -57.0
+offset_right = 772.0
+offset_bottom = 961.0
+scale = Vector2(0.04, 0.04)
 
 [node name="Label" type="Label" parent="TextureButton"]
 layout_mode = 0
-offset_left = 79.9998
+offset_left = 100.0
 offset_top = 800.0
-offset_right = 568.0
+offset_right = 615.0
 offset_bottom = 934.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 98
-text = "Customer: "
+text = "Customer "
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(28, 5)
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.175
+offset_left = -14.0
+offset_top = -57.0
+offset_right = 14.0
+offset_bottom = -52.0
+
+[node name="TimerBar" type="ProgressBar" parent="ColorRect"]
+custom_minimum_size = Vector2(28, 5)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.111
+offset_bottom = -0.555
+theme = ExtResource("3_2gx0p")
+theme_type_variation = &"TimerBar"
+step = 1.0
+value = 100.0
+show_percentage = false
