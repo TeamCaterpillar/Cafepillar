@@ -1,6 +1,8 @@
 class_name Customer
 extends Character
 
+const ARRIVAL_THRESHOLD: float = 1.0
+
 @export var start_marker : Marker2D
 @export var sprite : Sprite2D
 
@@ -15,11 +17,12 @@ extends Character
 @onready var texture_button: TextureButton = $TextureButton
 @onready var label: Label = $TextureButton/Label
 #@onready var texture_button: TextureButton = $TextureButton
+@onready var assigned_seat : Marker2D
 
 var current_path_index: int = 0
 var path: Array[Vector2] = []
 #var movement_speed: float = 100.0
-var arrive_threshold: float = 1.0
+
 var return_to_start : bool = false
 
 var move_is_go : bool = false
@@ -34,9 +37,8 @@ func _ready():
 	movement_speed = 100.0
 	label.text = "Customer " + str(customer_id)
 	# texture_button.connect("pressed", Callable(self, "_on_DeliverButton_pressed"))
-	GameSignals.customer_can_move.connect(_its_go_time)
 	animation_player.play("walk")
-	arrive_threshold = clamp(arrive_threshold, 1.0, 16.0)
+	#arrive_threshold = clamp(arrive_threshold, 1.0, 16.0)
 	velocity = Vector2.ZERO
 	
 	# GameSignals.customer_clicked.connect(_on_customer_clicked)
@@ -80,12 +82,12 @@ func _physics_process(_delta: float) -> void:
 		remove_customer()
 		_patience_timer = wait_time
 	
-	#if !path.is_empty() and move_is_go:
-		#handle_path_movement()
-	#elif return_to_start:
-		#handle_return_movement() # leave the cafe based on food delivered
-	#else:
-		#velocity = Vector2.ZERO
+	if !path.is_empty():
+		handle_path_movement()
+	elif return_to_start:
+		handle_return_movement() # leave the cafe based on food delivered
+	else:
+		velocity = Vector2.ZERO
 
 	move_and_slide()
 
@@ -94,33 +96,47 @@ func _physics_process(_delta: float) -> void:
 
 func handle_path_movement() -> void:
 	if current_path_index >= path.size():
+		global_position = assigned_seat.global_position + Vector2(0, -8)
 		velocity = Vector2.ZERO
+		global_rotation_degrees = 0
 		return
-
+		
 	var position_of_target = path[current_path_index]
 	var direction = global_position.direction_to(position_of_target)
-
-	if global_position.distance_to(position_of_target) < arrive_threshold:
+	var distance_to_target = global_position.distance_to(position_of_target)
+	
+	if distance_to_target < ARRIVAL_THRESHOLD:
+		# Snap to exact position and move to next point
+		global_position = position_of_target
 		current_path_index += 1
+		velocity = Vector2.ZERO
 	else:
 		motion_mode = MOTION_MODE_FLOATING
 		velocity = direction * movement_speed
 		update_sprite_orientation(direction)
 
 func handle_return_movement() -> void:
-	# change to be triggered on food delivery
 	if current_path_index < 0:
+		var seat_index = GameManager.filled_seats.find(assigned_seat)
+		if seat_index == -1:
+			printerr("SOMETHING WRONG,", name, " DIDNT HAVE A SEAT")
+		GameManager.filled_seats.remove_at(seat_index)
 		queue_free()
 		return
 
-	var return_position = path[current_path_index]
-	var direction = global_position.direction_to(return_position)
-
-	if global_position.distance_to(return_position) < arrive_threshold:
+	var position_of_target = path[current_path_index]
+	var direction = global_position.direction_to(position_of_target)
+	var distance_to_target = global_position.distance_to(position_of_target)
+	
+	
+	if distance_to_target < ARRIVAL_THRESHOLD:
+		# Snap to exact position and move to next point
+		global_position = position_of_target
 		current_path_index -= 1
+		velocity = Vector2.ZERO
 	else:
 		motion_mode = MOTION_MODE_FLOATING
-		velocity = direction * movement_speed * get_physics_process_delta_time()
+		velocity = direction * movement_speed
 		update_sprite_orientation(direction)
 
 func update_sprite_orientation(direction: Vector2) -> void:
@@ -137,17 +153,11 @@ func update_sprite_orientation(direction: Vector2) -> void:
 		sprite.flip_h = false
 		sprite.rotation_degrees = -30.0
 
-func move_along_path(new_path: Array[Vector2]) -> void:
-	path = new_path
-	current_path_index = 0
-	return_to_start = false
 
 func return_to_start_position() -> void:
 	current_path_index = path.size() - 1 # change to possibly be whatever path index is closest to current position, since will bug when pressed during movement
 	return_to_start = true
 
-func _its_go_time() -> void:
-	move_is_go = true
 
 
 ############## TIM FUNCTIONS #########################
@@ -176,5 +186,6 @@ func remove_customer():
 		if person == self:
 			GameManager.customers_waiting.erase(self)
 			return_to_start = true # customer death when theyre sick of waiting lmfao
-			# return_to_start_position()
+			return_to_start_position()
 			dish_inventory.remove_customer_from_queue(customer_id)
+			GameSignals.kill_customer.emit(self)

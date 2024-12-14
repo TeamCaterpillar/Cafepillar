@@ -33,6 +33,7 @@ func _on_YesButton_pressed() -> void:
 		# successfully delivered order to customer
 		print("attempting to deliver ", selected_food_to_deliver.food_name, " to customer ", selected_customer.customer_id, " who ordered ", selected_customer.food_name)
 		if selected_food_to_deliver.food_name == selected_customer.food_name:
+			# await the player delivering the food
 			var satisfied_customer = get_customer_by_id(selected_customer.customer_id) 
 			satisfied_customer.remove_customer()
 			print("Successfully gave ", selected_food_to_deliver.food_condition, " ", selected_food_to_deliver.food_name, " to Customer ", selected_customer.customer_id)

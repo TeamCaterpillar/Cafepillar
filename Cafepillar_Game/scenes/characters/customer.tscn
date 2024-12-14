@@ -54,6 +54,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dp0t5")
 
 [node name="TextureButton" type="TextureButton" parent="."]
+z_index = 500
 offset_left = -19.0
 offset_top = -61.0
 offset_right = 769.0

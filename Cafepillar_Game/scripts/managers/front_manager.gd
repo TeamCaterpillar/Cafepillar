@@ -8,7 +8,7 @@ const CUSTOMER_SPAWN_CAP : int = 10
 const PLAYER_COLLISION_LAYER : int = 2
 const CUSTOMER_COLLISION_LAYER : int = 8
 
-@export var customer_spawn_rate:float = 2
+@export var customer_spawn_rate:float = 5
 #@export 
 var debug_enabled : bool = false
 
@@ -27,8 +27,10 @@ var debug_enabled : bool = false
 # @onready customer variables
 @onready var customer_factory:CustomerFactory = CustomerFactory.new()
 @onready var customer_spawn: CustomerController = $CustomerSpawnPoint
+@onready var customer_spawn_position = $CustomerSpawnPoint.position
 @onready var customer_path_coords : Array[Vector2i]= []
 @onready var customer_path_positions : Array[Vector2] = []
+@onready var calculations_okay : bool = true
 
 @onready var seats_array : Node2D = $Seats
 #@onready var tile_select_material : ShaderMaterial = load("res://assets/tile_sets/tile_select_material.tres")
@@ -40,51 +42,63 @@ var camera_in_scene : bool = false
 var player_end_position : Marker2D
 var astar_grid : AStarGrid2D
 var player_move : bool = false
-var seats_taken : Dictionary = {}
+var seats_taken = []# was dict
 
 func _ready():
 	camera_in_scene = true # viewing/process enable flag
-
+	#print(seats_taken)
+	#for seat in seats_array.get_children():
+		#seats_taken.get_or_add(seat , 0)
+	#print(seats_taken)
+	
 	# AStar setup
 	_init_grid()
 	_update_pathable_cells()
 	#set_player_path(find_path(player_start_position))
 
 	GameSignals.player_finished_delivery.connect(_player_finished_delivery) # signal will be sent when player has returned to kitchen point
+	#GameSignals.kill_customer.connect()
+	GameSignals.food_delivered.connect(get_customer_to_deliver)
 	
 	# spawning customers - temp
 	_spawn_timer = Timer.new()
 	_spawn_timer.one_shot = false
 	add_child(_spawn_timer)
-	_spawn_timer.start(customer_spawn_rate)
 
 
 func _process(_delta):
 	if (	_spawn_timer.time_left < 1
-		and customer_spawn.get_child_count() <= 2 \
-		and not day_night_cycle.day_ended):
-		
-		if seats_taken.size() == CUSTOMER_SPAWN_CAP:
-			return
+		and customer_spawn.get_child_count() <= 5 \
+		and not day_night_cycle.day_ended 
+		and GameManager.filled_seats.size() < 12):
 		
 		
 		_spawn_timer.start(customer_spawn_rate)
 		spec_customer = customer_factory.generate_rand_customer()
-		GameSignals.emit_signal("customer_added", spec_customer)
-		random_seat_node().add_child(spec_customer) # replace with spawnpoint when pathing complete
+		set_path_customer(find_path_customer(spec_customer), spec_customer)
+		if calculations_okay:
+			GameSignals.emit_signal("customer_added", spec_customer)
+			customer_spawn.add_child(spec_customer)
+			
+		#random_seat_node().add_child(spec_customer) # replace with spawnpoint when pathing complete
+		
+		
 		#var pathy = find_path(customer_spawn.position)
 		#set_customer_path(pathy)
 		#print(spec_customer.path)
 		#GameSignals.customer_can_move.emit()
 		
 
-func random_seat_node() -> Marker2D:
+func assign_random_seat(customer : Customer) -> Vector2:
 	var random_seat_marker = seats_array.get_children().pick_random()
-	if seats_taken.has(random_seat_marker):
-		return random_seat_node() # infinite recursion error present, fixed in process
-	else:
-		seats_taken.get_or_add(random_seat_marker)
-		return random_seat_marker# only will ever add (I think)
+	if GameManager.filled_seats.has(random_seat_marker):
+		print("seat already taken")
+		return assign_random_seat(customer)
+	GameManager.filled_seats.append(random_seat_marker)
+	print("seat assigned: " , random_seat_marker)
+	customer.assigned_seat = random_seat_marker
+	return to_local(random_seat_marker.global_position)
+		
 
 
 func _init_grid() -> void:
@@ -175,48 +189,50 @@ func set_path_player() -> void:
 #endregion
 
 #region Customer Pathing
-func find_path_customer() -> Array:
+
+func find_path_customer(customer : Customer) -> Array:
 	var start_cell : Vector2i
 	var end_cell : Vector2i
-	start_cell = ground_layer.local_to_map(player_start_position)
-	end_cell = ground_layer.local_to_map(random_seat_position())##############TEMP############### # internally checks seat occupancy
+	start_cell = ground_layer.local_to_map(customer_spawn_position)
+	var end_position = assign_random_seat(customer)
+	end_cell = ground_layer.local_to_map(end_position)##############TEMP############### # internally checks seat occupancy
 
 	if start_cell == end_cell or !astar_grid.is_in_boundsv(start_cell) or !astar_grid.is_in_boundsv(end_cell):
 		push_error("SOMETHING WRONG IN FIND_PATH")
+		push_error(start_cell, end_cell)
+		calculations_okay = false
 		return Array()
 	
 	var id_path = astar_grid.get_id_path(start_cell, end_cell)
-
-	#if debug_enabled: # debug print
-		#print("---------------------------------------------------")
-		#print("PATH FINDING INFO:")
-		#print("START CELL: ", start_cell)
-		#print("END CELL: ", end_cell)
-		#print("---------------------------------------------------")
-
+	 # debug print
+	print("---------------------------------------------------")
+	print("PATH FINDING INFO - CUSTOMER:")
+	print("START CELL: ", start_cell)
+	print("END CELL: ", end_cell)
+	print("---------------------------------------------------")
+	calculations_okay = true
 	return id_path
+	
 
 
-func set_path_customer(id_path : Array) -> void:
-	customer_path_coords.clear()
-	customer_path_positions.clear()
+func set_path_customer(id_path : Array, customer : Customer) -> void:
 	for id in id_path:
 		var cell_local_position = ground_layer.map_to_local(id)
-		customer_path_coords.append(id)
-		customer_path_positions.append(cell_local_position)
-	#print("ASTAR CALCULATED ID PATH: ", customer_path_coords)
-	#print("ASTAR CALCULATED POSITION PATH: ", customer_path_positions)
+		customer.path.append(cell_local_position)
+	calculations_okay = true
+	print("CUSTOMER PATH: ", customer.path)
 #endregion
 
-func random_seat_position() -> Vector2:
+func random_seat_position(customer : Customer) -> Vector2:
 	var random_seat_marker = seats_array.get_children().pick_random()
 	var marker_local_position = to_local(random_seat_marker.position)
 
 	if debug_enabled: # debug print
 		print("Random seat produced: ", marker_local_position)
+	calculations_okay = true
 	return marker_local_position
 	
-
+	
 func is_cell_blocked(id) -> bool:
 	var ground_tile_data = ground_layer.get_cell_tile_data(id)
 	
