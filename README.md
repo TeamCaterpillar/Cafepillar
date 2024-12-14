@@ -1,8 +1,9 @@
-# The title of your game #
+# Cafepillar #
 
 ## Summary ##
 
-**A paragraph-length pitch for your game.**
+The end of spring is coming, and your caterpillar friends have yet to transform into their butterfly forms! The God of Metamorphosis has tasked you with helping them by running the caterpillar cafe; only by feeding them enough to transform before summer begins will this God grant you the mercy of transforming yourself!
+To escape this caterpillar fate, you must listen to what your fellow caterpillars are requesting, as they need very particular meals to grow. Then, use the surplus of fresh ingredients (courtesy of your God!) to follow the recipes of the food that’s been requested. Be sure to cook it to perfection to get the greatest quality meal! Serve the completed food the caterpillars and they will reward you with Golden Seeds, which you will collect as proof of your service. Earn enough Golden Seeds in the three days before summer or you’ll be stuck as a little caterpillar forever!
 
 ## Project Resources
 
@@ -22,7 +23,7 @@
 
 Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
 
-Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content. 
+Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content.
 
 *Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
 
@@ -31,9 +32,35 @@ Here is an example:
 
 You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
 
-## Producer
+## Producer, Art Lead, Customer Creation
 
-**Describe the steps you took in your role as producer. Typical items include group scheduling mechanisms, links to meeting notes, descriptions of team logistics problems with their resolution, project organization tools (e.g., timelines, dependency/task tracking, Gantt charts, etc.), and repository management methodology.**
+### Lynn Nguyen
+
+As the producer and main art lead, I was responsible for ensuring the development of our game and its progress went smoothly while also achieving our desired vision for the final build. I also covered the creation of customers and other aspects that would help build the direction of our game, so that other team members could focus on their tasks.
+
+**Task Assignment and Meeting Management**
+
+Meetings were arranged through server messaging on Discord, where we discussed times that we could meet in person as well as times that we would be available to voice call. The rundown of the meetings and what we would be focusing on until the next meeting / until we chat again on Discord was recorded on a Google Doc that was shared with the whole team. I ensured that there was little to no period where there wasn't an aspect of the game being worked on, so that everyone could contribute to the game's progress. In the little time we had, we met frequently, and also communicated frequently on the Discord server so that we'd be updated on when to push our commits and what progress we had made. [Link to the meeting document](https://docs.google.com/document/d/1TilmznogUNGpEh3uqsrBoqjIZ_jFL7WQmL6nhFZnY2g/edit?usp=sharing)
+
+**Art Direction and Creation**
+
+To fully realize our plans of creating a caterpillar themed cafe, I contributed to the assets that would connect the gameplay to the main premise of the game. Our biggest inspiration was the original Very Hungry Caterpillar book, an artstyle that's incredibly bright and colorful with a mixture of textures on top of the shapes of each object. I ensured this would come through in the [kitchen's background](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/assets/backgrounds/kitchen_background.png) as well as the [transitional scene](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/assets/transition_screen2.png) between the front of the house and the kitchen. I also worked on the [appliance assets in the kitchen](https://github.com/TeamCaterpillar/Cafepillar/tree/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/assets/kitchen_equipment).
+
+![kitchen screenshot](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/screenshots/cutscene.png)
+
+Our second desired style was a pixel-art style that would fit our desired isometric top-down view of the cafe front. We decided on a pixel style for the front of house as a way to differentiate the two areas of gameplay and also fitting the grid movement that we have for the customers. I maintained the colorful style of our assets in the tileset of the front of house, and I also drew the [artwork of the dishes and ingredients in a pixelated style](https://github.com/TeamCaterpillar/Cafepillar/tree/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/assets/cards) to match. This also goes for [our customers](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/assets/sprites/customer.png) and our [player character](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/assets/sprites/player.png), which were drawn to be pixelated animated colors in the same bright tone as the Very Hungry Caterpillar.
+
+![front of house screenshot](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/screenshots/kitchen_1.png)
+
+**Customer Creation**
+
+I ensured that the customers can be created through a customer factory. Customer each have [designated variables](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/characters/customer.gd#L9) for the amount of time they will wait for their order as well as the name of the order they want. Based on this and [the specifications class for the customer](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/specs/customer_basic_spec.gd#L13), we can [create customers on command](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/factories/customer_factory.gd#L7) so we can control when they are created as well as what they order. This also allows for [random generation of customers](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/factories/customer_factory.gd#L15) so that they are spawned with random order requests and are given the corresponding wait time for the dish they want. [Customers are spawned in the front_manager](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/managers/front_manager.gd#L69) after the specified spawn timer has finished, the number of customers is sparse, the day hasn't ended and there are still seats available. When this occurs, [a signal is sent to the order queue that a customer has been created](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/managers/front_manager.gd#L80). The signal also sends the specifications of the randomly generated customer.
+
+![screenshot_customer_factory]()
+
+**Customer Orders to Kitchen Queue**
+
+I made sure that the customers orders would be reflected in the queue that is on display in the kitchen scene. The signal that is emitted from the front manager is connected to the order_queue script, which calls the [_add_order method](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/ui/order_queue.gd#L34). This method receives the name and the wait time of the order corresponding with the customer and loads it into the order_card instance, which allows the order_card to display the image of the dish in queue as well as the amount of time that the order card starts with.
 
 ## User Interface and Input
 
@@ -56,11 +83,11 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ### Minh Nguyen
 
-Taking the main responsibility of implementing the kitchen logic, I was tasked with creating and connecting different kitchen appliances and components through scripts in order to ensure a smooth gameplay process for when the player heads to the kitchen to create food items to fulfill customer orders at the front of house. 
+Taking the main responsibility of implementing the kitchen logic, I was tasked with creating and connecting different kitchen appliances and components through scripts in order to ensure a smooth gameplay process for when the player heads to the kitchen to create food items to fulfill customer orders at the front of house.
 
 **Cooking Appliances**
 
-Working to extend the script gcard_hand_layout.gd provided by Emma that manages the card hand and card dragging mechanics, I implemented drop handlers that are specific to each of the drop locations in the kitchen scene. For appliances, when the dragged card is released within the boundaries of the drop off slot, the card is removed from the hand and the appliance will hold the card as a child, extracting its resource into an array for condition checks. Subsequence cards that are dropped are placed with a randomly generated offset to create a card stacking effect. 
+Working to extend the script gcard_hand_layout.gd provided by Emma that manages the card hand and card dragging mechanics, I implemented drop handlers that are specific to each of the drop locations in the kitchen scene. For appliances, when the dragged card is released within the boundaries of the drop off slot, the card is removed from the hand and the appliance will hold the card as a child, extracting its resource into an array for condition checks. Subsequence cards that are dropped are placed with a randomly generated offset to create a card stacking effect.
 
 ![Screenshot 2024-12-13 at 8 29 50 PM](https://github.com/user-attachments/assets/2a9d109c-2332-4c76-b714-0aaafe2877ad)
 
@@ -78,7 +105,7 @@ For example, a typical entry in the recipes dictionary can look like this:
     "ingredients": ["Eggs x2"]\
 }
 
-Going through the formatter, the title would transform to snake case, in this case, sunny_side_up, consistent with our resources file naming conventions in order to generate the correct card texture and resource. The formatter would also handle the “x2” at the end the ingredient element, creating a duplicate element or more corresponding to the amount specified. It also removes the ‘s’ at the end of the ingredient’s name for consistent plurality of our resource naming methodologies. In this example, [“Eggs x2”] is transformed into [egg, egg], matching the slot’s resource array, which when compared will return the recipe that matches the exact name and quantity of ingredients present. 
+Going through the formatter, the title would transform to snake case, in this case, sunny_side_up, consistent with our resources file naming conventions in order to generate the correct card texture and resource. The formatter would also handle the “x2” at the end the ingredient element, creating a duplicate element or more corresponding to the amount specified. It also removes the ‘s’ at the end of the ingredient’s name for consistent plurality of our resource naming methodologies. In this example, [“Eggs x2”] is transformed into [egg, egg], matching the slot’s resource array, which when compared will return the recipe that matches the exact name and quantity of ingredients present.
 
 **Kitchen Logic**
 
@@ -144,7 +171,7 @@ A [method](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708c
 
 **Audio Sources**
 
-The button and shuffling sound effects were sourced from [freesound.org](https://freesound.org/search/?q=shuffle+card&f=tag%3A%22shuffling%22), and the background music was sourced from a [youtube video](https://www.youtube.com/watch?v=zhhA3drWwcw&pp=ygUQY2F0ZXJwaWxsYXIgc29uZw%3D%3D) that allowed viewers to use their music for free. Signals are sent every time a button is pressed, and for each scene, there is a script that is listening for the signals and emits the button_pressed sound effect when it reads the signal. The background music is autoloaded when the game boots up and loops, ensuring no breakups in the music when switching between the front of house and the kitchen. The sound style is meant to be relaxing and reminiscent of a coffee shop, so we chose a comfy bossa-nova track to play in our game.
+The button and shuffling sound effects were sourced from [freesound.org](https://freesound.org/search/?q=shuffle+card&f=tag%3A%22shuffling%22), and the background music was sourced from a [youtube video](https://www.youtube.com/watch?v=zhhA3drWwcw&pp=ygUQY2F0ZXJwaWxsYXIgc29uZw%3D%3D) composed by SolarDTM. Permissions were obtained to use their work as background music. Signals are sent every time a button is pressed, and for each scene, there is a script that is listening for the signals and emits the button_pressed sound effect when it reads the signal. The background music is autoloaded when the game boots up and loops, ensuring no breakups in the music when switching between the front of house and the kitchen. The sound style is meant to be relaxing and reminiscent of a coffee shop, so we chose a comfy bossa-nova track to play in our game.
 
 ## Gameplay Testing
 
@@ -154,14 +181,29 @@ The button and shuffling sound effects were sourced from [freesound.org](https:/
 
 ## Narrative Design
 
-**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.** 
+**Document how the narrative is present in the game via assets, gameplay systems, and gameplay.**
+### Lynn Nguyen
+
+As aforementioned, I took care of the art direction of the game to reflect the premise of our game, so the art and the gameplay was determined to reflect a cafe managed by a caterpillar for other caterpillars. I also added to the story of our game by adding a cutscene section of the game that would act as a prologue to the player's experience and explain why they were in a cafe cooking for caterpillars. I also determined the recipes that the player can cook and the caterpillars can eat, with some ingredients reflecting actual caterpillar diets (and others less so, for the fun of it, but I think if it really wanted to a caterpillar could *probably* eat a burger...)
+
+**Cutscene Development**
+
+The cutscene can currently be found by pressing C on the keyboard. To give more player interaction in the cutscene, I made sure that changes in dialogue and action sequences (the [durative commands](https://github.com/TeamCaterpillar/Cafepillar/tree/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/commands/durative_cmds) for each character scene) [happen when the player clicks](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/scene/cutscene.gd#L28) on the dialogue box. I gave the NPC that represents the player their own animations and movement on the screen with the durative move commands, and the dialogue from the God of Metamorphosis is from the durative dialogue command.
+
+![cutscene screenshot](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/screenshots/cutscene.png)
+
+We did intend for this cutscene to play before the game begins, but our main focus was getting the kitchen mechanics working foremost and the customers orders second. Future builds will feature this cutscene playing as the game begins, so that the player can have a better understanding of the player caterpillar's motivations and the goal of the game.
+
+**Recipe Book / Ingredient Choices**
+
+The crux of our cafe management gameplay is cooking and serving orders in our game. I determined the orders by selecting foods that would commonly be found in a cafe, and using ingredients that would make sense for that food or ingredients that caterpillars eat in real life (seeds, flower petals, tea and lettuce leaves, fruits (strawberry), beans). I simplified the ingredients required for each meal so that they'd fit in the time management scope of the game, and I specified that more complex ingredients/recipes would have to be unlocked/bought with Golden Seeds, the currency earned by serving customers. This helps flesh out the narrative elements of the game so that it's not simply card time management, there is purpose given in the act of selecting the cards for the recipes and cooking them correctly. [The list of recipes as well as the cutscene dialogue draft](https://docs.google.com/document/d/1QJGlTrxCEvVbQXHhcoUuOwjzBdKtZe6hRNyglQgyM6w/edit?usp=sharing)
 
 ## Press Kit and Trailer
 
 [Trailor](https://youtu.be/aDJ_-KLX_5c)  
 [Press Kit](https://github.com/TeamCaterpillar/Cafepillar/blob/1f56d638723ec2c0116c272568b60dbe65acfa32/PressKit.md)  
 
-The trailor starts off with clips from the opening cutscene that unfortunately couldn't be implemented in time, so I decided to include it in the trailer. I picked clips from the cutscene that would concisely summarize the lore along with on-screen text explaining the rest. In addition, there are 2 main "rooms" in the game, with those being the front of house and the kitchen. The trailer starts off by showing the front of house and the customers filtering in, which is what the player will first see when they boot up the game. It then transitions into showing off the kitchen and how the food cooking mechanic works, and how to serve the food after it's done. I made the trailer progress similarly to how the player would progress through the game, starting with the front of house, going into the kitchen where some cooking failures happen at first, into successfully creating a dish. 
+The trailor starts off with clips from the opening cutscene that unfortunately couldn't be implemented in time, so I decided to include it in the trailer. I picked clips from the cutscene that would concisely summarize the lore along with on-screen text explaining the rest. In addition, there are 2 main "rooms" in the game, with those being the front of house and the kitchen. The trailer starts off by showing the front of house and the customers filtering in, which is what the player will first see when they boot up the game. It then transitions into showing off the kitchen and how the food cooking mechanic works, and how to serve the food after it's done. I made the trailer progress similarly to how the player would progress through the game, starting with the front of house, going into the kitchen where some cooking failures happen at first, into successfully creating a dish.
 Screenshots in the press kit were chosen to show off every major screen of the game, with those being the cutscene, front of house, kitchen, and end of day screen where the shop pops up.
 
 
@@ -169,7 +211,7 @@ Screenshots in the press kit were chosen to show off every major screen of the g
 
 ### Minh Nguyen
 
-Working primarily on connecting the components within the Kitchen scene, it makes sense for me to also ensure the gameplay in the kitchen flows well and intuitively. 
+Working primarily on connecting the components within the Kitchen scene, it makes sense for me to also ensure the gameplay in the kitchen flows well and intuitively.
 
 **Card Hand**
 
@@ -181,7 +223,7 @@ I reimplemented the card system to be a single instance, and when the player dra
 
 **Recipe Book**
 
-Originally, the recipe book consisted of individual pages describing the recipes, and the only navigation method was either back or continue, essentially flipping through the pages one by one. This became unreasonable as our recipe list grew, so instead, I refactored the recipe’s main page to be a generated list of buttons for each of the recipe titles. When the button is pressed, its corresponding recipe will show. 
+Originally, the recipe book consisted of individual pages describing the recipes, and the only navigation method was either back or continue, essentially flipping through the pages one by one. This became unreasonable as our recipe list grew, so instead, I refactored the recipe’s main page to be a generated list of buttons for each of the recipe titles. When the button is pressed, its corresponding recipe will show.
 
 ![Screenshot 2024-12-13 at 10 30 36 PM](https://github.com/user-attachments/assets/f8a10797-069e-47ec-b5da-479f2b256cda)
 
@@ -196,7 +238,7 @@ Furthermore, the recipe book took up a portion of the screen real estate, which 
 
 **Serving Tray**
 
-The serving tray used to have a “Yes” button that transported the dish into the player’s inventory. We found it to be a redundant command when the player already can choose to discard or keep the dish by either dragging the card into the trash or the tray, so we decided to ditch the confirm button and initiate the transport directly on the drop. 
+The serving tray used to have a “Yes” button that transported the dish into the player’s inventory. We found it to be a redundant command when the player already can choose to discard or keep the dish by either dragging the card into the trash or the tray, so we decided to ditch the confirm button and initiate the transport directly on the drop.
 
 **Kitchen Layout**
 
@@ -204,12 +246,12 @@ As we added more components, the kitchen scene became cluttered and the flow of 
 
 **Code Refactoring**
 
-When building the project up from scratch, there were instances where too many components were in the same scene at once, as well as long and cluttered code files that could be refactored to adhere to good coding practices. I took initiatives to refactor whatever I can to maintain a clean workspace for better navigation and debugging. 
+When building the project up from scratch, there were instances where too many components were in the same scene at once, as well as long and cluttered code files that could be refactored to adhere to good coding practices. I took initiatives to refactor whatever I can to maintain a clean workspace for better navigation and debugging.
 
 * Refactored components of the recipe book into a single RecipesBook scene.
 * Separate the recipe list into an independent global script recipes.gd from the recipes book for safer referencing from other scenes.
-* Attempted to separate the drag and drop mechanics from the hand layout into different code files, but since the code is provided by a plugin with a lot of dependencies, I invested a lot of time but had little success. 
-* Refactored the Stove into a separate scene for better reusability, which I used to create the Counter and the Blender appliances. 
+* Attempted to separate the drag and drop mechanics from the hand layout into different code files, but since the code is provided by a plugin with a lot of dependencies, I invested a lot of time but had little success.
+* Refactored the Stove into a separate scene for better reusability, which I used to create the Counter and the Blender appliances.
 * Combined tray.gd, which handles the dropping of the dish card onto the serving tray, to gcard_hand_layout.gd which handles other dropping functionalities to centralize the code for the dropping mechanics.
 
 ## Visuals
@@ -217,4 +259,3 @@ When building the project up from scratch, there were instances where too many c
 I created various UI component assets such as the [shop background](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/shop_menu.png), the [shop item box](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/shop_item.png), and the kitchen appliance buttons([1](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button.png), [2](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button_hover.png), [3](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button_pressed.png), [4](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button.png), [5](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button_hover.png), [6](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button_pressed.png), [7](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button.png), [8](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button_hover.png), [9](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button_pressed.png)). I also created the blank ingredient card templates ([ingredient](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/cards/blank_card.png), [dish](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/cards/blank_dish_card.png)). I also created various unused assets such as a [start menu background](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/start_menu.png).
 
 In creating these assets, I aimed to adhere to our game's cutesy, whimsical art direction.
-
