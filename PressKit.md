@@ -10,7 +10,7 @@
 
 **Release Date:** Friday, December 13, 2024
 
-**Price**: Free.99
+**Price**: Free
 
 **Supported Platforms**: Any Browser that supports WebGL
 
@@ -26,4 +26,9 @@
 
 ## Screenshots
 
-![Untitled](https://github.com/TeamCaterpillar/Cafepillar/blob/c378917c704e5e06af4c49bd012184c57d4e7a90/Cafepillar_Game/screenshots/cutscene)
+![cutscene](https://github.com/TeamCaterpillar/Cafepillar/blob/c378917c704e5e06af4c49bd012184c57d4e7a90/Cafepillar_Game/screenshots/cutscene)
+![cutscene](https://github.com/TeamCaterpillar/Cafepillar/blob/53e89ce900c0e6a2848f22e6ea735a1c430cd270/Cafepillar_Game/screenshots/front_of_house)
+![cutscene](https://github.com/TeamCaterpillar/Cafepillar/blob/53e89ce900c0e6a2848f22e6ea735a1c430cd270/Cafepillar_Game/screenshots/kitchen_1)
+![cutscene](https://github.com/TeamCaterpillar/Cafepillar/blob/53e89ce900c0e6a2848f22e6ea735a1c430cd270/Cafepillar_Game/screenshots/kitchen_2)
+![cutscene](https://github.com/TeamCaterpillar/Cafepillar/blob/53e89ce900c0e6a2848f22e6ea735a1c430cd270/Cafepillar_Game/screenshots/kitchen_3)
+![cutscene](https://github.com/TeamCaterpillar/Cafepillar/blob/53e89ce900c0e6a2848f22e6ea735a1c430cd270/Cafepillar_Game/screenshots/shop)
