@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dn3urr1xccmik"]
+[gd_scene load_steps=20 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/scene/kitchen.gd" id="1_tfllf"]
 [ext_resource type="Texture2D" uid="uid://dfft7evi0bbdc" path="res://assets/backgrounds/kitchen_background.png" id="2_scie6"]
@@ -13,10 +13,36 @@
 [ext_resource type="PackedScene" uid="uid://b0pgt5yvs83pn" path="res://scenes/ui/counter.tscn" id="10_w6rx6"]
 [ext_resource type="Texture2D" uid="uid://8i4evtdqq1xm" path="res://assets/ui/trash.png" id="12_6a2mi"]
 [ext_resource type="Texture2D" uid="uid://bjuyjlebiava4" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="12_dv7ss"]
+[ext_resource type="Script" path="res://scripts/ui/recipe_popup.gd" id="13_1wqo7"]
+[ext_resource type="FontFile" uid="uid://dbk21w2t5vmji" path="res://assets/ui/Minecraft.ttf" id="14_egg68"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
 font_size = 50
 font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csysu"]
+bg_color = Color(0.517647, 0.270588, 0.105882, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcivj"]
+bg_color = Color(0.35843, 0.179433, 0.0597112, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqobe"]
+bg_color = Color(0.517647, 0.270588, 0.105882, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Kitchen" type="Control"]
 custom_minimum_size = Vector2(1920, 1080)
@@ -178,12 +204,6 @@ offset_top = 744.0
 offset_right = -454.0
 offset_bottom = -336.0
 
-[node name="RecipesBook" parent="." instance=ExtResource("9_b7q2u")]
-offset_left = -4.0
-offset_top = 571.0
-offset_right = 329.0
-offset_bottom = 992.0
-
 [node name="TrashBin" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -1.0
@@ -220,3 +240,32 @@ offset_right = 127.26
 offset_bottom = 50.815
 texture = ExtResource("12_dv7ss")
 expand_mode = 1
+
+[node name="RecipePopupManager" type="Control" parent="."]
+anchors_preset = 0
+offset_left = -35.0
+offset_top = -35.0
+offset_right = 5.0
+offset_bottom = 5.0
+script = ExtResource("13_1wqo7")
+
+[node name="RecipesBook" parent="RecipePopupManager" instance=ExtResource("9_b7q2u")]
+offset_left = 34.0
+offset_top = 611.0
+offset_right = 438.0
+offset_bottom = 1085.0
+
+[node name="PopUpButton" type="Button" parent="RecipePopupManager"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 564.0
+offset_right = 219.0
+offset_bottom = 606.0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("14_egg68")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/hover = SubResource("StyleBoxFlat_csysu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_dcivj")
+theme_override_styles/normal = SubResource("StyleBoxFlat_aqobe")
+text = "Show Recipes 
+"
