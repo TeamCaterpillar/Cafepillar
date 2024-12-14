@@ -72,10 +72,10 @@ Within slot.gd, which handles the handling of the dropped cards, I implemented a
 
 For example, a typical entry in the recipes dictionary can look like this:
 
-{
-    "use": "Stove",
-    "title": "Sunny Side Up",
-    "ingredients": ["Eggs x2"]
+{ \
+    "use": "Stove",\
+    "title": "Sunny Side Up",\
+    "ingredients": ["Eggs x2"]\
 }
 
 Going through the formatter, the title would transform to snake case, in this case, sunny_side_up, consistent with our resources file naming conventions in order to generate the correct card texture and resource. The formatter would also handle the “x2” at the end the ingredient element, creating a duplicate element or more corresponding to the amount specified. It also removes the ‘s’ at the end of the ingredient’s name for consistent plurality of our resource naming methodologies. In this example, [“Eggs x2”] is transformed into [egg, egg], matching the slot’s resource array, which when compared will return the recipe that matches the exact name and quantity of ingredients present. 
@@ -88,10 +88,10 @@ I also implemented various game restrictions to ensure that gameplay actions sta
 -When cooking starts, cards cannot be moved in or out of the appliances, managed in cooking_timer.gd
 
 **Other Components**
--Added a trash bin for player to discard dish if they are not satisfied with the grade
--Reworked the recipe book made by Michelle which will be discussed more in the game feel section.
--Reworked the serving tray which will be discussed in the game feel section.
--Reworked the hand and ingredients system which will be discussed in the game feel section.
+* Added a trash bin for player to discard dish if they are not satisfied with the grade
+* Reworked the recipe book made by Michelle which will be discussed more in the game feel section.
+* Reworked the serving tray which will be discussed in the game feel section.
+* Reworked the hand and ingredients system which will be discussed in the game feel section.
 
 # Sub-Roles
 
@@ -160,9 +160,9 @@ As we added more components, the kitchen scene became cluttered and the flow of 
 
 When building the project up from scratch, there were instances where too many components were in the same scene at once, as well as long and cluttered code files that could be refactored to adhere to good coding practices. I took initiatives to refactor whatever I can to maintain a clean workspace for better navigation and debugging. 
 
--Refactored components of the recipe book into a single RecipesBook scene.
--Separate the recipe list into an independent global script recipes.gd from the recipes book for safer referencing from other scenes.
--Attempted to separate the drag and drop mechanics from the hand layout into different code files, but since the code is provided by a plugin with a lot of dependencies, I invested a lot of time but had little success. 
--Refactored the Stove into a separate scene for better reusability, which I used to create the Counter and the Blender appliances. 
--Combined tray.gd, which handles the dropping of the dish card onto the serving tray, to gcard_hand_layout.gd which handles other dropping functionalities to centralize the code for the dropping mechanics.
+* Refactored components of the recipe book into a single RecipesBook scene.
+* Separate the recipe list into an independent global script recipes.gd from the recipes book for safer referencing from other scenes.
+* Attempted to separate the drag and drop mechanics from the hand layout into different code files, but since the code is provided by a plugin with a lot of dependencies, I invested a lot of time but had little success. 
+* Refactored the Stove into a separate scene for better reusability, which I used to create the Counter and the Blender appliances. 
+* Combined tray.gd, which handles the dropping of the dish card onto the serving tray, to gcard_hand_layout.gd which handles other dropping functionalities to centralize the code for the dropping mechanics.
 
