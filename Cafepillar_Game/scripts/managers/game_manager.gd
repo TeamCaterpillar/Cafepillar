@@ -1,14 +1,15 @@
 extends Node
 
 # Game state variables
-var current_day : int = 1
-var golden_seeds : int = 100
-var kitchen_inventory: Array[Variant] = []
-var active_orders: Array[Variant]     = []
-var waiter_queue: Array[Variant]      = []
-var finished_dishes: Array[Variant]   = []
-var customer_ids : Array = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-var customers_waiting : Array[Variant] = []
+var current_day : int 					= 1
+var golden_seeds : int 					= 100
+var kitchen_inventory: Array[Variant] 	= []
+var active_orders: Array[Variant]     	= []
+var waiter_queue: Array[Variant]      	= []
+var finished_dishes: Array[Variant]   	= []
+var customer_ids : Array 				= [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+var customers_waiting : Array[Variant] 	= []
+var filled_seats : Array[Variant] 		= []
 
 # Scene references
 var current_scene  = null
@@ -21,6 +22,7 @@ const SCENE_DINER: String   = "res://scenes/world/diner.tscn"
 
 # Called when the game starts
 func _ready():
+	filled_seats.fill(0)
 	# Load the first scene (kitchen by default)
 	#change_scene(SCENE_KITCHEN)
 	
@@ -28,6 +30,7 @@ func _ready():
 	initialize_inventory()
 	
 	# connect signals
+
 	GameSignals.next_day_started.connect(_on_next_day_started)
 	GameSignals.food_delivered.connect(update_currency)
 
@@ -65,10 +68,10 @@ func remove_order_from_queue() -> void:
 # HANDLE CURRENCY
 
 func update_currency(dish_card: DishCard):
-	var _food_name = dish_card.food_name
-	var food_condition = dish_card.food_condition
-	var base_payment = 10
-	var base_multiplier = 1.0
+	#var _food_name = dish_card.food_name
+	var food_condition: String = dish_card.food_condition
+	var base_payment: int      = 10
+	var base_multiplier: float = 1.0
 	if food_condition == "Underdone":
 		base_multiplier = 0.5
 	elif food_condition == "Overdone":
@@ -141,3 +144,13 @@ func initialize_inventory() -> void:
 	add_to_storage("milk")
 	add_to_storage("rose_petal")
 	add_to_storage("strawberry")
+
+######### SEAT MANAGEMENT #########
+func get_empty_seat() -> Marker2D:
+	var empty_seat = filled_seats[-1]
+	if empty_seat:
+		filled_seats[empty_seat] = 1
+		return empty_seat
+	else:
+		print("No empty seats available!")
+		return null

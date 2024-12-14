@@ -73,6 +73,7 @@ cutscene={
 2d_physics/layer_2="PlayerLayer"
 2d_navigation/layer_2="Level 1"
 2d_physics/layer_8="CustomerLayer"
+2d_physics/layer_16="PlayerDelivery"
 
 [rendering]
 

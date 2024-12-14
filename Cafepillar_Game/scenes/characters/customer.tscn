@@ -32,7 +32,8 @@ height = 36.0
 [node name="Customer" type="CharacterBody2D" node_paths=PackedStringArray("sprite")]
 z_index = 2
 y_sort_enabled = true
-collision_mask = 2
+collision_layer = 0
+collision_mask = 32768
 motion_mode = 1
 script = ExtResource("1_goek5")
 sprite = NodePath("CustomerSprite")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://d5fp1ujp6rc7"]
+[gd_scene load_steps=10 format=4 uid="uid://d5fp1ujp6rc7"]
 
 [ext_resource type="Script" path="res://scripts/managers/front_manager.gd" id="1_btvhg"]
 [ext_resource type="TileSet" uid="uid://c11awdbng7yss" path="res://assets/tile_sets/cafe_tile_set.tres" id="2_pdjny"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/world/customer_controller.gd" id="5_yx5pc"]
 [ext_resource type="PackedScene" uid="uid://celk4vhbyjbe3" path="res://scenes/world/seats_w_collision.tscn" id="6_3g2lx"]
 [ext_resource type="Script" path="res://scripts/manage_gold.gd" id="6_5p76q"]
+[ext_resource type="Script" path="res://scenes/world/seats.gd" id="7_0kq27"]
 [ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="8_6apc2"]
 
 [node name="Cafe" type="Node2D"]
@@ -64,6 +65,7 @@ position = Vector2(206, 9)
 z_index = 10
 y_sort_enabled = true
 position = Vector2(0, 3)
+script = ExtResource("7_0kq27")
 
 [node name="Node" type="Node" parent="."]
 script = ExtResource("6_5p76q")

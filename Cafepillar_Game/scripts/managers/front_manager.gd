@@ -48,10 +48,10 @@ func _ready():
 	# AStar setup
 	_init_grid()
 	_update_pathable_cells()
-	set_player_path(find_path(player_start_position))
+	#set_player_path(find_path(player_start_position))
 
 	GameSignals.player_finished_delivery.connect(_player_finished_delivery) # signal will be sent when player has returned to kitchen point
-
+	
 	# spawning customers - temp
 	_spawn_timer = Timer.new()
 	_spawn_timer.one_shot = false
@@ -71,12 +71,20 @@ func _process(_delta):
 		_spawn_timer.start(customer_spawn_rate)
 		spec_customer = customer_factory.generate_rand_customer()
 		GameSignals.emit_signal("customer_added", spec_customer)
-		random_seat_node().add_child(spec_customer)
+		random_seat_node().add_child(spec_customer) # replace with spawnpoint when pathing complete
 		#var pathy = find_path(customer_spawn.position)
 		#set_customer_path(pathy)
 		#print(spec_customer.path)
 		#GameSignals.customer_can_move.emit()
 		
+
+func random_seat_node() -> Marker2D:
+	var random_seat_marker = seats_array.get_children().pick_random()
+	if seats_taken.has(random_seat_marker):
+		return random_seat_node() # infinite recursion error present, fixed in process
+	else:
+		seats_taken.get_or_add(random_seat_marker)
+		return random_seat_marker# only will ever add (I think)
 
 
 func _init_grid() -> void:
@@ -124,19 +132,53 @@ func _update_pathable_cells() -> void:
 						#polygon.z_index = 5
 						#add_child(polygon)
 
-func random_seat_node() -> Marker2D:
-	var random_seat_marker = seats_array.get_children().pick_random()
-	if seats_taken.has(random_seat_marker):
-		return random_seat_node() # infinite recursion error present
-	else:
-		seats_taken.get_or_add(random_seat_marker)
-		return random_seat_marker# only will ever add (I think)
+
+#region Player Pathing
+func get_customer_to_deliver() -> Variant:
+	return
 
 
-func find_path(start_position : Vector2) -> Array:
+func find_path_player() -> Array:
 	var start_cell : Vector2i
 	var end_cell : Vector2i
-	start_cell = ground_layer.local_to_map(start_position)
+	start_cell = ground_layer.local_to_map(player_start_position)
+	end_cell = ground_layer.local_to_map(get_customer_to_deliver().position)
+
+	if start_cell == end_cell or !astar_grid.is_in_boundsv(start_cell) or !astar_grid.is_in_boundsv(end_cell):
+		push_error("SOMETHING WRONG IN FIND_PATH")
+		return Array()
+	
+	var id_path = astar_grid.get_id_path(start_cell, end_cell)
+	
+	#if debug_enabled: # debug print
+		#print("---------------------------------------------------")
+		#print("PATH FINDING INFO:")
+		#print("START CELL: ", start_cell)
+		#print("END CELL: ", end_cell)
+		#print("---------------------------------------------------")
+
+	return id_path
+
+
+# default value is the players starting position (kitchenexit)
+func set_path_player() -> void:
+	var id_path = find_path_player()
+	player_path_coords.clear()
+	player_path_positions.clear()
+	for id in id_path:
+		var cell_local_position = ground_layer.map_to_local(id)
+		player_path_coords.append(id)
+		player_path_positions.append(cell_local_position)
+	player.path = player_path_positions
+	#print("ASTAR CALCULATED ID PATH: ", player_path_coords)
+	#print("ASTAR CALCULATED POSITION PATH: ", player_path_positions)
+#endregion
+
+#region Customer Pathing
+func find_path_customer() -> Array:
+	var start_cell : Vector2i
+	var end_cell : Vector2i
+	start_cell = ground_layer.local_to_map(player_start_position)
 	end_cell = ground_layer.local_to_map(random_seat_position())##############TEMP############### # internally checks seat occupancy
 
 	if start_cell == end_cell or !astar_grid.is_in_boundsv(start_cell) or !astar_grid.is_in_boundsv(end_cell):
@@ -155,19 +197,7 @@ func find_path(start_position : Vector2) -> Array:
 	return id_path
 
 
-# default value is the players starting position (kitchenexit)
-func set_player_path(id_path : Array = find_path(player_start_position)) -> void:
-	player_path_coords.clear()
-	player_path_positions.clear()
-	for id in id_path:
-		var cell_local_position = ground_layer.map_to_local(id)
-		player_path_coords.append(id)
-		player_path_positions.append(cell_local_position)
-	#print("ASTAR CALCULATED ID PATH: ", player_path_coords)
-	#print("ASTAR CALCULATED POSITION PATH: ", player_path_positions)
-
-
-func set_customer_path(id_path : Array) -> void:
+func set_path_customer(id_path : Array) -> void:
 	customer_path_coords.clear()
 	customer_path_positions.clear()
 	for id in id_path:
@@ -176,7 +206,7 @@ func set_customer_path(id_path : Array) -> void:
 		customer_path_positions.append(cell_local_position)
 	#print("ASTAR CALCULATED ID PATH: ", customer_path_coords)
 	#print("ASTAR CALCULATED POSITION PATH: ", customer_path_positions)
-
+#endregion
 
 func random_seat_position() -> Vector2:
 	var random_seat_marker = seats_array.get_children().pick_random()
@@ -215,7 +245,12 @@ func _on_return_player_pressed() -> void:
 	player.return_to_start_position()
 
 func _player_finished_delivery() -> void:
-	set_player_path()
+	set_path_player()
+
+func _on_food_delivered() -> void:
+	player.return_to_start_position()
+
+
 
 # unused helper functions
 
