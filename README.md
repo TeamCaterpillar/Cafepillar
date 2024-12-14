@@ -108,6 +108,7 @@ The implementation of the Day/Night cycle involved placing a timer at the very t
 The Recipe Book makes sure the player has an easy-to-navigate system to look up any recipe that they might need in order to make their food. In a time-pressured environment like the kitchen, it had to be easy to read and simple enough to manage that it doesn't inadventedly add an additional difficulty on top of the already existing gameplay. Minh later improved upon my original design to make everything more streamlined.
 
 ## User Interface / Card Mechanics - E Chan
+I mostly worked on designing and implementing UI components in the game such as the shop. I also implemented some parts of the gameplay mechanics such as the ingredient inventory. In doing these tasks, I also worked on bridging the UI and game mechanics/data.
 **Shop**
 
 At the beginning of the game, the player starts out with a limited set of ingredients. The player can then unlock more ingredients over time by purchasing them in the shop at the end of each day.
@@ -121,6 +122,8 @@ Within the Shop, there is also a [shopping_cart](https://github.com/TeamCaterpil
 
 Each [ShopItem](https://github.com/TeamCaterpillar/Cafepillar/blob/ac91d504deaf1b3664d13c7d08f6415ddeea040f/Cafepillar_Game/scripts/ui/shop_item.gd) displays the corresponding item’s name, sprite, and cost. There is also a checkbox that indicates if the item has been selected or not. The item box is a subclass of the built-in TextureButton class which allows for the use of the built-in pressed signal to handle mouse click events. This pressed signal is connected to a [_on_item_clicked function](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop_item.gd#L27-L35) that updates the checkbox and emits the global item_selected or item_deselected signal based on if the item is selected or deselected. These signals respectively trigger the add_item_to_cart and remove_item_from_cart functions mentioned in the previous paragraph.
 
+The shop also responds to the game's current day state. [Upon receiving the day_ended signal](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop.gd#L27), the shop will be [filled](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop.gd#L34-L42) with items avaliable on the particular day. [Upon receiving the next_day_started signal](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop.gd#L28), the shop will be [cleared](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop.gd#L45-L52).
+
 In designing and implementing the shop, the Component and Observer patterns were utilized.
 
 **Ingredient Inventory**
@@ -130,6 +133,8 @@ An [ingredient inventory](https://github.com/TeamCaterpillar/Cafepillar/blob/590
 **Inventory Deck**
 A [method](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/factories/card_factory.gd#L85-L90) was implemented in CardFactory that displays part of the inventory at a time in the kitchen card hand. In CardFactory, I added a [current inventory subset variable](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/factories/card_factory.gd#L17) that is used to determine which items in the inventory should be displayed as cards in the hand. A [card deck button](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scenes/ui/inventory_deck.tscn) was also created to allow the player to cycle through the inventory like they would through a deck in solitaire. This [deck cycling was accomplished](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/factories/card_factory.gd#L26-L34) by updating the subset number and displayed hand upon click.
 
+**Misc**
+* Created a global singleton for game signals
 
 # Sub-Roles
 
