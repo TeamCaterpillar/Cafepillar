@@ -1,4 +1,4 @@
-# Cafepillar #
+![start_menu](https://github.com/user-attachments/assets/afe07c22-615a-46cf-85af-912346903837)
 
 ## Summary ## 
 
@@ -14,6 +14,7 @@ To escape this caterpillar fate, you must listen to what your fellow caterpillar
 | <p style="text-align: center;">Proposal</p>                            | <p style="text-align: center;">Prompted by a Hungry hungry caterpillar fever dream (and our games music)</p> |   [Link](https://docs.google.com/document/d/1RK9_fZNIhu6455-4KIbZJjABS-V4PLPm4asVfd11XNw/edit?usp=sharing) |
 
 &nbsp;&nbsp;&nbsp;&nbsp;\* itch.io can be taken down by ~~Funko Pops~~ a company we will not name with the click of a button
+
 
 ## Gameplay Explanation ##
 
@@ -37,10 +38,6 @@ That is the main game of Cafepillar! Be sure to manage your time well by cooking
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
-![alt text][logo]
-
-[logo]: https://octodex.github.com/godotocat/ "GodotCat"
-
 # Main Roles #
  
 <details><summary>List of members</summary>
@@ -53,16 +50,8 @@ Tim Ha
 </p>
 </details>
 
-Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
-
-Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content.
-
-*Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
-
-Here is an example:  
-*Procedural Terrain* - The game's background consists of procedurally generated terrain produced with Perlin noise. The game can modify this terrain at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
-
-You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
+### ***Our contributions brought to you by Godot Cat***
+ ![godotocat](https://github.com/user-attachments/assets/3e4c1638-f0a0-46cd-a784-34674e36a0d3)
 
 ## Producer, Art Lead, Customer Creation
 
