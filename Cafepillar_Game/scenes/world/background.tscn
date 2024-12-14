@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dta8ywnphhy4"]
+[gd_scene load_steps=4 format=3 uid="uid://cl1yon3hoahx2"]
 
 [ext_resource type="Script" path="res://scripts/scene/day_night_cycle.gd" id="1_5w26l"]
 [ext_resource type="PackedScene" uid="uid://i2jd74yhry5i" path="res://scenes/ui/shop.tscn" id="2_4icya"]
-[ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="3_ldyky"]
+[ext_resource type="FontFile" uid="uid://blhnll7kaivhr" path="res://assets/ui/Minecraft.ttf" id="3_ldyky"]
 
 [node name="DayNightCycle" type="Node2D"]
 script = ExtResource("1_5w26l")
