@@ -17,22 +17,17 @@ const SCENE_KITCHEN: String = "res://scenes/world/kitchen.tscn"
 const SCENE_DINER: String   = "res://scenes/world/diner.tscn"
 
 
-# Signal for scene changes
-#signal scene_changed
-
 # Called when the game starts
 func _ready():
 	filled_seats.fill(0)
-	# Load the first scene (kitchen by default)
-	#change_scene(SCENE_KITCHEN)
 	
 	# initialize inventory to have starter ingredients
 	initialize_inventory()
 	
 	# connect signals
-
 	GameSignals.next_day_started.connect(_on_next_day_started)
 	GameSignals.food_delivered.connect(update_currency)
+
 
 func _on_next_day_started() -> void:
 	current_day += 1
