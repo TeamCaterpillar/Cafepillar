@@ -3,7 +3,7 @@ class_name Slot
 
 @export var deck : GCardHandLayout
 
-@onready var recipes: Array = $"../../RecipesBook".recipes
+@onready var recipes: Array = Recipes.recipes
 # @onready var yes_button: TextureButton = $"../../Tray/YesButton"
 
 var card_resources: Array = []
