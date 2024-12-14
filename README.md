@@ -41,9 +41,6 @@ That is the main game of Cafepillar! Be sure to manage your time well by cooking
 
 [logo]: https://octodex.github.com/godotocat/ "GodotCat"
 
-
-# Main Roles #
-
 # Main Roles #
  
 <details><summary>List of members</summary>
