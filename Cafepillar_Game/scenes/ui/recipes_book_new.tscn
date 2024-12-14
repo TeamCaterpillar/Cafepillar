@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://dcmmpr1h1kkq"]
 
 [ext_resource type="Script" path="res://scripts/ui/recipes_book.gd" id="1_t02f2"]
-[ext_resource type="Texture2D" uid="uid://n6n46lg4esjm" path="res://assets/cards/blank_card.png" id="2_v74uk"]
-[ext_resource type="Texture2D" uid="uid://cmghj4oktwmkf" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="3_pkmln"]
-[ext_resource type="Texture2D" uid="uid://n2fp255urao0" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="4_y6ntc"]
-[ext_resource type="Texture2D" uid="uid://djslguneosp3" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="5_cfy4w"]
-[ext_resource type="PackedScene" path="res://scenes/sounds.tscn" id="6_6huem"]
+[ext_resource type="Texture2D" uid="uid://sv5v1332l23o" path="res://assets/cards/blank_card.png" id="2_v74uk"]
+[ext_resource type="Texture2D" uid="uid://jy8k3vld4xkc" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="3_pkmln"]
+[ext_resource type="Texture2D" uid="uid://kgvqcjp8iaf4" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="4_y6ntc"]
+[ext_resource type="Texture2D" uid="uid://bljjsa65n5i54" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="5_cfy4w"]
+[ext_resource type="PackedScene" uid="uid://c2ct3c5b0l41d" path="res://scenes/sounds.tscn" id="6_6huem"]
 [ext_resource type="Script" path="res://scripts/sounds/recipe_book_sounds.gd" id="7_trhr7"]
-[ext_resource type="AudioStream" uid="uid://b11aqqd71whg3" path="res://assets/audio/button_click.wav" id="8_o5y5b"]
+[ext_resource type="AudioStream" uid="uid://biithianepc2p" path="res://assets/audio/button_click.wav" id="8_o5y5b"]
 
 [node name="RecipesBook" type="Control"]
 layout_mode = 3
