@@ -80,12 +80,12 @@ func _physics_process(_delta: float) -> void:
 		remove_customer()
 		_patience_timer = wait_time
 	
-	if !path.is_empty() and move_is_go:
-		handle_path_movement()
-	elif return_to_start:
-		handle_return_movement() # leave the cafe based on food delivered
-	else:
-		velocity = Vector2.ZERO
+	#if !path.is_empty() and move_is_go:
+		#handle_path_movement()
+	#elif return_to_start:
+		#handle_return_movement() # leave the cafe based on food delivered
+	#else:
+		#velocity = Vector2.ZERO
 
 	move_and_slide()
 
