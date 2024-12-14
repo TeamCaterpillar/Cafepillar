@@ -192,6 +192,53 @@ A [method](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708c
 **Misc**
 * Created a global singleton for game signals
 
+## Cooking System Integration and Connections
+
+### Timothy Ha
+
+I was responsible for linking various gameplay mechanics together such as order management, cooking processes, the dish inventory, and delivery system, and a core gameplay mechanic which was the cooking timer. I also did some user interface work within the delivery system to allow the player to deliver their food to the appropriate customer to receive payment. 
+
+**Cooking Timer System**
+
+I developed the cooking timer system that tracks the cooking progress of dishes. The system involves a timer for each dish, with visual markers indicating key stages of cooking. Depending on when the player decides to stop cooking and plate their dish will determine the food quality which can be either Underdone, Satisfactory, Perfect, or Overdone. The condition of the food will determine the amount of Golden Seeds (currency) that the player receives. I used a timer and delta from process to count how long the dish is cooking for. The timer includes a color-coded bar that changes as the dish cooks, providing feedback on the dish’s condition. I animated it using tween and different themes with ui_theme.tres to change the color of the progress bar based on the condition of the food quality. The cooking timer bar acts as a state machine reflecting the different stages that the cooking process has, namely yellow (underdone), blue (satisfactory), green (perfect), and red (overdone). The visual feedback which is the color of the bar is an indication of its current state. This cooking timer system is a core part of a player’s strategic timing and decision-making as the player has to make a decision whether it is worth plating food early to attempt to get through more customers or aim for perfect foods to attempt to get more currency. 
+
+![cooking_timer_system](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/screenshots/cooking_timer_bar.png)
+
+**Order Cards, Customer Cards, Dish Cards**
+
+I designed and created the order cards, customer cards, and dish cards using Lynn’s sprites. The order cards and customer cards display the customer’s order and customer’s patience which uses a timer and is animated by tween similar to the cooking timer system. The customer card also displays the Customer number (which I will get into more detail later when I talk about the implementation of the delivery system). Dish cards show the sprite of the food as well as an indicator at the top of the card with a color representing the condition of the food. The order cards are Panels and you cannot interact with them, while customer cards and dish cards are actually buttons that you can click when in the inventory (which I will discuss later). I decided to separate the order cards and customer cards because they serve different purposes. The order card is added to the queue to remind the player that there is an ongoing order that needs to be cooked. As soon as the food is complete, the order card is no longer needed and removed from the queue. The customer card is there to remind them that there is a customer waiting to receive their food and I wanted the user to still be able to interact with the customer by delivering the food.
+
+**Order Queue**
+
+I designed and implemented the order queue which can be seen in the kitchen. This includes implementing the connection between the tray, order queue, and the cafe front system. This involved creating an efficient order flow system where each order had an associated order card displaying the time the player had to fulfill the order. If the order card runs out of time (the customer’s patience has gotten to 0), then the order card becomes removed from the queue. If the player manages to finish cooking the food before the timer runs out and drops it into the tray, the first order in the queue with a matching food item will be removed from the queue, reflecting the player’s progress in serving customers. The order queue follows an observer pattern where the order queue is constantly updated as orders are fulfilled, with the system observing changes in the state of the tray and reflecting that on the order queue in real time. The order queue is organized with a VBox container which uses a FIFO (first in, first out) structure, ensuring that orders are processed correctly. This system guides the player on what they should do in the kitchen within the given time limits. 
+
+![orderqueue](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/screenshots/orderqueue.png)
+
+**Delivery System and Inventories**
+
+I was responsible for managing the delivery and inventory systems that handled both the dish cards and customer cards. When the player drops their completed food card into the tray, the order card is removed from the order queue, and the food card gets converted into a square-like dish card that appears in the inventory on the left side. The inventory has two types of cards, namely the dish and customer cards which are buttons. I wanted the user to be able to deliver the food they made to the customer through an online-ish delivery system. On the left, it has all the dishes that the player has completed and has yet to deliver. On the right, it has all the current customers, their orders, and their patience in the form of a bar. I used a Grid Container to design the inventory as a grid of selectable squares, where players can select a dish card and select a customer card. I added a color change to the cards to indicate that the player has selected a certain card. I used two signals which were customer_selected and dish_selected that emits signals whenever a card is selected allowing me to easily mark which cards are selected and be able to compare them. If the food orders match, then both cards are removed from the inventory and appropriate currency is awarded, with a multiplier of 0.5 for underdone and overdone, 1.0 for satisfactory, and 2.0 for perfect. I also connected the successful delivery to the currency system that Michelle made which updates with the use of a signal which passes on a dish card as a variable which contains the food condition and the food name.  
+
+![inventory](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/screenshots/inventory.png)
+
+![distribute_currency](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/screenshots/currency_reward.png)
+
+**Customer ID System**
+
+Since we are using the same sprite for all of the customers, it can be difficult to differentiate between which customer to serve. Therefore, I implemented a customer ID system that uniquely tracks each customer in the game. The purpose of this system is to ensure that players can easily distinguish between customers and know which customers are in queue and have orders that need to be fulfilled first based on when they entered the cafe. In game_manager.gd, there is an array with 10 unique numbers from 1 - 10. When the customer is generated, they are assigned a unique ID. When all 10 numbers are assigned that means the occupancy of the cafe has been reached and no more customers spawn. When a customer leaves (either because their patience runs out or they have been served), the ID gets returned to the array, where the next customer will get that ID from the array. 
+
+**Transition Scene**
+
+I used the animation player and Lynn’s drawing of leaves to create a transition scene between the cafe front and the kitchen. This was so when the player swapped between scenes, it wouldn’t automatically just switch without warning. In order to create an illusion that we were moving back and forth between the cafe front and kitchen, I made sure that when we transition from the left to right, that when going back we would go from right to left. This meant creating 4 different animation states, 2 of which for shifting from left to right and the other 2 for shifting from right to left. I added key frames for the positions of the leaves to allow them to start from the left and to move to the middle over a short time period. Then a new animation frame from the middle to the right to simulate moving leaves. 
+
+![transition_scene](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/screenshots/transition_screen.png)
+
+**Other**
+
+* Added the card hovering above the customer’s head which shows to the player what they want to order and also the customer ID associated with them. I used the progress bar and tween to animate the bar and sync it with the customer card’s timer. 
+* Added the second hand only for dish cards where the user can move it to the tray or trash
+
+![customer_order](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/screenshots/customer_order.png)
+
 # Sub-Roles
 
 ## Audio
@@ -203,9 +250,15 @@ The button and shuffling sound effects were sourced from [freesound.org](https:/
 
 ## Gameplay Testing
 
-**Add a link to the full results of your gameplay tests.**
+### Timothy Ha
 
-**Summarize the key findings from your gameplay tests.**
+We had two instances of gameplay playtesting, an unofficial one which was from the Final Festival where I got to see our peers and judges play our game and the actual one for the project which was after the Final Festival where I found 10 individuals to playtest our game and fill out a form with their comments on the game. I created a Google Form with questions for the Gameplay testers to fill out where you can find the responses linked [here](https://docs.google.com/spreadsheets/d/1lLSAHUJCB-Gz4mfi93tQBTllHTJu1aINMI-SNa3zKm4/edit?resourcekey=&gid=1735217021#gid=1735217021). 
+
+Since we completed the game very near the deadline there was not enough time to implement and fix some of the things that our Gameplay Testers pointed out in our game. A common trend our gameplay testers experienced was that the game was difficult to understand, both with how fast paced our game was without clear instructions. Unless someone was clearly explaining how the game works and what to do, most of the players did not know what to do. Many players wanted a tutorial, instructions, or a clear interface that explains what to do which we agree with and would implement if we had more time. Because of this confusion, it made the game more fast paced than we intended as many players were trying to figure out the game while customers were running out of patience and leaving the restaurant. Another issue was that the players did not really like how the game was mainly clicking with a mouse but having to swap between the front of the cafe with the kitchen by pressing “P” on their keyboard. Many players enjoyed the cooking aspect of the game, with the drag, drop, and stacking feature of cards, as well as the visuals of the cards and overall game quality. Some other points were that having the recipe book in alphabetical order and a volume master to control the game music would have been helpful. 
+
+Some thoughts that I had while I watched the playtesters play were that the hitbox of the slot where the player has to drop the card in seems to be a bit precise where if the card is not placed exactly in a certain area, the card will go back to the player’s hand even though it appears that it should have been placed in the slot. The game seems overwhelming to a first time player. We do not have an interface that explains the game or guides them through how to play, so someone has to explain the instructions of how to play in order for the player to know what to do. 
+
+Some of the things that we noticed from the Final Festival and were able to fix before Gameplay Testing and collecting responses from 10 people were that when the player serves the food to the customer, when they select a dish card and a customer card, there is no indication that the card is selected so some players double click it thinking that their click did not register even though it did. This is something that I fixed by changing the color of the card to indicate that the card is selected. Another thing was that the buttons we have were not very clear as to what their intent is, as we had simple buttons which don’t really tell the user anything like “Yes” and “Store” for the player to cook and plate their food. Emma fixed this by designing new buttons which are more helpful for the player. 
 
 ## Narrative Design
 
