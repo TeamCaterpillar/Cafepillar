@@ -80,7 +80,7 @@ func _update_timer_bar_color() -> void:
 		timer_bar.set_theme_type_variation("TimerBarLow")
 		_food_condition = "Overdone"
 
-
+	
 func _on_StartButton_pressed():
 	recipe = cookware_slot.check_recipe()
 	if recipe != "Null":

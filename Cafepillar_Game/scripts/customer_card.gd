@@ -7,13 +7,6 @@ class_name CustomerCard
 @onready var customer_label: Label = $CustomerLabel
 @onready var food_color: ColorRect = $FoodColor
 @onready var completed_dish_inventory: CompletedDishInventory = $"../../../"
-@onready var timer_bar: ProgressBar = $ColorRect/TimerBar
-@onready var timer_label: Label = $TimerLabel
-
-# wait time is 60 seconds
-var wait_time = 60.0
-var _patience_timer = wait_time
-var selected = false
 
 func _ready() -> void:
 	self.connect("pressed", Callable(self, "_on_Dish_pressed"))
@@ -35,28 +28,10 @@ func _ready() -> void:
 		food_sprite.visible = true
 		food_sprite.texture = food_icon
 		customer_label.text = "Customer " + str(customer_id)
-	
-	# use tween to animate timer smoothly
-	var tween = create_tween()
-	tween.tween_property(timer_bar, "value", 0.0, wait_time)
 
 
 func _process(_delta: float) -> void:
-	_patience_timer -= _delta
-	_update_timer_bar_color()
-
-	if _patience_timer <= 0.0:
-		_patience_timer = wait_time
-	else:
-		timer_label.text = str(_patience_timer).substr(0, 4)
-	
-	var style = StyleBoxFlat.new()
-	if selected:
-		style.bg_color = Color(0, 0, 1)
-		self.add_theme_stylebox_override("normal", style) 
-	else:
-		style.bg_color = Color(0.831, 0.878, 0.792, 1)
-		self.add_theme_stylebox_override("normal", style)
+	pass
 
 
 func format_string(input: String) -> String:
@@ -73,15 +48,12 @@ func _on_Dish_pressed() -> void:
 	# completed_dish_inventory.selected_customer = self
 	GameSignals.customer_selected.emit(self)
 	print("clicked on customer ", str(customer_id), " who ordered ", food_name)
-
-
-func _update_timer_bar_color() -> void:
-	# color is green
-	if _patience_timer > wait_time * 0.5:
-		timer_bar.set_theme_type_variation("TimerBar")
-	# color is yellow 
-	elif _patience_timer > wait_time * 0.25:
-		timer_bar.set_theme_type_variation("TimerBarMid")
-	# color is red
-	else:
-		timer_bar.set_theme_type_variation("TimerBarLow")
+	
+	# Logic:
+	# click card to deliver
+	# idk: maybe send another signal that allows player to click on customer?
+	# click customer
+	# sends a signal only if customer.current_order == dish_card.food_name
+	# drop currency based on dish_card.food_condition
+	# remove item from the inventory array in Game Manager and queue_free() it from grid container
+	# reset selected food in completed_dish_inventory to null

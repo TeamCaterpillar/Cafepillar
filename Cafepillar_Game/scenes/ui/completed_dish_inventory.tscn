@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=8 format=3 uid="uid://cbeth81wdaykt"]
 
 [ext_resource type="Script" path="res://scripts/completed_dish_inventory.gd" id="1_8aiqf"]
@@ -8,123 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://boe2fgvxhx245" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="5_a1uwk"]
 [ext_resource type="Texture2D" uid="uid://cqmo0wxbol88s" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="6_v647b"]
 [ext_resource type="Texture2D" uid="uid://d318w71syahbl" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="7_ao2m1"]
-=======
-<<<<<<< Updated upstream
-[gd_scene load_steps=8 format=3 uid="uid://r4fkgn7er1hg"]
-
-[ext_resource type="Script" path="res://scripts/completed_dish_inventory.gd" id="1_8aiqf"]
-[ext_resource type="Texture2D" uid="uid://bu1wdu1pw1eq0" path="res://assets/Buttons Pixel Animation Pack/list/72px/list02.png" id="2_n43xp"]
-[ext_resource type="Texture2D" uid="uid://betdov6mumonv" path="res://assets/Buttons Pixel Animation Pack/list/72px/list03.png" id="3_xro4m"]
-[ext_resource type="Texture2D" uid="uid://c3aqwdkxeao5q" path="res://assets/Buttons Pixel Animation Pack/list/72px/list04.png" id="4_t435t"]
-[ext_resource type="Texture2D" uid="uid://bc56wjbw3clmn" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="5_a1uwk"]
-[ext_resource type="Texture2D" uid="uid://bjw47kofih35f" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="6_v647b"]
-[ext_resource type="Texture2D" uid="uid://c1tlaptp1js1b" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="7_ao2m1"]
-=======
-[gd_scene load_steps=23 format=3 uid="uid://cbeth81wdaykt"]
-
-[ext_resource type="Script" path="res://scripts/completed_dish_inventory.gd" id="1_8aiqf"]
-[ext_resource type="Texture2D" uid="uid://eqjkyedjv3o4" path="res://assets/Buttons Pixel Animation Pack/list/72px/list02.png" id="2_n43xp"]
-[ext_resource type="Texture2D" uid="uid://cj286ti2tsj46" path="res://assets/Buttons Pixel Animation Pack/list/72px/list03.png" id="3_xro4m"]
-[ext_resource type="Texture2D" uid="uid://cr6ekpomgks2x" path="res://assets/Buttons Pixel Animation Pack/list/72px/list04.png" id="4_t435t"]
-[ext_resource type="Texture2D" uid="uid://d1l4bda7bs41g" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="5_a1uwk"]
-[ext_resource type="Texture2D" uid="uid://qmn7ovpmmyck" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="6_v647b"]
-[ext_resource type="Texture2D" uid="uid://cyqcpoctkov62" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="7_ao2m1"]
-[ext_resource type="Texture2D" uid="uid://kiuldxeq8kom" path="res://assets/coin.png" id="8_2htk4"]
-[ext_resource type="FontFile" uid="uid://bhwjdla43i6ji" path="res://assets/ui/Minecraft.ttf" id="9_bg55q"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gxa71"]
-atlas = ExtResource("8_2htk4")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rlr1u"]
-atlas = ExtResource("8_2htk4")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vmhrc"]
-atlas = ExtResource("8_2htk4")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m650k"]
-atlas = ExtResource("8_2htk4")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wjkqm"]
-atlas = ExtResource("8_2htk4")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v8uiq"]
-atlas = ExtResource("8_2htk4")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ltxyd"]
-atlas = ExtResource("8_2htk4")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tlltm"]
-atlas = ExtResource("8_2htk4")
-region = Rect2(112, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iuak2"]
-atlas = ExtResource("8_2htk4")
-region = Rect2(128, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v0g6n"]
-atlas = ExtResource("8_2htk4")
-region = Rect2(144, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cqyf0"]
-atlas = ExtResource("8_2htk4")
-region = Rect2(160, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d44rt"]
-atlas = ExtResource("8_2htk4")
-region = Rect2(176, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_whhhf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gxa71")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rlr1u")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vmhrc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m650k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wjkqm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v8uiq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ltxyd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tlltm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iuak2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v0g6n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cqyf0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d44rt")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
 [node name="CompletedDishInventory" type="Control"]
 layout_mode = 3
@@ -201,59 +83,11 @@ text = "No dishes to deliver!"
 
 [node name="YesButton" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 451.0
+offset_left = 291.0
 offset_top = 171.0
-offset_right = 595.0
+offset_right = 435.0
 offset_bottom = 243.0
 scale = Vector2(0.5, 0.5)
 texture_normal = ExtResource("5_a1uwk")
 texture_pressed = ExtResource("6_v647b")
 texture_hover = ExtResource("7_ao2m1")
-
-[node name="Coins" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 8.0
-offset_top = -116.0
-offset_right = 48.0
-offset_bottom = -76.0
-
-[node name="Coin" type="AnimatedSprite2D" parent="Coins"]
-position = Vector2(478, 173)
-sprite_frames = SubResource("SpriteFrames_whhhf")
-autoplay = "default"
-
-[node name="Coin3" type="AnimatedSprite2D" parent="Coins"]
-position = Vector2(506, 165)
-sprite_frames = SubResource("SpriteFrames_whhhf")
-autoplay = "default"
-
-[node name="Coin4" type="AnimatedSprite2D" parent="Coins"]
-position = Vector2(518, 142)
-sprite_frames = SubResource("SpriteFrames_whhhf")
-autoplay = "default"
-
-[node name="Coin7" type="AnimatedSprite2D" parent="Coins"]
-position = Vector2(523, 127)
-sprite_frames = SubResource("SpriteFrames_whhhf")
-autoplay = "default"
-
-[node name="Coin5" type="AnimatedSprite2D" parent="Coins"]
-position = Vector2(504, 180)
-sprite_frames = SubResource("SpriteFrames_whhhf")
-autoplay = "default"
-
-[node name="Coin6" type="AnimatedSprite2D" parent="Coins"]
-position = Vector2(525, 164)
-sprite_frames = SubResource("SpriteFrames_whhhf")
-autoplay = "default"
-
-[node name="SuccessLabel" type="Label" parent="."]
-z_index = 16
-offset_left = 421.0
-offset_top = 31.0
-offset_right = 569.0
-offset_bottom = 67.0
-theme_override_colors/font_color = Color(1, 0.819608, 0, 1)
-theme_override_fonts/font = ExtResource("9_bg55q")
-theme_override_font_sizes/font_size = 14
-text = "Received 10!"
