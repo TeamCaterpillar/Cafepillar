@@ -26,4 +26,4 @@
 
 ## Screenshots
 
-![Untitled]([https://s3.us-west-2.amazonaws.com/secure.notion-static.com/6bfc4a62-a48f-426b-b83c-7a0596f99cb3/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220606%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220606T184406Z&X-Amz-Expires=86400&X-Amz-Signature=54cfcb7ae2127de2f3292887eff68721caba7013157a5991c347b0107725048f&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/screenshots/cutscene))
+![Untitled](https://github.com/TeamCaterpillar/Cafepillar/blob/c378917c704e5e06af4c49bd012184c57d4e7a90/Cafepillar_Game/screenshots/cutscene)
