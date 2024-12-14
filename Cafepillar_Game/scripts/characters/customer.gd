@@ -23,7 +23,8 @@ var arrive_threshold: float = 1.0
 var return_to_start : bool = false
 
 var move_is_go : bool = false
-#var _timer:Timer
+# var _timer:Timer
+var _patience_timer = wait_time
 var food_name : String
 var customer_id: int = 1
 
@@ -74,10 +75,11 @@ func _ready():
 	
 
 func _physics_process(_delta: float) -> void:
-	#if _timer.is_stopped():
-		#remove_customer()
+	_patience_timer -= _delta
+	if _patience_timer <= 0.0:
+		remove_customer()
+		_patience_timer = wait_time
 	
-		
 	if !path.is_empty() and move_is_go:
 		handle_path_movement()
 	elif return_to_start:
@@ -173,6 +175,6 @@ func remove_customer():
 	for person in GameManager.customers_waiting:
 		if person == self:
 			GameManager.customers_waiting.erase(self)
-			# return_to_start = true # customer death when theyre sick of waiting lmfao
-			return_to_start_position()
+			return_to_start = true # customer death when theyre sick of waiting lmfao
+			# return_to_start_position()
 			dish_inventory.remove_customer_from_queue(customer_id)
