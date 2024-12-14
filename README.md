@@ -93,12 +93,26 @@ I also implemented various game restrictions to ensure that gameplay actions sta
 * Reworked the serving tray which will be discussed in the game feel section.
 * Reworked the hand and ingredients system which will be discussed in the game feel section.
 
+## DayNight Cycle, RecipeBook, Audio
+
+### Michelle Lu
+
+I mainly took care of implementing the Day/Night Cycle for our game, making sure that there is an in-game timer to keep track and make a sense of progression in the game. In addition, I built the recipebook scene and added buttons to navigate through it.
+
+**Day/Night Cycle**
+
+The implementation of the Day/Night cycle involved placing a timer at the very top that scaled to however long we wanted the day to be, and making sure it started at 6am and would display and end of day screen once it hit 6pm. In addition, I implemented the next day and skip day buttons to navigate through all the cycles.
+**Recipe Book**
+
+The Recipe Book makes sure the player has an easy-to-navigate system to look up any recipe that they might need in order to make their food. In a time-pressured environment like the kitchen, it had to be easy to read and simple enough to manage that it doesn't inadventedly add an additional difficulty on top of the already existing gameplay.
+
 # Sub-Roles
 
 ## Audio
+### Michelle Lu
 
-**List your assets, including their sources and licenses.**
-
+**Audio Sources**
+The button and shuffling sound effects were sourced from [freesound.org](https://freesound.org/search/?q=shuffle+card&f=tag%3A%22shuffling%22), and the background music was sourced from a [youtube video](https://www.youtube.com/watch?v=zhhA3drWwcw&pp=ygUQY2F0ZXJwaWxsYXIgc29uZw%3D%3D) that allowed viewers to use their music for free.
 **Describe the implementation of your audio system.**
 
 **Document the sound style.** 
