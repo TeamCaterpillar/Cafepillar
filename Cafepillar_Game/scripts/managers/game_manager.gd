@@ -2,6 +2,7 @@ extends Node
 
 # Game state variables
 var current_day : int 					= 1
+var amount_gained : int					= 0
 var golden_seeds : int 					= 100
 var kitchen_inventory: Array[Variant] 	= []
 var active_orders: Array[Variant]     	= []
@@ -17,22 +18,17 @@ const SCENE_KITCHEN: String = "res://scenes/world/kitchen.tscn"
 const SCENE_DINER: String   = "res://scenes/world/diner.tscn"
 
 
-# Signal for scene changes
-#signal scene_changed
-
 # Called when the game starts
 func _ready():
 	filled_seats.fill(0)
-	# Load the first scene (kitchen by default)
-	#change_scene(SCENE_KITCHEN)
 	
 	# initialize inventory to have starter ingredients
 	initialize_inventory()
 	
 	# connect signals
-
 	GameSignals.next_day_started.connect(_on_next_day_started)
 	GameSignals.food_delivered.connect(update_currency)
+
 
 func _on_next_day_started() -> void:
 	current_day += 1
@@ -84,6 +80,7 @@ func update_currency(dish_card: DishCard):
 	add_currency(base_payment * base_multiplier)
 
 func add_currency(_amount: int) -> void:
+	amount_gained = _amount
 	golden_seeds += _amount
 
 

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvbabvbpqlu7k"]
+
+[ext_resource type="Texture2D" uid="uid://b3p4miktaq5ac" path="res://assets/ui/kitchen_door_indicator.png" id="1_4d4ld"]
+[ext_resource type="Script" path="res://scripts/ui/kitchen_door.gd" id="1_8s4rp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1uat"]
+size = Vector2(35, 75)
+
+[node name="KitchenDoor" type="Area2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_8s4rp")
+
+[node name="KitchenDoorIndicator" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, 1)
+scale = Vector2(0.139831, 0.13983)
+texture = ExtResource("1_4d4ld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.98023e-07, 4.17232e-06)
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_v1uat")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

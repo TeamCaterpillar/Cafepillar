@@ -1,16 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwmuyk12q6cdg"]
+[gd_scene load_steps=5 format=3 uid="uid://dwmuyk12q6cdg"]
 
 [ext_resource type="Script" path="res://scripts/customer_card.gd" id="1_hyqnp"]
-[ext_resource type="Texture2D" uid="uid://bcqq6o7xgesla" path="res://assets/cards/rose_cake.png" id="2_4w4pd"]
+[ext_resource type="Texture2D" uid="uid://b7gooihej6aut" path="res://assets/cards/rose_cake.png" id="2_4w4pd"]
+[ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="3_pspfx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2y2uv"]
 bg_color = Color(0.831373, 0.878431, 0.792157, 1)
 
 [node name="CustomerCard" type="Button"]
 custom_minimum_size = Vector2(50, 50)
-offset_right = 200.0
-offset_bottom = 200.0
-scale = Vector2(0.25, 0.25)
+offset_right = 50.0
+offset_bottom = 50.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_2y2uv")
 script = ExtResource("1_hyqnp")
 
@@ -42,3 +42,35 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 7
 text = "Customer "
 autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(50, 8)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.175
+offset_bottom = -0.75
+
+[node name="TimerBar" type="ProgressBar" parent="ColorRect"]
+custom_minimum_size = Vector2(50, 8)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.111
+offset_bottom = -0.888
+theme = ExtResource("3_pspfx")
+theme_type_variation = &"TimerBar"
+step = 1.0
+value = 100.0
+show_percentage = false
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = -33.0
+offset_top = -2.0
+offset_right = 84.0
+offset_bottom = 47.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 7
+text = "time"
+horizontal_alignment = 1

@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cookffcxckdkf"]
+[gd_scene load_steps=2 format=3 uid="uid://cookffcxckdkf"]
+
+[ext_resource type="PackedScene" uid="uid://dvbabvbpqlu7k" path="res://scenes/ui/kitchen_door.tscn" id="1_vrxbu"]
 
 [node name="TestScene" type="Node2D"]
 
@@ -19,3 +21,5 @@ text = "TEST SCENE"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2.375, 2.375)
+
+[node name="KitchenDoor" parent="." instance=ExtResource("1_vrxbu")]

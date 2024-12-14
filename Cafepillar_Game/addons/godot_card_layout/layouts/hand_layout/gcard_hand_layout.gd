@@ -68,6 +68,8 @@ var _dragging_card:Control
 var _dragging_index:int = -100
 var _dragging_mouse_position:Vector2
 @onready var card_factory = $"../CardFactory"
+@onready var order_queue: OrderQueue = $"../OrderQueue"
+
 
 func _ready():
 	_dragging_index = -100
@@ -359,6 +361,7 @@ func _place_card_in_slot(card: Control, slot: Control) -> void:
 		dish_card.food_name = card.food_name
 		dish_card.food_condition = card.food_condition
 		GameManager.finished_dishes.append(dish_card)
+		order_queue.remove_order(dish_card.food_name)
 	
 	
 	if slot.name == "TrashSlot" and card.is_in_group("Dish"):

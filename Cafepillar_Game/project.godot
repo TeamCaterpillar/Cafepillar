@@ -22,6 +22,7 @@ TransitionScreen="*res://scenes/transitions/transition_screen.tscn"
 RecipeBookTransition="*res://scenes/transitions/recipe_book_transition.tscn"
 GameSignals="*res://scripts/signals.gd"
 AudioController="*res://scenes/audio_controller.tscn"
+Recipes="*res://scripts/ui/recipes.gd"
 
 [display]
 
