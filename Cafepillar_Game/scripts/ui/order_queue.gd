@@ -7,7 +7,7 @@ class_name OrderQueue
 
 # timer to randomly add food items every second
 # remove later
-var _timer: float = 0.0
+#var _timer: float = 0.0
 
 #var food_items = []
 

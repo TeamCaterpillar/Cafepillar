@@ -16,7 +16,7 @@ func _ready() -> void:
 	_load_cmds()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if click:
 		_run_cmd()
 

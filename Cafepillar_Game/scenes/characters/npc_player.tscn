@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dgbskni4qasl0"]
 
-[ext_resource type="Texture2D" uid="uid://jao7mimemrpt" path="res://assets/sprites/player.png" id="1_43m0c"]
+[ext_resource type="Texture2D" uid="uid://brlyavoao1bc5" path="res://assets/sprites/player.png" id="1_43m0c"]
 [ext_resource type="Script" path="res://scripts/characters/npc.gd" id="1_fwyp6"]
 
 [sub_resource type="Animation" id="Animation_xkd1m"]

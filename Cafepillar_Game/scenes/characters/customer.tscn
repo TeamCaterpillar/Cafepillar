@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dpjkh8i4nyusl"]
 
 [ext_resource type="Script" path="res://scripts/characters/customer.gd" id="1_goek5"]
-[ext_resource type="Texture2D" uid="uid://drlcbviybq0vu" path="res://assets/sprites/customer.png" id="2_lcutu"]
+[ext_resource type="Texture2D" uid="uid://cuxov187qptpg" path="res://assets/sprites/customer.png" id="2_lcutu"]
 
 [sub_resource type="Animation" id="Animation_lapao"]
 resource_name = "walk"

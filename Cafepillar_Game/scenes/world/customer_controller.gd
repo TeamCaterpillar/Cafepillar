@@ -23,7 +23,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	pass
 
 
@@ -74,7 +74,7 @@ func move_along_path(new_path: Array[Vector2]) -> void:
 	return_to_start = false
 
 
-func update_sprite_orientation(direction: Vector2, character : Customer) -> void:
+func update_sprite_orientation(direction: Vector2, _character : Customer) -> void:
 	if direction.x < 0 and direction.y > 0: # down and to left
 		sprite.flip_h = true
 		sprite.rotation_degrees = -30.0

@@ -11,14 +11,14 @@ var jump_velocity = DEFAULT_JUMP_VELOCITY
 #@onready var char_sprite:Sprite2D = $Sprite2D
 @onready var animation_player : AnimationPlayer = get_child(0).get_child(0)
 
-var target_position : Vector2 = Vector2.ZERO
+#var target_position : Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
 	animation_player.play("RESET")
 	
 	
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	
 	

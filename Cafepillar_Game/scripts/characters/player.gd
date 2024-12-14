@@ -24,7 +24,7 @@ func _ready() -> void:
 	arrive_threshold = clamp(arrive_threshold, 1.0, 16.0)
 	velocity = Vector2.ZERO
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if deliver_dish and !path.is_empty():
 		handle_path_movement()
 	elif return_to_start:

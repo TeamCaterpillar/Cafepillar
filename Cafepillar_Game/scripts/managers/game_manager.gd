@@ -65,7 +65,7 @@ func remove_order_from_queue() -> void:
 # HANDLE CURRENCY
 
 func update_currency(dish_card: DishCard):
-	var food_name = dish_card.food_name
+	var _food_name = dish_card.food_name
 	var food_condition = dish_card.food_condition
 	var base_payment = 10
 	var base_multiplier = 1.0

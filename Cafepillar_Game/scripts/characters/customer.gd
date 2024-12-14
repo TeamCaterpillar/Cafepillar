@@ -23,7 +23,7 @@ var arrive_threshold: float = 1.0
 var return_to_start : bool = false
 
 var move_is_go : bool = false
-var _timer:Timer
+#var _timer:Timer
 var food_name : String
 var customer_id: int = 1
 
@@ -73,7 +73,7 @@ func _ready():
 		#texture_button.texture_normal = food_icon
 	
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	#if _timer.is_stopped():
 		#remove_customer()
 	
@@ -95,10 +95,10 @@ func handle_path_movement() -> void:
 		velocity = Vector2.ZERO
 		return
 
-	var target_position = path[current_path_index]
-	var direction = global_position.direction_to(target_position)
+	var position_of_target = path[current_path_index]
+	var direction = global_position.direction_to(position_of_target)
 
-	if global_position.distance_to(target_position) < arrive_threshold:
+	if global_position.distance_to(position_of_target) < arrive_threshold:
 		current_path_index += 1
 	else:
 		motion_mode = MOTION_MODE_FLOATING
@@ -111,10 +111,10 @@ func handle_return_movement() -> void:
 		queue_free()
 		return
 
-	var target_position = path[current_path_index]
-	var direction = global_position.direction_to(target_position)
+	var return_position = path[current_path_index]
+	var direction = global_position.direction_to(return_position)
 
-	if global_position.distance_to(target_position) < arrive_threshold:
+	if global_position.distance_to(return_position) < arrive_threshold:
 		current_path_index -= 1
 	else:
 		motion_mode = MOTION_MODE_FLOATING

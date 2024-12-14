@@ -3,6 +3,10 @@ extends Node2D
 # also sends customer orders to game_manager to add to queue
 
 const TILE_TEXTURE_OFFSET : Vector2 = Vector2(0, -8)
+const CUSTOMER_SPAWN_CAP : int = 10
+
+const PLAYER_COLLISION_LAYER : int = 2
+const CUSTOMER_COLLISION_LAYER : int = 8
 
 @export var customer_spawn_rate:float = 2
 #@export 
@@ -60,11 +64,14 @@ func _process(_delta):
 		and customer_spawn.get_child_count() <= 2 \
 		and not day_night_cycle.day_ended):
 		
-		if customer_spawn.get_child_count() <= 10:
-			_spawn_timer.start(customer_spawn_rate)
-			spec_customer = customer_factory.generate_rand_customer()
-			GameSignals.emit_signal("customer_added", spec_customer)
-			random_seat_node().add_child(spec_customer)
+		if seats_taken.size() == CUSTOMER_SPAWN_CAP:
+			return
+		
+		
+		_spawn_timer.start(customer_spawn_rate)
+		spec_customer = customer_factory.generate_rand_customer()
+		GameSignals.emit_signal("customer_added", spec_customer)
+		random_seat_node().add_child(spec_customer)
 		#var pathy = find_path(customer_spawn.position)
 		#set_customer_path(pathy)
 		#print(spec_customer.path)
@@ -90,8 +97,8 @@ func _update_pathable_cells() -> void:
 		for j in range(region_position.y, region_position.y + region_size.y):
 			var id = Vector2i(i, j)
 			# check for an actual obstacle at this position, removes a trigger on render boxes since there is map layers
-			var obstacle_tile_data = obstacle_layer.get_cell_tile_data(id)
-			var is_direct_obstacle : bool = obstacle_tile_data != null and obstacle_tile_data.get_custom_data("Obstacle")
+			#var obstacle_tile_data = obstacle_layer.get_cell_tile_data(id)
+			#var is_direct_obstacle : bool = obstacle_tile_data != null and obstacle_tile_data.get_custom_data("Obstacle")
 			
 			if is_cell_blocked(id):
 				astar_grid.set_point_solid(id)
@@ -120,7 +127,7 @@ func _update_pathable_cells() -> void:
 func random_seat_node() -> Marker2D:
 	var random_seat_marker = seats_array.get_children().pick_random()
 	if seats_taken.has(random_seat_marker):
-		return random_seat_node()
+		return random_seat_node() # infinite recursion error present
 	else:
 		seats_taken.get_or_add(random_seat_marker)
 		return random_seat_marker# only will ever add (I think)
@@ -130,7 +137,7 @@ func find_path(start_position : Vector2) -> Array:
 	var start_cell : Vector2i
 	var end_cell : Vector2i
 	start_cell = ground_layer.local_to_map(start_position)
-	end_cell = ground_layer.local_to_map(random_seat_position()) # internally checks seat occupancy
+	end_cell = ground_layer.local_to_map(random_seat_position())##############TEMP############### # internally checks seat occupancy
 
 	if start_cell == end_cell or !astar_grid.is_in_boundsv(start_cell) or !astar_grid.is_in_boundsv(end_cell):
 		push_error("SOMETHING WRONG IN FIND_PATH")
@@ -173,11 +180,6 @@ func set_customer_path(id_path : Array) -> void:
 
 func random_seat_position() -> Vector2:
 	var random_seat_marker = seats_array.get_children().pick_random()
-	if seats_taken.has(random_seat_marker):
-		random_seat_position()
-	else:
-		seats_taken.get_or_add(random_seat_marker) # only will ever add (I think)
-
 	var marker_local_position = to_local(random_seat_marker.position)
 
 	if debug_enabled: # debug print

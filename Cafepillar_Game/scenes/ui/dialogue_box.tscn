@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://crhem5u84rltp"]
 
-[ext_resource type="Texture2D" uid="uid://cyteyj6udsw7s" path="res://assets/cutscene ui/dialogue box.png" id="1_88f2d"]
+[ext_resource type="Texture2D" uid="uid://e1d3eyfnbjeu" path="res://assets/cutscene ui/dialogue box.png" id="1_88f2d"]
 [ext_resource type="Script" path="res://scripts/ui/dialogue_box.gd" id="1_uuoml"]
 
 [node name="Dialogue" type="TextureButton"]

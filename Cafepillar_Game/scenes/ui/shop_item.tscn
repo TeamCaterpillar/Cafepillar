@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8nllxwpeftvu"]
 
-[ext_resource type="Texture2D" uid="uid://cl8kfcitsu3ey" path="res://assets/ui/shop_item.png" id="1_2cvwn"]
+[ext_resource type="Texture2D" uid="uid://ctqv3ytoykn5c" path="res://assets/ui/shop_item.png" id="1_2cvwn"]
 [ext_resource type="Script" path="res://scripts/ui/shop_item.gd" id="1_ytvjp"]
-[ext_resource type="Texture2D" uid="uid://bwubw4w4mdclm" path="res://assets/cards/blank_card.png" id="2_knql2"]
-[ext_resource type="Texture2D" uid="uid://dsa46dayghayf" path="res://assets/ui/shop_item_checkbox.png" id="4_s45f0"]
+[ext_resource type="Texture2D" uid="uid://cxjou7jwge4ia" path="res://assets/cards/blank_card.png" id="2_knql2"]
+[ext_resource type="Texture2D" uid="uid://boel6jfv1kr0r" path="res://assets/ui/shop_item_checkbox.png" id="4_s45f0"]
 
 [node name="ShopItem" type="TextureButton"]
 anchors_preset = 15
