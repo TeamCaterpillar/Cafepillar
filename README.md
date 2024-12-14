@@ -101,7 +101,7 @@ I mainly took care of implementing the Day/Night Cycle for our game, making sure
 
 **Day/Night Cycle**
 
-The implementation of the Day/Night cycle involved placing a timer at the very top that scaled to however long we wanted the day to be, and making sure it started at 6am and would display and end of day screen once it hit 6pm. In addition, I implemented the next day and skip day buttons to navigate through all the cycles.
+The implementation of the Day/Night cycle involved placing a timer at the very top that scaled to however long we wanted the day to be, and making sure it started at 6am and would display and end of day screen once it hit 6pm. In addition, I implemented the next day and skip day buttons to navigate through all the cycles. An attempt at changing the lighting as the day progressed was made, but unfortunately couldn't be finished in time to be implemented.
 ![ss](https://github.com/TeamCaterpillar/Cafepillar/blob/9f04f4fc2c944e51e219049d4157fb1a5f8a2b50/Cafepillar_Game/screenshots/Screenshot%202024-12-14%20at%2012.30.19%E2%80%AFAM.png)
 **Recipe Book**
 
@@ -128,9 +128,12 @@ The button and shuffling sound effects were sourced from [freesound.org](https:/
 
 ## Press Kit and Trailer
 
-**Include links to your presskit materials and trailer.**
+[Trailor](https://youtu.be/aDJ_-KLX_5c)  
+[Press Kit](https://github.com/TeamCaterpillar/Cafepillar/blob/1f56d638723ec2c0116c272568b60dbe65acfa32/PressKit.md)  
 
-**Describe how you showcased your work. How did you choose what to show in the trailer? Why did you choose your screenshots?**
+The trailor starts off with clips from the opening cutscene that unfortunately couldn't be implemented in time, so I decided to include it in the trailer. I picked clips from the cutscene that would concisely summarize the lore along with on-screen text explaining the rest. In addition, there are 2 main "rooms" in the game, with those being the front of house and the kitchen. The trailer starts off by showing the front of house and the customers filtering in, which is what the player will first see when they boot up the game. It then transitions into showing off the kitchen and how the food cooking mechanic works, and how to serve the food after it's done. I made the trailer progress similarly to how the player would progress through the game, starting with the front of house, going into the kitchen where some cooking failures happen at first, into successfully creating a dish. 
+Screenshots in the press kit were chosen to show off every major screen of the game, with those being the cutscene, front of house, kitchen, and end of day screen where the shop pops up.
+
 
 ## Game Feel - Code Refactoring
 
