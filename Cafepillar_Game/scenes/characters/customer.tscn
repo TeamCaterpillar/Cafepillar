@@ -72,22 +72,22 @@ theme_override_font_sizes/font_size = 98
 text = "Customer: "
 
 [node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(28.5, 5)
+custom_minimum_size = Vector2(28, 4)
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.175
 offset_left = -13.0
 offset_top = -60.0
-offset_right = 15.5
-offset_bottom = -55.0
+offset_right = 15.0
+offset_bottom = -56.0
 
 [node name="TimerBar" type="ProgressBar" parent="ColorRect"]
-custom_minimum_size = Vector2(28.5, 5)
+custom_minimum_size = Vector2(28, 4)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.111
-offset_bottom = -0.555
+offset_bottom = -1.555
 theme = ExtResource("3_b7ipx")
 theme_type_variation = &"TimerBar"
 step = 1.0

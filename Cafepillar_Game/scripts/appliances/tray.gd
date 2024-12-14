@@ -9,7 +9,7 @@ class_name Tray
 
 @onready var order_queue: OrderQueue = $"../OrderQueue"
 @onready var tray_slot: Slot = $TraySlot
-@onready var send_button: TextureButton = $SendButton
+# @onready var send_button: TextureButton = $SendButton
 
 
 func _ready() -> void:
