@@ -8,10 +8,6 @@ class_name CompletedDishInventory
 @onready var label_2: Label = $Label2
 @onready var customer_queue: GridContainer = $ColorRect/GridContainer
 @onready var yes_button: TextureButton = $YesButton
-<<<<<<< Updated upstream
-=======
-@onready var success_label: Label = $SuccessLabel
->>>>>>> Stashed changes
 
 var dish_card_size : Vector2 = Vector2(160.0, 200.0)
 
@@ -29,20 +25,8 @@ func _ready() -> void:
 	GameSignals.customer_selected.connect(set_customer)
 
 func _process(_delta: float) -> void:
-<<<<<<< Updated upstream
 	pass
 
-=======
-	if show_coins:
-		success_label.text = "You received " + str(GameManager.amount_gained) + "!"
-		success_label.visible = true
-		_timer += _delta
-		if _timer >= 2.0:
-			show_coins = false
-			_timer = 0.0
-	else:
-		success_label.visible = false
->>>>>>> Stashed changes
 
 func _on_YesButton_pressed() -> void:
 	if selected_food_to_deliver != null and selected_customer != null:

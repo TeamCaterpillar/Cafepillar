@@ -8,13 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://celk4vhbyjbe3" path="res://scenes/world/seats_w_collision.tscn" id="6_3g2lx"]
 [ext_resource type="Script" path="res://scripts/manage_gold.gd" id="6_5p76q"]
 [ext_resource type="Script" path="res://scenes/world/seats.gd" id="7_0kq27"]
-<<<<<<< Updated upstream
 [ext_resource type="FontFile" uid="uid://bxw5jiti4ql3i" path="res://assets/ui/Minecraft.ttf" id="8_6apc2"]
 [ext_resource type="PackedScene" uid="uid://dvbabvbpqlu7k" path="res://scenes/ui/kitchen_door.tscn" id="10_77k5n"]
-=======
-[ext_resource type="FontFile" uid="uid://ls2a2yldby6s" path="res://assets/ui/Minecraft.ttf" id="8_6apc2"]
-[ext_resource type="PackedScene" path="res://scenes/ui/kitchen_door.tscn" id="10_77k5n"]
->>>>>>> Stashed changes
 
 [node name="Cafe" type="Node2D"]
 y_sort_enabled = true
