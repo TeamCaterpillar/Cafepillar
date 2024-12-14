@@ -54,7 +54,7 @@ You should replay any **bold text** with your relevant information. Liberally us
 
 ## Kitchen Mechanics/Logic
 
-# Minh Nguyen
+### Minh Nguyen
 
 Taking the main responsibility of implementing the kitchen logic, I was tasked with creating and connecting different kitchen appliances and components through scripts in order to ensure a smooth gameplay process for when the player heads to the kitchen to create food items to fulfill customer orders at the front of house. 
 
@@ -121,7 +121,7 @@ I also implemented various game restrictions to ensure that gameplay actions sta
 
 ## Game Feel - Code Refactoring
 
-# Minh Nguyen
+### Minh Nguyen
 
 Working primarily on connecting the components within the Kitchen scene, it makes sense for me to also ensure the gameplay in the kitchen flows well and intuitively. 
 
