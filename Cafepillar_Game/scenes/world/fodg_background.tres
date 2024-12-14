@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cw2be0x50bqyu"]
+
+[ext_resource type="Shader" path="res://scenes/fog.gdshader" id="1_lhten"]
+[ext_resource type="Texture2D" uid="uid://ol45jer4fusg" path="res://assets/fog_mask.png" id="2_srpkx"]
+
+[resource]
+shader = ExtResource("1_lhten")
+shader_parameter/color = Color(0.843184, 0.843184, 0.843184, 0.278431)
+shader_parameter/OCTAVES = 4
+shader_parameter/enable_pixelation = true
+shader_parameter/pixelation_amount = 150
+shader_parameter/fog_direction = Vector2(1, 1)
+shader_parameter/scroll_noise_tex = false
+shader_parameter/noise_scroll_direction = Vector2(1, 0)
+shader_parameter/fog_mask = ExtResource("2_srpkx")

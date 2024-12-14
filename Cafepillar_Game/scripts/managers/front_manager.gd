@@ -10,7 +10,7 @@ const CUSTOMER_COLLISION_LAYER : int = 8
 
 @export var customer_spawn_rate:float = 5
 #@export 
-var debug_enabled : bool = false
+var debug_enabled : bool = true
 
 # @onready world variables
 @onready var ground_layer : TileMapLayer = $GroundLayer
@@ -65,28 +65,25 @@ func _ready():
 	_spawn_timer.one_shot = false
 	add_child(_spawn_timer)
 
+func check_if_can_spawn() -> bool:
+	var check1 = _spawn_timer.time_left < 1
+	var check2 = customer_spawn.get_child_count() <= 5
+	var check3 = not day_night_cycle.day_ended 
+	var check4 = GameManager.filled_seats.size() < 12 
+	var check5 = GameManager.filled_seats.size() >= 0
+	if check1 and check2 and check3 and check4 and check5:
+		return true
+	else:
+		return false
 
 func _process(_delta):
-	if (	_spawn_timer.time_left < 1
-		and customer_spawn.get_child_count() <= 5 \
-		and not day_night_cycle.day_ended 
-		and GameManager.filled_seats.size() < 12):
-		
-		
+	if check_if_can_spawn():
 		_spawn_timer.start(customer_spawn_rate)
 		spec_customer = customer_factory.generate_rand_customer()
 		set_path_customer(find_path_customer(spec_customer), spec_customer)
 		if calculations_okay:
 			GameSignals.emit_signal("customer_added", spec_customer)
 			customer_spawn.add_child(spec_customer)
-			
-		#random_seat_node().add_child(spec_customer) # replace with spawnpoint when pathing complete
-		
-		
-		#var pathy = find_path(customer_spawn.position)
-		#set_customer_path(pathy)
-		#print(spec_customer.path)
-		#GameSignals.customer_can_move.emit()
 		
 
 func assign_random_seat(customer : Customer) -> Vector2:
@@ -117,16 +114,17 @@ func _update_pathable_cells() -> void:
 	for i in range(region_position.x, region_position.x + region_size.x):
 		for j in range(region_position.y, region_position.y + region_size.y):
 			var id = Vector2i(i, j)
-			# check for an actual obstacle at this position, removes a trigger on render boxes since there is map layers
-			#var obstacle_tile_data = obstacle_layer.get_cell_tile_data(id)
-			#var is_direct_obstacle : bool = obstacle_tile_data != null and obstacle_tile_data.get_custom_data("Obstacle")
+			
 			
 			if is_cell_blocked(id):
 				astar_grid.set_point_solid(id)
 				#if debug_enabled: # debug print
+					## check for an actual obstacle at this position, removes a trigger on render boxes since there is map layers
+					#var obstacle_tile_data = obstacle_layer.get_cell_tile_data(id)
+					#var is_direct_obstacle : bool = obstacle_tile_data != null and obstacle_tile_data.get_custom_data("Obstacle")
 					#if !is_direct_obstacle:
 						#print("Cell @ ", id, " has been blocked from pathing!")
-						# placing a picture for reference
+						## placing a picture for reference
 						#var polygon = Polygon2D.new()
 						## diamond shape points
 						#var points = PackedVector2Array([
@@ -222,7 +220,7 @@ func set_path_customer(id_path : Array, customer : Customer) -> void:
 	print("CUSTOMER PATH: ", customer.path)
 #endregion
 
-func random_seat_position(customer : Customer) -> Vector2:
+func random_seat_position(_customer : Customer) -> Vector2:
 	var random_seat_marker = seats_array.get_children().pick_random()
 	var marker_local_position = to_local(random_seat_marker.position)
 

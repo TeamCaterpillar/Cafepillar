@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dta8ywnphhy4"]
+[gd_scene load_steps=6 format=3 uid="uid://dta8ywnphhy4"]
 
 [ext_resource type="Script" path="res://scripts/scene/day_night_cycle.gd" id="1_5w26l"]
 [ext_resource type="PackedScene" uid="uid://i2jd74yhry5i" path="res://scenes/ui/shop.tscn" id="2_4icya"]
-[ext_resource type="FontFile" uid="uid://blhnll7kaivhr" path="res://assets/ui/Minecraft.ttf" id="3_ldyky"]
+[ext_resource type="Material" uid="uid://celier85v7yle" path="res://themes/stars.tres" id="2_7r81v"]
+[ext_resource type="Material" uid="uid://cw2be0x50bqyu" path="res://scenes/world/fodg_background.tres" id="2_xq1xq"]
+[ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="3_ldyky"]
 
 [node name="DayNightCycle" type="Node2D"]
 script = ExtResource("1_5w26l")
@@ -10,10 +12,18 @@ metadata/_edit_lock_ = true
 
 [node name="Background" type="ColorRect" parent="."]
 z_index = -1
+material = ExtResource("2_7r81v")
 offset_left = -288.0
 offset_top = -160.0
 offset_right = 1632.0
 offset_bottom = 920.0
+scale = Vector2(0.3, 0.3)
+
+[node name="Background2" type="ColorRect" parent="Background"]
+material = ExtResource("2_xq1xq")
+layout_mode = 0
+offset_right = 6400.0
+offset_bottom = 3589.0
 scale = Vector2(0.3, 0.3)
 
 [node name="Light" type="DirectionalLight2D" parent="."]
@@ -22,6 +32,7 @@ energy = 0.0
 height = 0.59
 
 [node name="SkipDay" type="Button" parent="."]
+z_index = 50
 offset_left = 184.0
 offset_top = 96.0
 offset_right = 259.0

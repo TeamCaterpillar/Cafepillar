@@ -13,6 +13,7 @@ var day_ended: bool = false  # Track if the day has ended
 @onready var restart_button: Button = $EndOfDayScreen/NextDay
 @onready var skip_button: Button = $SkipDay
 @onready var timer_label: Label = $TimerLabel
+@onready var star_shader : ShaderMaterial = preload("res://themes/stars.tres")
 
 
 func _ready():
@@ -40,6 +41,7 @@ func update_background():
 	# Smooth gradient between night (dark blue) and day (light blue)
 	var gradient = sin(time_of_day * PI)  # Smooth transition
 	background.color = Color(0.05, 0.05, 0.2).lerp(Color(0.5, 0.8, 1.0), gradient)
+	star_shader.set_shader_parameter("bg_color", Vector4(0.05, 0.05, 0.2, 0.0).lerp(Vector4(0.5, 0.8, 1.0, -0.8), gradient))
 
 
 func update_light():

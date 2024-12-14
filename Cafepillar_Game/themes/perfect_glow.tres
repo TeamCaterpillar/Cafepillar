@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://7bh8qjspmrrv"]
+
+[ext_resource type="Shader" path="res://themes/perfect_glow.gdshader" id="1_p7y63"]
+
+[resource]
+shader = ExtResource("1_p7y63")
+shader_parameter/rect_size = Vector2(0.18, 0.22)
+shader_parameter/bness = 1.925
+shader_parameter/fall_off_scale = 3.355
+shader_parameter/b_offset = -0.045

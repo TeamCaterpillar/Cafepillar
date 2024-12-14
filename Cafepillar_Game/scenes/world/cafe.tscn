@@ -8,15 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://celk4vhbyjbe3" path="res://scenes/world/seats_w_collision.tscn" id="6_3g2lx"]
 [ext_resource type="Script" path="res://scripts/manage_gold.gd" id="6_5p76q"]
 [ext_resource type="Script" path="res://scenes/world/seats.gd" id="7_0kq27"]
-[ext_resource type="FontFile" uid="uid://blhnll7kaivhr" path="res://assets/ui/Minecraft.ttf" id="8_6apc2"]
-[ext_resource type="PackedScene" uid="uid://dpjkh8i4nyusl" path="res://scenes/characters/customer.tscn" id="10_cpeu4"]
+[ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="8_6apc2"]
+[ext_resource type="Script" path="res://scripts/ui/kitchen_door.gd" id="10_dyy5h"]
 
 [node name="Cafe" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_btvhg")
 
 [node name="Player" parent="." node_paths=PackedStringArray("start_marker") instance=ExtResource("4_8ipbn")]
-position = Vector2(205, 9.75)
+position = Vector2(207.624, 23.242)
 rotation = 0.0147779
 start_marker = NodePath("../KitchenExit")
 
@@ -59,7 +59,7 @@ position = Vector2(-160, 160)
 script = ExtResource("5_yx5pc")
 
 [node name="KitchenExit" type="Marker2D" parent="."]
-position = Vector2(206, 9)
+position = Vector2(207.763, 23.374)
 
 [node name="Seats" parent="." instance=ExtResource("6_3g2lx")]
 z_index = 10
@@ -81,5 +81,11 @@ theme_override_font_sizes/font_size = 16
 text = "Golden Seeds: 10
 "
 
-[node name="Customer" parent="." instance=ExtResource("10_cpeu4")]
-position = Vector2(176, 48)
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 999
+position = Vector2(224.131, -10.814)
+script = ExtResource("10_dyy5h")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+z_index = 1000
+polygon = PackedVector2Array(-6.13074, -16.186, -4.13074, -18.186, 0.869263, -18.186, 2.86926, -17.186, 3.86926, -16.186, 4.86926, -15.186, 5.86926, -13.186, 6.86926, -11.186, 6.86926, 12.814, 3.86926, 12.814, 1.86926, 11.814, -0.130737, 10.814, -2.13074, 9.81399, -4.13074, 8.81399, -6.13074, 7.81399, -6.13074, -16.186)

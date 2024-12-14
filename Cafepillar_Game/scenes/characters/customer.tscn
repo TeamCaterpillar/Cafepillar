@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dpjkh8i4nyusl"]
 
 [ext_resource type="Script" path="res://scripts/characters/customer.gd" id="1_goek5"]
-[ext_resource type="Texture2D" uid="uid://caw53d0rts4w6" path="res://assets/sprites/customer.png" id="2_lcutu"]
+[ext_resource type="Texture2D" uid="uid://cuxov187qptpg" path="res://assets/sprites/customer.png" id="2_lcutu"]
 [ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="3_b7ipx"]
 
 [sub_resource type="Animation" id="Animation_lapao"]
@@ -38,6 +38,7 @@ collision_mask = 32768
 motion_mode = 1
 script = ExtResource("1_goek5")
 sprite = NodePath("CustomerSprite")
+wait_time = 15.0
 
 [node name="CustomerSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_lcutu")
@@ -57,6 +58,7 @@ shape = SubResource("CapsuleShape2D_dp0t5")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 z_index = 500
+y_sort_enabled = true
 offset_left = -15.0
 offset_top = -60.0
 offset_right = 773.0
@@ -65,6 +67,7 @@ scale = Vector2(0.04, 0.04)
 
 [node name="ColorRect" type="ColorRect" parent="TextureButton"]
 z_index = 10
+y_sort_enabled = true
 custom_minimum_size = Vector2(28, 4)
 layout_mode = 1
 anchors_preset = -1
@@ -76,6 +79,7 @@ offset_bottom = -78.15
 
 [node name="TimerBar" type="ProgressBar" parent="TextureButton/ColorRect"]
 z_index = 10
+y_sort_enabled = true
 custom_minimum_size = Vector2(28, 4)
 layout_mode = 1
 anchors_preset = -1
@@ -90,9 +94,8 @@ show_percentage = false
 
 [node name="Label" type="Label" parent="TextureButton"]
 layout_mode = 0
-offset_left = 79.9998
 offset_top = 800.0
-offset_right = 568.0
+offset_right = 750.0
 offset_bottom = 934.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 98

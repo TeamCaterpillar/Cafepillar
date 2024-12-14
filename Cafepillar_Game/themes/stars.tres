@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://celier85v7yle"]
+
+[ext_resource type="Shader" path="res://scenes/world/stars.gdshader" id="1_sevre"]
+
+[resource]
+shader = ExtResource("1_sevre")
+shader_parameter/bg_color = Vector4(0, 0, 0, -0.5)

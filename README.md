@@ -1,4 +1,4 @@
-# Cafepillar #
+![start_menu](https://github.com/user-attachments/assets/afe07c22-615a-46cf-85af-912346903837)
 
 ## Summary ## 
 
@@ -14,6 +14,7 @@ To escape this caterpillar fate, you must listen to what your fellow caterpillar
 | <p style="text-align: center;">Proposal</p>                            | <p style="text-align: center;">Prompted by a Hungry hungry caterpillar fever dream (and our games music)</p> |   [Link](https://docs.google.com/document/d/1RK9_fZNIhu6455-4KIbZJjABS-V4PLPm4asVfd11XNw/edit?usp=sharing) |
 
 &nbsp;&nbsp;&nbsp;&nbsp;\* itch.io can be taken down by ~~Funko Pops~~ a company we will not name with the click of a button
+
 
 ## Gameplay Explanation ##
 
@@ -37,12 +38,8 @@ That is the main game of Cafepillar! Be sure to manage your time well by cooking
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
-![alt text][logo]
-
-[logo]: https://octodex.github.com/godotocat/ "GodotCat"
-
 # Main Roles #
- 
+
 <details><summary>List of members</summary>
 <p>Lynn Nguyen <br>
 Minh Nguyen<br>
@@ -53,16 +50,8 @@ Tim Ha
 </p>
 </details>
 
-Your goal is to relate the work of your role and sub-role in terms of the content of the course. Please look at the role sections below for specific instructions for each role.
-
-Below is a template for you to highlight items of your work. These provide the evidence needed for your work to be evaluated. Try to have at least four such descriptions. They will be assessed on the quality of the underlying system and how they are linked to course content.
-
-*Short Description* - Long description of your work item that includes how it is relevant to topics discussed in class. [link to evidence in your repository](https://github.com/dr-jam/ECS189L/edit/project-description/ProjectDocumentTemplate.md)
-
-Here is an example:  
-*Procedural Terrain* - The game's background consists of procedurally generated terrain produced with Perlin noise. The game can modify this terrain at run-time via a call to its script methods. The intent is to allow the player to modify the terrain. This system is based on the component design pattern and the procedural content generation portions of the course. [The PCG terrain generation script](https://github.com/dr-jam/CameraControlExercise/blob/513b927e87fc686fe627bf7d4ff6ff841cf34e9f/Obscura/Assets/Scripts/TerrainGenerator.cs#L6).
-
-You should replay any **bold text** with your relevant information. Liberally use the template when necessary and appropriate.
+### ***Our contributions brought to you by Godot Cat***
+![godotocat](https://github.com/user-attachments/assets/3e4c1638-f0a0-46cd-a784-34674e36a0d3)
 
 ## Producer, Art Lead, Customer Creation
 
@@ -94,73 +83,56 @@ I ensured that the customers can be created through a customer factory. Customer
 
 I made sure that the customers orders would be reflected in the queue that is on display in the kitchen scene. The signal that is emitted from the front manager is connected to the order_queue script, which calls the [_add_order method](https://github.com/TeamCaterpillar/Cafepillar/blob/fda116d96a4094ebc963607d4310e7a20bb96eaf/Cafepillar_Game/scripts/ui/order_queue.gd#L34). This method receives the name and the wait time of the order corresponding with the customer and loads it into the order_card instance, which allows the order_card to display the image of the dish in queue as well as the amount of time that the order card starts with.
 
-## User Interface and Input
-
-**Describe your user interface and how it relates to gameplay. This can be done via the template.**
-**Describe the default input configuration.**
-
-**Add an entry for each platform or input style your project supports.**
-
-## Movement/Physics
-
-**Describe the basics of movement and physics in your game. Is it the standard physics model? What did you change or modify? Did you make your movement scripts that do not use the physics system?**
-
-## Animation and Visuals
-
-**List your assets, including their sources and licenses.**
-
-**Describe how your work intersects with game feel, graphic design, and world-building. Include your visual style guide if one exists.**
-
 ## Game Logic / Movement / Tools ##
 ### Dillon Mannion
 ![commit_chart_DM](https://github.com/user-attachments/assets/db32e129-a980-42ac-ac4f-dd093f183746)
-1. Repository and Project Initialization 
-   * Created the repository and managed project file organization. 
-     ![repo_setup_DM](https://github.com/user-attachments/assets/adff4dee-9cb9-4b85-afc9-458fb5a6aa61)
+1. Repository and Project Initialization
+    * Created the repository and managed project file organization.
+      ![repo_setup_DM](https://github.com/user-attachments/assets/adff4dee-9cb9-4b85-afc9-458fb5a6aa61)
 
-   * Set up the gitignore file and ensured relevant files were committed properly.
-   * Managed GitHub repository, branches, and pull requests.
-     * Acted as the main merge conflict resolver, as `.tscn` files were almsot always changed by multiple people.
-   * Set up gantt chart and task board on [Notion](https://alder-mat-b2b.notion.site/cafepillar-project-board) and coordinated with the team to determine if my created steps/goals were adequate.
+    * Set up the gitignore file and ensured relevant files were committed properly.
+    * Managed GitHub repository, branches, and pull requests.
+        * Acted as the main merge conflict resolver, as `.tscn` files were almsot always changed by multiple people.
+    * Set up gantt chart and task board on [Notion](https://alder-mat-b2b.notion.site/cafepillar-project-board) and coordinated with the team to determine if my created steps/goals were adequate.
 
-2. Game State and Data Management 
-   * Developed the [Game Manager](https://github.com/TeamCaterpillar/Cafepillar/blob/48f67ffdb448fa6a6735dc59d7eb392155a13b1a/Cafepillar_Game/scripts/managers/game_manager.gd#L22) along side [Emma](E:/Cafepillar/README.md:218) for global state management, scene switching, and data structure handling. 
-   * Built a JSON loader/parser along with template resources for dynamic creation(saved to disk) of food-related [resource files](https://github.com/TeamCaterpillar/Cafepillar/tree/48f67ffdb448fa6a6735dc59d7eb392155a13b1a/Cafepillar_Game/scripts/resources).
-     ![json](https://github.com/user-attachments/assets/b566de49-f5c5-47c5-9eb7-af41cc4c9f27)
-     * This supports future food additions through updating the [JSON](https://github.com/TeamCaterpillar/Cafepillar/blob/c873aa81fb40cc5fb9f1caf84e3f631b1b0422ed/Cafepillar_Game/data/data.json) and attaching the script to the world scene's json node.
+2. Game State and Data Management
+    * Developed the [Game Manager](https://github.com/TeamCaterpillar/Cafepillar/blob/48f67ffdb448fa6a6735dc59d7eb392155a13b1a/Cafepillar_Game/scripts/managers/game_manager.gd#L22) along side [Emma](E:/Cafepillar/README.md:218) for global state management, scene switching, and data structure handling.
+    * Built a JSON loader/parser along with template resources for dynamic creation(saved to disk) of food-related [resource files](https://github.com/TeamCaterpillar/Cafepillar/tree/48f67ffdb448fa6a6735dc59d7eb392155a13b1a/Cafepillar_Game/scripts/resources).
+      ![json](https://github.com/user-attachments/assets/b566de49-f5c5-47c5-9eb7-af41cc4c9f27)
+        * This supports future food additions through updating the [JSON](https://github.com/TeamCaterpillar/Cafepillar/blob/c873aa81fb40cc5fb9f1caf84e3f631b1b0422ed/Cafepillar_Game/data/data.json) and attaching the script to the world scene's json node.
 
 3. Card Mechanics Development
-   * Built the card [drag-and-drop system](https://github.com/TeamCaterpillar/Cafepillar/blob/32a234665e65f1cc15d4deb5568c97b98fb6da07/Cafepillar_Game/scripts/card.gd)(now deprecated) using lerp to achieve a delayed follow and snap back.
-![drag_and_drop_DM](https://github.com/user-attachments/assets/eb78d376-3af0-4e2f-82f0-dd9b7238e720)
-   * Designed a card factory, integrated barebones deck system and card drop with it.
-   * Refactored a third-party card hand layout plugin to work with our need to [drop cards onto appliance slots](https://github.com/TeamCaterpillar/Cafepillar/blob/117f4ff3168906bd2f00ebef94c63eaae48d6b57/Cafepillar_Game/addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd#L297C1-L349C45) and pass the card data to the appliance.
-   * Utilized the [observer pattern](https://github.com/TeamCaterpillar/Cafepillar/blob/117f4ff3168906bd2f00ebef94c63eaae48d6b57/Cafepillar_Game/addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd#L311) so the cards could signal the deck/cafe with their passed resource reference once repareneted rather than a tree_changed node.
+    * Built the card [drag-and-drop system](https://github.com/TeamCaterpillar/Cafepillar/blob/32a234665e65f1cc15d4deb5568c97b98fb6da07/Cafepillar_Game/scripts/card.gd)(now deprecated) using lerp to achieve a delayed follow and snap back.
+      ![drag_and_drop_DM](https://github.com/user-attachments/assets/eb78d376-3af0-4e2f-82f0-dd9b7238e720)
+    * Designed a card factory, integrated barebones deck system and card drop with it.
+    * Refactored a third-party card hand layout plugin to work with our need to [drop cards onto appliance slots](https://github.com/TeamCaterpillar/Cafepillar/blob/117f4ff3168906bd2f00ebef94c63eaae48d6b57/Cafepillar_Game/addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd#L297C1-L349C45) and pass the card data to the appliance.
+    * Utilized the [observer pattern](https://github.com/TeamCaterpillar/Cafepillar/blob/117f4ff3168906bd2f00ebef94c63eaae48d6b57/Cafepillar_Game/addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd#L311) so the cards could signal the deck/cafe with their passed resource reference once repareneted rather than a tree_changed node.
 
 4. Pathfinding and Movement Systems
-   * Built custom pathfinding using AStar2DGrid for customers, players, and future characters.
-     ![pathing (2)](https://github.com/user-attachments/assets/db8da83c-f6a0-478c-91d8-4ac0c9752dfc)
-     
-   * Created a [shading](https://github.com/TeamCaterpillar/Cafepillar/blob/03d871b3075998c76ad7428d7356f9e00116ff63/Cafepillar_Game/assets/tile_sets/isometric_tile_select.gdshader) script for pathable tiles and visual feedback.
-   
-   
+    * Built custom pathfinding using AStar2DGrid for customers, players, and future characters.
+      ![pathing (2)](https://github.com/user-attachments/assets/db8da83c-f6a0-478c-91d8-4ac0c9752dfc)
+
+    * Created a [shading](https://github.com/TeamCaterpillar/Cafepillar/blob/03d871b3075998c76ad7428d7356f9e00116ff63/Cafepillar_Game/assets/tile_sets/isometric_tile_select.gdshader) script for pathable tiles and visual feedback.
+
+
      ![shader](https://github.com/user-attachments/assets/8b623385-7f63-4c5f-982e-3669f8ef06e2)
-   * Changed the tile set to have specific cells with the custom data of "pathable" and "obstacle" for the AStarGrid build process.
+* Changed the tile set to have specific cells with the custom data of "pathable" and "obstacle" for the AStarGrid build process.
 
 5. Player and Character Control
-   * Implemented a [command pattern](https://github.com/TeamCaterpillar/Cafepillar/blob/03d871b3075998c76ad7428d7356f9e00116ff63/Cafepillar_Game/scripts/characters/player.gd#L15C1-L22C18) for player movement using mouse input. 
-   * Built a base character class for shared movement logic, following OOP principles of inheritance.
-   * Utilized above path finding alogirthm to move the player and customers to their desired locations through signaling of game state.
+    * Implemented a [command pattern](https://github.com/TeamCaterpillar/Cafepillar/blob/03d871b3075998c76ad7428d7356f9e00116ff63/Cafepillar_Game/scripts/characters/player.gd#L15C1-L22C18) for player movement using mouse input.
+    * Built a base character class for shared movement logic, following OOP principles of inheritance.
+    * Utilized above path finding alogirthm to move the player and customers to their desired locations through signaling of game state.
 
 ## Organization and Project Management
 
 1. Team Communication and Organization
-   * Created the Discord server and managed channels for team communication.
-![discord](https://github.com/user-attachments/assets/f14219ca-6769-4594-9a65-a06773939e49)
-   * Organized team meetings and created timelines for task tracking.
+    * Created the Discord server and managed channels for team communication.
+      ![discord](https://github.com/user-attachments/assets/f14219ca-6769-4594-9a65-a06773939e49)
+    * Organized team meetings and created timelines for task tracking.
 
 2. Scene and Asset Management
-   * Consistently reviewed scene node layouts and organized them by compressing scripts into a singluar file or creating new group scene files.
-   * Organized project assets, scripts, etc. into folders for easy access and management.
+    * Consistently reviewed scene node layouts and organized them by compressing scripts into a singluar file or creating new group scene files.
+    * Organized project assets, scripts, etc. into folders for easy access and management.
 
 ## Kitchen Mechanics/Logic
 
@@ -231,31 +203,36 @@ Underlying the Shop scene is an object hierarchy in which there was a HBoxContai
 
 Within the Shop, there is also a [shopping_cart](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop.gd#L20) array that keeps track of shop items currently selected for purchase. Three functions are implemented that deal with the shopping cart: [add_item_to_cart](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop.gd#L64-L69), [remove_item_from_cart](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop.gd#L72-L77), and [checkout](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop.gd#L84-L99). add_item_to_cart and remove_item_from_cart add and erase items to/from the shopping cart respectively and update the current total cost text. checkout first checks if the shopping cart is empty. If it is empty, the player will be notified that no items have been selected. checkout then compares the player's current number of golden seeds to the total cost of the shopping cart's items. If the player does not have enough golden seeds, they will be notified about it. Otherwise, the items in the shopping cart will be added to the player's inventory and the cost of the items will be deducted from the player's currency amount.
 
-Each [ShopItem](https://github.com/TeamCaterpillar/Cafepillar/blob/ac91d504deaf1b3664d13c7d08f6415ddeea040f/Cafepillar_Game/scripts/ui/shop_item.gd) displays the corresponding item’s name, sprite, and cost. There is also a checkbox that indicates if the item has been selected or not. The item box is a subclass of the built-in TextureButton class which allows for the use of the built-in pressed signal to handle mouse click events. This pressed signal is connected to a [_on_item_clicked function](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop_item.gd#L27-L35) that updates the checkbox and emits the global item_selected or item_deselected signal based on if the item is selected or deselected. These signals respectively trigger the add_item_to_cart and remove_item_from_cart functions mentioned in the previous paragraph.
+Each [ShopItem](https://github.com/TeamCaterpillar/Cafepillar/blob/ac91d504deaf1b3664d13c7d08f6415ddeea040f/Cafepillar_Game/scripts/ui/shop_item.gd) displays the corresponding item’s name, sprite, and cost. There is also a checkbox that indicates if the item has been selected or not. The corresponding item's name and sprite are [loaded](https://github.com/TeamCaterpillar/Cafepillar/blob/20b790b929e45aa8f1dd120664c88c77c2f0052e/Cafepillar_Game/scripts/ui/shop_item.gd#L27-L35) by constructing a file path to the corresponding resource file (see Dillon's section for more information on the resource file system) and then pulling attributes from the resource file.
+
+The item box is a subclass of the built-in TextureButton class which allows for the use of the built-in pressed signal to handle mouse click events. This pressed signal is connected to a [_on_item_clicked function](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop_item.gd#L27-L35) that updates the checkbox and emits the global item_selected or item_deselected signal based on if the item is selected or deselected. These signals respectively trigger the add_item_to_cart and remove_item_from_cart functions mentioned in the previous paragraph.
 
 The shop also responds to the game's current day state. [Upon receiving the day_ended signal](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop.gd#L27), the shop will be [filled](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop.gd#L34-L42) with items avaliable on the particular day. [Upon receiving the next_day_started signal](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop.gd#L28), the shop will be [cleared](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop.gd#L45-L52).
 
-In designing and implementing the shop, the Component and Observer patterns were utilized.
+In designing and implementing the shop, the Component and Observer patterns were utilized. The Component pattern was used in breaking the shop down into the object hierarchy described above. The Observer pattern was used in signal-triggered functions that handled item selection/deselection and shop loading/clearing.
 
 **Ingredient Inventory**
 
 An [ingredient inventory](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/managers/game_manager.gd#L7) was also implemented for the game. In the code, the inventory was implemented as an array of ingredient name strings (each string represents an item). At the beginning of the game, the inventory is [initialized with a starter set of ingredients](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/managers/game_manager.gd#L129-L135). Items can be [added to](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/managers/game_manager.gd#L92-L94) or [removed from](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/managers/game_manager.gd#L97-L100) the inventory as needed by [other game components](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/ui/shop.gd#L97).
 
 **Inventory Deck**
-A [method](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/factories/card_factory.gd#L85-L90) was implemented in CardFactory that displays part of the inventory at a time in the kitchen card hand. In CardFactory, I added a [current inventory subset variable](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/factories/card_factory.gd#L17) that is used to determine which items in the inventory should be displayed as cards in the hand. A [card deck button](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scenes/ui/inventory_deck.tscn) was also created to allow the player to cycle through the inventory like they would through a deck in solitaire. This [deck cycling was accomplished](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/factories/card_factory.gd#L26-L34) by updating the subset number and displayed hand upon click.
+
+A [transfer_hands_into_hand method](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/factories/card_factory.gd#L85-L90) was implemented in CardFactory that displays part of the inventory at a time in the kitchen card hand. Card hand displaying involves a [current inventory subset variable](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/factories/card_factory.gd#L17) that is used to determine the beginning and ending of the inventory slice that will be displayed. The beginning and ending of this slice is calculated as shown [here](https://github.com/TeamCaterpillar/Cafepillar/blob/20b790b929e45aa8f1dd120664c88c77c2f0052e/Cafepillar_Game/scripts/factories/card_factory.gd#L86-L87). The create_card method in CardFactory is then called for each item in the slice to display those items in the card hand.
+
+A [card deck button](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scenes/ui/inventory_deck.tscn) was also created to allow the player to cycle through the inventory like they would through a deck in solitaire. This [deck cycling was accomplished](https://github.com/TeamCaterpillar/Cafepillar/blob/590ec5ab89cf76708cb96dc30def440af7fdd7d0/Cafepillar_Game/scripts/factories/card_factory.gd#L26-L34) by updating the subset number and displayed hand upon click.
 
 **Misc**
-* Created a global singleton for game signals
+* Created a [global singleton](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/signals.gd) for game signals
 
 ## Cooking System Integration and Connections
 
 ### Timothy Ha
 
-I was responsible for linking various gameplay mechanics together such as order management, cooking processes, the dish inventory, and delivery system, and a core gameplay mechanic which was the cooking timer. I also did some user interface work within the delivery system to allow the player to deliver their food to the appropriate customer to receive payment. 
+I was responsible for linking various gameplay mechanics together such as order management, cooking processes, the dish inventory, and delivery system, and a core gameplay mechanic which was the cooking timer. I also did some user interface work within the delivery system to allow the player to deliver their food to the appropriate customer to receive payment.
 
 **Cooking Timer System**
 
-I developed the [cooking timer system](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/cooking_timer_bar.gd) that tracks the cooking progress of dishes. The system involves a timer for each dish, with visual markers indicating key stages of cooking. Depending on when the player decides to stop cooking and plate their dish will determine the food quality which can be either Underdone, Satisfactory, Perfect, or Overdone. The condition of the food will determine the amount of Golden Seeds (currency) that the player receives. I used a [timer](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/cooking_timer_bar.gd#L52) and delta from process to count how long the dish is cooking for. The timer includes a [color-coded bar](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/cooking_timer_bar.gd#L65) that changes as the dish cooks, providing feedback on the dish’s condition. I animated it using [tween](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/cooking_timer_bar.gd#L97) and different themes with ui_theme.tres to change the color of the progress bar based on the condition of the food quality. The cooking timer bar acts as a state machine reflecting the different stages that the cooking process has, namely yellow (underdone), blue (satisfactory), green (perfect), and red (overdone). The visual feedback which is the color of the bar is an indication of its current state. This cooking timer system is a core part of a player’s strategic timing and decision-making as the player has to make a decision whether it is worth plating food early to attempt to get through more customers or aim for perfect foods to attempt to get more currency. 
+I developed the [cooking timer system](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/cooking_timer_bar.gd) that tracks the cooking progress of dishes. The system involves a timer for each dish, with visual markers indicating key stages of cooking. Depending on when the player decides to stop cooking and plate their dish will determine the food quality which can be either Underdone, Satisfactory, Perfect, or Overdone. The condition of the food will determine the amount of Golden Seeds (currency) that the player receives. I used a [timer](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/cooking_timer_bar.gd#L52) and delta from process to count how long the dish is cooking for. The timer includes a [color-coded bar](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/cooking_timer_bar.gd#L65) that changes as the dish cooks, providing feedback on the dish’s condition. I animated it using [tween](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/cooking_timer_bar.gd#L97) and different themes with ui_theme.tres to change the color of the progress bar based on the condition of the food quality. The cooking timer bar acts as a state machine reflecting the different stages that the cooking process has, namely yellow (underdone), blue (satisfactory), green (perfect), and red (overdone). The visual feedback which is the color of the bar is an indication of its current state. This cooking timer system is a core part of a player’s strategic timing and decision-making as the player has to make a decision whether it is worth plating food early to attempt to get through more customers or aim for perfect foods to attempt to get more currency.
 
 ![cooking_timer_system](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/screenshots/cooking_timer_bar.png)
 
@@ -265,13 +242,13 @@ I designed and created the [order cards](https://github.com/TeamCaterpillar/Cafe
 
 **Order Queue**
 
-I designed and implemented the order queue which can be seen in the kitchen. This includes implementing the connection between the tray, order queue, and the cafe front system. This involved creating an efficient order flow system where each order had an associated order card displaying the time the player had to fulfill the order. If the order card runs out of time (the customer’s patience has gotten to 0), then the order card becomes [removed](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/order_queue.gd#L50) from the queue. If the player manages to finish cooking the food before the timer runs out and drops it into the tray, the first order in the queue with a matching food item will be removed from the queue, reflecting the player’s progress in serving customers. The order queue follows an observer pattern where the order queue is constantly updated as orders are fulfilled, with the system observing changes in the state of the tray and reflecting that on the order queue in real time. It contains a [function](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/order_queue.gd#L34) that processes a customer's order and adds it to the queue. The order queue is organized with a VBox container which uses a FIFO (first in, first out) structure, ensuring that orders are processed correctly. This system guides the player on what they should do in the kitchen within the given time limits. 
+I designed and implemented the order queue which can be seen in the kitchen. This includes implementing the connection between the tray, order queue, and the cafe front system. This involved creating an efficient order flow system where each order had an associated order card displaying the time the player had to fulfill the order. If the order card runs out of time (the customer’s patience has gotten to 0), then the order card becomes [removed](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/order_queue.gd#L50) from the queue. If the player manages to finish cooking the food before the timer runs out and drops it into the tray, the first order in the queue with a matching food item will be removed from the queue, reflecting the player’s progress in serving customers. The order queue follows an observer pattern where the order queue is constantly updated as orders are fulfilled, with the system observing changes in the state of the tray and reflecting that on the order queue in real time. It contains a [function](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/order_queue.gd#L34) that processes a customer's order and adds it to the queue. The order queue is organized with a VBox container which uses a FIFO (first in, first out) structure, ensuring that orders are processed correctly. This system guides the player on what they should do in the kitchen within the given time limits.
 
 ![orderqueue](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/screenshots/orderqueue.png)
 
 **Delivery System and Inventories**
 
-I was responsible for managing the delivery and inventory systems that handled both the dish cards and customer cards. When the player drops their completed food card into the tray, the order card is removed from the order queue, and the food card gets [converted into a square-like dish card](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd#L356) that appears in the inventory on the left side. The inventory has two types of cards, namely the dish and customer cards which are buttons. I wanted the user to be able to deliver the food they made to the customer through an online-ish delivery system. On the left, it has all the dishes that the player has completed and has yet to deliver. On the right, it has all the current customers, their orders, and their patience in the form of a bar. I used a Grid Container to design the inventory as a grid of selectable squares, where players can [select](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/completed_dish_inventory.gd#L135) a dish card and select a customer card. I added a color change to the cards to indicate that the player has selected a certain card. I used two signals which were customer_selected and dish_selected that emits signals whenever a card is selected allowing me to easily mark which cards are selected and be able to compare them. [If the food orders match](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/completed_dish_inventory.gd#L42), then both cards are [removed](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/completed_dish_inventory.gd#L154) from the inventory and [appropriate currency is awarded](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/completed_dish_inventory.gd#L31), with a multiplier of 0.5 for underdone and overdone, 1.0 for satisfactory, and 2.0 for perfect. I also connected the successful delivery to the currency system that Michelle made which updates with the use of a signal which passes on a dish card as a variable which contains the food condition and the food name. The inventory also has a [close inventory](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/completed_dish_inventory.gd#L103) function which triggers whenever the player swaps scenes or when they click the button again.   
+I was responsible for managing the delivery and inventory systems that handled both the dish cards and customer cards. When the player drops their completed food card into the tray, the order card is removed from the order queue, and the food card gets [converted into a square-like dish card](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/addons/godot_card_layout/layouts/hand_layout/gcard_hand_layout.gd#L356) that appears in the inventory on the left side. The inventory has two types of cards, namely the dish and customer cards which are buttons. I wanted the user to be able to deliver the food they made to the customer through an online-ish delivery system. On the left, it has all the dishes that the player has completed and has yet to deliver. On the right, it has all the current customers, their orders, and their patience in the form of a bar. I used a Grid Container to design the inventory as a grid of selectable squares, where players can [select](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/completed_dish_inventory.gd#L135) a dish card and select a customer card. I added a color change to the cards to indicate that the player has selected a certain card. I used two signals which were customer_selected and dish_selected that emits signals whenever a card is selected allowing me to easily mark which cards are selected and be able to compare them. [If the food orders match](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/completed_dish_inventory.gd#L42), then both cards are [removed](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/completed_dish_inventory.gd#L154) from the inventory and [appropriate currency is awarded](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/completed_dish_inventory.gd#L31), with a multiplier of 0.5 for underdone and overdone, 1.0 for satisfactory, and 2.0 for perfect. I also connected the successful delivery to the currency system that Michelle made which updates with the use of a signal which passes on a dish card as a variable which contains the food condition and the food name. The inventory also has a [close inventory](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/completed_dish_inventory.gd#L103) function which triggers whenever the player swaps scenes or when they click the button again.
 
 ![inventory](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/screenshots/inventory.png)
 
@@ -279,17 +256,17 @@ I was responsible for managing the delivery and inventory systems that handled b
 
 **Customer ID and Queue System**
 
-Since we are using the same sprite for all of the customers, it can be difficult to differentiate between which customer to serve. Therefore, I implemented a [customer ID system](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/managers/game_manager.gd#L11) that uniquely tracks each customer in the game. The purpose of this system is to ensure that players can easily distinguish between customers and know which customers are in queue and have orders that need to be fulfilled first based on when they entered the cafe. In game_manager.gd, there is an array with 10 unique numbers from 1 - 10. When the customer is generated, they are [assigned](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/characters/customer.gd#L185) a unique ID. When all 10 numbers are assigned that means the occupancy of the cafe has been reached and no more customers spawn. When a customer leaves (either because their patience runs out or they have been served), the ID gets [returned](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/completed_dish_inventory.gd#L111) to the array, where the next customer will get that ID from the array. I also worked on and maintained the [customer queue system](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/managers/game_manager.gd#L12) which keeps track of which customers are currently in the cafe and adds customers to the queue. This customer queue system is synced with the customer card inventory so whenever the customer leaves the cafe ([removed](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/characters/customer.gd#L193) from the queue), the customer card is also removed. 
+Since we are using the same sprite for all of the customers, it can be difficult to differentiate between which customer to serve. Therefore, I implemented a [customer ID system](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/managers/game_manager.gd#L11) that uniquely tracks each customer in the game. The purpose of this system is to ensure that players can easily distinguish between customers and know which customers are in queue and have orders that need to be fulfilled first based on when they entered the cafe. In game_manager.gd, there is an array with 10 unique numbers from 1 - 10. When the customer is generated, they are [assigned](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/characters/customer.gd#L185) a unique ID. When all 10 numbers are assigned that means the occupancy of the cafe has been reached and no more customers spawn. When a customer leaves (either because their patience runs out or they have been served), the ID gets [returned](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/completed_dish_inventory.gd#L111) to the array, where the next customer will get that ID from the array. I also worked on and maintained the [customer queue system](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/managers/game_manager.gd#L12) which keeps track of which customers are currently in the cafe and adds customers to the queue. This customer queue system is synced with the customer card inventory so whenever the customer leaves the cafe ([removed](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/characters/customer.gd#L193) from the queue), the customer card is also removed.
 
 **Transition Scene**
 
-I used the animation player and Lynn’s drawing of leaves to create a transition scene between the cafe front and the kitchen. This was so when the player swapped between scenes, it wouldn’t automatically just switch without warning. In order to create an illusion that we were moving back and forth between the cafe front and kitchen, I made sure that when we transition from the left to right, that when going back we would go from right to left. This meant creating [4 different animation states](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/transition_screen.gd#L17), 2 of which for shifting from left to right and the other 2 for shifting from right to left. I added key frames for the positions of the leaves to allow them to start from the left and to move to the middle over a short time period. Then a new animation frame from the middle to the right to simulate moving leaves. 
+I used the animation player and Lynn’s drawing of leaves to create a transition scene between the cafe front and the kitchen. This was so when the player swapped between scenes, it wouldn’t automatically just switch without warning. In order to create an illusion that we were moving back and forth between the cafe front and kitchen, I made sure that when we transition from the left to right, that when going back we would go from right to left. This meant creating [4 different animation states](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/ui/transition_screen.gd#L17), 2 of which for shifting from left to right and the other 2 for shifting from right to left. I added key frames for the positions of the leaves to allow them to start from the left and to move to the middle over a short time period. Then a new animation frame from the middle to the right to simulate moving leaves.
 
 ![transition_scene](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/screenshots/transition_screen.png)
 
 **Other**
 
-* Added the card hovering above the customer’s head which shows to the player what they want to order and also the customer ID associated with them. I used the progress bar and tween to [animate the bar](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/characters/customer.gd#L84) and sync it with the customer card’s timer. 
+* Added the card hovering above the customer’s head which shows to the player what they want to order and also the customer ID associated with them. I used the progress bar and tween to [animate the bar](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/scripts/characters/customer.gd#L84) and sync it with the customer card’s timer.
 * Added the second hand only for dish cards where the user can move it to the tray or trash
 
 ![customer_order](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/screenshots/customer_order.png)
@@ -307,13 +284,13 @@ The button and shuffling sound effects were sourced from [freesound.org](https:/
 
 ### Timothy Ha
 
-We had two instances of gameplay playtesting, an unofficial one which was from the Final Festival where I got to see our peers and judges play our game and the actual one for the project which was after the Final Festival where I found 10 individuals to playtest our game and fill out a form with their comments on the game. I created a Google Form with questions for the Gameplay testers to fill out where you can find the responses linked [here](https://docs.google.com/spreadsheets/d/1lLSAHUJCB-Gz4mfi93tQBTllHTJu1aINMI-SNa3zKm4/edit?resourcekey=&gid=1735217021#gid=1735217021). 
+We had two instances of gameplay playtesting, an unofficial one which was from the Final Festival where I got to see our peers and judges play our game and the actual one for the project which was after the Final Festival where I found 10 individuals to playtest our game and fill out a form with their comments on the game. I created a Google Form with questions for the Gameplay testers to fill out where you can find the responses linked [here](https://docs.google.com/spreadsheets/d/1lLSAHUJCB-Gz4mfi93tQBTllHTJu1aINMI-SNa3zKm4/edit?resourcekey=&gid=1735217021#gid=1735217021).
 
-Since we completed the game very near the deadline there was not enough time to implement and fix some of the things that our Gameplay Testers pointed out in our game. A common trend our gameplay testers experienced was that the game was difficult to understand, both with how fast paced our game was without clear instructions. Unless someone was clearly explaining how the game works and what to do, most of the players did not know what to do. Many players wanted a tutorial, instructions, or a clear interface that explains what to do which we agree with and would implement if we had more time. Because of this confusion, it made the game more fast paced than we intended as many players were trying to figure out the game while customers were running out of patience and leaving the restaurant. Another issue was that the players did not really like how the game was mainly clicking with a mouse but having to swap between the front of the cafe with the kitchen by pressing “P” on their keyboard. Many players enjoyed the cooking aspect of the game, with the drag, drop, and stacking feature of cards, as well as the visuals of the cards and overall game quality. Some other points were that having the recipe book in alphabetical order and a volume master to control the game music would have been helpful. 
+Since we completed the game very near the deadline there was not enough time to implement and fix some of the things that our Gameplay Testers pointed out in our game. A common trend our gameplay testers experienced was that the game was difficult to understand, both with how fast paced our game was without clear instructions. Unless someone was clearly explaining how the game works and what to do, most of the players did not know what to do. Many players wanted a tutorial, instructions, or a clear interface that explains what to do which we agree with and would implement if we had more time. Because of this confusion, it made the game more fast paced than we intended as many players were trying to figure out the game while customers were running out of patience and leaving the restaurant. Another issue was that the players did not really like how the game was mainly clicking with a mouse but having to swap between the front of the cafe with the kitchen by pressing “P” on their keyboard. Many players enjoyed the cooking aspect of the game, with the drag, drop, and stacking feature of cards, as well as the visuals of the cards and overall game quality. Some other points were that having the recipe book in alphabetical order and a volume master to control the game music would have been helpful.
 
-Some thoughts that I had while I watched the playtesters play were that the hitbox of the slot where the player has to drop the card in seems to be a bit precise where if the card is not placed exactly in a certain area, the card will go back to the player’s hand even though it appears that it should have been placed in the slot. The game seems overwhelming to a first time player. We do not have an interface that explains the game or guides them through how to play, so someone has to explain the instructions of how to play in order for the player to know what to do. 
+Some thoughts that I had while I watched the playtesters play were that the hitbox of the slot where the player has to drop the card in seems to be a bit precise where if the card is not placed exactly in a certain area, the card will go back to the player’s hand even though it appears that it should have been placed in the slot. The game seems overwhelming to a first time player. We do not have an interface that explains the game or guides them through how to play, so someone has to explain the instructions of how to play in order for the player to know what to do.
 
-Some of the things that we noticed from the Final Festival and were able to fix before Gameplay Testing and collecting responses from 10 people were that when the player serves the food to the customer, when they select a dish card and a customer card, there is no indication that the card is selected so some players double click it thinking that their click did not register even though it did. This is something that I fixed by changing the color of the card to indicate that the card is selected. Another thing was that the buttons we have were not very clear as to what their intent is, as we had simple buttons which don’t really tell the user anything like “Yes” and “Store” for the player to cook and plate their food. Emma fixed this by designing new buttons which are more helpful for the player. 
+Some of the things that we noticed from the Final Festival and were able to fix before Gameplay Testing and collecting responses from 10 people were that when the player serves the food to the customer, when they select a dish card and a customer card, there is no indication that the card is selected so some players double click it thinking that their click did not register even though it did. This is something that I fixed by changing the color of the card to indicate that the card is selected. Another thing was that the buttons we have were not very clear as to what their intent is, as we had simple buttons which don’t really tell the user anything like “Yes” and “Store” for the player to cook and plate their food. Emma fixed this by designing new buttons which are more helpful for the player.
 
 ## Narrative Design
 
@@ -391,21 +368,21 @@ When building the project up from scratch, there were instances where too many c
 
 ## Visuals
 ### E Chan
-I created various UI component assets such as the [shop background](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/shop_menu.png), the [shop item box](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/shop_item.png), and the kitchen appliance buttons([1](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button.png), [2](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button_hover.png), [3](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button_pressed.png), [4](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button.png), [5](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button_hover.png), [6](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button_pressed.png), [7](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button.png), [8](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button_hover.png), [9](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button_pressed.png)). I also created the blank ingredient card templates ([ingredient](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/cards/blank_card.png), [dish](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/cards/blank_dish_card.png)). I also created various unused assets such as a [start menu background](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/start_menu.png).
+I created various UI component assets in the kitchen such as the [shop background](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/shop_menu.png), the [shop item box](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/shop_item.png), and the kitchen appliance buttons([1](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button.png), [2](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button_hover.png), [3](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_cancel_button_pressed.png), [4](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button.png), [5](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button_hover.png), [6](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_confirm_button_pressed.png), [7](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button.png), [8](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button_hover.png), [9](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/ui/appliance_finish_button_pressed.png)). I also created the blank ingredient card templates ([ingredient](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/cards/blank_card.png), [dish](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/cards/blank_dish_card.png)). I also created various unused assets such as a [start menu background](https://github.com/TeamCaterpillar/Cafepillar/blob/main/Cafepillar_Game/assets/start_menu.png).
 
-In creating these assets, I aimed to adhere to our game's cutesy, whimsical art direction.
+In creating these assets, I aimed to adhere to our game's cutesy, whimsical art direction. Thus, I made use of bristle-like brushes, watercolor-like brushes, and pencil-like brushes in Krita to achieve a cutesy, handdrawn effect in the kitchen assets. Additionally, bright colors were eschewed in favor of a more muted palette to follow the art direction described.
 
 ## Game Feel and UI Design
 ### Dillon Mannion
 
 1. UI Feedback and Iteration
-   * Provided continuous feedback on card mechanics, appliance layouts, and cafe mechanics.
-     ![feedback1](https://github.com/user-attachments/assets/0a760536-a935-4ce7-825c-b6e9be5099f8)
-     ![feedback2](https://github.com/user-attachments/assets/c586cce2-4104-4274-b8c4-674af170664e)
+    * Provided continuous feedback on card mechanics, appliance layouts, and cafe mechanics.
+      ![feedback1](https://github.com/user-attachments/assets/0a760536-a935-4ce7-825c-b6e9be5099f8)
+      ![feedback2](https://github.com/user-attachments/assets/c586cce2-4104-4274-b8c4-674af170664e)
 
-   * Adjusted UI components for improved balance and game flow.
+    * Adjusted UI components for improved balance and game flow.
 
 2. Visual and Interaction Enhancements
-   * Prompted asset creation for both cafe and kitchen scenes.
-     ![feedback3](https://github.com/user-attachments/assets/e40b8a2b-f155-43a0-ab89-3b74008aede0)
-   * Suggested and integrated improvements like [collapsible recipe books](E:/Cafepillar/README.md:345) and enhanced progress bars for better visibility.
+    * Prompted asset creation for both cafe and kitchen scenes.
+      ![feedback3](https://github.com/user-attachments/assets/e40b8a2b-f155-43a0-ab89-3b74008aede0)
+    * Suggested and integrated improvements like [collapsible recipe books](E:/Cafepillar/README.md:345) and enhanced progress bars for better visibility.
