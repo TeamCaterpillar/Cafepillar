@@ -36,6 +36,13 @@ When the work day ends, a shop will appear on your screen. Here, you can select 
 
 That is the main game of Cafepillar! Be sure to manage your time well by cooking dishes at the same time on all the appliances, and choose the customers you are able to serve wisely! We hope these instructions were clear and that you enjoy :)
 
+<details><summary>Known Bugs</summary>
+<p>
+   - A card is removable from stove by clicking and dragging on the bottom ~1/5 portion <br>
+   - If a card is dropped on deck after being placed into a slot like above, it adds to the deck hand and duplicates an ingredient
+</p>
+</details>
+
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
 # Main Roles #
