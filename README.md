@@ -311,7 +311,7 @@ We did intend for this cutscene to play before the game begins, but our main foc
 The crux of our cafe management gameplay is cooking and serving orders in our game. I determined the orders by selecting foods that would commonly be found in a cafe, and using ingredients that would make sense for that food or ingredients that caterpillars eat in real life (seeds, flower petals, tea and lettuce leaves, fruits (strawberry), beans). I simplified the ingredients required for each meal so that they'd fit in the time management scope of the game, and I specified that more complex ingredients/recipes would have to be unlocked/bought with Golden Seeds, the currency earned by serving customers. This helps flesh out the narrative elements of the game so that it's not simply card time management, there is purpose given in the act of selecting the cards for the recipes and cooking them correctly. [The list of recipes as well as the cutscene dialogue draft](https://docs.google.com/document/d/1QJGlTrxCEvVbQXHhcoUuOwjzBdKtZe6hRNyglQgyM6w/edit?usp=sharing)
 
 ## Press Kit and Trailer
-
+### Michelle Lu
 [Trailor](https://youtu.be/aDJ_-KLX_5c)  
 [Press Kit](https://github.com/TeamCaterpillar/Cafepillar/blob/1f56d638723ec2c0116c272568b60dbe65acfa32/PressKit.md)
 
