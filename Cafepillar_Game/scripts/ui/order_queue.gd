@@ -53,8 +53,7 @@ func remove_order(food_name: String):
 			child.queue_free()
 			break
 
-func remove_order_end_day(food_name: String):
+func remove_order_end_day():
 	for child in queue_container.get_children():
-		if child.food_name == food_name:
-			child.queue_free()
+		child.queue_free()
 			
