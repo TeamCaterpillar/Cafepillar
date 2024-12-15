@@ -8,7 +8,7 @@ To escape this caterpillar fate, you must listen to what your fellow caterpillar
 ## Project Resources ##
 | Resource                                            | Description                                                                    | Link         |
 |-----------------------------------------------------|--------------------------------------------------------------------------------|--------------|
-| <p style="text-align: center;">Web-playable version</p> | <p style="text-align: center;">Hosted on the best* indie game dev website!</p> | [Link](https://aroshia.itch.io/cafepillar?secret=sxRkwzsfKWNpgYkhKWZI1OWhH0) |
+| <p style="text-align: center;">Web-playable version</p> | <p style="text-align: center;">Hosted on the best* indie game dev website!</p> | [Link](https://itch.io/embed-upload/12258308?color=333333) |
 | <p style="text-align: center;">Trailer</p>              | <p style="text-align: center;">"Historically" accurate gameplay footage</p>    | [Link](https://youtu.be/aDJ_-KLX_5c)  |
 | <p style="text-align: center;">Press Kit</p>        | <p style="text-align: center;">A showcase of our game</p>                      | [Link](https://github.com/TeamCaterpillar/Cafepillar/blob/1f56d638723ec2c0116c272568b60dbe65acfa32/PressKit.md) |
 | <p style="text-align: center;">Proposal</p>                            | <p style="text-align: center;">Prompted by a Hungry hungry caterpillar fever dream (and our games music)</p> |   [Link](https://docs.google.com/document/d/1RK9_fZNIhu6455-4KIbZJjABS-V4PLPm4asVfd11XNw/edit?usp=sharing) |
@@ -35,6 +35,13 @@ When the work day ends, a shop will appear on your screen. Here, you can select 
 (A brief cutscene is also available to be seen by pressing [C] on your keyboard! When you enter, click the dialogue box to continue. When it is complete, press [C] again to return to your game. Do keep in mind that your customers and kitchen will continue working while you're away!)
 
 That is the main game of Cafepillar! Be sure to manage your time well by cooking dishes at the same time on all the appliances, and choose the customers you are able to serve wisely! We hope these instructions were clear and that you enjoy :)
+
+<details><summary>Known Bugs</summary>
+<p>
+   - A card is removable from stove by clicking and dragging on the bottom ~1/5 portion <br>
+   - If a card is dropped on deck after being placed into a slot like above, it adds to the deck hand and duplicates an ingredient
+</p>
+</details>
 
 **Add it here if you did work that should be factored into your grade but does not fit easily into the proscribed roles! Please include links to resources and descriptions of game-related material that does not fit into roles here.**
 
@@ -311,7 +318,7 @@ We did intend for this cutscene to play before the game begins, but our main foc
 The crux of our cafe management gameplay is cooking and serving orders in our game. I determined the orders by selecting foods that would commonly be found in a cafe, and using ingredients that would make sense for that food or ingredients that caterpillars eat in real life (seeds, flower petals, tea and lettuce leaves, fruits (strawberry), beans). I simplified the ingredients required for each meal so that they'd fit in the time management scope of the game, and I specified that more complex ingredients/recipes would have to be unlocked/bought with Golden Seeds, the currency earned by serving customers. This helps flesh out the narrative elements of the game so that it's not simply card time management, there is purpose given in the act of selecting the cards for the recipes and cooking them correctly. [The list of recipes as well as the cutscene dialogue draft](https://docs.google.com/document/d/1QJGlTrxCEvVbQXHhcoUuOwjzBdKtZe6hRNyglQgyM6w/edit?usp=sharing)
 
 ## Press Kit and Trailer
-
+### Michelle Lu
 [Trailor](https://youtu.be/aDJ_-KLX_5c)  
 [Press Kit](https://github.com/TeamCaterpillar/Cafepillar/blob/1f56d638723ec2c0116c272568b60dbe65acfa32/PressKit.md)
 
