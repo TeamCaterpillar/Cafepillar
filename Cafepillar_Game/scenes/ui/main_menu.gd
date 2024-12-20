@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_play_button() -> void:
-	GameSignals.start_game.emit()
+	GameSignals.start_game_intro.emit()
 
 
 func _on_options_button() -> void:

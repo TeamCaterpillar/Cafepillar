@@ -34,3 +34,5 @@ signal change_to_kitchen
 signal change_to_cafe
 @warning_ignore("unused_signal")
 signal start_game
+@warning_ignore("unused_signal")
+signal start_game_intro

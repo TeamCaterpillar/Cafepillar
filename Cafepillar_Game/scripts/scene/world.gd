@@ -20,7 +20,7 @@ func _ready():
 	main_menu_cam.make_current()
 	GameSignals.change_to_cafe.connect(_swap_to_from_kitchen)
 	GameSignals.change_to_kitchen.connect(_swap_to_from_kitchen)
-	GameSignals.start_game.connect(_start_game)
+	GameSignals.start_game_intro.connect(_start_game)
 	get_tree().paused = true
 	show()
 
@@ -70,19 +70,25 @@ func _start_game() -> void:
 	var menu_music = $MainMenu/MenuMusic
 	var tween = self.create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	tween.set_parallel()
-	tween.tween_property(menu_black_rect, "color", Color.BLACK, 2.25)
-	print("here")
-	await tween.tween_property(menu_music, "volume_db", -60.0 , 2.25).finished
-	tween.stop()
+	tween.set_parallel().tween_property(menu_black_rect, "color", Color.BLACK, 2.25)
+	tween.tween_property(menu_music, "volume_db", -60.0 , 2.25)
+	tween.set_parallel(false)
+	tween.tween_interval(1.0)
+	tween.tween_callback(_play_music)
+	tween.tween_property(cafe_black_rect, "color", Color.TRANSPARENT, 1.5)
+	tween.tween_interval(1.5)
+	tween.tween_callback(_unpause).set_delay(1.0)
+	
+	
+func _play_music():
 	player_camera.make_current()
-	tween.play()
-	await tween.tween_property(cafe_black_rect, "color", Color.TRANSPARENT, 2).finished
+	AudioController.exited_main_menu = true
+	AudioController.play_music()
+	
+	
+func _unpause():
+	GameSignals.start_game.emit()
 	get_tree().paused = false
-	tween.kill()
-	
-	#tween.tween_property()
-	
 
 func _swap_to_from_cutscene() -> void:
 	if cutscene_camera.is_current():
