@@ -12,10 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://bncvkt22xkeor" path="res://scenes/cutscene.tscn" id="10_pdr1q"]
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("main_menu")]
+process_mode = 3
 script = ExtResource("1_7tooo")
 main_menu = NodePath("MainMenu")
 
 [node name="MainMenu" parent="." instance=ExtResource("2_knur3")]
+process_mode = 2
 offset_left = 2128.99
 offset_top = 1228.22
 offset_right = 2168.99
@@ -51,6 +53,14 @@ position = Vector2(72, 56)
 position = Vector2(-202.932, -98.0373)
 anchor_mode = 0
 zoom = Vector2(3.5, 3.5)
+
+[node name="ColorRect" type="ColorRect" parent="PlayerCamera"]
+z_index = 4096
+offset_left = -25.0
+offset_top = -17.0
+offset_right = 565.0
+offset_bottom = 324.0
+color = Color(0, 0, 0, 1)
 
 [node name="CompletedDishInventory" parent="." instance=ExtResource("7_jd73d")]
 unique_name_in_owner = true

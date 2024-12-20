@@ -21,6 +21,8 @@ func _ready():
 	GameSignals.change_to_cafe.connect(_swap_to_from_kitchen)
 	GameSignals.change_to_kitchen.connect(_swap_to_from_kitchen)
 	GameSignals.start_game.connect(_start_game)
+	get_tree().paused = true
+	show()
 
 
 func _process(_delta):
@@ -63,7 +65,24 @@ func hide_kitchen():
 
 
 func _start_game() -> void:
+	var menu_black_rect = $MainMenu/BlackFadeMenu
+	var cafe_black_rect = $PlayerCamera/ColorRect
+	var menu_music = $MainMenu/MenuMusic
+	var tween = self.create_tween()
+	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tween.set_parallel()
+	tween.tween_property(menu_black_rect, "color", Color.BLACK, 2.25)
+	print("here")
+	await tween.tween_property(menu_music, "volume_db", -60.0 , 2.25).finished
+	tween.stop()
 	player_camera.make_current()
+	tween.play()
+	await tween.tween_property(cafe_black_rect, "color", Color.TRANSPARENT, 2).finished
+	get_tree().paused = false
+	tween.kill()
+	
+	#tween.tween_property()
+	
 
 func _swap_to_from_cutscene() -> void:
 	if cutscene_camera.is_current():

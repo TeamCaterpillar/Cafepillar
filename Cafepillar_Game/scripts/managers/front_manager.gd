@@ -43,6 +43,7 @@ var player_end_position : Marker2D
 var astar_grid : AStarGrid2D
 var player_move : bool = false
 var seats_taken = []# was dict
+var menu_exited : bool = false
 
 func _ready():
 	camera_in_scene = true # viewing/process enable flag
@@ -57,7 +58,8 @@ func _ready():
 	#set_player_path(find_path(player_start_position))
 
 	GameSignals.player_finished_delivery.connect(_player_finished_delivery) # signal will be sent when player has returned to kitchen point
-	#GameSignals.kill_customer.connect()
+	GameSignals.start_game.connect(_menu_exited)
+		#GameSignals.kill_customer.connect()
 	#GameSignals.food_delivered.connect(get_customer_to_deliver)
 	
 	# spawning customers - temp
@@ -71,7 +73,7 @@ func check_if_can_spawn() -> bool:
 	var check3 = not day_night_cycle.day_ended 
 	var check4 = GameManager.filled_seats.size() < 12 
 	var check5 = GameManager.filled_seats.size() >= 0
-	if check1 and check2 and check3 and check4 and check5:
+	if menu_exited and check1 and check2 and check3 and check4 and check5:
 		return true
 	else:
 		return false
@@ -263,7 +265,8 @@ func _player_finished_delivery() -> void:
 func _on_food_delivered() -> void:
 	player.return_to_start_position()
 
-
+func _menu_exited() -> void:
+	menu_exited = true
 
 # unused helper functions
 

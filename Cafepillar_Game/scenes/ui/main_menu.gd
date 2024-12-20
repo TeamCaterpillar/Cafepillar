@@ -1,7 +1,7 @@
 class_name MainMenu
 extends Control
 
-
+@export var menu_music : AudioStreamPlayer
 @export var play_button : Button
 @export var options_button : Button
 @export var exit_button : Button
@@ -16,6 +16,7 @@ func _ready() -> void:
 	options_button.pressed.connect(_on_options_button)
 	exit_button.pressed.connect(_on_exit_button)
 	back_button.pressed.connect(_on_back_button)
+	menu_music.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
