@@ -49,17 +49,6 @@ theme_override_font_sizes/font_size = 16
 text = "Skip Day"
 metadata/_edit_use_anchors_ = true
 
-[node name="Pause" type="Button" parent="."]
-z_index = 4096
-offset_left = -272.0
-offset_top = -151.0
-offset_right = -197.0
-offset_bottom = -120.0
-theme = ExtResource("4_yod8p")
-theme_override_font_sizes/font_size = 16
-text = "Pause"
-metadata/_edit_use_anchors_ = true
-
 [node name="EndOfDayScreen" type="Panel" parent="."]
 visible = false
 self_modulate = Color(0, 0, 0, 1)
@@ -78,12 +67,12 @@ offset_bottom = -35.0
 
 [node name="DayEndText" type="Label" parent="EndOfDayScreen"]
 layout_mode = 0
-offset_left = 29.0
-offset_top = 14.0
-offset_right = 92.0
-offset_bottom = 37.0
+offset_left = 227.0
+offset_top = 12.0
+offset_right = 340.0
+offset_bottom = 35.0
 theme_override_fonts/font = ExtResource("3_ldyky")
-text = "Day End"
+text = "Day has ended"
 
 [node name="NextDay" type="Button" parent="EndOfDayScreen"]
 z_index = 4001
@@ -106,3 +95,4 @@ offset_top = -148.0
 offset_right = 20.0
 offset_bottom = -125.0
 theme_override_fonts/font = ExtResource("3_ldyky")
+text = "time"

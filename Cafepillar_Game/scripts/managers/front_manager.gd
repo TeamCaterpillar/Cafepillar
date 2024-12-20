@@ -16,7 +16,7 @@ var debug_enabled : bool = true
 # @onready world variables
 @onready var ground_layer : TileMapLayer = $GroundLayer
 @onready var obstacle_layer : TileMapLayer = $ObstacleLayer
-@onready var day_night_cycle: DayNightCycle = $"../DayNightCycle"
+@onready var day_night_cycle: DayNightCycle = $"../Background_UI"
 @onready var camera_snap_point : Node2D = $CameraSnapPoint
 
 # @onready player variables

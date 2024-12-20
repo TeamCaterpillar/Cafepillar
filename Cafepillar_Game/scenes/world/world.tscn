@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg8j82i710fdr"]
+[gd_scene load_steps=14 format=3 uid="uid://cg8j82i710fdr"]
 
 [ext_resource type="Script" path="res://scripts/scene/world.gd" id="1_7tooo"]
 [ext_resource type="PackedScene" uid="uid://b6g2nitlgeosj" path="res://scenes/ui/main_menu.tscn" id="2_knur3"]
@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://dta8ywnphhy4" path="res://scenes/world/background.tscn" id="5_rjga5"]
 [ext_resource type="PackedScene" uid="uid://cbeth81wdaykt" path="res://scenes/ui/completed_dish_inventory.tscn" id="7_jd73d"]
 [ext_resource type="PackedScene" uid="uid://bncvkt22xkeor" path="res://scenes/cutscene.tscn" id="10_pdr1q"]
+[ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="11_b2q01"]
+[ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="12_rcr6s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_a7opr"]
+font_color = Color(1, 1, 1, 0.494118)
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("main_menu", "pause_menu", "pause_menu_cam")]
 process_mode = 3
@@ -25,13 +30,25 @@ offset_top = 1228.22
 offset_right = 2168.99
 offset_bottom = 1268.22
 
-[node name="PauseMenu" parent="." instance=ExtResource("3_w5kys")]
+[node name="PauseMenu" parent="." node_paths=PackedStringArray("restart_button") instance=ExtResource("3_w5kys")]
 process_mode = 2
 offset_left = 648.0
 offset_top = -536.0
 offset_right = 2568.0
 offset_bottom = 544.0
 script = ExtResource("4_o7cnx")
+restart_button = NodePath("Reload")
+
+[node name="Reload" type="Button" parent="PauseMenu"]
+offset_left = 600.0
+offset_top = 904.0
+offset_right = 1320.0
+offset_bottom = 960.0
+size_flags_stretch_ratio = 1.5
+text = "Restart"
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
 
 [node name="PauseCamera" type="Camera2D" parent="PauseMenu"]
 anchor_mode = 0
@@ -50,9 +67,18 @@ offset_bottom = -824.0
 [node name="TestScene" parent="." instance=ExtResource("4_wy5p2")]
 position = Vector2(2359, -796)
 
-[node name="DayNightCycle" parent="." instance=ExtResource("5_rjga5")]
+[node name="Background_UI" parent="." instance=ExtResource("5_rjga5")]
 process_mode = 1
 position = Vector2(72, 56)
+
+[node name="CompletedDishInventory" parent="." instance=ExtResource("7_jd73d")]
+unique_name_in_owner = true
+visible = false
+z_index = 4000
+offset_left = -200.0
+offset_top = -96.0
+offset_right = -200.0
+offset_bottom = -96.0
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
 position = Vector2(-202.932, -98.0373)
@@ -68,18 +94,8 @@ offset_right = 565.0
 offset_bottom = 324.0
 color = Color(0, 0, 0, 1)
 
-[node name="CompletedDishInventory" parent="." instance=ExtResource("7_jd73d")]
-unique_name_in_owner = true
-visible = false
-z_index = 4000
-offset_left = -200.0
-offset_top = -96.0
-offset_right = -200.0
-offset_bottom = -96.0
-
 [node name="Cutscene" parent="." instance=ExtResource("10_pdr1q")]
 process_mode = 1
-visible = false
 position = Vector2(-2374, 314)
 
 [node name="attach_json_loader_to_node_to_build_card_resources_from_json_data" type="Node" parent="."]
@@ -92,3 +108,35 @@ offset_right = 232.0
 offset_bottom = 2.0
 mouse_filter = 1
 flat = true
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="KitchenButton"]
+z_index = -250
+position = Vector2(-4, 2)
+color = Color(1, 1, 1, 0.52549)
+antialiased = true
+polygon = PackedVector2Array(19, 3, 21, -6, 23, -3, 31, -9, 34, -5, 25, 1, 27, 4)
+
+[node name="Label" type="Label" parent="KitchenButton"]
+z_index = -250
+layout_mode = 0
+offset_left = 33.0
+offset_top = -15.0
+offset_right = 90.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("11_b2q01")
+theme_override_font_sizes/font_size = 16
+text = "Kitchen"
+label_settings = SubResource("LabelSettings_a7opr")
+
+[node name="Pause" type="Button" parent="."]
+clip_children = 2
+z_index = 4000
+offset_left = -201.0
+offset_top = -96.0
+offset_right = -126.0
+offset_bottom = -65.0
+theme = ExtResource("12_rcr6s")
+theme_override_font_sizes/font_size = 16
+text = "Pause"
+metadata/_edit_use_anchors_ = true

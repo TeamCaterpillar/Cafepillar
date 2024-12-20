@@ -20,4 +20,7 @@ func play_music():
 func play_menu_music():
 	audio_player.stream = menu_music
 	audio_player.play()
+
+func stop_music():
+	audio_player.stop()
 	

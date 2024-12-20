@@ -73,6 +73,7 @@ func get_customer_by_id(id: int) -> Customer:
 
 
 func _on_ListButton_pressed() -> void:
+	
 	# display inventory
 	if color_rect.visible == false:
 		color_rect.visible = true

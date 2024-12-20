@@ -53,9 +53,9 @@ bus_name = "Sounds"
 [node name="BackButton" type="Button" parent="."]
 layout_mode = 2
 offset_left = 600.0
-offset_top = 904.0
+offset_top = 968.0
 offset_right = 1320.0
-offset_bottom = 960.0
+offset_bottom = 1024.0
 size_flags_stretch_ratio = 1.5
 text = "Back"
 icon_alignment = 1

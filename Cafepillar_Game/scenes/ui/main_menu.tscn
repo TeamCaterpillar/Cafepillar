@@ -1,12 +1,52 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6g2nitlgeosj"]
+[gd_scene load_steps=9 format=3 uid="uid://b6g2nitlgeosj"]
 
 [ext_resource type="Texture2D" uid="uid://hwmsihrotpgb" path="res://assets/start_menu.png" id="1_1hxrs"]
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="2_bqe0q"]
 [ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="2_psnk6"]
 [ext_resource type="PackedScene" uid="uid://d3shrvf6fa7qv" path="res://scenes/ui/pause_menu.tscn" id="4_j6iei"]
+[ext_resource type="Texture2D" uid="uid://cj10e7nnr51so" path="res://assets/pause_menu.png" id="5_vbwqg"]
 [ext_resource type="AudioStream" uid="uid://1pncymuxbqbd" path="res://assets/audio/main_menu_music.mp3" id="5_wnr0n"]
 
-[node name="MainMenuRoot" type="Control" node_paths=PackedStringArray("menu_music", "play_button", "options_button", "exit_button", "options_screen")]
+[sub_resource type="FontFile" id="FontFile_jta50"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+
+[sub_resource type="FontFile" id="FontFile_tbnqo"]
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/32/0/ascent = 0.0
+cache/0/32/0/descent = 0.0
+cache/0/32/0/underline_position = 0.0
+cache/0/32/0/underline_thickness = 0.0
+cache/0/32/0/scale = 1.0
+cache/0/40/0/ascent = 0.0
+cache/0/40/0/descent = 0.0
+cache/0/40/0/underline_position = 0.0
+cache/0/40/0/underline_thickness = 0.0
+cache/0/40/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+
+[node name="MainMenuRoot" type="Control" node_paths=PackedStringArray("menu_music", "play_button", "options_button", "exit_button", "info_button", "info_back_button", "options_screen", "info_screen")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -17,7 +57,10 @@ menu_music = NodePath("MenuMusic")
 play_button = NodePath("MainMenu/MenuButtons/PlayButton")
 options_button = NodePath("MainMenu/MenuButtons/OptionsButton")
 exit_button = NodePath("MainMenu/MenuButtons/ExitButton")
+info_button = NodePath("MainMenu/MenuButtons/GameInfoButton")
+info_back_button = NodePath("Info/BackButton")
 options_screen = NodePath("Pause")
+info_screen = NodePath("Info")
 metadata/_edit_vertical_guides_ = [600.0, 1320.0]
 metadata/_edit_horizontal_guides_ = [544.0]
 
@@ -45,6 +88,14 @@ icon_alignment = 1
 vertical_icon_alignment = 2
 expand_icon = true
 
+[node name="GameInfoButton" type="Button" parent="MainMenu/MenuButtons"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.5
+text = "Info"
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
+
 [node name="OptionsButton" type="Button" parent="MainMenu/MenuButtons"]
 layout_mode = 2
 size_flags_stretch_ratio = 1.5
@@ -60,6 +111,60 @@ vertical_icon_alignment = 2
 [node name="Pause" parent="." instance=ExtResource("4_j6iei")]
 visible = false
 layout_mode = 0
+
+[node name="Info" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("5_vbwqg")
+
+[node name="InfoText" type="RichTextLabel" parent="Info"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 152.0
+offset_right = 1664.0
+offset_bottom = 928.0
+theme_override_fonts/normal_font = SubResource("FontFile_jta50")
+text = "Welcome to Cafepillar! Upon opening the game, you will see the Front of House, where your caterpillar customers will enter and sit! They each have their own order request, with a timer above their heads indicating how long they will wait.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+To play the game, please press the [P] key on your keyboard to enter the Kitchen! This is where all your cooking will happen. You will see the customers and their orders on the right, as well as the time left. Each order has a unique recipe, which can be accessed in the Recipe Book by clicking the recipe book button on the left. Verify the ingredients you need as well as the appliance to use.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Once you know what you're looking for, search through your deck of cards! You will have five on hand at all times, and you can cycle through five at a time by clicking on your deck of ingredients on the right next to the order queue. Use your mouse to click, drag, and drop the desired ingredients onto the correct appliance slot! Don't worry if you've added the wrong ingredients; click the red [X] button next to the appliance, and the cards will return to your hand. Ingredients also automatically refresh, so you can add multiple of the same ingredient.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+When you're ready to let it cook, click the green checkmark button next to the appliance. If it matches the recipe, it'll begin cooking! A timer will appear on the left side to indicate its status. If you pull it off the appliance when the timer is yellow, it'll be undercooked; for blue, it's satisfactory; for green, it's perfect; and for red, it's overdone. This will affect how many Golden Seeds (your currency!) you will earn from serving the customer.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+After it's pulled off of the appliance, it'll be added to your hand again above your ingredients. Remember to drag the dish to your serving tray on the top right to bring it to the Front of House! Press [P] on your keyboard again to return to the front, where your customers are waiting.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+To serve your hungry caterpillars, click on your list of customers with the [LIST] button on the bottom left. This will show your inventory of dishes on the left and your customer list on the right. Select the dish and the corresponding customer, and click the [YES] button to confirm! Congratulations, you've just served your caterpillar guest! Based on the quality of your cooking, you'll receive Golden Seeds.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+When the work day ends, a shop will appear on your screen. Here, you can select more ingredients to buy, which will give you access to more recipes for dishes that'll earn you more Golden Seeds! Select the ingredients you want to acquire and click [YES] to buy, and/or click the [NEXT DAY] button on the top right to continue to the next work day.
+-------------------------------------------------------------------------------------------------------------------------------------------------
+(A brief cutscene is also available to be seen by pressing [C] on your keyboard! When you enter, click the dialogue box to continue. When it is complete, press [C] again to return to your game. Do keep in mind that your customers and kitchen will continue working while you're away!)
+That is the main game of Cafepillar! Be sure to manage your time well by cooking dishes at the same time on all the appliances, and choose the customers you are able to serve wisely! We hope these instructions were clear and that you enjoy :)"
+
+[node name="Button" type="Button" parent="Info"]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 48.0
+offset_right = 1320.0
+offset_bottom = 120.0
+theme_override_fonts/font = SubResource("FontFile_tbnqo")
+theme_override_font_sizes/font_size = 50
+button_mask = 0
+text = "Gameplay Explanation / Info"
+
+[node name="BackButton" type="Button" parent="Info"]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 968.0
+offset_right = 1320.0
+offset_bottom = 1024.0
+size_flags_stretch_ratio = 1.5
+text = "Back"
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
 
 [node name="MainMenuCam" type="Camera2D" parent="."]
 anchor_mode = 0

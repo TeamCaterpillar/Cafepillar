@@ -19,6 +19,7 @@ extends Node2D
 @onready var cafe_black_rect = $PlayerCamera/ColorRect
 @onready var menu_music = $MainMenu/MenuMusic
 @onready var kitchen_button = $KitchenButton
+@onready var pause_button : Button = $Pause
 
 var prev_cam : Camera2D
 
@@ -28,14 +29,22 @@ func _ready():
 	kitchen_scene.visible = false
 	completed_dish_inventory.visible = true
 	main_menu_cam.make_current()
+	pause_button.pressed.connect(_on_pause_button_pressed)
 	GameSignals.change_to_cafe.connect(_swap_to_from_kitchen)
 	GameSignals.change_to_kitchen.connect(_swap_to_from_kitchen)
 	GameSignals.start_game_intro.connect(_start_game)
 	GameSignals.pause_game.connect(_go_to_from_pause_menu)
 	kitchen_button.pressed.connect(_swap_to_from_kitchen)
+	GameSignals.day_ended.connect(_on_day_end)
+	GameSignals.next_day_started.connect(_on_next_day)
 	get_tree().paused = true
 	show()
 
+func _on_day_end():
+	$KitchenButton.visible = false
+
+func _on_next_day():
+	$KitchenButton.visible = true
 
 func _process(_delta):
 	
@@ -167,6 +176,10 @@ func _get_current_cam() -> Camera2D:
 	printerr("Something wrong with cameras")
 	return null
 	
+
+func _on_pause_button_pressed() -> void:
+	GameSignals.pause_game.emit()
+
 
 func _on_skip_day_pressed() -> void:
 	pass # Replace with function body.

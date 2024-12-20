@@ -5,7 +5,10 @@ extends Control
 @export var play_button : Button
 @export var options_button : Button
 @export var exit_button : Button
+@export var info_button : Button
+@export var info_back_button : Button
 @export var options_screen : TextureRect
+@export var info_screen : TextureRect
 
 var back_button : Button
 
@@ -16,6 +19,8 @@ func _ready() -> void:
 	options_button.pressed.connect(_on_options_button)
 	exit_button.pressed.connect(_on_exit_button)
 	back_button.pressed.connect(_on_back_button)
+	info_button.pressed.connect(_on_info_button)
+	info_back_button.pressed.connect(_on_back_button)
 	menu_music.play()
 
 
@@ -24,14 +29,21 @@ func _process(_delta: float) -> void:
 	pass
 
 func _on_play_button() -> void:
+	play_button.disabled = true
 	GameSignals.start_game_intro.emit()
 
 
 func _on_options_button() -> void:
 	options_screen.visible = true
 	
+	
+func _on_info_button() -> void:
+	info_screen.visible = true
+	
+	
 func _on_back_button() -> void:
 	options_screen.visible = false
+	info_screen.visible = false
 
 
 func _on_exit_button() -> void:

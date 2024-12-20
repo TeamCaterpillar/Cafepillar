@@ -253,9 +253,10 @@ text = "Show Recipes
 
 [node name="CafeButton" type="Button" parent="."]
 z_index = 4096
-offset_left = 856.0
+layout_mode = 0
+offset_left = 1408.0
 offset_top = 12.0
-offset_right = 1064.0
+offset_right = 1616.0
 offset_bottom = 81.0
 mouse_filter = 1
 theme_override_font_sizes/font_size = 32

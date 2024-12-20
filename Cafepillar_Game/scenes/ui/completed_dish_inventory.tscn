@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="8_8yh8m"]
 
 [node name="CompletedDishInventory" type="Control"]
+z_index = 300
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_5hcnq")
@@ -18,6 +19,8 @@ offset_right = 547.0
 offset_bottom = 306.0
 
 [node name="ListButton" type="Button" parent="."]
+visibility_layer = 3
+z_index = 4096
 texture_filter = 1
 layout_mode = 0
 offset_top = 273.0
@@ -27,9 +30,11 @@ theme_override_font_sizes/font_size = 16
 text = "Inventory"
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -5
 layout_mode = 0
 offset_right = 287.0
 offset_bottom = 209.0
+mouse_filter = 1
 color = Color(0.349316, 0.884061, 0.550491, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="ColorRect"]

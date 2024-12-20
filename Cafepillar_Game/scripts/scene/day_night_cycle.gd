@@ -14,14 +14,13 @@ var day_ended: bool = false  # Track if the day has ended
 @onready var skip_button: Button = $SkipDay
 @onready var timer_label: Label = $TimerLabel
 @onready var star_shader : ShaderMaterial = preload("res://themes/stars.tres")
-@onready var pause_button : Button = $Pause
 
 
 func _ready():
 	# Connect button signals
 	restart_button.pressed.connect(_on_restart_button_pressed)
 	skip_button.pressed.connect(_on_skip_button_pressed)
-	pause_button.pressed.connect(_on_pause_button_pressed)
+	
 
 
 func _process(delta):
@@ -71,7 +70,7 @@ func update_timer():
 func end_day():
 	# Mark the day as ended
 	day_ended = true
-	
+	skip_button.visible = false
 	# Emit day_ended signal to trigger connected functions in other components
 	GameSignals.day_ended.emit()
 	
@@ -83,7 +82,7 @@ func _on_restart_button_pressed():
 	# Reset the day
 	day_ended = false
 	time_of_day = 0.0
-	
+	skip_button.visible = true
 	# emit signal to let other components know that next day has started
 	GameSignals.next_day_started.emit()
 
@@ -103,6 +102,3 @@ func _remove_card_from_slot(card: Control, slot: Control) -> void:
 		card.get_parent().remove_child(card)
 	
 	slot.remove_child(card)
-
-func _on_pause_button_pressed() -> void:
-	GameSignals.pause_game.emit()
