@@ -15,8 +15,13 @@ extends Node2D
 @onready var grid_container: GridContainer = $CompletedDishInventory/GridContainer
 @onready var label: Label = $CompletedDishInventory/Label
 @onready var label_2: Label = $CompletedDishInventory/Label2
+@onready var menu_black_rect = $MainMenu/BlackFadeMenu
+@onready var cafe_black_rect = $PlayerCamera/ColorRect
+@onready var menu_music = $MainMenu/MenuMusic
 
 var prev_cam : Camera2D
+
+
 
 func _ready():
 	kitchen_scene.visible = false
@@ -75,9 +80,6 @@ func hide_kitchen():
 
 
 func _start_game() -> void:
-	var menu_black_rect = $MainMenu/BlackFadeMenu
-	var cafe_black_rect = $PlayerCamera/ColorRect
-	var menu_music = $MainMenu/MenuMusic
 	var tween = self.create_tween()
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.set_parallel().tween_property(menu_black_rect, "color", Color.BLACK, 2.25)
@@ -87,8 +89,15 @@ func _start_game() -> void:
 	tween.set_parallel()
 	tween.tween_property(cafe_black_rect, "color", Color(0, 0, 0, 0), 1.5)
 	tween.tween_callback(_unpause)
+	tween.set_parallel(false)
+	tween.tween_callback(_delete_rect).set_delay(1.0)
 	
-	
+
+
+func _delete_rect():
+	cafe_black_rect.queue_free()
+
+
 func _play_music():
 	player_camera.make_current()
 	AudioController.exited_main_menu = true

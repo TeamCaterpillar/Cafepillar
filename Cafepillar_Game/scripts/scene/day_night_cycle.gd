@@ -14,12 +14,14 @@ var day_ended: bool = false  # Track if the day has ended
 @onready var skip_button: Button = $SkipDay
 @onready var timer_label: Label = $TimerLabel
 @onready var star_shader : ShaderMaterial = preload("res://themes/stars.tres")
+@onready var pause_button : Button = $Pause
 
 
 func _ready():
 	# Connect button signals
 	restart_button.pressed.connect(_on_restart_button_pressed)
 	skip_button.pressed.connect(_on_skip_button_pressed)
+	pause_button.pressed.connect(_on_pause_button_pressed)
 
 
 func _process(delta):
@@ -101,3 +103,6 @@ func _remove_card_from_slot(card: Control, slot: Control) -> void:
 		card.get_parent().remove_child(card)
 	
 	slot.remove_child(card)
+
+func _on_pause_button_pressed() -> void:
+	GameSignals.pause_game.emit()
