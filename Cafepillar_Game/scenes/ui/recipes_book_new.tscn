@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2rhnhr8vk32l"]
+[gd_scene load_steps=6 format=3 uid="uid://b2rhnhr8vk32l"]
 
 [ext_resource type="Script" path="res://scripts/ui/recipes_book.gd" id="1_t02f2"]
 [ext_resource type="Texture2D" uid="uid://cxjou7jwge4ia" path="res://assets/cards/blank_card.png" id="2_v74uk"]
 [ext_resource type="Texture2D" uid="uid://cw2eh8geyo0y1" path="res://assets/Buttons Pixel Animation Pack/back/72px/back02.png" id="3_pkmln"]
 [ext_resource type="Texture2D" uid="uid://bh3iulmeotfoq" path="res://assets/Buttons Pixel Animation Pack/back/72px/back03.png" id="4_y6ntc"]
 [ext_resource type="Texture2D" uid="uid://dvlmojfhwe45s" path="res://assets/Buttons Pixel Animation Pack/back/72px/back04.png" id="5_cfy4w"]
-[ext_resource type="PackedScene" uid="uid://c2ct3c5b0l41d" path="res://scenes/sounds.tscn" id="6_6huem"]
-[ext_resource type="Script" path="res://scripts/sounds/recipe_book_sounds.gd" id="7_trhr7"]
-[ext_resource type="AudioStream" uid="uid://ceb8kiuev152y" path="res://assets/audio/button_click.wav" id="8_o5y5b"]
 
 [node name="RecipesBook" type="Control"]
 layout_mode = 3
@@ -90,9 +87,3 @@ size_flags_horizontal = 4
 texture_normal = ExtResource("3_pkmln")
 texture_pressed = ExtResource("4_y6ntc")
 texture_hover = ExtResource("5_cfy4w")
-
-[node name="Sounds" parent="." instance=ExtResource("6_6huem")]
-script = ExtResource("7_trhr7")
-
-[node name="ButtonClick" type="AudioStreamPlayer" parent="Sounds"]
-stream = ExtResource("8_o5y5b")

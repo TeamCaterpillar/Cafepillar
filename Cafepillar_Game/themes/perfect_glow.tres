@@ -4,7 +4,7 @@
 
 [resource]
 shader = ExtResource("1_p7y63")
-shader_parameter/rect_size = Vector2(0.18, 0.22)
-shader_parameter/bness = 1.925
-shader_parameter/fall_off_scale = 3.355
-shader_parameter/b_offset = -0.045
+shader_parameter/rect_size = Vector2(200, 210)
+shader_parameter/bness = 0.4
+shader_parameter/fall_off_scale = 0.0
+shader_parameter/b_offset = 0.2

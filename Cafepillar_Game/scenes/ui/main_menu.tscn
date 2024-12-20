@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6g2nitlgeosj"]
+
+[ext_resource type="Texture2D" uid="uid://hwmsihrotpgb" path="res://assets/start_menu.png" id="1_1hxrs"]
+[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="2_bqe0q"]
+[ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="2_psnk6"]
+[ext_resource type="PackedScene" uid="uid://d3shrvf6fa7qv" path="res://scenes/ui/pause_menu.tscn" id="4_j6iei"]
+
+[node name="MainMenuRoot" type="Control" node_paths=PackedStringArray("play_button", "options_button", "exit_button", "options_screen")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_psnk6")
+script = ExtResource("2_bqe0q")
+play_button = NodePath("MainMenu/MenuButtons/PlayButton")
+options_button = NodePath("MainMenu/MenuButtons/OptionsButton")
+exit_button = NodePath("MainMenu/MenuButtons/ExitButton")
+options_screen = NodePath("Pause")
+metadata/_edit_vertical_guides_ = [600.0, 1320.0]
+metadata/_edit_horizontal_guides_ = [544.0]
+
+[node name="MainMenu" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_1hxrs")
+
+[node name="MenuButtons" type="VBoxContainer" parent="MainMenu"]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 496.0
+offset_right = 1320.0
+offset_bottom = 896.0
+theme_override_constants/separation = 15
+alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="PlayButton" type="Button" parent="MainMenu/MenuButtons"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.5
+text = "Play"
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
+
+[node name="OptionsButton" type="Button" parent="MainMenu/MenuButtons"]
+layout_mode = 2
+size_flags_stretch_ratio = 1.5
+text = "Options
+"
+vertical_icon_alignment = 2
+
+[node name="ExitButton" type="Button" parent="MainMenu/MenuButtons"]
+layout_mode = 2
+text = "Exit"
+vertical_icon_alignment = 2
+
+[node name="Pause" parent="." instance=ExtResource("4_j6iei")]
+visible = false
+layout_mode = 0
+
+[node name="MainMenuCam" type="Camera2D" parent="."]
+anchor_mode = 0

@@ -77,6 +77,7 @@ func update_currency(dish_card: DishCard):
 	elif food_condition == "Perfect":
 		base_multiplier = 2.0
 	
+	@warning_ignore("narrowing_conversion")
 	add_currency(base_payment * base_multiplier)
 
 func add_currency(_amount: int) -> void:

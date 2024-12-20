@@ -1,5 +1,8 @@
 extends Node2D
 
+@export var main_menu : MainMenu
+
+@onready var main_menu_cam = $MainMenu/MainMenuCam
 @onready var kitchen_scene = $Kitchen
 @onready var kitchen_cam = $Kitchen/KitchenCamera
 @onready var cutscene_camera: Camera2D = $Cutscene/CutsceneCamera
@@ -13,7 +16,11 @@ extends Node2D
 
 func _ready():
 	kitchen_scene.visible = false
-	player_camera.make_current()
+	completed_dish_inventory.visible = true
+	main_menu_cam.make_current()
+	GameSignals.change_to_cafe.connect(_swap_to_from_kitchen)
+	GameSignals.change_to_kitchen.connect(_swap_to_from_kitchen)
+	GameSignals.start_game.connect(_start_game)
 
 
 func _process(_delta):
@@ -54,6 +61,9 @@ func hide_kitchen():
 	player_camera.zoom = Vector2(3.5, 3.5) # Revert Camera to original zoom
 	# Add any teardown logic here (e.g., changing game state, saving kitchen state etc.)
 
+
+func _start_game() -> void:
+	player_camera.make_current()
 
 func _swap_to_from_cutscene() -> void:
 	if cutscene_camera.is_current():

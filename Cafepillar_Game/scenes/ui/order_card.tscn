@@ -63,11 +63,10 @@ show_percentage = false
 
 [node name="TimerLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 43.0
-offset_top = -1.0
-offset_right = 160.0
-offset_bottom = 48.0
+offset_left = 32.0
+offset_right = 168.0
+offset_bottom = 56.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 27
+theme_override_font_sizes/font_size = 32
 text = "time"
 horizontal_alignment = 1

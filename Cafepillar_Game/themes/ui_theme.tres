@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://bas6smt1iwb1f"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bas6smt1iwb1f"]
+
+[ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="1_c7ca7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fk5s"]
 
@@ -25,7 +27,15 @@ bg_color = Color(0.937255, 0.87451, 0.2, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pr287"]
 
 [resource]
+default_font = ExtResource("1_c7ca7")
+default_font_size = 24
+Label/fonts/font = ExtResource("1_c7ca7")
 SatisfactoryBar/base_type = &"ProgressBar"
+SatisfactoryBar/colors/font_color = Color(0, 0, 0, 1)
+SatisfactoryBar/colors/font_outline_color = Color(1, 1, 1, 1)
+SatisfactoryBar/constants/outline_size = 1
+SatisfactoryBar/font_sizes/font_size = 16
+SatisfactoryBar/fonts/font = ExtResource("1_c7ca7")
 SatisfactoryBar/styles/background = SubResource("StyleBoxFlat_2fk5s")
 SatisfactoryBar/styles/fill = SubResource("StyleBoxFlat_tlmsc")
 TimerBar/base_type = &"ProgressBar"

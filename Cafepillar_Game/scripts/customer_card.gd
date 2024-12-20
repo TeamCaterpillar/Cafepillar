@@ -3,12 +3,13 @@ class_name CustomerCard
 
 @export var food_name: String
 @export var customer_id : int
+@export var customer_name : String
 @onready var food_sprite: Sprite2D = $FoodIcon
-@onready var customer_label: Label = $CustomerLabel
+#@onready var customer_label: Label = $CustomerLabel
 @onready var food_color: ColorRect = $FoodColor
 @onready var completed_dish_inventory: CompletedDishInventory = $"../../../"
 @onready var timer_bar: ProgressBar = $ColorRect/TimerBar
-@onready var timer_label: Label = $TimerLabel
+#@onready var timer_label: Label = $TimerLabel
 
 # wait time is 60 seconds
 var wait_time = 60.0
@@ -17,7 +18,7 @@ var selected = false
 
 func _ready() -> void:
 	self.connect("pressed", Callable(self, "_on_Dish_pressed"))
-	customer_label.text = ""
+	#customer_label.text = ""
 	food_sprite.visible = false
 	var food_icon_path = "res://assets/cards/" + str(food_name) + ".png"
 	
@@ -34,7 +35,7 @@ func _ready() -> void:
 		var food_icon = load(food_icon_path)
 		food_sprite.visible = true
 		food_sprite.texture = food_icon
-		customer_label.text = "Customer " + str(customer_id)
+		#customer_label.text = "Customer " + str(customer_id)
 	
 	# use tween to animate timer smoothly
 	var tween = create_tween()
@@ -45,10 +46,10 @@ func _process(_delta: float) -> void:
 	_patience_timer -= _delta
 	_update_timer_bar_color()
 
-	if _patience_timer <= 0.0:
-		_patience_timer = wait_time
-	else:
-		timer_label.text = str(_patience_timer).substr(0, 4)
+	#if _patience_timer <= 0.0:
+		#_patience_timer = wait_time
+	#else:
+		#timer_label.text = str(_patience_timer).substr(0, 4)
 	
 	var style = StyleBoxFlat.new()
 	if selected:
@@ -72,7 +73,7 @@ func _on_Dish_pressed() -> void:
 	# delivering_food.emit()
 	# completed_dish_inventory.selected_customer = self
 	GameSignals.customer_selected.emit(self)
-	print("clicked on customer ", str(customer_id), " who ordered ", food_name)
+	print("clicked on customer ", customer_name, " who ordered ", food_name)
 
 
 func _update_timer_bar_color() -> void:

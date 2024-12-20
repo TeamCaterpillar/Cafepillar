@@ -58,7 +58,7 @@ func _ready():
 
 	GameSignals.player_finished_delivery.connect(_player_finished_delivery) # signal will be sent when player has returned to kitchen point
 	#GameSignals.kill_customer.connect()
-	GameSignals.food_delivered.connect(get_customer_to_deliver)
+	#GameSignals.food_delivered.connect(get_customer_to_deliver)
 	
 	# spawning customers - temp
 	_spawn_timer = Timer.new()

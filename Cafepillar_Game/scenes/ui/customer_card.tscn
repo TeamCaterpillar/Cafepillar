@@ -1,22 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwmuyk12q6cdg"]
+[gd_scene load_steps=6 format=3 uid="uid://dwmuyk12q6cdg"]
 
 [ext_resource type="Script" path="res://scripts/customer_card.gd" id="1_hyqnp"]
 [ext_resource type="Texture2D" uid="uid://bcqq6o7xgesla" path="res://assets/cards/rose_cake.png" id="2_4w4pd"]
 [ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="3_pspfx"]
+[ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="4_e4p0s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2y2uv"]
 bg_color = Color(0.831373, 0.878431, 0.792157, 1)
 
 [node name="CustomerCard" type="Button"]
-custom_minimum_size = Vector2(50, 50)
-offset_right = 50.0
-offset_bottom = 50.0
+custom_minimum_size = Vector2(48, 48)
+offset_right = 48.0
+offset_bottom = 48.0
+theme = ExtResource("3_pspfx")
 theme_override_styles/normal = SubResource("StyleBoxFlat_2y2uv")
 script = ExtResource("1_hyqnp")
 
 [node name="FoodIcon" type="Sprite2D" parent="."]
-position = Vector2(24, 24)
-scale = Vector2(0.05, 0.05)
+position = Vector2(24, 23.5)
+scale = Vector2(0.0466855, 0.0403423)
 texture = ExtResource("2_4w4pd")
 region_enabled = true
 region_rect = Rect2(73.5138, 20.4219, 643.938, 818.326)
@@ -33,30 +35,33 @@ offset_right = -1.0
 color = Color(0.831373, 0.878431, 0.792157, 1)
 
 [node name="CustomerLabel" type="Label" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 4.0
-offset_top = 40.0
-offset_right = 60.0
-offset_bottom = 55.0
+offset_top = 48.0
+offset_right = 64.0
+offset_bottom = 64.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 7
+theme_override_font_sizes/font_size = 10
 text = "Customer "
+horizontal_alignment = 2
+vertical_alignment = 2
 autowrap_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
-custom_minimum_size = Vector2(50, 8)
+custom_minimum_size = Vector2(48, 8)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.175
-offset_bottom = -0.75
+offset_bottom = -0.4
 
 [node name="TimerBar" type="ProgressBar" parent="ColorRect"]
-custom_minimum_size = Vector2(50, 8)
+custom_minimum_size = Vector2(48, 8)
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.111
+offset_right = -1.0
 offset_bottom = -0.888
 theme = ExtResource("3_pspfx")
 theme_type_variation = &"TimerBar"
@@ -65,12 +70,13 @@ value = 100.0
 show_percentage = false
 
 [node name="TimerLabel" type="Label" parent="."]
+visible = false
+texture_filter = 1
 layout_mode = 0
-offset_left = -33.0
-offset_top = -2.0
-offset_right = 84.0
-offset_bottom = 47.0
+offset_right = 64.0
+offset_bottom = 28.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 7
+theme_override_fonts/font = ExtResource("4_e4p0s")
+theme_override_font_sizes/font_size = 20
 text = "time"
 horizontal_alignment = 1

@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://wkg8686rb4o4"]
+
+[sub_resource type="SystemFont" id="SystemFont_lu7ly"]
+
+[resource]
+default_font = SubResource("SystemFont_lu7ly")

@@ -28,3 +28,9 @@ signal customer_can_move(customer : Customer)
 signal food_delivered(dish_card : DishCard)
 @warning_ignore("unused_signal")
 signal kill_customer(customer : Customer)
+@warning_ignore("unused_signal")
+signal change_to_kitchen
+@warning_ignore("unused_signal")
+signal change_to_cafe
+@warning_ignore("unused_signal")
+signal start_game

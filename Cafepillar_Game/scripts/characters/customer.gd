@@ -53,12 +53,14 @@ var move_is_go : bool = false
 var _patience_timer = wait_time
 var food_name : String
 var customer_id: int = 1
+var customer_name : String
 
 
 func _ready(): 
 	assign_id()
 	movement_speed = 100.0
-	label.text = names[names.keys().pick_random()]
+	customer_name = names[names.keys().pick_random()]
+	label.text = customer_name
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	# texture_button.connect("pressed", Callable(self, "_on_DeliverButton_pressed"))
 	animation_player.play("walk")

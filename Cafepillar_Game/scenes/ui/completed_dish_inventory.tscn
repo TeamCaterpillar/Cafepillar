@@ -1,28 +1,30 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbeth81wdaykt"]
+[gd_scene load_steps=4 format=3 uid="uid://cbeth81wdaykt"]
 
+[ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="1_5hcnq"]
 [ext_resource type="Script" path="res://scripts/completed_dish_inventory.gd" id="1_8aiqf"]
-[ext_resource type="Texture2D" uid="uid://bo4xq2yak0mxi" path="res://assets/Buttons Pixel Animation Pack/list/72px/list02.png" id="2_n43xp"]
-[ext_resource type="Texture2D" uid="uid://ccuhvnauynrpv" path="res://assets/Buttons Pixel Animation Pack/list/72px/list03.png" id="3_xro4m"]
-[ext_resource type="Texture2D" uid="uid://x2tmph354j21" path="res://assets/Buttons Pixel Animation Pack/list/72px/list04.png" id="4_t435t"]
-[ext_resource type="Texture2D" uid="uid://boe2fgvxhx245" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes02.png" id="5_a1uwk"]
-[ext_resource type="Texture2D" uid="uid://cqmo0wxbol88s" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes03.png" id="6_v647b"]
-[ext_resource type="Texture2D" uid="uid://d318w71syahbl" path="res://assets/Buttons Pixel Animation Pack/yes/72px/yes04.png" id="7_ao2m1"]
 [ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="8_8yh8m"]
 
 [node name="CompletedDishInventory" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("1_5hcnq")
 script = ExtResource("1_8aiqf")
 
-[node name="ListButton" type="TextureButton" parent="."]
+[node name="MAINGAMECAMERAREFERENCE" type="ReferenceRect" parent="."]
+visible = false
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 547.0
+offset_bottom = 306.0
+
+[node name="ListButton" type="Button" parent="."]
+texture_filter = 1
 layout_mode = 0
-offset_top = 264.0
-offset_right = 144.0
-offset_bottom = 336.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("2_n43xp")
-texture_pressed = ExtResource("3_xro4m")
-texture_hover = ExtResource("4_t435t")
+offset_top = 273.0
+offset_right = 86.0
+offset_bottom = 304.0
+theme_override_font_sizes/font_size = 16
+text = "Inventory"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -33,74 +35,79 @@ color = Color(0.349316, 0.884061, 0.550491, 1)
 [node name="ColorRect2" type="ColorRect" parent="ColorRect"]
 layout_mode = 0
 offset_left = 286.0
-offset_right = 530.0
+offset_right = 544.0
 offset_bottom = 209.0
 color = Color(0.522205, 0.484889, 0.471909, 1)
 
 [node name="Label3" type="Label" parent="ColorRect/ColorRect2"]
 layout_mode = 0
-offset_left = -181.0
+offset_left = -285.0
 offset_top = 5.0
-offset_right = -106.0
-offset_bottom = 28.0
+offset_right = -1.0
+offset_bottom = 37.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 0
 text = "Inventory"
+horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="ColorRect"]
+texture_filter = 1
 layout_mode = 0
-offset_left = 300.0
+offset_left = 291.0
 offset_top = 30.0
-offset_right = 518.0
-offset_bottom = 204.0
+offset_right = 541.0
+offset_bottom = 206.0
 columns = 4
 
 [node name="GridContainer" type="GridContainer" parent="."]
+texture_filter = 1
 layout_mode = 0
-offset_left = 8.0
+offset_left = 4.0
 offset_top = 32.0
 offset_right = 281.0
 offset_bottom = 206.0
+theme = ExtResource("1_5hcnq")
 columns = 5
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 343.0
+offset_left = 286.0
 offset_top = 4.0
-offset_right = 475.0
-offset_bottom = 27.0
+offset_right = 530.0
+offset_bottom = 29.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Customer Queue"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 65.0
-offset_top = 93.0
-offset_right = 223.0
-offset_bottom = 116.0
+offset_left = 30.0
+offset_top = 96.0
+offset_right = 257.0
+offset_bottom = 120.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "No dishes to deliver!"
 
-[node name="YesButton" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 451.0
-offset_top = 170.0
-offset_right = 595.0
-offset_bottom = 242.0
-scale = Vector2(0.5, 0.5)
-texture_normal = ExtResource("5_a1uwk")
-texture_pressed = ExtResource("6_v647b")
-texture_hover = ExtResource("7_ao2m1")
+[node name="YesButton" type="Button" parent="."]
+texture_filter = 1
+offset_left = 484.0
+offset_top = 182.0
+offset_right = 541.0
+offset_bottom = 206.0
+theme_override_font_sizes/font_size = 16
+text = "Yes"
 
 [node name="SuccessLabel" type="Label" parent="."]
 z_index = 16
 layout_mode = 0
-offset_left = 425.0
-offset_top = 31.0
-offset_right = 573.0
-offset_bottom = 67.0
+offset_left = 338.0
+offset_top = 30.0
+offset_right = 486.0
+offset_bottom = 66.0
 theme_override_colors/font_color = Color(1, 0.941176, 0, 1)
 theme_override_fonts/font = ExtResource("8_8yh8m")
 theme_override_font_sizes/font_size = 14
 text = "You received _!"
+horizontal_alignment = 1

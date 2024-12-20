@@ -1,14 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://dta8ywnphhy4"]
+[gd_scene load_steps=7 format=3 uid="uid://dta8ywnphhy4"]
 
 [ext_resource type="Script" path="res://scripts/scene/day_night_cycle.gd" id="1_5w26l"]
 [ext_resource type="PackedScene" uid="uid://i2jd74yhry5i" path="res://scenes/ui/shop.tscn" id="2_4icya"]
 [ext_resource type="Material" uid="uid://celier85v7yle" path="res://themes/stars.tres" id="2_7r81v"]
 [ext_resource type="Material" uid="uid://cw2be0x50bqyu" path="res://scenes/world/fodg_background.tres" id="2_xq1xq"]
 [ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="3_ldyky"]
+[ext_resource type="Theme" uid="uid://bas6smt1iwb1f" path="res://themes/ui_theme.tres" id="4_yod8p"]
 
 [node name="DayNightCycle" type="Node2D"]
 script = ExtResource("1_5w26l")
 metadata/_edit_lock_ = true
+
+[node name="MAINGAMECAMERAREFERENCE" type="ReferenceRect" parent="."]
+offset_left = -275.0
+offset_top = -154.0
+offset_right = 275.0
+offset_bottom = 154.0
 
 [node name="Background" type="ColorRect" parent="."]
 z_index = -1
@@ -32,12 +39,12 @@ energy = 0.0
 height = 0.59
 
 [node name="SkipDay" type="Button" parent="."]
-z_index = 50
-offset_left = 184.0
-offset_top = 96.0
-offset_right = 259.0
-offset_bottom = 127.0
-theme_override_fonts/font = ExtResource("3_ldyky")
+z_index = 4096
+offset_left = 198.0
+offset_top = 121.0
+offset_right = 273.0
+offset_bottom = 152.0
+theme = ExtResource("4_yod8p")
 theme_override_font_sizes/font_size = 16
 text = "Skip Day"
 metadata/_edit_use_anchors_ = true

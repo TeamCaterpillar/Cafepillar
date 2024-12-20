@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0pgt5yvs83pn"]
+[gd_scene load_steps=7 format=3 uid="uid://luimtql1g1fe"]
 
-[ext_resource type="Texture2D" uid="uid://c8xfiuromcyri" path="res://assets/kitchen_equipment/counter.png" id="1_oyy00"]
-[ext_resource type="Texture2D" uid="uid://bjuyjlebiava4" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="2_5llie"]
+[ext_resource type="Texture2D" uid="uid://bd45wgjjsnjn3" path="res://assets/kitchen_equipment/counter.png" id="1_oyy00"]
+[ext_resource type="Texture2D" uid="uid://ckhfci2tp6dug" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="2_5llie"]
 [ext_resource type="Script" path="res://scripts/appliances/slot.gd" id="3_fj6ya"]
 [ext_resource type="PackedScene" uid="uid://gc6m30k1tvd8" path="res://scenes/ui/cooking_timer_bar.tscn" id="4_hc3gt"]
 [ext_resource type="Script" path="res://scripts/ui/cooking_timer_bar.gd" id="5_t5lyp"]

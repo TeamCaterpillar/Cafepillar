@@ -63,6 +63,7 @@ script = ExtResource("10_bjyii")
 
 [node name="ButtonClick" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource("11_248e6")
+bus = &"Sounds"
 
 [connection signal="pressed" from="HBoxContainer/PreviousButton" to="Sounds" method="_on_previous_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/NextButton" to="Sounds" method="_on_next_button_pressed"]

@@ -2,15 +2,15 @@ extends Control
 class_name CompletedDishInventory
 
 @onready var grid_container: GridContainer = $GridContainer
-@onready var list_button: TextureButton = $ListButton
+@onready var list_button: Button = $ListButton
 @onready var color_rect: ColorRect = $ColorRect
 @onready var label: Label = $Label
 @onready var label_2: Label = $Label2
 @onready var customer_queue: GridContainer = $ColorRect/GridContainer
-@onready var yes_button: TextureButton = $YesButton
+@onready var yes_button: Button = $YesButton
 @onready var success_label: Label = $SuccessLabel
 
-var dish_card_size : Vector2 = Vector2(160.0, 200.0)
+var dish_card_size : Vector2 = Vector2(48.0, 48.0)
 
 var selected_food_to_deliver : DishCard = null
 var selected_customer : CustomerCard = null
@@ -21,6 +21,8 @@ var _timer : float = 0.0
 func _ready() -> void:
 	list_button.connect("pressed", Callable(self, "_on_ListButton_pressed"))
 	yes_button.connect("pressed", Callable(self, "_on_YesButton_pressed"))
+	GameSignals.day_ended.connect(_on_day_end)
+	GameSignals.next_day_started.connect(_on_next_day)
 	color_rect.visible = false
 	grid_container.visible = false
 	label.visible = false
@@ -51,6 +53,7 @@ func _on_YesButton_pressed() -> void:
 			remove_dish_from_inventory(selected_food_to_deliver)
 			# add money to acconut
 			GameSignals.food_delivered.emit(selected_food_to_deliver)
+			#GameSignals.
 			close_inventory()
 			show_coins = true
 		else:
@@ -82,8 +85,9 @@ func _on_ListButton_pressed() -> void:
 	# show foods in the inventory
 	for food in GameManager.finished_dishes:
 		if _contains_food(food) == false:
-			grid_container.add_child(food)
 			food.size = dish_card_size
+			grid_container.add_child(food)
+			
 
 	# display message that no foods are in the inventory
 	if GameManager.finished_dishes.size() == 0 and color_rect.visible == true:
@@ -156,3 +160,9 @@ func remove_dish_from_inventory(food_to_remove: DishCard):
 		if dish == food_to_remove:
 			GameManager.finished_dishes.erase(dish)
 			dish.queue_free()
+			
+func _on_day_end() -> void:
+	list_button.visible = false
+
+func _on_next_day() -> void:
+	list_button.visible = true

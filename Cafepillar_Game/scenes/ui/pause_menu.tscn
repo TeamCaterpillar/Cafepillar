@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3shrvf6fa7qv"]
+
+[ext_resource type="Texture2D" uid="uid://cj10e7nnr51so" path="res://assets/pause_menu.png" id="1_xb1hl"]
+[ext_resource type="PackedScene" uid="uid://nd33wihxwnt" path="res://scenes/ui/volume_bar.tscn" id="2_pmury"]
+
+[node name="PauseMenu" type="TextureRect"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_xb1hl")
+
+[node name="Options" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 344.0
+offset_right = 1328.0
+offset_bottom = 744.0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="MasterLabel" type="Label" parent="Options"]
+layout_mode = 2
+text = "Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterVolume" parent="Options" instance=ExtResource("2_pmury")]
+layout_mode = 2
+rounded = false
+bus_name = "Master"
+
+[node name="MusicLabel" type="Label" parent="Options"]
+layout_mode = 2
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MusicVolume" parent="Options" instance=ExtResource("2_pmury")]
+layout_mode = 2
+rounded = false
+bus_name = "Music"
+
+[node name="Sounds" type="Label" parent="Options"]
+layout_mode = 2
+text = "Sounds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoundsVolume" parent="Options" instance=ExtResource("2_pmury")]
+layout_mode = 2
+rounded = false
+bus_name = "Sounds"
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 600.0
+offset_top = 904.0
+offset_right = 1320.0
+offset_bottom = 960.0
+size_flags_stretch_ratio = 1.5
+text = "Back"
+icon_alignment = 1
+vertical_icon_alignment = 2
+expand_icon = true
