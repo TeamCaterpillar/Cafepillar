@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var main_menu : MainMenu
+@export var pause_menu : PauseMenu
+@export var pause_menu_cam : Camera2D
 
 @onready var main_menu_cam = $MainMenu/MainMenuCam
 @onready var kitchen_scene = $Kitchen
@@ -14,6 +16,8 @@ extends Node2D
 @onready var label: Label = $CompletedDishInventory/Label
 @onready var label_2: Label = $CompletedDishInventory/Label2
 
+var prev_cam : Camera2D
+
 func _ready():
 	kitchen_scene.visible = false
 	completed_dish_inventory.visible = true
@@ -21,6 +25,7 @@ func _ready():
 	GameSignals.change_to_cafe.connect(_swap_to_from_kitchen)
 	GameSignals.change_to_kitchen.connect(_swap_to_from_kitchen)
 	GameSignals.start_game_intro.connect(_start_game)
+	GameSignals.pause_game.connect(_go_to_from_pause_menu)
 	get_tree().paused = true
 	show()
 
@@ -42,6 +47,11 @@ func _process(_delta):
 		
 	if Input.is_action_just_pressed("cutscene"):
 		_swap_to_from_cutscene()
+		
+	if Input.is_action_just_pressed("pause"):
+		if main_menu_cam.is_current():
+			return
+		_go_to_from_pause_menu()
 		
 
 
@@ -73,11 +83,10 @@ func _start_game() -> void:
 	tween.set_parallel().tween_property(menu_black_rect, "color", Color.BLACK, 2.25)
 	tween.tween_property(menu_music, "volume_db", -60.0 , 2.25)
 	tween.set_parallel(false)
-	tween.tween_interval(1.0)
 	tween.tween_callback(_play_music)
-	tween.tween_property(cafe_black_rect, "color", Color.TRANSPARENT, 1.5)
-	tween.tween_interval(1.5)
-	tween.tween_callback(_unpause).set_delay(1.0)
+	tween.set_parallel()
+	tween.tween_property(cafe_black_rect, "color", Color(0, 0, 0, 0), 1.5)
+	tween.tween_callback(_unpause)
 	
 	
 func _play_music():
@@ -125,6 +134,28 @@ func _swap_to_from_kitchen() -> void:
 		kitchen_scene.grab_focus()
 		
 
+func _go_to_from_pause_menu() -> void:
+	if pause_menu_cam.is_current():
+		prev_cam.make_current()
+		get_tree().paused = false
+	else:
+		prev_cam = _get_current_cam()
+		get_tree().paused = true
+		pause_menu_cam.make_current()
+
+
+func _get_current_cam() -> Camera2D:
+	if kitchen_cam.is_current():
+		return kitchen_cam
+	if player_camera.is_current():
+		return player_camera
+	if test_cam.is_current():
+		return test_cam
+	if cutscene_camera.is_current():
+		return cutscene_camera
+	printerr("Something wrong with cameras")
+	return null
+	
 
 func _on_skip_day_pressed() -> void:
 	pass # Replace with function body.

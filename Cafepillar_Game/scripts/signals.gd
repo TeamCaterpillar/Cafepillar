@@ -36,3 +36,5 @@ signal change_to_cafe
 signal start_game
 @warning_ignore("unused_signal")
 signal start_game_intro
+@warning_ignore("unused_signal")
+signal pause_game

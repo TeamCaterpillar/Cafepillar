@@ -70,10 +70,11 @@ func _ready():
 func check_if_can_spawn() -> bool:
 	var check1 = _spawn_timer.time_left < 1
 	var check2 = customer_spawn.get_child_count() <= 5
-	var check3 = not day_night_cycle.day_ended 
+	var check3 = not day_night_cycle.day_ended
 	var check4 = GameManager.filled_seats.size() < 12 
 	var check5 = GameManager.filled_seats.size() >= 0
-	if menu_exited and check1 and check2 and check3 and check4 and check5:
+	var check6 = not get_tree().paused
+	if menu_exited and check1 and check2 and check3 and check4 and check5 and check6:
 		return true
 	else:
 		return false
