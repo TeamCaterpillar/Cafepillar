@@ -8,7 +8,7 @@ To escape this caterpillar fate, you must listen to what your fellow caterpillar
 ## Project Resources ##
 | Resource                                            | Description                                                                    | Link         |
 |-----------------------------------------------------|--------------------------------------------------------------------------------|--------------|
-| <p style="text-align: center;">Web-playable version</p> | <p style="text-align: center;">Hosted on the best* indie game dev website!</p> | [Link](https://itch.io/embed-upload/12258308?color=333333) |
+| <p style="text-align: center;">Web-playable version</p> | <p style="text-align: center;">Hosted on the best* indie game dev website!</p> | [Link](https://fourclover.itch.io/cafepillar) |
 | <p style="text-align: center;">Trailer</p>              | <p style="text-align: center;">"Historically" accurate gameplay footage</p>    | [Link](https://youtu.be/aDJ_-KLX_5c)  |
 | <p style="text-align: center;">Press Kit</p>        | <p style="text-align: center;">A showcase of our game</p>                      | [Link](https://github.com/TeamCaterpillar/Cafepillar/blob/1f56d638723ec2c0116c272568b60dbe65acfa32/PressKit.md) |
 | <p style="text-align: center;">Proposal</p>                            | <p style="text-align: center;">Prompted by a Hungry hungry caterpillar fever dream (and our games music)</p> |   [Link](https://docs.google.com/document/d/1RK9_fZNIhu6455-4KIbZJjABS-V4PLPm4asVfd11XNw/edit?usp=sharing) |
