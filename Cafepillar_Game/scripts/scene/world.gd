@@ -18,6 +18,7 @@ extends Node2D
 @onready var menu_black_rect = $MainMenu/BlackFadeMenu
 @onready var cafe_black_rect = $PlayerCamera/ColorRect
 @onready var menu_music = $MainMenu/MenuMusic
+@onready var kitchen_button = $KitchenButton
 
 var prev_cam : Camera2D
 
@@ -31,6 +32,7 @@ func _ready():
 	GameSignals.change_to_kitchen.connect(_swap_to_from_kitchen)
 	GameSignals.start_game_intro.connect(_start_game)
 	GameSignals.pause_game.connect(_go_to_from_pause_menu)
+	kitchen_button.pressed.connect(_swap_to_from_kitchen)
 	get_tree().paused = true
 	show()
 

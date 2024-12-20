@@ -60,6 +60,7 @@ anchor_mode = 0
 zoom = Vector2(3.5, 3.5)
 
 [node name="ColorRect" type="ColorRect" parent="PlayerCamera"]
+visible = false
 z_index = 4096
 offset_left = -25.0
 offset_top = -17.0
@@ -82,3 +83,12 @@ visible = false
 position = Vector2(-2374, 314)
 
 [node name="attach_json_loader_to_node_to_build_card_resources_from_json_data" type="Node" parent="."]
+
+[node name="KitchenButton" type="Button" parent="."]
+z_index = 4096
+offset_left = 217.0
+offset_top = -31.0
+offset_right = 232.0
+offset_bottom = 2.0
+mouse_filter = 1
+flat = true

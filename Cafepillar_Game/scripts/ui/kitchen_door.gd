@@ -12,6 +12,7 @@ func _physics_process(_delta: float) -> void:
 ## Triggered by clicking on the card, click being a defined input in the project settings
 func _on_area_2d_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int) -> void:
 	if _event is InputEventMouse and Input.is_action_just_pressed("click"):
+		print("THE BUTT HAS BEEN TOUCHED")
 		GameSignals.change_to_kitchen.emit()
 
 

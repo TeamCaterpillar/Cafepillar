@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dn3urr1xccmik"]
+[gd_scene load_steps=18 format=3 uid="uid://dn3urr1xccmik"]
 
 [ext_resource type="Script" path="res://scripts/scene/kitchen.gd" id="1_tfllf"]
 [ext_resource type="Texture2D" uid="uid://becw0p6mtlkj6" path="res://assets/backgrounds/kitchen_background.png" id="2_scie6"]
@@ -14,11 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://cu7kt7722j8si" path="res://assets/ui/trash.png" id="12_6a2mi"]
 [ext_resource type="Texture2D" uid="uid://ckhfci2tp6dug" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Frame01a.png" id="12_dv7ss"]
 [ext_resource type="Script" path="res://scripts/ui/recipe_popup.gd" id="13_1wqo7"]
-[ext_resource type="FontFile" uid="uid://cy42r8xkucbyj" path="res://assets/ui/Minecraft.ttf" id="14_egg68"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_au7mt"]
-font_size = 50
-font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_csysu"]
 bg_color = Color(0.517647, 0.270588, 0.105882, 1)
@@ -44,7 +39,7 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="Kitchen" type="Control"]
+[node name="Kitchen" type="Control" node_paths=PackedStringArray("cafe_button")]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 15
@@ -58,6 +53,7 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
 script = ExtResource("1_tfllf")
+cafe_button = NodePath("CafeButton")
 
 [node name="KitchenCamera" type="Camera2D" parent="."]
 position = Vector2(960, 540)
@@ -73,20 +69,6 @@ color = Color(0.129558, 0.129558, 0.129558, 1)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("2_scie6")
-
-[node name="KitchenLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.464
-anchor_top = 0.444
-anchor_right = 0.464
-anchor_bottom = 0.444
-offset_left = -43.88
-offset_top = -462.52
-offset_right = 208.12
-offset_bottom = -393.52
-text = "Kitchen!!!!!"
-label_settings = SubResource("LabelSettings_au7mt")
 
 [node name="OrderQueue" type="Control" parent="."]
 anchors_preset = 0
@@ -262,10 +244,19 @@ offset_top = 564.0
 offset_right = 219.0
 offset_bottom = 606.0
 focus_mode = 0
-theme_override_fonts/font = ExtResource("14_egg68")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/hover = SubResource("StyleBoxFlat_csysu")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dcivj")
 theme_override_styles/normal = SubResource("StyleBoxFlat_aqobe")
 text = "Show Recipes
 "
+
+[node name="CafeButton" type="Button" parent="."]
+z_index = 4096
+offset_left = 856.0
+offset_top = 12.0
+offset_right = 1064.0
+offset_bottom = 81.0
+mouse_filter = 1
+theme_override_font_sizes/font_size = 32
+text = "Back to Cafe"

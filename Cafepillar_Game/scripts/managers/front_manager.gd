@@ -11,6 +11,7 @@ const CUSTOMER_COLLISION_LAYER : int = 8
 @export var customer_spawn_rate:float = 5
 #@export 
 var debug_enabled : bool = true
+@export var kitchen_button : Button
 
 # @onready world variables
 @onready var ground_layer : TileMapLayer = $GroundLayer
@@ -59,6 +60,7 @@ func _ready():
 
 	GameSignals.player_finished_delivery.connect(_player_finished_delivery) # signal will be sent when player has returned to kitchen point
 	GameSignals.start_game.connect(_menu_exited)
+
 		#GameSignals.kill_customer.connect()
 	#GameSignals.food_delivered.connect(get_customer_to_deliver)
 	
@@ -66,6 +68,7 @@ func _ready():
 	_spawn_timer = Timer.new()
 	_spawn_timer.one_shot = false
 	add_child(_spawn_timer)
+	
 
 func check_if_can_spawn() -> bool:
 	var check1 = _spawn_timer.time_left < 1
